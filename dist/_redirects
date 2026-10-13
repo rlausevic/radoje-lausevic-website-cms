@@ -1,0 +1,17 @@
+/home / 301
+/index.html / 301
+/blog/hashtags/:tag /blog?search=:tag 301
+/blog/categories/gardening /blog?category=Gardening 301
+/blog/categories/sustainable-development-goals /blog?category=Sustainable%20Development%20Goals 301
+/blog/categories/offical-development-assistance /blog?category=Official%20Development%20Assistance 301
+/blog/categories/sustainable-consumption-and-product /blog?category=Sustainable%20Consumption%20%26%20Production 301
+/blog/categories/sustainable-lifestiles /blog?category=Sustainable%20Lifestyles 301
+/blog/categories/data-vizualization /blog?category=Data%20Visualization 301
+/blog/categories/project-management /blog?category=Project%20management 301
+/_files/ugd/91f7e9_167380e0540140cd825786b5f6e76c44.pdf /assets/f2a0b0e306dfce6f.pdf 301
+/_files/ugd/91f7e9_38abbe4e1b734ad1b425e4ffbeb08d78.pdf /assets/863644a21ee7374d.pdf 301
+/_files/ugd/91f7e9_75ffeab438ce4c24a4ebcf8615f6a676.pdf /assets/9c25abe53a3ba269.pdf 301
+/_files/ugd/91f7e9_7d9848ab39934ba1936122e9341c2dbc.pdf /assets/16fb6ac56e5e85a3.pdf 301
+/_files/ugd/91f7e9_90ba558399544d48a36bdc67658db718.pdf /assets/d37c8094052a8d88.pdf 301
+/_files/ugd/91f7e9_da3e9453f3d241a8a42a9d46c81efb0f.pdf /assets/951edadca49390b4.pdf 301
+/_files/ugd/91f7e9_fa670b53c1d040a1afd895e6f0e01f2e.pdf /assets/51c3cf74a1ba9234.pdf 301

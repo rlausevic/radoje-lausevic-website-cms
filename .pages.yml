@@ -1,0 +1,552 @@
+{
+  "media": [
+    {
+      "name": "images",
+      "label": "Fotografije",
+      "input": "dist/assets",
+      "output": "/assets",
+      "extensions": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "rename": "safe"
+    },
+    {
+      "name": "documents",
+      "label": "Dokumenti",
+      "input": "dist/assets",
+      "output": "/assets",
+      "extensions": [
+        "pdf",
+        "docx",
+        "pptx"
+      ],
+      "rename": "safe"
+    }
+  ],
+  "content": [
+    {
+      "name": "settings",
+      "label": "Podešavanja sajta",
+      "type": "file",
+      "path": "content/cms/settings.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Ime i prezime",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "label": "Naziv agencije",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "Opis za pretraživače",
+          "type": "text"
+        },
+        {
+          "name": "domain",
+          "label": "Glavna adresa sajta (https://...)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "email",
+          "label": "Email",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "phone",
+          "label": "Telefon",
+          "type": "string"
+        },
+        {
+          "name": "location",
+          "label": "Lokacija",
+          "type": "string"
+        },
+        {
+          "name": "linkedin",
+          "label": "LinkedIn adresa",
+          "type": "string"
+        },
+        {
+          "name": "twitter",
+          "label": "X / Twitter adresa",
+          "type": "string"
+        },
+        {
+          "name": "portrait",
+          "label": "Portret",
+          "type": "image",
+          "options": {
+            "media": "images"
+          }
+        },
+        {
+          "name": "landscape",
+          "label": "Panoramska fotografija",
+          "type": "image",
+          "options": {
+            "media": "images"
+          }
+        },
+        {
+          "name": "logo",
+          "label": "Logo",
+          "type": "image",
+          "options": {
+            "media": "images"
+          }
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "home",
+      "label": "Početna strana",
+      "type": "file",
+      "path": "content/cms/home.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "heading",
+          "label": "Glavni naslov",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "lead",
+          "label": "Uvodni tekst",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "landscape_quote",
+          "label": "Tekst uz panoramu",
+          "type": "text"
+        },
+        {
+          "name": "services",
+          "label": "Usluge",
+          "type": "object",
+          "list": {
+            "min": 1,
+            "max": 6,
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naziv usluge",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Kratak opis",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "about",
+      "label": "Biografija",
+      "type": "file",
+      "path": "content/cms/about.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "body",
+          "label": "Biografija",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        },
+        {
+          "name": "services",
+          "label": "Detaljni opisi usluga",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        },
+        {
+          "name": "recommendations",
+          "label": "Preporuke kolega",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "experience",
+      "label": "Radno iskustvo",
+      "type": "collection",
+      "path": "content/cms/experience",
+      "format": "json",
+      "filename": "{title}.json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Funkcija / organizacija",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "period",
+          "label": "Period",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "order",
+          "label": "Redosled prikaza",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "body",
+          "label": "Opis angažmana",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        }
+      ],
+      "view": {
+        "primary": "title",
+        "fields": [
+          "title"
+        ],
+        "search": [
+          "title"
+        ]
+      }
+    },
+    {
+      "name": "network",
+      "label": "Profesionalna mreža",
+      "type": "file",
+      "path": "content/cms/network.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "body",
+          "label": "Saradnici i organizacije",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        },
+        {
+          "name": "document",
+          "label": "PDF spisak organizacija",
+          "type": "file",
+          "options": {
+            "media": "documents"
+          }
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "projects",
+      "label": "Projekti",
+      "type": "collection",
+      "path": "content/cms/projects",
+      "format": "json",
+      "filename": "{title}.json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Naziv projekta",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "period",
+          "label": "Period realizacije",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "order",
+          "label": "Redosled prikaza",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "image",
+          "label": "Fotografija projekta",
+          "type": "image",
+          "options": {
+            "media": "images"
+          }
+        },
+        {
+          "name": "image_alt",
+          "label": "Opis fotografije",
+          "type": "string"
+        },
+        {
+          "name": "summary",
+          "label": "Kratak opis za početnu stranu",
+          "type": "text"
+        },
+        {
+          "name": "body",
+          "label": "Detaljni opis",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        }
+      ],
+      "view": {
+        "primary": "title",
+        "fields": [
+          "title"
+        ],
+        "search": [
+          "title"
+        ]
+      }
+    },
+    {
+      "name": "resume",
+      "label": "CV i publikacije",
+      "type": "file",
+      "path": "content/cms/resume.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "brief_cv",
+          "label": "Kratak CV",
+          "type": "file",
+          "options": {
+            "media": "documents"
+          }
+        },
+        {
+          "name": "europass_cv",
+          "label": "Europass CV",
+          "type": "file",
+          "options": {
+            "media": "documents"
+          }
+        },
+        {
+          "name": "assortis_cv",
+          "label": "Assortis CV",
+          "type": "file",
+          "options": {
+            "media": "documents"
+          }
+        },
+        {
+          "name": "education",
+          "label": "Obrazovanje",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        },
+        {
+          "name": "publications",
+          "label": "Odabrane publikacije",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "gallery",
+      "label": "Galerija",
+      "type": "file",
+      "path": "content/cms/gallery.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "items",
+          "label": "Fotografije",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naslov fotografije",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "image",
+              "label": "Fotografija",
+              "type": "image",
+              "options": {
+                "media": "images"
+              }
+            },
+            {
+              "name": "caption",
+              "label": "Opis fotografije",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "name": "body",
+          "label": "Tekst galerije",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "posts",
+      "label": "Blog objave",
+      "type": "collection",
+      "path": "content/cms/posts",
+      "format": "json",
+      "filename": "{title}.json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "Naslov",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "path",
+          "label": "Adresa: /post/naziv-objave",
+          "type": "string",
+          "required": true,
+          "pattern": {
+            "regex": "^/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+$",
+            "message": "Primer: /post/moj-novi-projekat. Sačuvajte staru adresu pri izmeni postojeće objave."
+          }
+        },
+        {
+          "name": "date",
+          "label": "Datum",
+          "type": "date",
+          "required": true,
+          "options": {
+            "format": "yyyy-MM-dd"
+          }
+        },
+        {
+          "name": "published",
+          "label": "Objavljeno",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "cover",
+          "label": "Naslovna fotografija",
+          "type": "image",
+          "options": {
+            "media": "images"
+          }
+        },
+        {
+          "name": "excerpt",
+          "label": "Kratak opis",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "categories",
+          "label": "Teme",
+          "type": "string",
+          "list": true
+        },
+        {
+          "name": "body",
+          "label": "Tekst objave",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        }
+      ],
+      "view": {
+        "primary": "title",
+        "fields": [
+          "title",
+          "date",
+          "published"
+        ],
+        "search": [
+          "title",
+          "excerpt"
+        ],
+        "sort": [
+          "date",
+          "title"
+        ],
+        "default": {
+          "sort": "date",
+          "order": "desc"
+        }
+      }
+    }
+  ]
+}

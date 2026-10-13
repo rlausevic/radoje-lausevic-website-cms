@@ -1,0 +1,2512 @@
+{
+  "site": {
+    "name": "Radoje Laušević",
+    "brand": "Partner Consulting",
+    "email": "radoje.lausevic@gmail.com",
+    "phone": "+381 63 281209",
+    "location": "Belgrade, Serbia",
+    "linkedin": "https://www.linkedin.com/in/radoje-lausevic",
+    "twitter": "https://twitter.com/rlausevic",
+    "domain": "https://www.radojelausevic.com",
+    "description": "Senior Environmental Consultant. Leadership, project management and environmental research.",
+    "logo": "/assets/7d427f9a7c773451.webp",
+    "portrait": "/assets/143f80572f202c9c.webp",
+    "landscape": "/assets/d95dc7f7de55e194.webp"
+  },
+  "pages": {
+    "/": {
+      "blocks": [
+        {
+          "type": "h1",
+          "text": "RADOJE LAUSEVIC",
+          "html": "RADOJE LAUSEVIC"
+        },
+        {
+          "type": "p",
+          "text": "Welcome to the website of Partner Consulting. Here you will find all sorts of information about my work as a Senior Environmental Consultant. I provide all the tools, guidance, and support my clients need in order to be more sustainable and succeed in the competitive marketplace. Take a look around and explore the various services I offer, some of the clients that I’ve partnered with, and browse through the list of my previous work.",
+          "html": "Welcome to the website of Partner Consulting. Here you will find all sorts of information about my work as a Senior Environmental Consultant. I provide all the tools, guidance, and support my clients need in order to be more sustainable and succeed in the competitive marketplace. Take a look around and explore the various services I offer, some of the clients that I’ve partnered with, and browse through the list of my previous work."
+        },
+        {
+          "type": "h2",
+          "text": "My Services",
+          "html": "My Services"
+        },
+        {
+          "type": "image",
+          "src": "/assets/185ac71d5fbfb133.webp",
+          "alt": "Business Growth"
+        },
+        {
+          "type": "h3",
+          "text": "Leadership",
+          "html": "Leadership"
+        },
+        {
+          "type": "p",
+          "text": "The Path to Success",
+          "html": "The Path to Success"
+        },
+        {
+          "type": "p",
+          "text": "I have proven capacity to lead complex organizations and mobilize resources. I am offering ability to build trust, manage, guide and motivate a large and diversified body of staff in a multicultural environment with sensitivity and respect for diversity. Contact me today to discover how I can help.",
+          "html": "I have proven capacity to lead complex organizations and mobilize resources. I am offering ability to build trust, manage, guide and motivate a large and diversified body of staff in a multicultural environment with sensitivity and respect for diversity. Contact me today to discover how I can help."
+        },
+        {
+          "type": "image",
+          "src": "/assets/bd7b15ac57f65224.webp",
+          "alt": "Discussing the Numbers"
+        },
+        {
+          "type": "h3",
+          "text": "Project Management",
+          "html": "Project Management"
+        },
+        {
+          "type": "p",
+          "text": "Exercising Excellence",
+          "html": "Exercising Excellence"
+        },
+        {
+          "type": "p",
+          "text": "I managed 100+ projects with portfolio of over 50 million EUR. Have a specific project that requires professional attention? My services are designed to tackle even the most complex projects. I also provide customized solutions to all of my clients, and I am an extremely results-oriented professional. Contact me to find out how I can help today.",
+          "html": "I managed 100+ projects with portfolio of over 50 million EUR. Have a specific project that requires professional attention? My services are designed to tackle even the most complex projects. I also provide customized solutions to all of my clients, and I am an extremely results-oriented professional. Contact me to find out how I can help today."
+        },
+        {
+          "type": "image",
+          "src": "/assets/f712f6b26f753493.webp",
+          "alt": "California Academy of Sciences   "
+        },
+        {
+          "type": "h3",
+          "text": "Environmental Research",
+          "html": "Environmental Research"
+        },
+        {
+          "type": "p",
+          "text": "A Comprehensive Approach",
+          "html": "A Comprehensive Approach"
+        },
+        {
+          "type": "p",
+          "text": "My clients are my number one priority. I am offering unique tools and experience needed for research in nature resource management, biodiversity, water management, environmental security, local environmental action planning, stakeholder’s analysis and participation. Contact me today to discover how I can help.",
+          "html": "My clients are my number one priority. I am offering unique tools and experience needed for research in nature resource management, biodiversity, water management, environmental security, local environmental action planning, stakeholder’s analysis and participation. Contact me today to discover how I can help."
+        },
+        {
+          "type": "image",
+          "src": "/assets/d95dc7f7de55e194.webp",
+          "alt": "Ariel View of Islands"
+        },
+        {
+          "type": "h2",
+          "text": "Video Resources",
+          "html": "Video Resources"
+        },
+        {
+          "type": "p",
+          "text": "Radoje Lausevic on YouTube",
+          "html": "Radoje Lausevic on YouTube"
+        },
+        {
+          "type": "h3",
+          "text": "Transboundary Water Resources",
+          "html": "Transboundary Water Resources"
+        },
+        {
+          "type": "p",
+          "text": "March 25, 2016",
+          "html": "March 25, 2016"
+        },
+        {
+          "type": "p",
+          "text": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
+          "html": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)"
+        },
+        {
+          "type": "h3",
+          "text": "Water Security",
+          "html": "Water Security"
+        },
+        {
+          "type": "p",
+          "text": "March 25, 2016",
+          "html": "March 25, 2016"
+        },
+        {
+          "type": "p",
+          "text": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
+          "html": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)"
+        },
+        {
+          "type": "h3",
+          "text": "Water Growth and Stability",
+          "html": "Water Growth and Stability"
+        },
+        {
+          "type": "p",
+          "text": "May 9, 2016",
+          "html": "May 9, 2016"
+        },
+        {
+          "type": "p",
+          "text": "Radoje Lausevic about Water Growth and Stability Initiative",
+          "html": "Radoje Lausevic about Water Growth and Stability Initiative"
+        },
+        {
+          "type": "h3",
+          "text": "LINK Ukraine",
+          "html": "LINK Ukraine"
+        },
+        {
+          "type": "p",
+          "text": "January 23, 2023",
+          "html": "January 23, 2023"
+        },
+        {
+          "type": "p",
+          "text": "Supporting sustainable development of Ukraine",
+          "html": "Supporting sustainable development of Ukraine"
+        },
+        {
+          "type": "h3",
+          "text": "WGS Initiative",
+          "html": "WGS Initiative"
+        },
+        {
+          "type": "p",
+          "text": "April 29, 2016",
+          "html": "April 29, 2016"
+        },
+        {
+          "type": "p",
+          "text": "Water, Growth and Stability Initiative",
+          "html": "Water, Growth and Stability Initiative"
+        },
+        {
+          "type": "h3",
+          "text": "WATER SUM",
+          "html": "WATER SUM"
+        },
+        {
+          "type": "p",
+          "text": "April 29, 2016",
+          "html": "April 29, 2016"
+        },
+        {
+          "type": "p",
+          "text": "Sustainable Use of Transboundary Water Resources and Water Security Management",
+          "html": "Sustainable Use of Transboundary Water Resources and Water Security Management"
+        },
+        {
+          "type": "h2",
+          "text": "Recommendations",
+          "html": "Recommendations"
+        },
+        {
+          "type": "p",
+          "text": "\"Radoje is a dedicated professional that approaches the tasks set before him in a structured and professional manner. He is able to work in challenging circumstances and still be able to deliver high quality outputs prepared by himself and his team. Radoje cooperates well with other actors and keeps abreast of developments in the project he was managing. He is also a good Communicator who is able to rally support behind the project often utilising a range of tools and approaches.\"",
+          "html": "&quot;Radoje is a dedicated professional that approaches the tasks set before him in a structured and professional manner. He is able to work in challenging circumstances and still be able to deliver high quality outputs prepared by himself and his team. Radoje cooperates well with other actors and keeps abreast of developments in the project he was managing. He is also a good Communicator who is able to rally support behind the project often utilising a range of tools and approaches.&quot;"
+        },
+        {
+          "type": "h3",
+          "text": "Dr Anders Jägerskog, Senior Water Resources Management Specialist at the World Bank",
+          "html": "Dr Anders Jägerskog, Senior Water Resources Management Specialist at the World Bank"
+        },
+        {
+          "type": "p",
+          "text": "\"I was in touch with Radoje several times during my professional careers. Back in 2002, as Regional Manager for Eastern Europe in American Quality and Environmental Group (AQE Group) I enjoyed communication with him while he was a trainee ISO 14000. He distinguished himself with excellent communication skills, effective public speaking and presentation skills, and pronounced complex problem solving and critical thinking. I was also following his career in the Regional Environmental Center (REC), where he demonstrated advanced management and coordination skills and fully target orientation. I also know him as one of the most knowledgeable person in environmental and sustainable development issues. Radoje could be a valuable asset to a company team striving to build sustainable communities, and support initiatives that reduce company’s environmental footprint.\"",
+          "html": "&quot;I was in touch with Radoje several times during my professional careers. Back in 2002, as Regional Manager for Eastern Europe in American Quality and Environmental Group (AQE Group) I enjoyed communication with him while he was a trainee ISO 14000. He distinguished himself with excellent communication skills, effective public speaking and presentation skills, and pronounced complex problem solving and critical thinking. I was also following his career in the Regional Environmental Center (REC), where he demonstrated advanced management and coordination skills and fully target orientation. I also know him as one of the most knowledgeable person in environmental and sustainable development issues. Radoje could be a valuable asset to a company team striving to build sustainable communities, and support initiatives that reduce company’s environmental footprint.&quot;"
+        },
+        {
+          "type": "h3",
+          "text": "Ilija Djekic, Associate Professor at University of Belgrade - Faculty of Agriculture",
+          "html": "Ilija Djekic, Associate Professor at University of Belgrade - Faculty of Agriculture"
+        },
+        {
+          "type": "p",
+          "text": "\"Radoje Lausevic is one of the most experienced people in the field of sustainability, climate change and the environment in the wider Europe but also the world. He combines leadership and vision with practical approaches that work in the realities of everyday life of institutions, governments and wider stakeholders. He is a very experienced and professional manager, capable over overseeing a wide range of issues, including programme development and implementation, and donor-relationships. Radoje is an excellent negotiator, result-driven and with his eyes always on the ball. He has proven wide experience as project director of multimillion projects and can think out-of-the box.\"",
+          "html": "&quot;Radoje Lausevic is one of the most experienced people in the field of sustainability, climate change and the environment in the wider Europe but also the world. He combines leadership and vision with practical approaches that work in the realities of everyday life of institutions, governments and wider stakeholders. He is a very experienced and professional manager, capable over overseeing a wide range of issues, including programme development and implementation, and donor-relationships. Radoje is an excellent negotiator, result-driven and with his eyes always on the ball. He has proven wide experience as project director of multimillion projects and can think out-of-the box.&quot;"
+        },
+        {
+          "type": "h3",
+          "text": "Rob Wolters, Executive Director ECNC and Chief Executive ECNC Land & Sea Group",
+          "html": "Rob Wolters, Executive Director ECNC and Chief Executive ECNC Land &amp; Sea Group"
+        },
+        {
+          "type": "p",
+          "text": "Radoje is a highly professional person with excellent knowledge in development issues. He demonstrates ability to conduct policy dialogue at government and non-goverment levels with high sense of objectivity and professional integrity. Radoje has excellent project management skills and works well under pressure and short deadlines. He was continuously delivering high quality outputs on the projects he was managing. He also confirmed himself as very efficient in meeting commitments, observing deadlines and achieving results. He speaks and writes clearly and efficiently. I am highly recommending Radoje.",
+          "html": "Radoje is a highly professional person with excellent knowledge in development issues. He demonstrates ability to conduct policy dialogue at government and non-goverment levels with high sense of objectivity and professional integrity.<br><br>Radoje has excellent project management skills and works well under pressure and short deadlines. He was continuously delivering high quality outputs on the projects he was managing. He also confirmed himself as very efficient in meeting commitments, observing deadlines and achieving results. He speaks and writes clearly and efficiently.<br><br>I am highly recommending Radoje."
+        },
+        {
+          "type": "h3",
+          "text": "Kristina Salomonsson, Human Security Adviser / Focal point Latin America at Sida",
+          "html": "Kristina Salomonsson, Human Security Adviser / Focal point Latin America at Sida"
+        },
+        {
+          "type": "h2",
+          "text": "Contact Me",
+          "html": "Contact Me"
+        },
+        {
+          "type": "p",
+          "text": "Belgrade, Serbia",
+          "html": "Belgrade, Serbia"
+        },
+        {
+          "type": "p",
+          "text": "radoje.lausevic@gmail.com",
+          "html": "<a href=\"mailto:radoje.lausevic@gmail.com\">radoje.lausevic@gmail.com</a>"
+        },
+        {
+          "type": "p",
+          "text": "+381 63 281209",
+          "html": "+381 63 281209"
+        },
+        {
+          "type": "p",
+          "text": "Thanks for submitting!",
+          "html": "Thanks for submitting!"
+        },
+        {
+          "type": "h1",
+          "text": "Subscribe Form",
+          "html": "Subscribe Form"
+        },
+        {
+          "type": "p",
+          "text": "Stay up to date",
+          "html": "Stay up to date"
+        },
+        {
+          "type": "p",
+          "text": "Thanks for submitting!",
+          "html": "Thanks for submitting!"
+        }
+      ],
+      "links": [
+        {
+          "text": "radoje.lausevic@gmail.com",
+          "href": "mailto:radoje.lausevic@gmail.com"
+        },
+        {
+          "text": "",
+          "href": "https://www.linkedin.com/in/radoje-lausevic"
+        },
+        {
+          "text": "",
+          "href": "https://twitter.com/rlausevic"
+        }
+      ]
+    },
+    "/about": {
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/1f705907facf0bf4.webp",
+          "alt": "Wind Turbines"
+        },
+        {
+          "type": "h1",
+          "text": "About Me",
+          "html": "About Me"
+        },
+        {
+          "type": "p",
+          "text": "Here to Serve You",
+          "html": "Here to Serve You"
+        },
+        {
+          "type": "p",
+          "text": "From tackling personal decisions to reaching important milestones, my job is to guide you on the path of sustainability towards success. I have PhD in Biology and 28 years of experience in progressively senior levels of responsibility at universities and international environmental organizations. As a professional Senior Environmental Consultant, I guarantee great results.",
+          "html": "From tackling personal decisions to reaching important milestones, my job is to guide you on the path of sustainability towards success. I have PhD in Biology and 28 years of experience in progressively senior levels of responsibility at universities and international environmental organizations. As a professional Senior Environmental Consultant, I guarantee great results."
+        },
+        {
+          "type": "p",
+          "text": "I’m offering services in leading environmental non-profits, programme and project management and environmental research. I’m fueled by my commitment to excellence and go the extra mile to make sure clients are fully satisfied with my work. Get in touch with me today for a free consultation.",
+          "html": "I’m offering services in leading environmental non-profits, programme and project management and environmental research. I’m fueled by my commitment to excellence and go the extra mile to make sure clients are fully satisfied with my work. Get in touch with me today for a free consultation."
+        }
+      ],
+      "links": [
+        {
+          "text": "Get in Touch",
+          "href": "/"
+        }
+      ]
+    },
+    "/work-experience": {
+      "blocks": [
+        {
+          "type": "h1",
+          "text": "My Work Experience",
+          "html": "My Work Experience"
+        },
+        {
+          "type": "h2",
+          "text": "Founder: Agency Partner Consulting",
+          "html": "Founder: Agency Partner Consulting"
+        },
+        {
+          "type": "p",
+          "text": "March 2018 - ongoing",
+          "html": "March 2018 - ongoing"
+        },
+        {
+          "type": "p",
+          "text": "By working together, we provide all the tools, guidance, and support our clients need in order to be more sustainable and succeed in the competitive marketplace",
+          "html": "By working together, we provide all the tools, guidance, and support our clients need in order to be more sustainable and succeed in the competitive marketplace"
+        },
+        {
+          "type": "h2",
+          "text": "Project Manager",
+          "html": "Project Manager"
+        },
+        {
+          "type": "p",
+          "text": "December 2017 - ongoing",
+          "html": "December 2017 - ongoing"
+        },
+        {
+          "type": "p",
+          "text": "Assisting the University of Montenegro, Institute for Marine Biology, in setting up Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua); Managing multidisciplinary team which is enhancing Montenegrin EU integration process in the area of nature protection relevant to water ecosystems and sustainable management of protected water ecosystems with focus on the Adriatic Sea",
+          "html": "Assisting the University of Montenegro, Institute for Marine Biology, in setting up Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua);<br>Managing multidisciplinary team which is enhancing Montenegrin EU integration process in the area of nature protection relevant to water ecosystems and sustainable management of protected water ecosystems with focus on the Adriatic Sea"
+        },
+        {
+          "type": "h2",
+          "text": "Independent Senior Environmental Consultant",
+          "html": "Independent Senior Environmental Consultant"
+        },
+        {
+          "type": "p",
+          "text": "May 2017 - December 2017",
+          "html": "May 2017 - December 2017"
+        },
+        {
+          "type": "p",
+          "text": "Services in leading environmental non-profits, programme and project management and environmental research: nature resource management, biodiversity, water management, environmental security, local environmental action planning, stakeholder’s analysis and participation.",
+          "html": "Services in leading environmental non-profits, programme and project management and environmental research: nature resource management, biodiversity, water management, environmental security, local environmental action planning, stakeholder’s analysis and participation."
+        },
+        {
+          "type": "h2",
+          "text": "Associate Professor at Faculty for Applied Ecology, Belgrade, Serbia",
+          "html": "Associate Professor at Faculty for Applied Ecology, Belgrade, Serbia"
+        },
+        {
+          "type": "p",
+          "text": "October 2006 - April 2017",
+          "html": "October 2006 - April 2017"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Lecturing subjects: “Water pollution and protection”, “Eco-hydrology”, “Sustainable development and environment”; Main achievements: Contributed to curriculum development, Developed e-learning programme",
+          "html": "Main duties: Lecturing subjects: “Water pollution and protection”, “Eco-hydrology”, “Sustainable development and environment”; Main achievements: Contributed to curriculum development, Developed e-learning programme"
+        },
+        {
+          "type": "h2",
+          "text": "Independent assessor, Agency for Regional Development of the Republic of Croatia",
+          "html": "Independent assessor, Agency for Regional Development of the Republic of Croatia"
+        },
+        {
+          "type": "p",
+          "text": "November 2016 - February 2017",
+          "html": "November 2016 - February 2017"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Assessment of project proposals under 1st Call for Proposals of Interreg IPA Cross-border Cooperation Programme Croatia-Serbia 2014-2020 for Priority axis 2: Environment, biodiversity, risk prevention, sustainable energy and energy efficiency; Main achievements: Assessed 37 project proposals",
+          "html": "Main duties: Assessment of project proposals under 1st Call for Proposals of Interreg IPA Cross-border Cooperation Programme Croatia-Serbia 2014-2020 for Priority axis 2: Environment, biodiversity, risk prevention, sustainable energy and energy efficiency; Main achievements: Assessed 37 project proposals"
+        },
+        {
+          "type": "h2",
+          "text": "Deputy Executive Director for Environmental Policy, Regional Environmental Center for Central and Eastern Europe (REC)",
+          "html": "Deputy Executive Director for Environmental Policy, Regional Environmental Center for Central and Eastern Europe (REC)"
+        },
+        {
+          "type": "p",
+          "text": "October 2008 - September 2016",
+          "html": "October 2008 - September 2016"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Providing strategic vision and planning; Resource mobilization (portfolio of 12 M EUR annually); Staff coaching and leadership. Main achievements: Secured sustainability of operations; Coordinated topic areas; Edited Local Water Security Action Planning Manual which is step-by-step guide to local water security action planning; Developed methodology for local biodiversity action planning, which became unique tool for biodiversity protection and evaluation of ecosystem services; Launched Water Security initiative as a framework for creation of a knowledge-based platform, a dynamic network of water experts, and an e-learning tool for capacity building and the dissemination of lessons learned.",
+          "html": "Main duties: Providing strategic vision and planning; Resource mobilization (portfolio of 12 M EUR annually); Staff coaching and leadership. Main achievements: Secured sustainability of operations; Coordinated topic areas; Edited Local Water Security Action Planning Manual which is step-by-step guide to local water security action planning; Developed methodology for local biodiversity action planning, which became unique tool for biodiversity protection and evaluation of ecosystem services; Launched Water Security initiative as a framework for creation of a knowledge-based platform, a dynamic network of water experts, and an e-learning tool for capacity building and the dissemination of lessons learned."
+        },
+        {
+          "type": "h2",
+          "text": "Regional Director for South East Europe, Regional Environmental Center for Central and Eastern Europe (REC)",
+          "html": "Regional Director for South East Europe, Regional Environmental Center for Central and Eastern Europe (REC)"
+        },
+        {
+          "type": "p",
+          "text": "July 2004 - October 2008",
+          "html": "July 2004 - October 2008"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Providing strategic vision and programme planning, Supervision and coaching of REC Country and Field Office Directors in SEE, Ensuring the overall financial sustainability of the REC Country and Field Offices in the assigned Region. Main achievements: Improved management and strengthen country office network of the REC; Introduced indicator based performance appraisal system for country offices; Coordinated local environmental action plans in 50+ local communities in South East Europe, which contributed to sustainable development on local level; Leaded support to environmental civil society organizations, which strengthened capacities of environmental civil sector in South East Europe",
+          "html": "Main duties: Providing strategic vision and programme planning, Supervision and coaching of REC Country and Field Office Directors in SEE, Ensuring the overall financial sustainability of the REC Country and Field Offices in the assigned Region. Main achievements: Improved management and strengthen country office network of the REC; Introduced indicator based performance appraisal system for country offices; Coordinated local environmental action plans in 50+ local communities in South East Europe, which contributed to sustainable development on local level; Leaded support to environmental civil society organizations, which strengthened capacities of environmental civil sector in South East Europe"
+        },
+        {
+          "type": "h2",
+          "text": "Director, Country Office Serbia and Montenegro, Regional Environmental Center for Central and Eastern Europe (REC)",
+          "html": "Director, Country Office Serbia and Montenegro, Regional Environmental Center for Central and Eastern Europe (REC)"
+        },
+        {
+          "type": "p",
+          "text": "January 2001 - November 2005",
+          "html": "January 2001 - November 2005"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Representing the REC in Serbia and Montenegro; managing the REC Country Office SCG; Project and grant management; Maintaining relations with donors, governments, local authorities, business and NGOs;  Supervision the CO staff; Fund raising at national and international level. Main achievements: Managed CO operations in sustainable way and increased CO project portfolio 10 times; Increased CO project staff from 4 to 18 members and strengthened internal managerial and expert capacities; Managed establishment of two programme offices, which improved local presence and increased flexibility in operations; Managed projects with focus on local governance, which proved mission driven role of the REC at local level; Developed methodology for local environmental action planning, which represented innovative tool for local sustainable management (2003-2005).",
+          "html": "Main duties: Representing the REC in Serbia and Montenegro; managing the REC Country Office SCG; Project and grant management; Maintaining relations with donors, governments, local authorities, business and NGOs;  Supervision the CO staff; Fund raising at national and international level. Main achievements: Managed CO operations in sustainable way and increased CO project portfolio 10 times; Increased CO project staff from 4 to 18 members and strengthened internal managerial and expert capacities; Managed establishment of two programme offices, which improved local presence and increased flexibility in operations; Managed projects with focus on local governance, which proved mission driven role of the REC at local level; Developed methodology for local environmental action planning, which represented innovative tool for local sustainable management (2003-2005)."
+        },
+        {
+          "type": "h2",
+          "text": "Assistant Professor, Faculty of Biology, University of Belgrade",
+          "html": "Assistant Professor, Faculty of Biology, University of Belgrade"
+        },
+        {
+          "type": "p",
+          "text": "April 1996 - June 2006",
+          "html": "April 1996 - June 2006"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Teaching in: 1) General Hydrobiology; 2) Hydroecology and protection of Inland Waters; 3) Botany I and Mycology; 4) Systematic of Algae, Fungy and Lichenes; (since December 2005 only 1 and 2);  Research activities in hydrobiology, ecology and taxonomy; Assisting in management of scientific and educational department (Institute of Botany and Botanical Garden “Jevremovac”). Main achievements: Contributed to curriculum development; Developed research team for water monitoring which implemented several scientific projects; Managed Botanical garden which became unique educational, scientific and public center.",
+          "html": "Main duties: Teaching in: 1) General Hydrobiology; 2) Hydroecology and protection of Inland Waters; 3) Botany I and Mycology; 4) Systematic of Algae, Fungy and Lichenes; (since December 2005 only 1 and 2);  Research activities in hydrobiology, ecology and taxonomy; Assisting in management of scientific and educational department (Institute of Botany and Botanical Garden “Jevremovac”). Main achievements: Contributed to curriculum development; Developed research team for water monitoring which implemented several scientific projects; Managed Botanical garden which became unique educational, scientific and public center."
+        },
+        {
+          "type": "h2",
+          "text": "Teaching Assistant, Faculty of Biology, University of Belgrade",
+          "html": "Teaching Assistant, Faculty of Biology, University of Belgrade"
+        },
+        {
+          "type": "p",
+          "text": "August 1989 - April 1996",
+          "html": "August 1989 - April 1996"
+        },
+        {
+          "type": "p",
+          "text": "Main duties: Work with students which attend courses at the Chair of Algology, Mycology and Lichenology; Research activities in algal ecology and taxonomy. Main achievements:  Gained PhD in biology; Awarded with UNESCO grant for hydrobiological study of Vlasina reservoir (Serbia) which resulted in scientific contribution to the reservoir management; Managed 5th Congress of Ecologists (500+ participants) as largest professional event in the Western Balkans; Acknowledged by students for lecturing skills.",
+          "html": "Main duties: Work with students which attend courses at the Chair of Algology, Mycology and Lichenology; Research activities in algal ecology and taxonomy. Main achievements:  Gained PhD in biology; Awarded with UNESCO grant for hydrobiological study of Vlasina reservoir (Serbia) which resulted in scientific contribution to the reservoir management; Managed 5th Congress of Ecologists (500+ participants) as largest professional event in the Western Balkans; Acknowledged by students for lecturing skills."
+        },
+        {
+          "type": "p",
+          "text": "On the Path to Success",
+          "html": "On the Path to Success"
+        },
+        {
+          "type": "h2",
+          "text": "My Professional Network",
+          "html": "My Professional Network"
+        },
+        {
+          "type": "p",
+          "text": "While working in progressively senior levels of responsibility at universities and international environmental organizations I had unique opportunity to serve various clients, ranging from governmental institutions, academia, non-governmental organizations and business. I am proud on advantageous professional network. Check out some of the incredible clients I’ve worked with below.",
+          "html": "While working in progressively senior levels of responsibility at universities and international environmental organizations I had unique opportunity to serve various clients, ranging from governmental institutions, academia, non-governmental organizations and business. I am proud on advantageous professional network. Check out some of the incredible clients I’ve worked with below."
+        },
+        {
+          "type": "image",
+          "src": "/assets/09659ffa0f4ef9a6.webp",
+          "alt": "SWE3Fcmyk_eng.jpg"
+        },
+        {
+          "type": "h3",
+          "text": "While working in the Regional Environmental Center for Central and Eastern Europe I had unique opportunity to cooperate with Swedish International Development Cooperation Agency (SIDA) on various programmes: supporting environmental civil society organizations, equipping local communities with powerful tools and skills for environmental action planning, water management and local water security action planning, etc.",
+          "html": "While working in the Regional Environmental Center for Central and Eastern Europe I had unique opportunity to cooperate with <a href=\"http://www.sida.se/English/\">Swedish International Development Cooperation Agency (SIDA)</a> on various programmes: supporting environmental civil society organizations, equipping local communities with powerful tools and skills for environmental action planning, water management and local water security action planning, etc."
+        },
+        {
+          "type": "image",
+          "src": "/assets/4eb950a7bdeeac01.webp",
+          "alt": "ECNC.png"
+        },
+        {
+          "type": "h3",
+          "text": "With European Centre for Nature Conservation (ECNC) I’ve worked on development methodology for local biodiversity action planning. Communities that used methodology become champions of change for sustainability in beneficiary countries and the region, providing an opportunity for other communities to replicate their work and ecosystem services experience, including combating effects of climate change.",
+          "html": "With <a href=\"https://www.ecnc.org/about-ecnc/\">European Centre for Nature Conservation (ECNC)</a> I’ve worked on development methodology for local biodiversity action planning. Communities that used methodology become champions of change for sustainability in beneficiary countries and the region, providing an opportunity for other communities to replicate their work and ecosystem services experience, including combating effects of climate change."
+        },
+        {
+          "type": "image",
+          "src": "/assets/eca16bcd3d93cf6c.webp",
+          "alt": "Emisoft.png"
+        },
+        {
+          "type": "h3",
+          "text": "For several years I’ve worked with Emisoft on establishing of Environmental Management Centres (EMC) in Balkan countries. In Serbia, our work resulted in setting up an efficient emission monitoring and reporting platform within Serbian Agency for Environmental Protection (SEPA).",
+          "html": "For several years I’ve worked with <a href=\"https://www.emisoft.com/about/\">Emisoft </a>on establishing of Environmental Management Centres (EMC) in Balkan countries. In Serbia, our work resulted in setting up an efficient emission monitoring and reporting platform within Serbian Agency for Environmental Protection (SEPA)."
+        },
+        {
+          "type": "p",
+          "text": "Do you need guidance from a professional? Contact me today and join my list of happy clients.",
+          "html": "Do you need guidance from a professional? Contact me today and join my list of happy clients."
+        }
+      ],
+      "links": [
+        {
+          "text": "Contact Me",
+          "href": "/"
+        },
+        {
+          "text": "Swedish International Development Cooperation Agency (SIDA)",
+          "href": "http://www.sida.se/English/"
+        },
+        {
+          "text": "European Centre for Nature Conservation (ECNC)",
+          "href": "https://www.ecnc.org/about-ecnc/"
+        },
+        {
+          "text": "Emisoft",
+          "href": "https://www.emisoft.com/about/"
+        },
+        {
+          "text": "Get full list",
+          "href": "/assets/16fb6ac56e5e85a3.pdf"
+        }
+      ]
+    },
+    "/projects": {
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Mastering Excellence",
+          "html": "Mastering Excellence"
+        },
+        {
+          "type": "h1",
+          "text": "Projects",
+          "html": "Projects"
+        },
+        {
+          "type": "p",
+          "text": "Through strategic planning and a cohesive team-building approach towards tackling obstacles, I was managing or supervising implementation of 100+ projects with total portfolio of more than 50 million EUR. Take a look at what I’ve done in the past, and see what I can do for you. This is just a sample of my work. To see more or discuss possible cooperation, please do not hesitate to get in touch.",
+          "html": "Through strategic planning and a cohesive team-building approach towards tackling obstacles, I was managing or supervising implementation of 100+ projects with total portfolio of more than 50 million EUR. Take a look at what I’ve done in the past, and see what I can do for you. This is just a sample of my work. To see more or discuss possible cooperation, please do not hesitate to get in touch."
+        },
+        {
+          "type": "image",
+          "src": "/assets/83b1403a8be90c7e.webp",
+          "alt": "AquariumBoka.jpg"
+        },
+        {
+          "type": "h2",
+          "text": "Marine Biodiversity Conservation Center “Boka Aquarium” ( MonteAqua )",
+          "html": "Marine Biodiversity Conservation Center “Boka Aquarium” (<a href=\"http://www.aquariumboka.ucg.ac.me/\">MonteAqua</a>)"
+        },
+        {
+          "type": "p",
+          "text": "December 2017 - December 2020",
+          "html": "December 2017 - December 2020"
+        },
+        {
+          "type": "p",
+          "text": "As project manager, I am securing successful implementation of main project activities:",
+          "html": "As project manager, I am securing successful implementation of main project activities: "
+        },
+        {
+          "type": "li",
+          "text": "Setting up Marine Biodiversity Conservation Center “Boka Aquarium” in the Institute of Marine Biology in Kotor",
+          "html": "Setting up Marine Biodiversity Conservation Center “Boka Aquarium” in the Institute of Marine Biology in Kotor"
+        },
+        {
+          "type": "li",
+          "text": "Setting up freshwater “Skadar Aquarium” in National Park “Skadar lake”",
+          "html": "Setting up freshwater “Skadar Aquarium” in National Park “Skadar lake”"
+        },
+        {
+          "type": "li",
+          "text": "Development of communication platform for stakeholders’ participation in water biodiversity conservation",
+          "html": "Development of communication platform for stakeholders’ participation in water biodiversity conservation"
+        },
+        {
+          "type": "li",
+          "text": "Organizing capacity building workshops",
+          "html": "Organizing capacity building workshops"
+        },
+        {
+          "type": "li",
+          "text": "Organization of International conference “Adriatic Biodiversity Protection” in 2019.",
+          "html": "Organization of International conference “Adriatic Biodiversity Protection” in 2019."
+        },
+        {
+          "type": "image",
+          "src": "/assets/46850b69f8e3ab09.webp",
+          "alt": "WaterSUM.png"
+        },
+        {
+          "type": "h2",
+          "text": "Sustainable Use of Transboundary Water Resources and Water Security Management (WATER SUM)",
+          "html": "Sustainable Use of Transboundary Water Resources and Water Security Management (WATER SUM)"
+        },
+        {
+          "type": "p",
+          "text": "Januar 2014 - September 2016",
+          "html": "Januar 2014 - September 2016"
+        },
+        {
+          "type": "p",
+          "text": "As Project Director, I provided overall quality control of the project, supervision of the Project Manager and team members, monitoring of the progress of the project activities and coordination of information flow between the project team, beneficiaries and the donor. Water SUM project addresses water-related challenges and promotes regional cooperation in the Middle East and North Africa (MENA) through two project components: Water Resources Management Good Practices and Knowledge Transfer (WATER POrT); and Water Security in Local Communities (WaSe).",
+          "html": "As Project Director, I provided overall quality control of the project, supervision of the Project Manager and team members, monitoring of the progress of the project activities and coordination of information flow between the project team, beneficiaries and the donor. <a href=\"http://watersum.rec.org/\">Water SUM project</a> addresses water-related challenges and promotes regional cooperation in the Middle East and North Africa (MENA) through two project components: Water Resources Management Good Practices and Knowledge Transfer (WATER POrT); and Water Security in Local Communities (WaSe). "
+        },
+        {
+          "type": "image",
+          "src": "/assets/bda48dfe0d689ca7.webp",
+          "alt": "EMC.png"
+        },
+        {
+          "type": "h2",
+          "text": "Setting up Environmental Management Center (EMC) in Serbia",
+          "html": "Setting up Environmental Management Center (EMC) in Serbia"
+        },
+        {
+          "type": "p",
+          "text": "October 2010 – May 2013",
+          "html": "October 2010 – May 2013"
+        },
+        {
+          "type": "p",
+          "text": "I edited International Science Conference “Reporting for Sustainability” proceedings. Besides that publication, the main EMC project outputs are the established Environmental Management Center within Serbian Agency for Environmental Protection (SEPA) including necessary computer hardware and software, training of personnel, introducing efficient and sound routines and practices. EMC project worked directly with governmental institutions and 10 selected large industrial client-partners from various industrial sectors across Serbia: petrochemical industry, agricultural sector, railways, rubber manufacturing, coal production and processing, steel production and processing, copper mining and smelting, as well as public utility providing district heating.",
+          "html": "I edited International Science Conference “Reporting for Sustainability” proceedings. Besides that publication, the main <a href=\"https://www.emisoft.com/client-stories/sepa/\">EMC project</a> outputs are the established Environmental Management Center within Serbian Agency for Environmental Protection (SEPA) including necessary computer hardware and software, training of personnel, introducing efficient and sound routines and practices. EMC project worked directly with governmental institutions and 10 selected large industrial client-partners from various industrial sectors across Serbia: petrochemical industry, agricultural sector, railways, rubber manufacturing, coal production and processing, steel production and processing, copper mining and smelting, as well as public utility providing district heating."
+        },
+        {
+          "type": "image",
+          "src": "/assets/0eda912b6a512b12.webp",
+          "alt": "Biodiversity.JPG"
+        },
+        {
+          "type": "h2",
+          "text": "Biodiversity and Ecosystem Services for Local Sustainable Development in the Western Balkans",
+          "html": "Biodiversity and Ecosystem Services for Local Sustainable Development in the Western Balkans"
+        },
+        {
+          "type": "p",
+          "text": "February 2009 - December 2011",
+          "html": "February 2009 - December 2011"
+        },
+        {
+          "type": "p",
+          "text": "On this project , with my team members, we succeeded to promote a comprehensive and integrated approach to biodiversity and ecosystem services for the sustainable development of rural municipalities and their local communities in Southeastern Europe, as part of an effort to reduce the downward spiral of poverty, biodiversity loss and environmental degradation to increase overall human well-being within the wider context of ensuring regional peace and stability. I edited development of Local Biodiversity Action Planning (LBAP) methodology.",
+          "html": "On this <a href=\"https://www.ecnc.org/projects/nature-and-society/local-biodiversity-action-planning-for-southeastern-europe/\">project</a>, with my team members, we succeeded to promote a comprehensive and integrated approach to biodiversity and ecosystem services for the sustainable development of rural municipalities and their local communities in Southeastern Europe, as part of an effort to reduce the downward spiral of poverty, biodiversity loss and environmental degradation to increase overall human well-being within the wider context of ensuring regional peace and stability. I edited development of Local Biodiversity Action Planning (LBAP) methodology."
+        },
+        {
+          "type": "image",
+          "src": "/assets/8eb636d23c2eb4eb.webp",
+          "alt": "Lake View"
+        },
+        {
+          "type": "h2",
+          "text": "Structure and dynamics of aquatic ecosystems of different trophic levels",
+          "html": "Structure and dynamics of aquatic ecosystems of different trophic levels"
+        },
+        {
+          "type": "p",
+          "text": "January 1996 - December 2000",
+          "html": "January 1996 - December 2000"
+        },
+        {
+          "type": "p",
+          "text": "As a research team member, I contributed to hydrobiological (limnological) research of Vlasina reservoir (Serbia). My research was focused on floristical composition of algae and seasonal and spatial dynamics of phytoplankton in Vlasina reservoir.",
+          "html": "As a research team member, I contributed to hydrobiological (limnological) research of Vlasina reservoir (Serbia). My research was focused on floristical composition of algae and seasonal and spatial dynamics of phytoplankton in Vlasina reservoir."
+        }
+      ],
+      "links": [
+        {
+          "text": "MonteAqua",
+          "href": "http://www.aquariumboka.ucg.ac.me/"
+        },
+        {
+          "text": "Water SUM project",
+          "href": "http://watersum.rec.org/"
+        },
+        {
+          "text": "EMC project",
+          "href": "https://www.emisoft.com/client-stories/sepa/"
+        },
+        {
+          "text": "project",
+          "href": "https://www.ecnc.org/projects/nature-and-society/local-biodiversity-action-planning-for-southeastern-europe/"
+        },
+        {
+          "text": "Get in Touch",
+          "href": "/"
+        }
+      ]
+    },
+    "/resume": {
+      "blocks": [
+        {
+          "type": "h1",
+          "text": "RADOJE LAUSEVIC WELCOMES YOU",
+          "html": "RADOJE LAUSEVIC WELCOMES YOU"
+        },
+        {
+          "type": "p",
+          "text": "Catered to Your Needs",
+          "html": "Catered to Your Needs"
+        },
+        {
+          "type": "image",
+          "src": "/assets/143f80572f202c9c.webp",
+          "alt": "Radoje.jpg"
+        },
+        {
+          "type": "h2",
+          "text": "Education",
+          "html": "Education"
+        },
+        {
+          "type": "h3",
+          "text": "PhD in Biology from Faculty of Biology, University of Belgrade, Serbia",
+          "html": "PhD in Biology from Faculty of Biology, University of Belgrade, Serbia"
+        },
+        {
+          "type": "p",
+          "text": "July 1992 - June 1995",
+          "html": "July 1992 - June 1995"
+        },
+        {
+          "type": "p",
+          "text": "PhD Research: “Planktonic diatoms (Bacillariophyta) of Vlasina Lake – Ecological Study”",
+          "html": "PhD Research: “Planktonic diatoms (Bacillariophyta) of Vlasina Lake – Ecological Study”"
+        },
+        {
+          "type": "h3",
+          "text": "Master of Science in Biology (pre-Bologna)",
+          "html": "Master of Science in Biology (pre-Bologna)"
+        },
+        {
+          "type": "p",
+          "text": "November 1987 - May 1992",
+          "html": "November 1987 - May 1992"
+        },
+        {
+          "type": "p",
+          "text": "Major: Plant Ecology; Independent Research: “Florisitic and Ecological Research on Algae from the Samokovska River”",
+          "html": "Major: Plant Ecology; Independent Research: “Florisitic and Ecological Research on Algae from the Samokovska River”"
+        },
+        {
+          "type": "h3",
+          "text": "Graduate Biologist (B Sci)",
+          "html": "Graduate Biologist (B Sci)"
+        },
+        {
+          "type": "p",
+          "text": "October 1983 - November 1987",
+          "html": "October 1983 - November 1987"
+        },
+        {
+          "type": "p",
+          "text": "Subjects: Microbiology, Plant Morphology, Systematic and Biology of Talophyta, Inorganic Chemistry, Invertebrates, Physic, Cytology, Systematic and Phylogeny of Cormophyta, organic Chemistry, Biochemistry, Physiology and Biophysics, Plant Evolution, Phytoecology, Chordates, Physiology, Plant Physiology, Animal Ontogenesis, Sociology, Vegetation of Yugoslavia and Balkan Peninsula, Genetics, Plant Ecology and Geography, animal Ecology and Geography, Theory of  Organic Evolution, Research Task",
+          "html": "Subjects: Microbiology, Plant Morphology, Systematic and Biology of Talophyta, Inorganic Chemistry, Invertebrates, Physic, Cytology, Systematic and Phylogeny of Cormophyta, organic Chemistry, Biochemistry, Physiology and Biophysics, Plant Evolution, Phytoecology, Chordates, Physiology, Plant Physiology, Animal Ontogenesis, Sociology, Vegetation of Yugoslavia and Balkan Peninsula, Genetics, Plant Ecology and Geography, animal Ecology and Geography, Theory of  Organic Evolution, Research Task"
+        },
+        {
+          "type": "h2",
+          "text": "Brief CV",
+          "html": "Brief CV"
+        },
+        {
+          "type": "p",
+          "text": "One page CV",
+          "html": "One page CV"
+        },
+        {
+          "type": "p",
+          "text": "Download my one page CV if you want to have brief overview of my work experience and skills.",
+          "html": "Download my one page CV if you want to have brief overview of my work experience and skills."
+        },
+        {
+          "type": "h2",
+          "text": "Full CV",
+          "html": "Full CV"
+        },
+        {
+          "type": "p",
+          "text": "EuroPass Format",
+          "html": "EuroPass Format"
+        },
+        {
+          "type": "p",
+          "text": "Download my detailed CV in EuroPass format, presenting my work experience, education, skills, list of projects, list of publications, articles and conferences.",
+          "html": "Download my detailed CV in EuroPass format, presenting my work experience, education, skills, list of projects, list of publications, articles and conferences."
+        },
+        {
+          "type": "h2",
+          "text": "Full CV",
+          "html": "Full CV"
+        },
+        {
+          "type": "p",
+          "text": "Assortis Format",
+          "html": "Assortis Format"
+        },
+        {
+          "type": "p",
+          "text": "Download my detailed CV in Assortis Format, presenting my education, training, professional experience, employment record and completed projects in chronological order, language skills and list of publications.",
+          "html": "Download my detailed CV in Assortis Format, presenting my education, training, professional experience, employment record and completed projects in chronological order, language skills and list of publications."
+        },
+        {
+          "type": "h2",
+          "text": "Selected Publications",
+          "html": "Selected Publications"
+        },
+        {
+          "type": "h3",
+          "text": "Stakeholder analysis for supporting local water security planning in the Kingdom of Jordan",
+          "html": "Stakeholder analysis for supporting local water security planning in the Kingdom of Jordan"
+        },
+        {
+          "type": "p",
+          "text": "M. Bartula, R. Laušević, U. Radojević (2017). Water Utility Journal 15: 3-13.",
+          "html": "M. Bartula, R. Laušević, U. Radojević (2017). Water Utility Journal 15: 3-13."
+        },
+        {
+          "type": "p",
+          "text": "Stakeholder analysis (SA) represents a precondition for setting up an effective stakeholder participation in water management since it helps to better understand stakeholders` role and actions, identify whose stake should be taken into account, reveals power relations among stakeholders, helps to understand the diverse range of potentially conflicting interests, analyze driving forces and existing coordination among stakeholders, and identify bottlenecks in communication which affect daily operations or strategic planning for the future way forward. This paper presents the results of a SA performed in the Kingdom of Jordan for water management sector with the purpose of assessing stakeholders’ capacity to participate in water management planning process based on following attributes: power, interest, knowledge, attitude, legitimacy, attention getting capacity and existing and desired level of involvement. Statistical correlation of stakeholders` knowledge about water management issues and power in water management sector with other attributes was investigated as well. This was designed to determine the importance of stakeholders` level of knowledge and power relevant for success of water management process.",
+          "html": "Stakeholder analysis (SA) represents a precondition for setting up an effective stakeholder participation in water management since it helps to better understand stakeholders` role and actions, identify whose stake should be taken into account, reveals power relations among stakeholders, helps to understand the diverse range of potentially conflicting interests, analyze driving forces and existing coordination among stakeholders, and identify bottlenecks in communication which affect daily operations or strategic planning for the future way forward. This paper presents the results of a SA performed in the Kingdom of Jordan for water management sector with the purpose of assessing stakeholders’ capacity to participate in water management planning process based on following attributes: power, interest, knowledge, attitude, legitimacy, attention getting capacity and existing and desired level of involvement. Statistical correlation of stakeholders` knowledge about water management issues and power in water management sector with other attributes was investigated as well. This was designed to determine the importance of stakeholders` level of knowledge and power relevant for success of water management process. "
+        },
+        {
+          "type": "p",
+          "text": "Download your copy here .",
+          "html": "Download your copy <a href=\"/assets/9c25abe53a3ba269.pdf\">here</a>."
+        },
+        {
+          "type": "h3",
+          "text": "Local Water Security Action Planning Manual",
+          "html": "Local Water Security Action Planning Manual"
+        },
+        {
+          "type": "p",
+          "text": "R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović (2016). Regional Environmental Center, Szentendre, Hungary. ISBN 978-963-9638-69-3",
+          "html": "R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović (2016). Regional Environmental Center, Szentendre, Hungary. ISBN 978-963-9638-69-3"
+        },
+        {
+          "type": "p",
+          "text": "This manual is a step-by-step guidebook for practitioners who are developing local water security action plans (LWSAPs) in local communities. The authors have compiled an original methodology comprising seven interrelated activities, some supported by a separate tailored methodology, which cover stakeholder analysis, public opinion assessment, local water security assessment, and problem analysis and prioritisation. Each of the seven activities comprises two or more steps, making a total of 20 steps in the LWSAP process. All 20 steps, and the deliverables related to each one, are described in detail in the manual.",
+          "html": "This <a href=\"/assets/951edadca49390b4.pdf\">manual </a>is a step-by-step guidebook for practitioners who are developing local water security action plans (LWSAPs) in local communities. The authors have compiled an original methodology comprising seven interrelated activities, some supported by a separate tailored methodology, which cover stakeholder analysis, public opinion assessment, local water security assessment, and problem analysis and prioritisation. Each of the seven activities comprises two or more steps, making a total of 20 steps in the LWSAP process. All 20 steps, and the deliverables related to each one, are described in detail in the manual."
+        },
+        {
+          "type": "p",
+          "text": "Download your copy here .",
+          "html": "Download your copy <a href=\"/assets/951edadca49390b4.pdf\">here</a>."
+        },
+        {
+          "type": "h3",
+          "text": "Participatory planning for biodiversity protection in Western Balkans",
+          "html": "Participatory planning for biodiversity protection in Western Balkans"
+        },
+        {
+          "type": "p",
+          "text": "Laušević, R., Bartula, M. (2015). Natural Areas Journal, 36(3):339-344.",
+          "html": "Laušević, R., Bartula, M. (2015). Natural Areas Journal, 36(3):339-344."
+        },
+        {
+          "type": "p",
+          "text": "The rich Western Balkans biodiversity and ecosystem services suffer from negative anthropogenic activities. Solving those problems requires a coherent strategy for biodiversity conservation with a focus on the involvement of relevant stakeholders. This paper presents a Local Biodiversity Action Plan (LBAP) as a tool for biodiversity protection and conservation on a local level in five countries of the Western Balkans. Results indicate that the LBAP improved local planning practices and secured stakeholder involvement by adequate stakeholder analysis and well defined incentives in the form of probiodiversity business (PBB). LBAP also enabled municipalities to assess biodiversity potential on their territory, and to develop a comprehensive planning document and biodiversity protection action plan.",
+          "html": "The rich Western Balkans biodiversity and ecosystem services suffer from negative anthropogenic activities. Solving those problems requires a coherent strategy for biodiversity conservation with a focus on the involvement of relevant stakeholders. This paper presents a Local Biodiversity Action Plan (LBAP) as a tool for biodiversity protection and conservation on a local level in five countries of the Western Balkans. Results indicate that the LBAP improved local planning practices and secured stakeholder involvement by adequate stakeholder analysis and well defined incentives in the form of probiodiversity business (PBB). LBAP also enabled municipalities to assess biodiversity potential on their territory, and to develop a comprehensive planning document and biodiversity protection action plan. "
+        },
+        {
+          "type": "p",
+          "text": "Download your copy here .",
+          "html": "Download your copy <a href=\"/assets/f2a0b0e306dfce6f.pdf\">here</a>."
+        }
+      ],
+      "links": [
+        {
+          "text": "Download",
+          "href": "/assets/51c3cf74a1ba9234.pdf"
+        },
+        {
+          "text": "Download",
+          "href": "/assets/863644a21ee7374d.pdf"
+        },
+        {
+          "text": "Download",
+          "href": "/assets/d37c8094052a8d88.pdf"
+        },
+        {
+          "text": "here",
+          "href": "/assets/9c25abe53a3ba269.pdf"
+        },
+        {
+          "text": "manual",
+          "href": "/assets/951edadca49390b4.pdf"
+        },
+        {
+          "text": "here",
+          "href": "/assets/951edadca49390b4.pdf"
+        },
+        {
+          "text": "here",
+          "href": "/assets/f2a0b0e306dfce6f.pdf"
+        }
+      ]
+    },
+    "/galleries": {
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/d95dc7f7de55e194.webp",
+          "alt": "Ariel View of Islands"
+        },
+        {
+          "type": "h1",
+          "text": "My Favorite Places",
+          "html": "My Favorite Places"
+        },
+        {
+          "type": "p",
+          "text": "Connecting with Nature",
+          "html": "Connecting with Nature"
+        },
+        {
+          "type": "image",
+          "src": "/assets/05b9e20d243b08cb.webp",
+          "alt": "Spartium_junceum-2.JPG"
+        },
+        {
+          "type": "p",
+          "text": "Spartium junceum, commonly known as Spanish broom or weaver's broom, is a species of flowering plant in the family Fabaceae. In my garden I have one plant.",
+          "html": "Spartium junceum, commonly known as Spanish broom or weaver&#x27;s broom, is a species of flowering plant in the family Fabaceae. In my garden I have one plant."
+        },
+        {
+          "type": "image",
+          "src": "/assets/0c78336c56089c82.webp",
+          "alt": "Spartium_junceum-1.JPG"
+        },
+        {
+          "type": "p",
+          "text": "Close up of flower of Spartium junceum, commonly known as Spanish broom.",
+          "html": "Close up of flower of Spartium junceum, commonly known as Spanish broom."
+        },
+        {
+          "type": "image",
+          "src": "/assets/2756b4b866c34d13.webp",
+          "alt": "Nerium_oleander-1.JPG"
+        },
+        {
+          "type": "p",
+          "text": "Nerium oleander is a shrub or small tree in the dogbane family Apocynaceae, toxic in all its parts. We have just few salmon-pink.",
+          "html": "Nerium oleander is a shrub or small tree in the dogbane family Apocynaceae, toxic in all its parts. We have just few salmon-pink."
+        },
+        {
+          "type": "image",
+          "src": "/assets/05b9e20d243b08cb.webp",
+          "alt": "Spartium_junceum-2.JPG"
+        },
+        {
+          "type": "p",
+          "text": "Spartium junceum, commonly known as Spanish broom or weaver's broom, is a species of flowering plant in the family Fabaceae. In my garden I have one plant.",
+          "html": "Spartium junceum, commonly known as Spanish broom or weaver&#x27;s broom, is a species of flowering plant in the family Fabaceae. In my garden I have one plant."
+        },
+        {
+          "type": "h2",
+          "text": "Flowers of My Mediterranean Garden",
+          "html": "Flowers of My Mediterranean Garden"
+        },
+        {
+          "type": "p",
+          "text": "June 5, 2017",
+          "html": "June 5, 2017"
+        },
+        {
+          "type": "p",
+          "text": "On the occasion of #WorldEnvironmentDay 2017 I am posting flowers of my Mediterranean garden in Montenegro. Nature is not my environment – it is embedded in me and significant part of my professional career I spent in efforts to protect the nature. Whenever I am visiting my garden I’m reconnecting with nature and celebrating this places that matter to me. I hope you will enjoy browsing these photos. Get connect and pay quick visit if you are passing by.",
+          "html": "On the occasion of #WorldEnvironmentDay 2017 I am posting flowers of my Mediterranean garden in Montenegro. Nature is not my environment – it is embedded in me and significant part of my professional career I spent in efforts to protect the nature. Whenever I am visiting my garden I’m reconnecting with nature and celebrating this places that matter to me. I hope you will enjoy browsing these photos. Get connect and pay quick visit if you are passing by."
+        },
+        {
+          "type": "p",
+          "text": "Interested in those places? Get in touch with me today.",
+          "html": "Interested in those places? Get in touch with me today."
+        }
+      ],
+      "links": [
+        {
+          "text": "Get in Touch",
+          "href": "/"
+        }
+      ]
+    }
+  },
+  "posts": [
+    {
+      "path": "/post/capitalization-project-italy-albania-montenegro",
+      "title": "Capitalization project Italy-Albania-Montenegro",
+      "date": "Nov 24, 2022",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/a9619b46823e2124.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Podgorica. Montenegro. New Programme – Interreg IPA South Adriatic Italia – Albania – Montenegro 2021-2027 is presented on the Info Day on 23 November 2022 in the University Sport and Cultural Center in Podgorica, Montenegro. Mr. Bojan Vujović, Acting Director of the Directorate for EU Funds, Ministry of European Affairs of Montenegro, highlighted the importance of cross-border cooperation while Mr. Alessandro Delli Noci, Regional Minister for Economic Development, Puglia Region, Italy, suggested using as much as possible results of the previously implemented project and avoid overlapping of activities in the new project with those implemented within the framework of the previous programme. That is exactly what the announced new call for project proposals, expected to be released by the end of November 2022, is offering: capitalization of small-scale projects. Capitalization is a process put in place to make sure that valuable results, previously achieved, are used or transferred to other organizations, geographical locations, sectors, time, or other contexts.",
+          "html": "Podgorica. Montenegro. New Programme – <a href=\"https://www.italy-albania-montenegro.eu/\">Interreg IPA South Adriatic Italia – Albania – Montenegro 2021-2027</a> is presented on the Info Day on 23 November 2022 in the University Sport and Cultural Center in Podgorica, Montenegro. Mr. Bojan Vujović, Acting Director of the Directorate for EU Funds, Ministry of European Affairs of Montenegro, highlighted the importance of cross-border cooperation while Mr. Alessandro Delli Noci, Regional Minister for Economic Development, Puglia Region, Italy, suggested using as much as possible results of the previously implemented project and avoid overlapping of activities in the new project with those implemented within the framework of the previous programme. That is exactly what the announced new call for project proposals, expected to be released by the end of November 2022, is offering: capitalization of small-scale projects. Capitalization is a process put in place to make sure that valuable results, previously achieved, are used or transferred to other organizations, geographical locations, sectors, time, or other contexts. "
+        },
+        {
+          "type": "p",
+          "text": "Eligible results for capitalization are those achieved within (1) projects of the Interreg CBC Italy-Albania-Montenegro in the 2014-2020 period, (2) other funds, programmes, initiatives, projects, geographical contexts, or (3) achieved by project partner’s organizations and widely recognized as a good practice, of which evidence of external or independent assessments shall be provided.",
+          "html": "Eligible results for capitalization are those achieved within (1) projects of the Interreg CBC Italy-Albania-Montenegro in the 2014-2020 period, (2) other funds, programmes, initiatives, projects, geographical contexts, or (3) achieved by project partner’s organizations and widely recognized as a good practice, of which evidence of external or independent assessments shall be provided."
+        },
+        {
+          "type": "p",
+          "text": "If you have such results, I will be happy to assist you to put together a winning project proposal with one of the following specific objectives:",
+          "html": "If you have such results, I will be happy to assist you to put together a winning project proposal with one of the following specific objectives:"
+        },
+        {
+          "type": "p",
+          "text": "1.       Enhancing growth and competitiveness of SMEs , through joint cross-border actions;",
+          "html": "1.       Enhancing growth and competitiveness of <strong>SMEs</strong>, through joint cross-border actions;"
+        },
+        {
+          "type": "p",
+          "text": "2.       Promoting climate change adaptations, risk prevention and disaster resilience with joint cross-border actions;",
+          "html": "2.       Promoting climate change adaptations, <strong>risk </strong>prevention and disaster resilience with joint cross-border actions;"
+        },
+        {
+          "type": "p",
+          "text": "3.       Enhancing biodiversity , green infrastructure in the urban environment, and reducing pollution with joint cross-border actions;",
+          "html": "3.       Enhancing <strong>biodiversity</strong>, green infrastructure in the urban environment, and reducing pollution with joint cross-border actions;"
+        },
+        {
+          "type": "p",
+          "text": "4.       Promoting energy efficiency with joint cross-border actions;",
+          "html": "4.       Promoting <strong>energy </strong>efficiency with joint cross-border actions;"
+        },
+        {
+          "type": "p",
+          "text": "5.       Developing sustainable, climate resilient, intelligent and intermodal national, regional and local mobility and connectivity joint through cross-border actions;;",
+          "html": "5.       Developing sustainable, climate resilient, intelligent and intermodal national, regional and local mobility and <strong>connectivity </strong>joint through cross-border actions;;"
+        },
+        {
+          "type": "p",
+          "text": "6.       Improving skills , access to inclusive and quality services in education, training and life-long learning through developing infrastructure, and joint cross-border actions;",
+          "html": "6.       Improving <strong>skills</strong>, access to inclusive and quality services in education, training and life-long learning through developing infrastructure, and joint cross-border actions;"
+        },
+        {
+          "type": "p",
+          "text": "7.       Enhancing the role of culture and tourism in economic development, social inclusion and social innovation, through joint cross-border actions;",
+          "html": "7.       Enhancing the role of culture and <strong>tourism </strong>in economic development, social inclusion and social innovation, through joint cross-border actions;"
+        },
+        {
+          "type": "p",
+          "text": "8.       Enhancing governance , efficient public administration by promoting legal and administrative cooperation and cooperation between clients and institutions.",
+          "html": "8.       Enhancing <strong>governance</strong>, efficient public administration by promoting legal and administrative cooperation and cooperation between clients and institutions."
+        },
+        {
+          "type": "p",
+          "text": "The expected maximum project size is 200.000 EUR, a project duration of 12 months, and at least one eligible partner per each country (Italy, Albania and Montenegro). I am offering my developed professional network in those countries for assisting you in searching for relevant project partners.",
+          "html": "The expected maximum project size is 200.000 EUR, a project duration of 12 months, and at least one eligible partner per each country (Italy, Albania and Montenegro). I am offering my developed professional network in those countries for assisting you in searching for relevant project partners."
+        },
+        {
+          "type": "p",
+          "text": "To further discuss, contact me at radoje.lausevic at gmail.com.",
+          "html": "To further discuss, contact me at radoje.lausevic at gmail.com."
+        }
+      ],
+      "cover": "/assets/a9619b46823e2124.webp",
+      "excerpt": "Podgorica. Montenegro. New Programme – Interreg IPA South Adriatic Italia – Albania – Montenegro 2021-2027 is presented on the Info Day on 23 November 2022 in the University Sport and…"
+    },
+    {
+      "path": "/post/merry-christmas-and-a-happy-new-year",
+      "title": "Merry Christmas and a happy new year!",
+      "date": "Jan 5, 2022",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/6d97b0bfea67dfed.webp",
+          "alt": ""
+        }
+      ],
+      "cover": "/assets/6d97b0bfea67dfed.webp",
+      "excerpt": "A visual note from the archive."
+    },
+    {
+      "path": "/post/coordinating-exchange-project-team",
+      "title": "Coordinating EXChAngE project team",
+      "date": "Nov 17, 2021",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "I had demanding but the joyful task in Dubrovnik, Croatia: to coordinate the EXChAngE Project team meeting. Representatives of all project partners made an overview of activities implemented so far and discussed coordination of public procurements for the Blue Pass ticketing and entry control system, and tour guide and audio guide systems. The first draft of EXChAngE videos was presented to all participants as well as the structure and graphics of the mobile application of the EXChAngE E-guide. The project team agreed on the forthcoming meetings: training on Hutovo Blato biodiversity in Karaotok, Bosnia and Herzegovina at 8-9 March 2022, Mostar Fair presentation at 5-9 April 2022, E-guide presentation, and Closing conference in Kotor at mid-June 2022.",
+          "html": "I had demanding but the joyful task in Dubrovnik, Croatia: to coordinate the <a href=\"https://exchange.imp-du.com/\">EXChAngE</a> Project team meeting. Representatives of all project partners made an overview of activities implemented so far and discussed coordination of public procurements for the Blue Pass ticketing and entry control system, and tour guide and audio guide systems. The first draft of EXChAngE videos was presented to all participants as well as the structure and graphics of the mobile application of the EXChAngE E-guide. The project team agreed on the forthcoming meetings: training on Hutovo Blato biodiversity in Karaotok, Bosnia and Herzegovina at 8-9 March 2022, Mostar Fair presentation at 5-9 April 2022, E-guide presentation, and Closing conference in Kotor at mid-June 2022."
+        },
+        {
+          "type": "image",
+          "src": "/assets/0d437c9496067331.webp",
+          "alt": ""
+        }
+      ],
+      "cover": "/assets/0d437c9496067331.webp",
+      "excerpt": "I had demanding but the joyful task in Dubrovnik, Croatia: to coordinate the EXChAngE Project team meeting. Representatives of all project partners made an overview of activities…"
+    },
+    {
+      "path": "/post/cooperation-with-sarajevo-protected-areas",
+      "title": "Cooperation with Sarajevo protected areas",
+      "date": "Jul 22, 2021",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Public Enterprise for the Protected Natural Areas of the Kanton Sarajevo manages five areas: Nature Monument \"VreloBosne\", Nature Monument Skakavac, Protected Landscape Bentbaša, Protected Landscape \"Trebević\" and Protected Landscape \"Bijambare\". It has been a great pleasure to discuss with the director Mr Osman Delić, MSc, at a meeting in Sarajevo the possibilities of project co-operation the IPA CBC programme, the BlueDanube programme and the ongoing EXChAngE project the further development of the BluePass .",
+          "html": "<a href=\"https://www.zppks.ba/o-nama/osnovni-podaci\">Public Enterprise for the Protected Natural Areas of the Kanton Sarajevo</a> manages five areas: Nature Monument &quot;VreloBosne&quot;, Nature Monument Skakavac, Protected Landscape Bentbaša, Protected Landscape &quot;Trebević&quot; and Protected Landscape &quot;Bijambare&quot;. It has been a great pleasure to discuss with the director Mr Osman Delić, MSc, at a meeting in Sarajevo the possibilities of project co-operation the IPA CBC programme, the BlueDanube programme and the ongoing <a href=\"https://exchange.imp-du.com/\">EXChAngE </a>project the further development of the <a href=\"https://exchange.imp-du.com/blue-pass/\">BluePass</a>. "
+        },
+        {
+          "type": "image",
+          "src": "/assets/0f92b6ea152ac834.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Radoje Laušević and Osman Delić (photo: private archive)",
+          "html": "<em>Radoje Laušević and Osman Delić (photo: private archive)</em>"
+        },
+        {
+          "type": "p",
+          "text": "I look forward to continuing communication and developing concrete projects that contribute to the preservation of original natural values and the ambient diversity of protected areas.",
+          "html": "I look forward to continuing communication and developing concrete projects that contribute to the preservation of original natural values and the ambient diversity of protected areas."
+        }
+      ],
+      "cover": "/assets/0f92b6ea152ac834.webp",
+      "excerpt": "Public Enterprise for the Protected Natural Areas of the Kanton Sarajevo manages five areas: Nature Monument \"VreloBosne\", Nature Monument Skakavac, Protected Landscape Bentbaša, Protected…"
+    },
+    {
+      "path": "/post/european-ell-suggested-as-a-flagship-species-of-the-skadar-lake",
+      "title": "European Ell suggested as a flagship species of the Skadar lake",
+      "date": "Jun 22, 2020",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "KOTOR, MONTENEGRO, 22.06.2020 – Institute of Marine Biology of the University of Montenegro has published study “Evaluating status of European eel ( Anguilla anguilla ) in the Skadar lake which indicates ell as lake’s flagship species.",
+          "html": "KOTOR, MONTENEGRO, 22.06.2020 – Institute of Marine Biology of the University of Montenegro has published study “Evaluating status of European eel (<em>Anguilla anguilla</em>) in the Skadar lake which indicates ell as lake’s flagship species."
+        },
+        {
+          "type": "image",
+          "src": "/assets/67ad76afb7d0cbc7.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The study describes ell as a highly endangered fish species. Eel inhabits the whole water mass of Skadar lake, from its shoreline to its central part, form the small coastal springs to the depts of sublacustric wells called „oka“. There is a pronounced need to regulate and control ell harvesting in fish traps on the Bojana river in Albania during downstream eel migration. In order to reduce fishing pressure on eel livestock in the Skadar lake authors suggest estimating the development of eel farming and using glass eels and elvers from Bojana delta as fish farm stocking material.",
+          "html": "The study describes ell as a highly endangered fish species. Eel inhabits the whole water mass of Skadar lake, from its shoreline to its central part, form the small coastal springs to the depts of sublacustric wells called „oka“. There is a pronounced need to regulate and control ell harvesting in fish traps on the Bojana river in Albania during downstream eel migration. In order to reduce fishing pressure on eel livestock in the Skadar lake authors suggest estimating the development of eel farming and using glass eels and elvers from Bojana delta as fish farm stocking material."
+        },
+        {
+          "type": "p",
+          "text": "It was an honour and a great professional challenge for me to contribute to the writing of this study. I hope that the authors team, led by Dr. Danilo Mrdak, associated professor at the University of Montenegro, justified proposal to proclaim eel, together with pelican, as a flagship species of the Skadar lake.",
+          "html": "It was an honour and a great professional challenge for me to contribute to the writing of this study. I hope that the authors team, led by Dr. Danilo Mrdak, associated professor at the University of Montenegro, justified proposal to proclaim eel, together with pelican, as a flagship species of the Skadar lake."
+        },
+        {
+          "type": "p",
+          "text": "This study and publication were carried out under the project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)”, implemented by the Institute of Marine Biology of the University of Montenegro in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac.",
+          "html": "This study and publication were carried out under the project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)”, implemented by the Institute of Marine Biology of the University of Montenegro in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac."
+        },
+        {
+          "type": "p",
+          "text": "The study is available for free download at the following LINK.",
+          "html": "The study is available for free download at the following <a href=\"http://www.aquariumboka.ucg.ac.me/wp-content/uploads/2020/06/Evaluating-status-of-European-eel-20120620.pdf\">LINK.</a>"
+        }
+      ],
+      "cover": "/assets/67ad76afb7d0cbc7.webp",
+      "excerpt": "KOTOR, MONTENEGRO, 22.06.2020 – Institute of Marine Biology of the University of Montenegro has published study “Evaluating status of European eel ( Anguilla anguilla ) in the Skadar lake…"
+    },
+    {
+      "path": "/post/monteaqua-project-extended",
+      "title": "MonteAqua project extended",
+      "date": "Jun 12, 2020",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/29bf6c4553d5a8a4.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The implementation period of the project \" Center for the Protection of the Biodiversity of the Sea Boka Aquarium - MonteAqua \" is extended to September 30, 2020. Following temporary measures of the National Coordination Body for Communicable Diseases of Montenegro, as a response to the risk of import or spread of an infectious disease caused by the novel coronavirus, a Project management team requested such extension, considering announced pandemic as force majeure, and accommodated a final of the project, mainly with postponing the assembling of the aquarium for mid-June 2020.",
+          "html": "The implementation period of the project &quot;<a href=\"http://www.aquariumboka.ucg.ac.me/en/about-project/\">Center for the Protection of the Biodiversity of the Sea Boka Aquarium - MonteAqua</a>&quot; is extended to September 30, 2020. Following temporary measures of the National Coordination Body for Communicable Diseases of Montenegro, as a response to the risk of import or spread of an infectious disease caused by the novel coronavirus, a Project management team requested such extension, considering announced pandemic as force majeure, and accommodated a final of the project, mainly with postponing the assembling of the aquarium for mid-June 2020."
+        },
+        {
+          "type": "p",
+          "text": "The extension of the project for 4 months, till 30 September 2020, will enable aquarium assembling, hydraulic check, the population of tanks with planned organisms, finishing the reconstruction of the space, and public opening of the Aquarium.",
+          "html": "The extension of the project for 4 months, till 30 September 2020, will enable aquarium assembling, hydraulic check, the population of tanks with planned organisms, finishing the reconstruction of the space, and public opening of the Aquarium."
+        },
+        {
+          "type": "p",
+          "text": "I am proud to continue serving as the project manager of the MonteAqua project.",
+          "html": "I am proud to continue serving as the project manager of the MonteAqua project."
+        },
+        {
+          "type": "p",
+          "text": "About Partner Consulting: Since its establishment in 2018, the Agency Partner Consulting is offering services in project management and environmental research. The founder, Dr. Radoje Laušević is utilizing his 30 years of work experience in environmental research, lecturing, and project management for providing various tools, guidance, and support to the clients, enabling them to be more sustainable and succeed in the competitive marketplace.",
+          "html": "<strong>About Partner Consulting:</strong> Since its establishment in 2018, the Agency Partner Consulting is offering services in project management and environmental research. The founder, Dr. Radoje Laušević is utilizing his 30 years of work experience in environmental research, lecturing, and project management for providing various tools, guidance, and support to the clients, enabling them to be more sustainable and succeed in the competitive marketplace."
+        },
+        {
+          "type": "li",
+          "text": "Project management",
+          "html": "<a href=\"/blog/categories/project-management\">Project management</a>"
+        },
+        {
+          "type": "li",
+          "text": "Offical Development Assistance",
+          "html": "<a href=\"/blog/categories/offical-development-assistance\">Offical Development Assistance</a>"
+        }
+      ],
+      "cover": "/assets/29bf6c4553d5a8a4.webp",
+      "excerpt": "The implementation period of the project \" Center for the Protection of the Biodiversity of the Sea Boka Aquarium - MonteAqua \" is extended to September 30, 2020. Following temporary…"
+    },
+    {
+      "path": "/post/2019/10/18/project-impact-planning",
+      "title": "Project Impact Planning",
+      "date": "Oct 18, 2019",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Training workshop for Sava River Basin Network stakeholders",
+          "html": "<strong><em>Training workshop for Sava River Basin Network stakeholders</em></strong>"
+        },
+        {
+          "type": "p",
+          "text": "Bihać, Bosnia and Herzegovina : Today, the Partner Consulting delivered the training workshop for the Interreg Danube project \" Preserving Sava River Basin Habitats through Transnational Management of Invasive Alien Species - Sava TIES ” in Hotel Park. More than 30 representatives of project partners were trained in techniques how to measure and increase impacts of the project.",
+          "html": "<strong>Bihać, Bosnia and Herzegovina</strong>: Today, the Partner Consulting delivered the training workshop for the Interreg Danube project &quot;<a href=\"http://www.interreg-danube.eu/sava-ties\">Preserving Sava River Basin Habitats through Transnational Management of Invasive Alien Species - Sava TIES</a>” in Hotel Park. More than 30 representatives of project partners were trained in techniques how to measure and increase impacts of the project."
+        },
+        {
+          "type": "image",
+          "src": "/assets/9f727c322b85c893.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Workshop participants",
+          "html": "<em>Workshop participants</em>"
+        },
+        {
+          "type": "p",
+          "text": "Of the workshop purpose, Dr Mirjana Bartula, Sava TIES project manager, said: “This training will show us how to come up with a strategic plan that can save our time and ensure we can reach and prove the impacts we are seeking within Sava TIES project”. The training was delivered in three modules: on the project impact planning, on how to do stakeholder analysis, and on how to design an end-of-project stakeholder meeting to both generate and evaluate impact. The training is part of the SavaParks Network capacity building programme.",
+          "html": "Of the workshop purpose, Dr Mirjana Bartula, Sava TIES project manager, said: “This training will show us how to come up with a strategic plan that can save our time and ensure we can reach and prove the impacts we are seeking within Sava TIES project”. The training was delivered in three modules: on the project impact planning, on how to do stakeholder analysis, and on how to design an end-of-project stakeholder meeting to both generate and evaluate impact. The training is part of the SavaParks Network capacity building programme."
+        },
+        {
+          "type": "p",
+          "text": "Sava TIES project is implemented in all four countries of the Sava River basin: Slovenia, Croatia, Bosnia and Herzegovina and Serbia. The main project goals are to: find an effective solution for permanent eradication of invasive alien species, reduce habitat fragmentation, and improve the connectivity of the transnational ecological corridor. The project is implemented by consortium led by EuroNatur Foundation (Germany).",
+          "html": "Sava TIES project is implemented in all four countries of the Sava River basin: Slovenia, Croatia, Bosnia and Herzegovina and Serbia. The main project goals are to: find an effective solution for permanent eradication of invasive alien species, reduce habitat fragmentation, and improve the connectivity of the transnational ecological corridor. The project is implemented by consortium led by EuroNatur Foundation (Germany)."
+        },
+        {
+          "type": "image",
+          "src": "/assets/59c9f7f86f8b16a2.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Sava TIES World Cafe",
+          "html": "<em> Sava TIES World Cafe</em>"
+        },
+        {
+          "type": "p",
+          "text": "The Agency Partner Consulting is assisting the Nature Conservation Movement of Sremska Mitrovica , the Sava TIES project partner, in stakeholder engagement within Sava TIES project. This consultancy comprises:",
+          "html": "The Agency Partner Consulting is assisting the <a href=\"http://www.zasavica.org.rs\">Nature Conservation Movement of Sremska Mitrovica</a>, the Sava TIES project partner, in stakeholder engagement within Sava TIES project. This consultancy comprises:"
+        },
+        {
+          "type": "li",
+          "text": "Drafting Stakeholder engagement plan aimed at improving cross-sectoral cooperation in invasive alien species management in the Sava River Basin,",
+          "html": "Drafting Stakeholder engagement plan aimed at improving cross-sectoral cooperation in invasive alien species management in the Sava River Basin,  "
+        },
+        {
+          "type": "li",
+          "text": "Drafting SavaParks Network after-project Roadmap aimed at ensuring future cooperation for harmonised management of the protected areas in the Sava River basin and to implement the Strategic framework for invasive alien species management,",
+          "html": "Drafting SavaParks Network after-project Roadmap aimed at ensuring future cooperation for harmonised management of the protected areas in the Sava River basin and to implement the Strategic framework for invasive alien species management,  "
+        },
+        {
+          "type": "li",
+          "text": "Drafting SavaParks Network capacity building programme aimed at providing SavaParks  Network with capacities and skills to develop a Strategic Framework for Transnational invasive alien species management in the Sava River Basin, implement different measures and approaches for management, control and  eradication of invasive alien plant species in protected areas, reach policy and decision makers from all relevant sectors to ensure that the results and recommendations are taken up by the policies",
+          "html": "Drafting SavaParks Network capacity building programme aimed at providing SavaParks  Network with capacities and skills to develop a Strategic Framework for Transnational invasive alien species management in the Sava River Basin, implement different measures and approaches for management, control and  eradication of invasive alien plant species in protected areas, reach policy and decision makers from all relevant sectors to ensure that the results and recommendations are taken up by the policies "
+        },
+        {
+          "type": "p",
+          "text": "About Partner Consulting: Since its establishment in 2018, the Agency Partner Consulting is offering services in project management and environmental research. The founder, Dr Radoje Laušević is utilizing his 30 years of work experience in environmental research, lecturing, and project management for providing various tools, guidance, and support to the clients, enabling them to be more sustainable and succeed in the competitive marketplace.",
+          "html": "<strong>About Partner Consulting:</strong> Since its establishment in 2018, the Agency Partner Consulting is offering services in project management and environmental research. The founder, Dr Radoje Laušević is utilizing his 30 years of work experience in environmental research, lecturing, and project management for providing various tools, guidance, and support to the clients, enabling them to be more sustainable and succeed in the competitive marketplace."
+        }
+      ],
+      "cover": "/assets/9f727c322b85c893.webp",
+      "excerpt": "Training workshop for Sava River Basin Network stakeholders Bihać, Bosnia and Herzegovina : Today, the Partner Consulting delivered the training workshop for the Interreg Danube project \"…"
+    },
+    {
+      "path": "/post/2019/10/18/fighting-invasive-alien-species-in-sava-river-basin",
+      "title": "Fighting Invasive Alien Species in Sava River Basin",
+      "date": "Oct 18, 2019",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Kulen Fakuf, Bosnia and Herzegovina : Today, the regional workshop of the Interreg Danube project \" Preserving Sava River Basin Habitats through Transnational Management of Invasive Alien Species - Sava TIES ” is opened in local municipality center. More than 30 representatives of project partners are discussing ongoing project activities and the SavaParks Network after-project Roadmap. Of the workshop scope, Dr Mirjana Bartula, Sava TIES project manager, said “The workshop is providing inputs on future cooperation among SavaParks Network for harmonised management of the protected areas in the Sava River basin.” The workshop is part of the drafting the SavaParks Network after-project Roadmap.",
+          "html": "<strong>Kulen Fakuf, Bosnia and Herzegovina</strong>: Today, the regional workshop of the Interreg Danube project &quot;<a href=\"http://www.interreg-danube.eu/sava-ties\">Preserving Sava River Basin Habitats through Transnational Management of Invasive Alien Species - Sava TIES</a>” is opened in local municipality center. More than 30 representatives of project partners are discussing ongoing project activities and the SavaParks Network after-project Roadmap. Of the workshop scope, Dr Mirjana Bartula, Sava TIES project manager, said “The workshop is providing inputs on future cooperation among SavaParks Network for harmonised management of the protected areas in the Sava River basin.” The workshop is part of the drafting the SavaParks Network after-project Roadmap."
+        },
+        {
+          "type": "image",
+          "src": "/assets/f4afc1654bbc373e.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The the regional workshop participants (Photo: R. Laušević)",
+          "html": " The the regional workshop participants (Photo: R. Laušević)"
+        },
+        {
+          "type": "p",
+          "text": "Sava TIES project is implemented in all four countries of the Sava River basin: Slovenia, Croatia, Bosnia and Herzegovina and Serbia. The main project goals are to: find an effective solution for permanent eradication of invasive alien species, reduce habitat fragmentation, and improve the connectivity of the transnational ecological corridor. The project is implemented by consortium led by EuroNatur Foundation (Germany).",
+          "html": "Sava TIES project is implemented in all four countries of the Sava River basin: Slovenia, Croatia, Bosnia and Herzegovina and Serbia. The main project goals are to: find an effective solution for permanent eradication of invasive alien species, reduce habitat fragmentation, and improve the connectivity of the transnational ecological corridor. The project is implemented by consortium led by <a href=\"http://www.euronatur.org\">EuroNatur Foundation</a> (Germany)."
+        },
+        {
+          "type": "p",
+          "text": "The Agency Partner Consulting is assisting the Nature Conservation Movement of Sremska Mitrovica , the Sava TIES project partner, in stakeholder engagement within Sava TIES project. This consultancy comprises:",
+          "html": "The Agency Partner Consulting is assisting the <a href=\"http://www.zasavica.org.rs\">Nature Conservation Movement of Sremska Mitrovica</a>, the Sava TIES project partner, in stakeholder engagement within Sava TIES project. This consultancy comprises: "
+        },
+        {
+          "type": "li",
+          "text": "Drafting Stakeholder engagement plan aimed at improving cross-sectoral cooperation in invasive alien species management in the Sava River Basin,",
+          "html": "Drafting Stakeholder engagement plan aimed at improving cross-sectoral cooperation in invasive alien species management in the Sava River Basin,  "
+        },
+        {
+          "type": "li",
+          "text": "Drafting SavaParks Network after-project Roadmap aimed at ensuring future cooperation for harmonised management of the protected areas in the Sava River basin and to implement the Strategic framework for invasive alien species management,",
+          "html": "Drafting SavaParks Network after-project Roadmap aimed at ensuring future cooperation for harmonised management of the protected areas in the Sava River basin and to implement the Strategic framework for invasive alien species management,  "
+        },
+        {
+          "type": "li",
+          "text": "Drafting SavaParks Network capacity building programme aimed at providing SavaParks  Network with capacities and skills to develop a Strategic Framework for Transnational invasive alien species management in the Sava River Basin, implement different measures and approaches for management, control and  eradication of invasive alien plant species in protected areas, reach policy and decision makers from all relevant sectors to ensure that the results and recommendations are taken up by the policies.",
+          "html": "Drafting SavaParks Network capacity building programme aimed at providing SavaParks  Network with capacities and skills to develop a Strategic Framework for Transnational invasive alien species management in the Sava River Basin, implement different measures and approaches for management, control and  eradication of invasive alien plant species in protected areas, reach policy and decision makers from all relevant sectors to ensure that the results and recommendations are taken up by the policies. "
+        },
+        {
+          "type": "p",
+          "text": "About Partner Consulting : Since its establishment in 2018, the Agency Partner Consulting is offering services in project management and environmental research. The founder, Dr Radoje Laušević is utilizing his 30 years of work experience in environmental research, lecturing, and project management for providing various tools, guidance, and support to the clients, enabling them to be more sustainable and succeed in the competitive marketplace.",
+          "html": "<strong>About Partner Consulting</strong>: Since its establishment in 2018, the Agency Partner Consulting is offering services in project management and environmental research. The founder, Dr Radoje Laušević is utilizing his 30 years of work experience in environmental research, lecturing, and project management for providing various tools, guidance, and support to the clients, enabling them to be more sustainable and succeed in the competitive marketplace."
+        }
+      ],
+      "cover": "/assets/f4afc1654bbc373e.webp",
+      "excerpt": "Kulen Fakuf, Bosnia and Herzegovina : Today, the regional workshop of the Interreg Danube project \" Preserving Sava River Basin Habitats through Transnational Management of Invasive Alien…"
+    },
+    {
+      "path": "/post/2019/04/19/keep-your-eyes-open",
+      "title": "Keep your eyes open",
+      "date": "Apr 19, 2019",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Plant Ex situ conservation examples in Zagreb, Croatia",
+          "html": "<em>Plant Ex situ conservation examples in Zagreb, Croatia</em>"
+        },
+        {
+          "type": "p",
+          "text": "Ex situ conservation literally means, \"off-site conservation\". It is the process of protecting an endangered species, variety or breed, of plant or animal outside its natural habitat; for example, by removing part of the population from a threatened habitat and placing it in a new location, which may be a wild area or within the care of humans. Ex situ management can occur within or outside a species' natural geographic range. Individuals maintained ex situ exist outside an ecological niche. This means that they are not under the same selection pressures as wild populations, and they may undergo artificial selection if maintained ex situ for multiple generations (Source: Wikipedia ).",
+          "html": "<em>Ex situ</em> conservation literally means, &quot;off-site conservation&quot;. It is the process of protecting an endangered species, variety or breed, of plant or animal outside its natural habitat; for example, by removing part of the population from a threatened habitat and placing it in a new location, which may be a wild area or within the care of humans. Ex situ management can occur within or outside a species&#x27; natural geographic range. Individuals maintained ex situ exist outside an ecological niche. This means that they are not under the same selection pressures as wild populations, and they may undergo artificial selection if maintained ex situ for multiple generations (Source: <a href=\"http://en.wikipedia.org/wiki/Ex_situ_conservation\">Wikipedia</a>)."
+        },
+        {
+          "type": "p",
+          "text": "In today’s visit to the Botanical Garden of the Faculty of Science, University of Zagreb I met two of such examples.",
+          "html": "In today’s visit to<a href=\"http://botanickivrt.biol.pmf.hr/en/\"> the Botanical Garden</a> of the Faculty of Science, University of Zagreb I met two of such examples."
+        },
+        {
+          "type": "image",
+          "src": "/assets/e0991cb1c788387c.webp",
+          "alt": "Botanical GArden Zagreb plate"
+        },
+        {
+          "type": "p",
+          "text": "Degenia",
+          "html": "<strong>Degenia</strong>"
+        },
+        {
+          "type": "p",
+          "text": "Degenia is a monotypic plant genus in the mustard family containing the single species Degenia velebitica (Degen) Hayek (in Croatian: velebitska degenija).",
+          "html": "Degenia is a monotypic plant genus in the mustard family containing the single species<em> Degenia velebitica</em> (Degen) Hayek (in Croatian: velebitska degenija)."
+        },
+        {
+          "type": "image",
+          "src": "/assets/cf959c671b578452.webp",
+          "alt": "Degenia velebitica (Degen) Hayek Photo: Radoje Laušević"
+        },
+        {
+          "type": "p",
+          "text": "Degenia velebitica (Degen) Hayek. Photo: Radoje Laušević",
+          "html": "<em>Degenia velebitica</em> (Degen) Hayek. Photo: Radoje Laušević"
+        },
+        {
+          "type": "p",
+          "text": "The yellow-flowered plant is endemic to Velebit and Kapela mountain ranges, and has become a symbol of the region. It is strictly protected in the following Natura 2000 sites: HR5000022, Croatia, Park prirode Velebit, and HR2000856, Croatia, Padine Velog vrha iznad Tomišine drage.",
+          "html": "The yellow-flowered plant is endemic to Velebit and Kapela mountain ranges, and has become a symbol of the region. It is strictly protected in the following Natura 2000 sites: HR5000022, Croatia, Park prirode Velebit, and HR2000856, Croatia, Padine Velog vrha iznad Tomišine drage. "
+        },
+        {
+          "type": "image",
+          "src": "/assets/e969d4cff910297d.webp",
+          "alt": "Degenia velebitica (Degen) Hayek area"
+        },
+        {
+          "type": "p",
+          "text": "Degenia velebitica (Degen) Hayek areal (Source: EUNIS )",
+          "html": "Degenia velebitica (Degen) Hayek areal (Source: <a href=\"http://eunis.eea.europa.eu/species/162882#protected\">EUNIS</a>)"
+        },
+        {
+          "type": "p",
+          "text": "As result of protection programme it is planted in the Botanical Garden in Zagreb.",
+          "html": "As result of protection programme it is planted in the Botanical Garden in Zagreb."
+        },
+        {
+          "type": "p",
+          "text": "Wollemia",
+          "html": "<strong>Wollemia</strong>"
+        },
+        {
+          "type": "p",
+          "text": "Wollemia is a genus of coniferous tree in the family Araucariaceae.",
+          "html": "Wollemia is a genus of coniferous tree in the family Araucariaceae."
+        },
+        {
+          "type": "image",
+          "src": "/assets/718f42fa806f3136.webp",
+          "alt": "Wollemia nobilis. Photo: Radoje Laušević"
+        },
+        {
+          "type": "p",
+          "text": "Wollemia nobilis . Photo: Radoje Laušević",
+          "html": "<em>Wollemia nobilis</em>. Photo: Radoje Laušević"
+        },
+        {
+          "type": "p",
+          "text": "Wollemia was only known through fossil records until September 1994, when David Noble, a Wildlife Officer with the NSW National Parks and Wildlife Service, was bush walking and abseiling in the Wollemi National Park in the Blue Mountains near Blackheath, in New South Wales. It is remote series of narrow, steep-sided sandstone gorges 150 km north-west of Sydney.  The National Park is named after the aboriginal word “Wollemi” meaning \"look around you, keep your eyes open and watch out\". David obviously was doing this when he noticed a gorge which contained a grove of very unusual trees. Having a good knowledge of botany he recognised that these trees were something different to anything he had seen before and decided to take a small fallen branch back with him for further study. What he had discovered was a new species to science which was subsequently named after him – the Wollemia nobilis . (Source: rupertouyang.com ).",
+          "html": "Wollemia was only known through fossil records until September 1994, when David Noble, a Wildlife Officer with the NSW National Parks and Wildlife Service, was bush walking and abseiling in the Wollemi National Park in the Blue Mountains near Blackheath, in New South Wales. It is remote series of narrow, steep-sided sandstone gorges 150 km north-west of Sydney.  The National Park is named after the aboriginal word “Wollemi” meaning &quot;look around you, keep your eyes open and watch out&quot;. David obviously was doing this when he noticed a gorge which contained a grove of very unusual trees. Having a good knowledge of botany he recognised that these trees were something different to anything he had seen before and decided to take a small fallen branch back with him for further study. What he had discovered was a new species to science which was subsequently named after him – the <em>Wollemia nobilis</em>. (Source: <a href=\"http://www.rupertouyang.com.au/living-fossil.html\">rupertouyang.com</a>)."
+        },
+        {
+          "type": "p",
+          "text": "Dr. Cathy Offord of the Royal Botanical Gardens Sydney sums up the Wollemi as follows: \"Having a Wollemi Pine in the garden allows everyone to help conserve this unique endangered species.\" Wollemi is now grown in the Botanical Garden in Zagreb.",
+          "html": "Dr. Cathy Offord of the Royal Botanical Gardens Sydney sums up the Wollemi as follows: &quot;Having a Wollemi Pine in the garden allows everyone to help conserve this unique endangered species.&quot; Wollemi is now grown in the Botanical Garden in Zagreb."
+        },
+        {
+          "type": "p",
+          "text": "#Zagreb #Croatia #Exsituprotection #Botanicalgarden #plants #Degenia #Wollemia",
+          "html": "<a href=\"/blog/hashtags/Zagreb\">#Zagreb</a> <a href=\"/blog/hashtags/Croatia\">#Croatia</a> <a href=\"/blog/hashtags/Exsituprotection\">#Exsituprotection</a> <a href=\"/blog/hashtags/Botanicalgarden\">#Botanicalgarden</a> <a href=\"/blog/hashtags/plants\">#plants</a> <a href=\"/blog/hashtags/Degenia\">#Degenia</a> <a href=\"/blog/hashtags/Wollemia\">#Wollemia</a>"
+        }
+      ],
+      "cover": "/assets/e0991cb1c788387c.webp",
+      "excerpt": "Plant Ex situ conservation examples in Zagreb, Croatia Ex situ conservation literally means, \"off-site conservation\". It is the process of protecting an endangered species, variety or…"
+    },
+    {
+      "path": "/post/2019/04/11/adribiopro2019",
+      "title": "AdriBioPro2019",
+      "date": "Apr 11, 2019",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/fe972de415585535.webp",
+          "alt": "AdriBioPro2019 inforgraphics"
+        }
+      ],
+      "cover": "/assets/fe972de415585535.webp",
+      "excerpt": "A visual note from the archive."
+    },
+    {
+      "path": "/post/2019/04/08/the-next-step-in-the-adriatic-biodiversity-conservation",
+      "title": "The Next Step in the Adriatic Biodiversity Conservation",
+      "date": "Apr 8, 2019",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Kotor, Montenegro: Today, the International Conference “Adriatic Biodiversity Conservation – AdriBioPro2019” is opened in Cultural Center “Nikola Đurković”, to provide updated scientific, decision-making and policy-relevant information across a broad array of different Adriatic issues, marine biology and related scientific disciplines. More than 100 participants from 15 countries will have 92 presentations during two-days conference in 9 topics: Marine biodiversity conservation, Conservation of coastal and marine areas, Preventing marine pollution, Rare and endangered species in the Adriatic Sea, Marine invasive and alien species, Roles of aquaria, Sustainable use of marine resources, Marine biotechnology, and Freshwater biodiversity conservation.",
+          "html": "Kotor, Montenegro: Today, the International Conference “Adriatic Biodiversity Conservation – AdriBioPro2019” is opened in Cultural Center “Nikola Đurković”, to provide updated scientific, decision-making and policy-relevant information across a broad array of different Adriatic issues, marine biology and related scientific disciplines. More than 100 participants from 15 countries will have 92 presentations during two-days conference in 9 topics: Marine biodiversity conservation, Conservation of coastal and marine areas, Preventing marine pollution, Rare and endangered species in the Adriatic Sea, Marine invasive and alien species, Roles of aquaria, Sustainable use of marine resources, Marine biotechnology, and Freshwater biodiversity conservation."
+        },
+        {
+          "type": "p",
+          "text": "This conference is organized by the Institute of Marine Biology of the University of Montenegro. Few words about the Conference background. In December 2017, the Institute was granted by the Norwegian Ministry of Foreign Affairs to implement a project “Marine Biodiversity Conservation Center “Boka Aquarium” – MonteAqua”, in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac. The main project activity is setting up Marine Biodiversity Conservation Center “Boka Aquarium” in the Institute of Marine Biology in Kotor. This conference is final project event, dedicated to gather all relevant national and regional stakeholders and to secure closer regional cooperation in the Adriatic Sea region.",
+          "html": "This conference is organized by the Institute of Marine Biology of the University of Montenegro. Few words about the Conference background. In December 2017, the Institute was granted by the Norwegian Ministry of Foreign Affairs to implement a project “Marine Biodiversity Conservation Center “Boka Aquarium” – MonteAqua”, in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac. The main project activity is setting up Marine Biodiversity Conservation Center “Boka Aquarium” in the Institute of Marine Biology in Kotor. This conference is final project event, dedicated to gather all relevant national and regional stakeholders and to secure closer regional cooperation in the Adriatic Sea region."
+        },
+        {
+          "type": "image",
+          "src": "/assets/ccc1a10d4d2ed904.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Of the Conference’s scope, Dr Aleksandar Joksimović, Conference Scientific Committee Chair said, “The Conference is organized to include plenary and breakout sessions covering both disciplinary and interdisciplinary perspectives. Particular focus will be put on the development opportunities which marine biotechnology can offer in the Adriatic.”",
+          "html": "Of the Conference’s scope, Dr Aleksandar Joksimović, Conference Scientific Committee Chair said, “The Conference is organized to include plenary and breakout sessions covering both disciplinary and interdisciplinary perspectives. Particular focus will be put on the development opportunities which marine biotechnology can offer in the Adriatic.”"
+        },
+        {
+          "type": "image",
+          "src": "/assets/72e923e8fb21c018.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Commenting expected Conference impact, Professor Đurđica Perović, the University of Montenegro Vice Rector said, “We trust that Conference results will be used in shaping future marine science priorities and policy in Montenegro and other Adriatic countries.”",
+          "html": "Commenting expected Conference impact, Professor Đurđica Perović, the University of Montenegro Vice Rector said, “We trust that Conference results will be used in shaping future marine science priorities and policy in Montenegro and other Adriatic countries.”"
+        },
+        {
+          "type": "p",
+          "text": "The Institute of Marine Biology of the University of Montenegro is granted by the Norwegian Ministry of Foreign Affairs to implement a project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)” in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac. The AdriBioPro2019 conference is final project event, dedicated to gather all relevant national and regional stakeholders and to secure closer regional cooperation in the Adriatic Sea region.",
+          "html": "The Institute of Marine Biology of the University of Montenegro is granted by the Norwegian Ministry of Foreign Affairs to implement a project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)” in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac. The AdriBioPro2019 conference is final project event, dedicated to gather all relevant national and regional stakeholders and to secure closer regional cooperation in the Adriatic Sea region."
+        },
+        {
+          "type": "p",
+          "text": "About Institute of Marine Biology :  Since its establishment IMB performed comprehensive research of the marine and coastal area, which has its wide impact to the environmental protection and pollution-prevention, and practical application (e.g. sea food industry). Core competencies of IMB are focused on research in the fields of mariculture, marine conservation, ichthyology and marine fisheries, chemistry, general biology, neurophysiology and eco-physiology, biochemistry and molecular biology. Recent results present marine biodiversity of Boka Kotorska Bay, and provide inputs for the National Strategy for Integrated Coastal Zone Management of Montenegro.",
+          "html": "<strong>About Institute of Marine Biology</strong>:  Since its establishment IMB performed comprehensive research of the marine and coastal area, which has its wide impact to the environmental protection and pollution-prevention, and practical application (e.g. sea food industry). Core competencies of IMB are focused on research in the fields of mariculture, marine conservation, ichthyology and marine fisheries, chemistry, general biology, neurophysiology and eco-physiology, biochemistry and molecular biology. Recent results present marine biodiversity of Boka Kotorska Bay, and provide inputs for the National Strategy for Integrated Coastal Zone Management of Montenegro."
+        }
+      ],
+      "cover": "/assets/ccc1a10d4d2ed904.webp",
+      "excerpt": "Kotor, Montenegro: Today, the International Conference “Adriatic Biodiversity Conservation – AdriBioPro2019” is opened in Cultural Center “Nikola Đurković”, to provide updated scientific,…"
+    },
+    {
+      "path": "/post/2019/04/07/hidden-beauty-of-the-sea",
+      "title": "Hidden Beauty of the Sea",
+      "date": "Apr 7, 2019",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "International Conference AdriBioPro2019 exhibition of underwater photography reveals wonderful sea life.",
+          "html": "International Conference AdriBioPro2019 exhibition of underwater photography reveals wonderful sea life."
+        },
+        {
+          "type": "image",
+          "src": "/assets/f2b8fb8083927661.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Today, the exhibition of underwater photography “Hidden Beauty of the Sea” is opened in the gallery of the Cultural Center “Nikola Đurković” in Kotor, Montenegro, revealing wonderful Adriatic sea life and presenting its biodiversity. The exhibition is organized as side event of the International Conference “Adriatic Biodiversity Conservation – AdriBioPro2019”. Two authors, Ms. Ivana Orlović Kranjc and Mr. Janez Kranjc, presented forty photographs in large format, bringing to Kotor underwater landscapes, wildlife and plants from the Adriatic Sea.",
+          "html": "Today, the exhibition of underwater photography “Hidden Beauty of the Sea” is opened in the gallery of the Cultural Center “Nikola Đurković” in Kotor, Montenegro, revealing wonderful Adriatic sea life and presenting its biodiversity. The exhibition is organized as side event of the International Conference “Adriatic Biodiversity Conservation – AdriBioPro2019”. Two authors, Ms. Ivana Orlović Kranjc and Mr. Janez Kranjc, presented forty photographs in large format, bringing to Kotor underwater landscapes, wildlife and plants from the Adriatic Sea."
+        },
+        {
+          "type": "image",
+          "src": "/assets/90ba1f5c816efd26.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Of the exhibition concept, Ms. Marija Bernard, the Cultural Center “Nikola Đurković” Director said, “This exhibition is unique opportunity for all citizens and guests of the city of Kotor to learn about and enjoy hidden beauty of the seas. As the exhibition will be opened only for seven days, I am encouraging all to hurry up and visit us.”",
+          "html": "Of the exhibition concept, Ms. Marija Bernard, the Cultural Center “Nikola Đurković” Director said, “This exhibition is unique opportunity for all citizens and guests of the city of Kotor to learn about and enjoy hidden beauty of the seas. As the exhibition will be opened only for seven days, I am encouraging all to hurry up and visit us.”"
+        },
+        {
+          "type": "image",
+          "src": "/assets/2d4f81a188bcc7c5.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "From the left: Vesna Mačić, Janne Knutrud, Ivana Orlović Kranjc, Janez Kranjc (Photo: Radoje Laušević)",
+          "html": "From the left: Vesna Mačić, Janne Knutrud, Ivana Orlović Kranjc, Janez Kranjc (Photo: Radoje Laušević)"
+        },
+        {
+          "type": "p",
+          "text": "Vesna Mačić, PhD, expert of the Institute of the Marine Biology, said “Diving is not only sport and recreational activity, it is also important skill for all marine biologists. Underwater photography is not only artistic activity, it is also an important scientific method of non-invasive studies of sea life”.",
+          "html": "Vesna Mačić, PhD, expert of the Institute of the Marine Biology, said “Diving is not only sport and recreational activity, it is also important skill for all marine biologists. Underwater photography is not only artistic activity, it is also an important scientific method of non-invasive studies of sea life”."
+        },
+        {
+          "type": "image",
+          "src": "/assets/0d9aa0441115a16b.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Ms. Janne Knutrud, Deputy Head of Mission from the Royal Norwegian Embassy in Belgrade, said: \"This exhibition is marking the start of the regional conference on Adriatic Biodiversity Conservation 2019, supported by the Norwegian embassy. The main component of this project is construction of the marine Aquarium at the premises of the Institute. Opening of the Aquarium for the public is planned for 2020. In the meantime, we can enjoy in photographs of the sea creatures, and if you are divers, you can meet them underwater, like the authors of this beautiful exhibition today.\"",
+          "html": "Ms. Janne Knutrud, Deputy Head of Mission from the Royal Norwegian Embassy in Belgrade, said: &quot;This exhibition is marking the start of the regional conference on Adriatic Biodiversity Conservation 2019, supported by the Norwegian embassy. The main component of this project is construction of the marine Aquarium at the premises of the Institute. Opening of the Aquarium for the public is planned for 2020. In the meantime, we can enjoy in photographs of the sea creatures, and if you are divers, you can meet them underwater, like the authors of this beautiful exhibition today.&quot;"
+        },
+        {
+          "type": "image",
+          "src": "/assets/f47d31b349039862.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Displayed photographs reminded me on my first diving in August 2017. Actually, Ivana and Janez intrigued me with scuba diving. I am sure that after visiting this exhibition, all will wish to dive with them and make first underwater photographs. You can be sure they are the best underwater photographers and diving instructors.",
+          "html": "Displayed photographs reminded me on my first diving in August 2017. Actually, Ivana and Janez intrigued me with scuba diving. I am sure that after visiting this exhibition, all will wish to dive with them and make first underwater photographs. You can be sure they are the best underwater photographers and diving instructors."
+        },
+        {
+          "type": "p",
+          "text": "About the Institute of Marine Biology",
+          "html": "<strong>About the Institute of Marine Biology</strong>"
+        },
+        {
+          "type": "image",
+          "src": "/assets/c0071820d868e528.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The Institute of Marine Biology Photo: University of Montenegro",
+          "html": "<em>The Institute of Marine Biology Photo: University of Montenegro</em>"
+        },
+        {
+          "type": "p",
+          "text": "The Institute of Marine Biology of the University of Montenegro is granted by the Norwegian Ministry of Foreign Affairs to implement a project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)”. The AdriBioPro2019 conference is final project event, dedicated to gather all relevant national and regional stakeholders and to secure closer regional cooperation in the Adriatic Sea region. The exhibition is organized as main conference side event in partnership with the Cultural Center “Nikola Đurković”.",
+          "html": "The Institute of Marine Biology of the University of Montenegro is granted by the Norwegian Ministry of Foreign Affairs to implement a project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)”. The AdriBioPro2019 conference is final project event, dedicated to gather all relevant national and regional stakeholders and to secure closer regional cooperation in the Adriatic Sea region. The exhibition is organized as main conference side event in partnership with the Cultural Center “Nikola Đurković”."
+        },
+        {
+          "type": "p",
+          "text": "About authors",
+          "html": "<strong>About authors</strong>"
+        },
+        {
+          "type": "image",
+          "src": "/assets/7807ec90bf4eaf87.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Ms. Ivana Orlović Kranjc is diver for more than 35 years. With her husband Janez, she is managing the largest diving club in Serbia - S.D.T. Svet Ronjenja. In the last ten years she has dedicated her diving career to underwater photography. Ivana uses the Nikon D7000 and D810 in Subal's case. Company Mares promoted Ivana for their global ambassador.",
+          "html": "Ms. Ivana Orlović Kranjc is diver for more than 35 years. With her husband Janez, she is managing the largest diving club in Serbia - S.D.T. Svet Ronjenja. In the last ten years she has dedicated her diving career to underwater photography. Ivana uses the Nikon D7000 and D810 in Subal&#x27;s case. Company Mares promoted Ivana for their global ambassador."
+        },
+        {
+          "type": "image",
+          "src": "/assets/eb1190342cb134cc.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Mr. Janez Kranjc is a diving instructor, an underwater photographer and a video cameraman. He dives since 1997. In last fifteen years he has been recording intricately underwater photos published in many magazines. He is associate of National Geographic Serbia. Janez uses the Nikon D810, D7000 in Subal's case. He is also the global ambassador of diving equipment Mares, CMAS M2 instructor, underwater photography instructor and nitrox instructor",
+          "html": "Mr. Janez Kranjc is a diving instructor, an underwater photographer and a video cameraman. He dives since 1997. In last fifteen years he has been recording intricately underwater photos published in many magazines. He is associate of National Geographic Serbia. Janez uses the Nikon D810, D7000 in Subal&#x27;s case. He is also the global ambassador of diving equipment Mares, CMAS M2 instructor, underwater photography instructor and nitrox instructor"
+        }
+      ],
+      "cover": "/assets/f2b8fb8083927661.webp",
+      "excerpt": "International Conference AdriBioPro2019 exhibition of underwater photography reveals wonderful sea life. Today, the exhibition of underwater photography “Hidden Beauty of the Sea” is opened…"
+    },
+    {
+      "path": "/post/2018/04/14/small-danube",
+      "title": "Small Danube",
+      "date": "Apr 14, 2018",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This Saturday afternoon I visited old friend of mine, prof. Zoran Marković, at his Center for Fishery and Applied Hydrobiology \"Little Danube\".",
+          "html": "This Saturday afternoon I visited old friend of mine, prof. Zoran Marković, at his Center for Fishery and Applied Hydrobiology &quot;Little Danube&quot;."
+        },
+        {
+          "type": "image",
+          "src": "/assets/97d8f42de49c6720.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Prof. Zoran Marković (right) and myself (left) in CEFAH hall for controlled reproduction and selective breeding.",
+          "html": "Prof. Zoran Marković (right) and myself (left) in CEFAH hall for controlled reproduction and selective breeding."
+        },
+        {
+          "type": "p",
+          "text": "He guided me through the \"Little Danube\" water course - a living model of the river Danube, established in the bed of the former extremely polluted stream Šugavac. This is best example how to convert once open collector of waste waters into unique nature resource. Waste waters from upstream settlement is first partly purified using a constructed wetland, and then transferred in the pipe. The water bed of the creek was cleaned and rehabilitated. Water supply is secured from the 120 m deep water-well. As a picture is worth a thousand words, I am bringing several photos from this excursion:",
+          "html": "He guided me through the &quot;Little Danube&quot; water course - a living model of the river Danube, established in the bed of the former extremely polluted stream Šugavac. This is best example how to convert once open collector of waste waters into unique nature resource. Waste waters from upstream settlement is first partly purified using a constructed wetland, and then transferred in the pipe. The water bed of the creek was cleaned and rehabilitated. Water supply is secured from the 120 m deep water-well. As a picture is worth a thousand words, I am bringing several photos from this excursion:"
+        },
+        {
+          "type": "image",
+          "src": "/assets/d57d9d041ede91e7.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Ponds at CEFAH",
+          "html": "Ponds at CEFAH"
+        },
+        {
+          "type": "image",
+          "src": "/assets/6d9e0cbda0d58413.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Open air classroom at CEFAH",
+          "html": "Open air classroom at CEFAH"
+        },
+        {
+          "type": "image",
+          "src": "/assets/98f0586928bf6f85.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Angling lake at CEFAH",
+          "html": " Angling lake at CEFAH"
+        },
+        {
+          "type": "p",
+          "text": "I am warmly inviting you to contact Zoran and visit CEFAH.",
+          "html": "I am warmly inviting you to contact Zoran and visit <a href=\"http://www.cefah.agrif.bg.ac.rs/about.html\">CEFAH.</a>"
+        },
+        {
+          "type": "p",
+          "text": "#Danube #Aquaculture #Fishery #Appliedhydrobiology #ZoranMarković #FacultyofAgriculture #Radmilovac #Belgrade",
+          "html": "<a href=\"/blog/hashtags/Danube\">#Danube</a> <a href=\"/blog/hashtags/Aquaculture\">#Aquaculture</a> <a href=\"/blog/hashtags/Fishery\">#Fishery</a> <a href=\"/blog/hashtags/Appliedhydrobiology\">#Appliedhydrobiology</a> <a href=\"/blog/hashtags/ZoranMarković\">#ZoranMarković</a> <a href=\"/blog/hashtags/FacultyofAgriculture\">#FacultyofAgriculture</a> <a href=\"/blog/hashtags/Radmilovac\">#Radmilovac</a> <a href=\"/blog/hashtags/Belgrade\">#Belgrade</a>"
+        }
+      ],
+      "cover": "/assets/97d8f42de49c6720.webp",
+      "excerpt": "This Saturday afternoon I visited old friend of mine, prof. Zoran Marković, at his Center for Fishery and Applied Hydrobiology \"Little Danube\". Prof. Zoran Marković (right) and myself…"
+    },
+    {
+      "path": "/post/2017/06/08/rosemary-for-remembrance",
+      "title": "Rosemary for remembrance",
+      "date": "Jun 8, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Rosmarinus officinalis L., commonly known as rosemary, is a woody, perennial herb with fragrant, evergreen, needle-like leaves and white, pink, purple, or blue flowers. It is best known for its strongly aromatic, needle-like evergreen leaves. The name \"rosemary\" derives from the Latin for \"dew\" and \"sea\" (marinus), or \"dew of the sea\". The plant is also sometimes called anthos, from the ancient Greek word for \"flower\". There is also nice myth connected to the name “rosemary”: the Virgin Mary is said to have spread her blue cloak over a white-blossomed rosemary bush when she was resting, and the flowers turned blue. The shrub then became known as the \"Rose of Mary\".",
+          "html": "<em>Rosmarinus officinalis</em> L., commonly known as rosemary, is a woody, perennial herb with fragrant, evergreen, needle-like leaves and white, pink, purple, or blue flowers. It is best known for its strongly aromatic, needle-like evergreen leaves. The name &quot;rosemary&quot; derives from the Latin for &quot;dew&quot; and &quot;sea&quot; (marinus), or &quot;dew of the sea&quot;. The plant is also sometimes called anthos, from the ancient Greek word for &quot;flower&quot;. There is also nice myth connected to the name “rosemary”: the Virgin Mary is said to have spread her blue cloak over a white-blossomed rosemary bush when she was resting, and the flowers turned blue. The shrub then became known as the &quot;Rose of Mary&quot;."
+        },
+        {
+          "type": "p",
+          "text": "Rosemary is native to the Mediterranean region and Caucasus. In my garden I have several shrubs, the oldest one 7 years old (see Photo 1).",
+          "html": "\n\nRosemary is native to the Mediterranean region and Caucasus. In my garden I have several shrubs, the oldest one 7 years old (see Photo 1). "
+        },
+        {
+          "type": "image",
+          "src": "/assets/0ce1eef076ff4259.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Photo 1. Rosemary shrubs in my garden; behind flowering oleanders  [photo: R. Lausevic]",
+          "html": "<em>Photo 1. Rosemary shrubs in my garden; behind flowering oleanders  [photo: R. Lausevic]</em>"
+        },
+        {
+          "type": "p",
+          "text": "Rosemary is a member of the mint family Lamiaceae , which includes many other herbs. The name \"rosemary\" derives from the Latin for \"dew\" (ros) and \"sea\" (marinus), or \"dew of the sea\".",
+          "html": "Rosemary is a member of the mint family <em>Lamiaceae</em>, which includes many other herbs. The name &quot;rosemary&quot; derives from the Latin for &quot;dew&quot; (ros) and &quot;sea&quot; (marinus), or &quot;dew of the sea&quot;."
+        },
+        {
+          "type": "p",
+          "text": "Habitus",
+          "html": "<strong>Habitus</strong>"
+        },
+        {
+          "type": "p",
+          "text": "Rosemary is an erect, bushy shrub that may reach 2 m in height. In my garden, I crop rosemary shrubs every early spring, to keep their nice rounded shape (see Photo 2), to protect them from very strong northern winds, and to collect leaves. Why to collect them? Read this blog till the end.",
+          "html": "Rosemary is an erect, bushy shrub that may reach 2 m in height. In my garden, I crop rosemary shrubs every early spring, to keep their nice rounded shape (see Photo 2), to protect them from very strong northern winds, and to collect leaves. Why to collect them? Read this blog till the end."
+        },
+        {
+          "type": "image",
+          "src": "/assets/8f73380ae930bcf4.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Photo 2. Cropped rosemary shrubs (bottom left) [photo: R. Lausevic]",
+          "html": "<em> Photo 2. Cropped rosemary shrubs (bottom left) [photo: R. Lausevic]</em>"
+        },
+        {
+          "type": "p",
+          "text": "Evergreen leaves are dark green above and white hairy below. The leaves are 2 to 3.5 cm in length and are folded inward along the margins. The flowers are purplish white and strongly two-lipped, and have two long-exerted (protruding) stamens (see Photo 3). The fruit consists of four dry nutlets (one-seeded sections).",
+          "html": "Evergreen leaves are dark green above and white hairy below. The leaves are 2 to 3.5 cm in length and are folded inward along the margins. The flowers are purplish white and strongly two-lipped, and have two long-exerted (protruding) stamens (see Photo 3). The fruit consists of four dry nutlets (one-seeded sections). "
+        },
+        {
+          "type": "image",
+          "src": "/assets/d4b67614c04002bd.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Photo 3. Rosemary flowers [photo: R. Lausevic]",
+          "html": "<em>Photo 3. Rosemary flowers [photo: R. Lausevic]</em>"
+        },
+        {
+          "type": "p",
+          "text": "Habitat",
+          "html": "<strong>Habitat</strong>"
+        },
+        {
+          "type": "p",
+          "text": "This tough Mediterranean shrub needs a sunny position and light soil that doesn’t become waterlogged. It is used to long, hot summers in its natural home and can withstand periods of drought, making it suitable for containers, as well as sunny borders. The new growth is soft and flexible but older stems become woody and this plant can form a substantial trunk in time. Propagation is simple from cuttings in early to midsummer. Cut pieces of new growth, around 10 cm long, and insert them into a pot of compost. Keep them moist and they should root by the autumn, when they can be potted up and grown on before planting out in spring.",
+          "html": "This tough Mediterranean shrub needs a sunny position and light soil that doesn’t become waterlogged. It is used to long, hot summers in its natural home and can withstand periods of drought, making it suitable for containers, as well as sunny borders. The new growth is soft and flexible but older stems become woody and this plant can form a substantial trunk in time. Propagation is simple from cuttings in early to midsummer. Cut pieces of new growth, around 10 cm long, and insert them into a pot of compost. Keep them moist and they should root by the autumn, when they can be potted up and grown on before planting out in spring."
+        },
+        {
+          "type": "p",
+          "text": "Culinary use",
+          "html": "<strong>Culinary use</strong>"
+        },
+        {
+          "type": "p",
+          "text": "The leaves are used as a flavoring in foods such as stuffings and roast lamb, pork, chicken and turkey. Fresh or dried leaves (Photo 4) are used in traditional Mediterranean cuisine. So, that is the reason why I’m collecting and drying them. They have a bitter, astringent taste and a characteristic aroma which complements many cooked foods.",
+          "html": "The leaves are used as a flavoring in foods such as stuffings and roast lamb, pork, chicken and turkey. Fresh or dried leaves (Photo 4) are used in traditional Mediterranean cuisine. So, that is the reason why I’m collecting and drying them. They have a bitter, astringent taste and a characteristic aroma which complements many cooked foods. "
+        },
+        {
+          "type": "image",
+          "src": "/assets/1ee6fe3bac9068d3.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Photo 4. Dried rosemary leaves [photo: R. Lausevic]",
+          "html": " <em>Photo 4. Dried rosemary leaves [photo: R. Lausevic]</em>"
+        },
+        {
+          "type": "p",
+          "text": "When roasted with meats or vegetables, the leaves impart a mustard-like aroma with an additional fragrance of charred wood compatible with barbecued foods. Get in touch with me – May and early June are top season in Montenegro and Serbia for roasted lamb. With rosemary leaves it’s even more delicious!",
+          "html": "When roasted with meats or vegetables, the leaves impart a mustard-like aroma with an additional fragrance of charred wood compatible with barbecued foods. Get in touch with me – May and early June are top season in Montenegro and Serbia for roasted lamb. With rosemary leaves it’s even more delicious!"
+        },
+        {
+          "type": "p",
+          "text": "Medical use",
+          "html": "<strong>Medical use</strong>"
+        },
+        {
+          "type": "p",
+          "text": "Rosemary contains a number of phytochemicals, including rosmarinic acid, camphor, caffeic acid, ursolic acid, betulinic acid, carnosic acid and carnosol. In the past, rosemary was believed to aid memory and was often made into garlands for students when they were sitting their exams. Scientific research has shown that rosmarinic acid, one of the main constituents of rosemary, inhibits certain enzymes linked to neurological disorders causing memory loss. Scientists investigating the benefits of rosmarinic acid found it has strong anti-oxidant properties.",
+          "html": "Rosemary contains a number of phytochemicals, including rosmarinic acid, camphor, caffeic acid, ursolic acid, betulinic acid, carnosic acid and carnosol. In the past, rosemary was believed to aid memory and was often made into garlands for students when they were sitting their exams. Scientific research has shown that rosmarinic acid, one of the main constituents of rosemary, inhibits certain enzymes linked to neurological disorders causing memory loss. Scientists investigating the benefits of rosmarinic acid found it has strong anti-oxidant properties."
+        },
+        {
+          "type": "p",
+          "text": "Preparations of rosemary are taken orally or applied topically for a variety of complaints. The leaves and flowers can also be used to make a tea, said to be good for headaches, colic, colds and nervous diseases as well as depression. Rosemary has also been used in herbal remedies for relieving asthma. Used in combination with essential oils from thyme (Thymus), lavender (Lavandula) and cedarwood (Cedrus), the essential oil of rosemary reportedly improves hair growth in people with allopecia. It also has antibacterial and antifungal properties. There is evidence that the essential oil relaxes the muscles of the gastrointestinal tract, and may increase blood flow to the heart.",
+          "html": "\n\nPreparations of rosemary are taken orally or applied topically for a variety of complaints. The leaves and flowers can also be used to make a tea, said to be good for headaches, colic, colds and nervous diseases as well as depression. Rosemary has also been used in herbal remedies for relieving asthma. Used in combination with essential oils from thyme (Thymus), lavender (Lavandula) and cedarwood (Cedrus), the essential oil of rosemary reportedly improves hair growth in people with allopecia. It also has antibacterial and antifungal properties. There is evidence that the essential oil relaxes the muscles of the gastrointestinal tract, and may increase blood flow to the heart."
+        },
+        {
+          "type": "p",
+          "text": "Cautions The essential oil of rosemary is potent and can be toxic. It should be avoided by pregnant and breastfeeding women and by people prone to seizures. The oil may cause severe adverse effects including seizures when taken internally and may irritate the skin when applied externally.",
+          "html": "<strong>Cautions</strong>\n\nThe essential oil of rosemary is potent and can be toxic. It should be avoided by pregnant and breastfeeding women and by people prone to seizures. The oil may cause severe adverse effects including seizures when taken internally and may irritate the skin when applied externally."
+        },
+        {
+          "type": "p",
+          "text": "How I use rosemary Besides using if to flavor food when I’m cooking, I prepare herbal tea from the leaves. The best one is from fresh leaves, but when I’m not in Montenegro, then I’m using dried ones. That is second, and even more important reason why I’m collecting and drying rosemary leaves. Get in touch with me, we might prepare excellent rosemary tea and improve our memory. At least, that might be event for remembrance. In Shakespeare's Hamlet, Ophelia says, \"There's rosemary, that's for remembrance.\" (Hamlet, iv. 5.).",
+          "html": "<strong>How I use rosemary</strong>\n\nBesides using if to flavor food when I’m cooking, I prepare herbal tea from the leaves. The best one is from fresh leaves, but when I’m not in Montenegro, then I’m using dried ones. That is second, and even more important reason why I’m collecting and drying rosemary leaves. Get in touch with me, we might prepare excellent rosemary tea and improve our memory. At least, that might be event for remembrance. In Shakespeare&#x27;s Hamlet, Ophelia says, &quot;There&#x27;s rosemary, that&#x27;s for remembrance.&quot; (Hamlet, iv. 5.).\n "
+        },
+        {
+          "type": "p",
+          "text": "#Rosemary #Herbaltea #Gardening",
+          "html": "<a href=\"/blog/hashtags/Rosemary\">#Rosemary</a> <a href=\"/blog/hashtags/Herbaltea\">#Herbaltea</a> <a href=\"/blog/hashtags/Gardening\">#Gardening</a>"
+        },
+        {
+          "type": "li",
+          "text": "Gardening",
+          "html": "<a href=\"/blog/categories/gardening\">Gardening</a>"
+        },
+        {
+          "type": "li",
+          "text": "Sustainable lifestiles",
+          "html": "<a href=\"/blog/categories/sustainable-lifestiles\">Sustainable lifestiles</a>"
+        }
+      ],
+      "cover": "/assets/0ce1eef076ff4259.webp",
+      "excerpt": "Rosmarinus officinalis L., commonly known as rosemary, is a woody, perennial herb with fragrant, evergreen, needle-like leaves and white, pink, purple, or blue flowers. It is best known for…"
+    },
+    {
+      "path": "/post/2017/06/02/official-development-assistance",
+      "title": "Official Development Assistance",
+      "date": "Jun 6, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Tool for the economic development and welfare of developing countries",
+          "html": "Tool for the economic development and welfare of developing countries"
+        },
+        {
+          "type": "p",
+          "text": "Development Assistance Committee ( DAC ) of the Organisation for Economic Co-operation and Development (OECD) coined the term “Official Development Assistance (ODA)” back in 1969 with some further clarification in 1972. Since that time ODA is defined as “those flows to countries and territories on the DAC List of ODA Recipients and to multilateral institutions which are: (i) provided by official agencies, including state and local governments, or by their executive agencies; and (ii) each transaction of which: a)  is administered with the promotion of the economic development and welfare of developing countries as its main objective; and b)  is concessional in character and conveys a grant element of at least 25 per cent (calculated at a rate of discount of 10 per cent).” ODA is the key measure used in practically all aid targets and assessments of aid performance.",
+          "html": "Development Assistance Committee (<a href=\"http://www.oecd.org/dac/\">DAC</a>) of the Organisation for Economic Co-operation and Development (OECD) coined the term “Official Development Assistance (ODA)” back in 1969 with some further clarification in 1972. Since that time ODA is defined as “those flows to countries and territories on the DAC List of ODA Recipients and to multilateral institutions which are: (i) provided by official agencies, including state and local governments, or by their executive agencies; and (ii) each transaction of which: a)  is administered with the promotion of the economic development and welfare of developing countries as its main objective; and b)  is concessional in character and conveys a grant element of at least 25 per cent (calculated at a rate of discount of 10 per cent).” ODA is the key measure used in practically all aid targets and assessments of aid performance."
+        },
+        {
+          "type": "p",
+          "text": "Although DAC members extended $131.6 billion in official development assistance (ODA) in 2015, which represented an increase of 6.9 percent in real terms from 2014 and of 83 percent from 2000, ODA still accounts for a small share of donors’ gross national income (GNI), averaging 0.3 percent. Just six DAC countries exceeded the UN benchmark for ODA contributions of at least 0.7 percent of GNI (SDG17: Partnership for Global Development, target 17.2). In addition, much of ODA is still allocated as humanitarian aid rather than to development projects and programs.",
+          "html": "Although DAC members extended $131.6 billion in official development assistance (ODA) in 2015, which represented an increase of 6.9 percent in real terms from 2014 and of 83 percent from 2000, ODA still accounts for a small share of donors’ gross national income (GNI), averaging 0.3 percent. Just six DAC countries exceeded the UN benchmark for ODA contributions of at least 0.7 percent of GNI (SDG17: Partnership for Global Development, target 17.2). In addition, much of ODA is still allocated as humanitarian aid rather than to development projects and programs."
+        },
+        {
+          "type": "image",
+          "src": "/assets/fb1a56c301c97390.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Source: World Bank. 2017. Atlas of Sustainable Development Goals 2017: World Development Indicators. Washington, DC: World Bank. doi:10.1596/978-1-4648-1080-0. License: Creative Commons Attribution CC BY 3.0 IGO",
+          "html": "<em>Source: World Bank. 2017. Atlas of Sustainable Development Goals 2017: World Development Indicators. Washington, DC: World Bank. doi:10.1596/978-1-4648-1080-0. License: Creative Commons Attribution CC BY 3.0 IGO</em>"
+        },
+        {
+          "type": "p",
+          "text": "Although widely accepted as an important tool for the economic development and welfare of developing countries, ODA has been criticized by several economists for being an inappropriate way of helping poor countries. Criticism usually points on fact that a country used to receiving ODA may be perpetually bound to depend on handouts.",
+          "html": "Although widely accepted as an important tool for the economic development and welfare of developing countries, ODA has been criticized by several economists for being an inappropriate way of helping poor countries. Criticism usually points on fact that a country used to receiving ODA may be perpetually bound to depend on handouts."
+        },
+        {
+          "type": "p",
+          "text": "I personally participated in several ODA funded projects in Middle East, North Africa and South-East Europe. My suggestions to make ODA more efficient are:",
+          "html": "I personally participated in several ODA funded projects in Middle East, North Africa and South-East Europe. My suggestions to make ODA more efficient are: "
+        },
+        {
+          "type": "li",
+          "text": "make ODA responsive to the needs of the recipient country (relevance of ODA)",
+          "html": "make ODA responsive to the needs of the recipient country (relevance of ODA)  "
+        },
+        {
+          "type": "li",
+          "text": "measure how the total aid effort contributes - positively and negatively - to the achievement of desired development outcomes at country level (effectiveness of ODA)",
+          "html": "measure how the total aid effort contributes - positively and negatively - to the achievement of desired development outcomes at country level (effectiveness of ODA)  "
+        },
+        {
+          "type": "li",
+          "text": "measure of how economically resources are converted to results (outputs and outcomes) (efficiency of ODA)",
+          "html": "measure of how economically resources are converted to results (outputs and outcomes) (efficiency of ODA)  "
+        },
+        {
+          "type": "li",
+          "text": "assess positive and negative, primary and secondary long-term effects produced by a development intervention, directly or indirectly, intended or unintended (impact of ODA)",
+          "html": "assess positive and negative, primary and secondary long-term effects produced by a development intervention, directly or indirectly, intended or unintended (impact of ODA)  "
+        },
+        {
+          "type": "li",
+          "text": "focus on ex-post evaluation projects and follow-up measures (sustainability of ODA)",
+          "html": "focus on ex-post evaluation projects and follow-up measures (sustainability of ODA) "
+        },
+        {
+          "type": "p",
+          "text": "What is your opinion?",
+          "html": "What is your opinion?"
+        },
+        {
+          "type": "p",
+          "text": "#ODA #SDG",
+          "html": "<a href=\"/blog/hashtags/ODA\">#ODA</a> <a href=\"/blog/hashtags/SDG\">#SDG</a>"
+        },
+        {
+          "type": "li",
+          "text": "Offical Development Assistance",
+          "html": "<a href=\"/blog/categories/offical-development-assistance\">Offical Development Assistance</a>"
+        },
+        {
+          "type": "li",
+          "text": "Sustainable Development Goals",
+          "html": "<a href=\"/blog/categories/sustainable-development-goals\">Sustainable Development Goals</a>"
+        }
+      ],
+      "cover": "/assets/fb1a56c301c97390.webp",
+      "excerpt": "Tool for the economic development and welfare of developing countries Development Assistance Committee ( DAC ) of the Organisation for Economic Co-operation and Development (OECD) coined…"
+    },
+    {
+      "path": "/post/2017/06/01/the-2017-atlas-of-sustainable-development-goals",
+      "title": "The 2017 Atlas of Sustainable Development Goals",
+      "date": "Jun 2, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A new visual guide to data and development",
+          "html": "A new visual guide to data and development"
+        },
+        {
+          "type": "image",
+          "src": "/assets/c962430749fb92f8.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The World Bank recently released the 2017 Atlas of Sustainable Development Goals . With over 150 maps and data visualizations, the new publication charts the progress societies are making towards the 17 SDGs .",
+          "html": "The World Bank recently released the <a href=\"http://data.worldbank.org/sdgatlas\">2017 Atlas of Sustainable Development Goals</a>. With over 150 maps and data visualizations, <a href=\"http://openknowledge.worldbank.org/handle/10986/26306\">the new publication</a> charts the progress societies are making towards the <a href=\"http://www.undp.org/content/undp/en/home/sustainable-development-goals.html\">17 SDGs</a>."
+        },
+        {
+          "type": "p",
+          "text": "The Atlas of Sustainable Development Goals 2017 was produced by the Development Economics Data Group of the World Bank, in collaboration with the Global Practices and Cross-Cutting Solution Areas of the World Bank and the Offce of the Senior Vice President for the 2030 Development Agenda, United Nations Relations, and Partnerships.",
+          "html": "The Atlas of Sustainable Development Goals 2017 was produced by the Development Economics Data Group of the World Bank, in collaboration with the Global Practices and Cross-Cutting Solution Areas of the World Bank and the Offce of the Senior Vice President for the 2030 Development Agenda, United Nations Relations, and Partnerships."
+        },
+        {
+          "type": "p",
+          "text": "The Atlas is part of the World Development Indicators (WDI) family of products that offer high-quality, cross-country comparable statistics about development and people’s lives around the globe.",
+          "html": "The Atlas is part of the <a href=\"http://data.worldbank.org/products/wdi\">World Development Indicators (WDI) family of products</a> that offer high-quality, cross-country comparable statistics about development and people’s lives around the globe."
+        },
+        {
+          "type": "p",
+          "text": "The 17 Sustainable Development Goals and their associated 169 targets are ambitious. They will be challenging to implement, and challenging to measure. The Atlas offers the perspective of experts in the World Bank on each of the SDGs.",
+          "html": "The 17 Sustainable Development Goals and their associated 169 targets are ambitious. They will be challenging to implement, and challenging to measure. The Atlas offers the perspective of experts in the World Bank on each of the SDGs."
+        },
+        {
+          "type": "p",
+          "text": "Reference:",
+          "html": "<em>Reference:</em>"
+        },
+        {
+          "type": "p",
+          "text": "World Bank. 2017. Atlas of Sustainable Development Goals 2017: World Development Indicators. Washington, DC: World Bank. doi:10.1596/978-1-4648-1080-0. License: Creative Commons Attribution CC BY 3.0 IGO",
+          "html": "World Bank. 2017. Atlas of Sustainable Development Goals 2017: World Development Indicators. Washington, DC: World Bank. doi:10.1596/978-1-4648-1080-0. License: Creative Commons Attribution CC BY 3.0 IGO"
+        },
+        {
+          "type": "p",
+          "text": "#SDG #WorldBank #Atlas",
+          "html": "<a href=\"/blog/hashtags/SDG\">#SDG</a> <a href=\"/blog/hashtags/WorldBank\">#WorldBank</a> <a href=\"/blog/hashtags/Atlas\">#Atlas</a>"
+        },
+        {
+          "type": "li",
+          "text": "Sustainable Development Goals",
+          "html": "<a href=\"/blog/categories/sustainable-development-goals\">Sustainable Development Goals</a>"
+        },
+        {
+          "type": "li",
+          "text": "Data vizualization",
+          "html": "<a href=\"/blog/categories/data-vizualization\">Data vizualization</a>"
+        }
+      ],
+      "cover": "/assets/c962430749fb92f8.webp",
+      "excerpt": "A new visual guide to data and development The World Bank recently released the 2017 Atlas of Sustainable Development Goals . With over 150 maps and data visualizations, the new publication…"
+    },
+    {
+      "path": "/post/2017/05/30/responsible-consumption-and-production",
+      "title": "Responsible Consumption and Production",
+      "date": "May 30, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/2314a8dbb3af4b09.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "There is need to act now: Live sustainable lifestyles! #GreenYourLife",
+          "html": "There is need to act now: Live sustainable lifestyles! <a href=\"/blog/hashtags/GreenYourLife\">#GreenYourLife</a> "
+        },
+        {
+          "type": "li",
+          "text": "29% of global energy are consumed in households",
+          "html": "29% of global energy are consumed in households  "
+        },
+        {
+          "type": "li",
+          "text": "21% of CO2 emissions come from households",
+          "html": "21% of CO2 emissions come from households  "
+        },
+        {
+          "type": "li",
+          "text": "US$120 could be saved if people worldwide switched to energy efficient lightbulbs",
+          "html": "US$120 could be saved if people worldwide switched to energy efficient lightbulbs  "
+        },
+        {
+          "type": "li",
+          "text": "1/3 of all food produces – around 1.3 billion tonnes worth around $1 trillion—ends up rotting in the bins of consumers and retailers",
+          "html": "1/3 of all food produces – around 1.3 billion tonnes worth around $1 trillion—ends up rotting in the bins of consumers and retailers "
+        },
+        {
+          "type": "p",
+          "text": "It is expected that more people globally will join middle class over next two decades. Very good for individual prosperity, right? However, that will increase demand for already constrained natural resources. If the global population reaches 9.6 billion by 2050, and if we will keep our current lifestyles and individual goals, then the equivalent of almost three planets will be required to sustain everyone wishes. That is obviously not path towards sustainability. At least not for the majority.",
+          "html": "It is expected that more people globally will join middle class over next two decades. Very good for individual prosperity, right? However, that will increase demand for already constrained natural resources. If the global population reaches 9.6 billion by 2050, and if we will keep our current lifestyles and individual goals, then the equivalent of almost three planets will be required to sustain everyone wishes. That is obviously not path towards sustainability. At least not for the majority."
+        },
+        {
+          "type": "p",
+          "text": "Fundamental changes in the way societies produce and consume are indispensable for achieving global sustainable development. Goal 12 of sustainable development goals addresses how to ensure sustainable consumption and production patterns. This goal is dedicated in promoting resource and energy efficiency, sustainable infrastructure, and providing access to basic services, green and decent jobs and a better quality of life for all.",
+          "html": "Fundamental changes in the way societies produce and consume are indispensable for achieving global sustainable development. <a href=\"http://www.un.org/sustainabledevelopment/sustainable-consumption-production/\">Goal 12</a> of <a href=\"http://www.un.org/sustainabledevelopment/sustainable-development-goals/\">sustainable development goals</a> addresses how to ensure sustainable consumption and production patterns. This goal<a href=\"http://www.un.org/sustainabledevelopment/sustainable-consumption-production/\"> </a>is dedicated in promoting resource and energy efficiency, sustainable infrastructure, and providing access to basic services, green and decent jobs and a better quality of life for all."
+        },
+        {
+          "type": "image",
+          "src": "/assets/5a8b55742e5d5a3a.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "SDG Goal 12: Responsible Consumption and Production",
+          "html": " SDG Goal 12: Responsible Consumption and Production"
+        },
+        {
+          "type": "p",
+          "text": "The 10-year framework of programmes on sustainable consumption and production patterns ( 10YFP ) is a global framework of action to enhance international cooperation to accelerate the shift towards sustainable consumption and production (SCP) in both developed and developing countries. Download The 10-Year Framework of Programmes on Sustainable Consumption and Production here .",
+          "html": "The 10-year framework of programmes on sustainable consumption and production patterns (<a href=\"http://www.unep.org/10yfp/about/what-10yfp\">10YFP</a>) is a global framework of action to enhance international cooperation to accelerate the shift towards sustainable consumption and production (SCP) in both developed and developing countries. Download The 10-Year Framework of Programmes on Sustainable Consumption and Production <a href=\"http://www.scpclearinghouse.org/sites/default/files/10yfp_general_brochure_february_2017-.pdf\">here</a>."
+        },
+        {
+          "type": "p",
+          "text": "The European Union has mainstreamed sustainable development policies through the EU Sustainable Development Strategy (SDS) , and the Environmental Technologies Action Plan for which sustainable consumption and production (SCP) is a priority, also highlighted in Europe 2020 strategy . SCP is in this context aimed at promoting economic growth and social cohesion without impairing environmental quality.",
+          "html": "The European Union has mainstreamed sustainable development policies through the <a href=\"http://ec.europa.eu/environment/eussd/\">EU Sustainable Development Strategy (SDS)</a>, and the <a href=\"http://ec.europa.eu/environment/ecoap/index_en.htm\">Environmental Technologies Action Plan</a> for which sustainable consumption and production (SCP) is a priority, also highlighted in <a href=\"http://ec.europa.eu/europe2020/index_en.htm\">Europe 2020 strategy</a>. SCP is in this context aimed at promoting economic growth and social cohesion without impairing environmental quality."
+        },
+        {
+          "type": "image",
+          "src": "/assets/aaf09239b57e30af.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The EU Ecolabel logo makes it simple to know that a product or a service is both environmentally friendly and good quality. It’s easy to recognise and reliable. The logo can be found on the packaging of every EU Ecolabel product.",
+          "html": "The <a href=\"http://ec.europa.eu/environment/ecolabel/eu-ecolabel-for-consumers.html\">EU Ecolabel</a> logo makes it simple to know that a product or a service is both environmentally friendly and good quality. It’s easy to recognise and reliable. The logo can be found on the packaging of every EU Ecolabel product."
+        },
+        {
+          "type": "p",
+          "text": "There are two main ways you can help as consumer:",
+          "html": "There are two main ways you can help as consumer: "
+        },
+        {
+          "type": "li",
+          "text": "Reducing your waste and",
+          "html": "Reducing your waste and  "
+        },
+        {
+          "type": "li",
+          "text": "Being thoughtful about what you buy and choosing a sustainable option whenever possible.",
+          "html": "Being thoughtful about what you buy and choosing a sustainable option whenever possible. "
+        },
+        {
+          "type": "p",
+          "text": "#GreenYourLife and become responsible consumer.",
+          "html": "<a href=\"/blog/hashtags/GreenYourLife\">#GreenYourLife</a> and become responsible consumer."
+        },
+        {
+          "type": "p",
+          "text": "#SustainableConsumptionandProduction #SDG12 #sustainability",
+          "html": "<a href=\"/blog/hashtags/SustainableConsumptionandProduction\">#SustainableConsumptionandProduction</a> <a href=\"/blog/hashtags/SDG12\">#SDG12</a> <a href=\"/blog/hashtags/sustainability\">#sustainability</a>"
+        },
+        {
+          "type": "li",
+          "text": "Sustainable lifestiles",
+          "html": "<a href=\"/blog/categories/sustainable-lifestiles\">Sustainable lifestiles</a>"
+        },
+        {
+          "type": "li",
+          "text": "Sustainable Consumption and Product",
+          "html": "<a href=\"/blog/categories/sustainable-consumption-and-product\">Sustainable Consumption and Product</a>"
+        }
+      ],
+      "cover": "/assets/2314a8dbb3af4b09.webp",
+      "excerpt": "There is need to act now: Live sustainable lifestyles! #GreenYourLife It is expected that more people globally will join middle class over next two decades. Very good for individual…"
+    },
+    {
+      "path": "/post/2017/05/29/sustainable-transport",
+      "title": "Sustainable Transport",
+      "date": "May 29, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/5aba2d2677c01728.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "There is need to act now: Live sustainable lifestyles! #GreenYourLife",
+          "html": "There is need to act now: Live sustainable lifestyles! <a href=\"/blog/hashtags/GreenYourLife\">#GreenYourLife</a> "
+        },
+        {
+          "type": "li",
+          "text": "25% of energy-related greenhouse gas (GHG) emissions worldwide comes from transport sector",
+          "html": "25% of energy-related greenhouse gas (GHG) emissions worldwide comes from transport sector  "
+        },
+        {
+          "type": "li",
+          "text": "75% of Europe’s citizens live in cities",
+          "html": "75% of Europe’s citizens live in cities  "
+        },
+        {
+          "type": "li",
+          "text": "40% of CO2 in Europe originates from road transport",
+          "html": "40% of CO2 in Europe originates from road transport  "
+        },
+        {
+          "type": "li",
+          "text": "3,7 million early deaths in Europe every year are due to air pollution, mostly in cities",
+          "html": "3,7 million early deaths in Europe every year are due to air pollution, mostly in cities "
+        },
+        {
+          "type": "p",
+          "text": "The role of transport in sustainable development was first recognized at the 1992 United Nation’s Earth Summit and reinforced in its outcome document – the Agenda 21. Several chapters, as for example Chapter 9 on Atmosphere and Chapter 7 on Human Settlements recognize Transport as a key development issue.",
+          "html": "The role of transport in sustainable development was first recognized at the 1992 United Nation’s Earth Summit and reinforced in its outcome document – the Agenda 21. Several chapters, as for example Chapter 9 on Atmosphere and Chapter 7 on Human Settlements recognize Transport as a key development issue."
+        },
+        {
+          "type": "p",
+          "text": "Useful knowledge on sustainable transport is stored on UN Sustainable Development Knowledge Platform . There, you can find information which points on transport sector as responsible for one quarter of energy-related greenhouse gas (GHG) emissions worldwide, with its emissions increasing at a faster rate than any other sectors. Thus, transport sector must be included in any effective policy response to climate change and in order to keep the global temperature increase below the two-degree Celsius.",
+          "html": "Useful knowledge on sustainable transport is stored on <a href=\"http://sustainabledevelopment.un.org\">UN Sustainable Development Knowledge Platform</a>. There, you can find <a href=\"http://sustainabledevelopment.un.org/topics/sustainabletransport\">information </a>which points on transport sector as responsible for one quarter of energy-related greenhouse gas (GHG) emissions worldwide, with its emissions increasing at a faster rate than any other sectors. Thus, transport sector must be included in any effective policy response to climate change and in order to keep the global temperature increase below the two-degree Celsius."
+        },
+        {
+          "type": "p",
+          "text": "Sustainable transport is essential to achieving most, if not all, of the proposed Sustainable Development Goals (SDGs) and the 2030 Agenda for Sustainable Development. Although sustainable transport is not represented by a standalone SDG, it is mainstreamed across several SDGs and targets, especially those related to food security, health, energy, infrastructure and cities and human settlements.",
+          "html": "Sustainable transport is essential to achieving most, if not all, of the proposed Sustainable Development Goals (SDGs) and the 2030 Agenda for Sustainable Development. Although sustainable transport is not represented by a standalone SDG, it is mainstreamed across several SDGs and targets, especially those related to food security, health, energy, infrastructure and cities and human settlements."
+        },
+        {
+          "type": "image",
+          "src": "/assets/8bda8a157ac25cbf.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Source: Mobilizing Sustainable Transport for Development by High-level Advisory Group on Sustainable Transport, 2016",
+          "html": "<em>Source: Mobilizing Sustainable Transport for Development by High-level Advisory Group on Sustainable Transport, 2016</em>"
+        },
+        {
+          "type": "p",
+          "text": "In 2014, United Nations Secretary-General Ban Ki-moon appointed an independent High-Level Advisory Group on Sustainable Transport to provide a focused set of recommendations on how the transport sector can advance sustainable development with poverty eradication at its core, promote economic growth, and bolster the fight against climate change. The outcome of this effort is Mobilizing Sustainable Transport for Development , the first ever Global Sustainable Transport Outlook Report, addressing all modes of transport, in developing and developed countries.",
+          "html": "In 2014, United Nations Secretary-General Ban Ki-moon appointed an independent High-Level Advisory Group on Sustainable Transport to provide a focused set of recommendations on how the transport sector can advance sustainable development with poverty eradication at its core, promote economic growth, and bolster the fight against climate change. The outcome of this effort is <a href=\"http://sustainabledevelopment.un.org/content/documents/2375Mobilizing%20Sustainable%20Transport.pdf\">Mobilizing Sustainable Transport for Development</a>, the first ever Global Sustainable Transport Outlook Report, addressing all modes of transport, in developing and developed countries."
+        },
+        {
+          "type": "image",
+          "src": "/assets/411effef3a891be0.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Sustainable transport is very much in focus in Europe. Eltis – the urban mobility observatory is created more than 10 years ago. It facilitates the exchange of information, knowledge and experiences in the field of sustainable urban mobility in Europe. It is aimed at individuals working in transport as well as in related disciplines, including urban and regional development, health, energy and environmental sciences. Eltis is now Europe's main observatory on urban mobility. It is financed by the European Commission's Directorate General for Mobility and Transport.",
+          "html": "Sustainable transport is very much in focus in Europe. <a href=\"http://www.eltis.org\"><strong>Eltis</strong></a> – the urban mobility observatory is created more than 10 years ago. It facilitates the exchange of information, knowledge and experiences in the field of sustainable urban mobility in Europe. It is aimed at individuals working in transport as well as in related disciplines, including urban and regional development, health, energy and environmental sciences. Eltis is now Europe&#x27;s main observatory on urban mobility. It is financed by the European Commission&#x27;s Directorate General for Mobility and Transport. "
+        },
+        {
+          "type": "p",
+          "text": "Principal annual event on sustainable transport and urban mobility in Europe is European Conference on Sustainable Urban Mobility Plans . It enables an international community of practitioners, policy makers, city staff and academics from across Europe to come together to debate key issues, highlight developments in mobility planning and exchange ideas and experience. This year, 4th European Conference on Sustainable Urban Mobility Plans is starting today in the City of Dubrovnik, Croatia. This year's two days edition followed three previous conferences held in Bremen (2016), Bucharest (2015) and Sopot (2014).",
+          "html": "Principal annual event on sustainable transport and urban mobility in Europe is <strong>European Conference on Sustainable Urban Mobility Plans</strong>. It enables an international community of practitioners, policy makers, city staff and academics from across Europe to come together to debate key issues, highlight developments in mobility planning and exchange ideas and experience. This year, 4th European Conference on Sustainable Urban Mobility Plans is starting <strong>today </strong>in the City of Dubrovnik, Croatia. This year&#x27;s two days edition followed three previous conferences held in Bremen (2016), Bucharest (2015) and Sopot (2014)."
+        },
+        {
+          "type": "p",
+          "text": "Dubrovnik conference is organized under the theme “Intelligent Planning for Sustainable Mobility” . More information and conference outputs you can find here .",
+          "html": "Dubrovnik conference is organized under the theme <strong>“Intelligent Planning for Sustainable Mobility”</strong>. More information and conference outputs you can find <a href=\"http://www.eltis.org/participate/events/4th-european-conference-sustainable-urban-mobility-plans\">here</a>."
+        },
+        {
+          "type": "image",
+          "src": "/assets/04807d97e7ee7b5e.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "European sustainable transport flagship initiative is CIVITAS . It is a network of cities for cities dedicated to cleaner, better transport in Europe and beyond.  Abbreviation stands for CI ty- VITA lity- S ustainability. CIVITAS encompass (1) living “labs” and research projects, (2) network of cities for cities, (3) public private partnerships (PPP), and various political commitments. Since it was launched by the European Commission in 2002, the CIVITAS Initiative has tested and implemented over 800 measures and urban transport solutions as part of demonstration projects in more than 80 Living Lab cities Europe-wide.",
+          "html": "European sustainable transport flagship initiative is <a href=\"http://civitas.eu/about-us-page\"><strong>CIVITAS</strong></a>. It is a network of cities for cities dedicated to cleaner, better transport in Europe and beyond.  Abbreviation stands for <strong>CI</strong>ty-<strong>VITA</strong>lity-<strong>S</strong>ustainability. CIVITAS encompass (1) living “labs” and research projects, (2) network of cities for cities, (3) public private partnerships (PPP), and various political commitments. Since it was launched by the European Commission in 2002, the CIVITAS Initiative has tested and implemented over 800 measures and urban transport solutions as part of demonstration projects in more than 80 Living Lab cities Europe-wide."
+        },
+        {
+          "type": "p",
+          "text": "Check is your city participating CIVITAS. If not, #GreenYourLife and lobby your city to join initiative.",
+          "html": "Check is your city participating CIVITAS. If not, <strong><a href=\"/blog/hashtags/GreenYourLife\">#GreenYourLife</a></strong> and lobby your city to join initiative."
+        },
+        {
+          "type": "p",
+          "text": "Cover infographic from UN Environment",
+          "html": "<em>Cover infographic from </em><a href=\"http://www.unep.org/\"><em>UN Environment</em></a>"
+        },
+        {
+          "type": "p",
+          "text": "#sustainabletransport #eltis #civitas #mobility",
+          "html": "<a href=\"/blog/hashtags/sustainabletransport\">#sustainabletransport</a> <a href=\"/blog/hashtags/eltis\">#eltis</a> <a href=\"/blog/hashtags/civitas\">#civitas</a> <a href=\"/blog/hashtags/mobility\">#mobility</a>"
+        }
+      ],
+      "cover": "/assets/5aba2d2677c01728.webp",
+      "excerpt": "There is need to act now: Live sustainable lifestyles! #GreenYourLife The role of transport in sustainable development was first recognized at the 1992 United Nation’s Earth Summit and…"
+    },
+    {
+      "path": "/post/2017/05/27/sustainable-housing",
+      "title": "Sustainable Housing",
+      "date": "May 27, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/dc3e78b830bdef86.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "There is need to act now: Live sustainable lifestyles! #GreenYourLife",
+          "html": "There is need to act now: Live sustainable lifestyles! <a href=\"/blog/hashtags/GreenYourLife\">#GreenYourLife</a>"
+        },
+        {
+          "type": "p",
+          "text": "Many of today´s food production systems compromise the capacity of Earth to produce food in the future. Sustainable Development Goal 11 is to “Make cities inclusive, safe, resilient and sustainable” with one of the targets related to sustainable cities: By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the Sendai Framework for Disaster Risk Reduction 2015-2030 , holistic disaster risk management at all levels.",
+          "html": "Many of today´s food production systems compromise the capacity of Earth to produce food in the future. Sustainable Development <a href=\"http://www.un.org/sustainabledevelopment/cities/\">Goal 11</a> is to <strong>“Make cities inclusive, safe, resilient and sustainable”</strong> with one of the targets related to sustainable cities: By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies and plans towards inclusion, resource efficiency, mitigation and adaptation to climate change, resilience to disasters, and develop and implement, in line with the <a href=\"http://www.un.org/sustainabledevelopment/cities/\">Sendai Framework for Disaster Risk Reduction 2015-2030</a>, holistic disaster risk management at all levels."
+        },
+        {
+          "type": "p",
+          "text": "European Union (EU) 7th Environment Action Programme has horizontal priority objective to make the Union's cities more sustainable. Following this objective a strategic initiative BUILD UP Skills was started under the I ntelligent Energy Europe (IEE) programm e. BUILD UP Skills initiative has main goal to boost continuing or further education and training of craftsmen and other on-site construction workers and systems installers in the building sector.",
+          "html": "European Union (EU) <a href=\"http://ec.europa.eu/environment/action-programme/index.htm\">7th Environment Action Programme</a> has horizontal priority objective to make the Union&#x27;s cities more sustainable. Following this objective a strategic initiative <a href=\"http://www.buildup.eu\">BUILD UP Skills</a> was started under the I<a href=\"http://ec.europa.eu/energy/intelligent/\">ntelligent Energy Europe (IEE) programm</a>e. BUILD UP Skills initiative has main goal to boost continuing or further education and training of craftsmen and other on-site construction workers and systems installers in the building sector."
+        },
+        {
+          "type": "p",
+          "text": "Within BUILD UP Skills EnerPro project two training programmes and an online training module for trainers (courtesy of Passive House Institute – Germany, a regular partner in the project) and 10 new curricula short forms of training (40-60 hours) together with all necessary supporting materials have been developed. All programs, including basic presentations, can be found here .",
+          "html": "Within BUILD UP Skills <a href=\"http://www.buildup.eu/en/news/build-skills-enerpro-project-12-new-training-programmes-and-other-best-practice-results\">EnerPro project</a> two training programmes and an online training module for trainers (courtesy of Passive House Institute – Germany, a regular partner in the project) and 10 new curricula short forms of training (40-60 hours) together with all necessary supporting materials have been developed. All programs, including basic presentations, can be found <a href=\"http://www.busenerpro.com/programmes.html\">here</a>."
+        },
+        {
+          "type": "image",
+          "src": "/assets/e33dee12a2884555.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "The next (and last) BUILD UP Skills EU exchange meeting will take place on the 30th and 31st of May at the Bilderberg Hotel in Rotterdam, the Netherlands. More details you can find here .",
+          "html": "The next (and last) BUILD UP Skills EU exchange meeting will take place on the 30th and 31st of May at the Bilderberg Hotel in Rotterdam, the Netherlands. More details you can find <a href=\"http://www.buildup.eu/en/skills/10th-build-skills-eu-exchange-meeting-rotterdam-netherlands-30-31-may-2017\">here</a>."
+        },
+        {
+          "type": "p",
+          "text": "Housing is also addressed by UN Environment , as presented on cover infographic. What will be your action today?",
+          "html": "Housing is also addressed by <a href=\"http://www.unep.org/\">UN Environment</a>, as presented on cover infographic. What will be your action today?"
+        }
+      ],
+      "cover": "/assets/dc3e78b830bdef86.webp",
+      "excerpt": "There is need to act now: Live sustainable lifestyles! #GreenYourLife Many of today´s food production systems compromise the capacity of Earth to produce food in the future. Sustainable…"
+    },
+    {
+      "path": "/post/2017/05/27/sustainable-food",
+      "title": "Sustainable Food",
+      "date": "May 27, 2017",
+      "categories": [
+        "Gardening",
+        "Sustainable Development Goals",
+        "Offical Development Assistance",
+        "Sustainable Consumption and Product",
+        "Sustainable lifestiles",
+        "Data vizualization",
+        "Project management"
+      ],
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/assets/2e2dc7e615d6191b.webp",
+          "alt": ""
+        },
+        {
+          "type": "p",
+          "text": "Many of today´s food production systems compromise the capacity of Earth to produce food in the future. Sustainable Development Goal 12 is to Ensure sustainable consumption and production patterns with one of the targets related to food: By 2030, halve per capita global food waste at the retail and consumer levels and reduce food losses along production and supply chains, including post-harvest losses . EU 7th Environment Action Programme points on resource-efficient economy : \"Doing more with less\", with cutting food waste as one of the conditions that will help transform the EU into a resource-efficient, low-carbon economy. Same is suggested by UN Environment , as presented on infographic. What is your opinion?",
+          "html": "Many of today´s food production systems compromise the capacity of Earth to produce food in the future. Sustainable Development Goal 12 is to <a href=\"http://www.un.org/sustainabledevelopment/sustainable-consumption-production/\">Ensure sustainable consumption and production patterns</a> with one of the targets related to food: <em>By 2030, halve per capita global food waste at the retail and consumer levels and reduce food losses along production and supply chains, including post-harvest losses</em>. EU <a href=\"http://ec.europa.eu/environment/action-programme/index.htm\">7th Environment Action Programme</a> points on <a href=\"http://ec.europa.eu/environment/action-programme/objectives.htm#resource\">resource-efficient economy</a>: &quot;Doing more with less&quot;, with cutting food waste as one of the conditions that will help transform the EU into a resource-efficient, low-carbon economy. Same is suggested by <a href=\"http://www.unep.org/\">UN Environment</a>, as presented on infographic. What is your opinion?"
+        }
+      ],
+      "cover": "/assets/2e2dc7e615d6191b.webp",
+      "excerpt": "Many of today´s food production systems compromise the capacity of Earth to produce food in the future. Sustainable Development Goal 12 is to Ensure sustainable consumption and production…"
+    }
+  ],
+  "videos": [
+    "7UULHk-7KT4",
+    "7nyVQJ3qFPQ",
+    "VDaB0gDs1Zo",
+    "UFzhN8GOscQ",
+    "MMenHrPAh_M",
+    "dR5K4fferXk"
+  ]
+}
