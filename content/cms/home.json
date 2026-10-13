@@ -15,5 +15,59 @@
       "title": "Environmental research",
       "description": "Biodiversity, water management, environmental security and local action planning, informed by stakeholder analysis and participation."
     }
+  ],
+  "recommendations_label": "Recommendations",
+  "recommendations_heading": "Trusted by colleagues.",
+  "recommendations": [
+    {
+      "text": "Radoje is a dedicated professional that approaches the tasks set before him in a structured and professional manner.",
+      "name": "Dr Anders Jägerskog",
+      "role": "Senior Water Resources Management Specialist at the World Bank"
+    },
+    {
+      "text": "He combines leadership and vision with practical approaches that work in the realities of everyday life of institutions, governments and wider stakeholders.",
+      "name": "Rob Wolters",
+      "role": "Executive Director ECNC and Chief Executive ECNC Land & Sea Group"
+    }
+  ],
+  "videos_label": "Video resources",
+  "videos_heading": "Conversations on sustainability.",
+  "videos": [
+    {
+      "title": "Transboundary Water Resources",
+      "date": "March 25, 2016",
+      "description": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
+      "youtube_id": "7UULHk-7KT4"
+    },
+    {
+      "title": "Water Security",
+      "date": "March 25, 2016",
+      "description": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
+      "youtube_id": "7nyVQJ3qFPQ"
+    },
+    {
+      "title": "Water Growth and Stability",
+      "date": "May 9, 2016",
+      "description": "Radoje Lausevic about Water Growth and Stability Initiative",
+      "youtube_id": "VDaB0gDs1Zo"
+    },
+    {
+      "title": "LINK Ukraine",
+      "date": "January 23, 2023",
+      "description": "Supporting sustainable development of Ukraine",
+      "youtube_id": "UFzhN8GOscQ"
+    },
+    {
+      "title": "WGS Initiative",
+      "date": "April 29, 2016",
+      "description": "Water, Growth and Stability Initiative",
+      "youtube_id": "MMenHrPAh_M"
+    },
+    {
+      "title": "WATER SUM",
+      "date": "April 29, 2016",
+      "description": "Sustainable Use of Transboundary Water Resources and Water Security Management",
+      "youtube_id": "dR5K4fferXk"
+    }
   ]
 }

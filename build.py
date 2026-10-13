@@ -77,18 +77,22 @@ for i,p in enumerate(projects[:2]):
  title=p['title']
  home+=f'<a class="project-card" href="/projects#project-{i+1}"><div class="image-wrap">{image(p["image"]["src"],p["title"])}</div><span class="eyebrow">{E(p["blocks"][0]["text"])}</span><h3>{title}</h3><p>{E(desc[:180])}…</p></a>'
 home+='</div></div></section>'
-# Testimonials: exact excerpts from original site, with full text on About.
-q1='Radoje is a dedicated professional that approaches the tasks set before him in a structured and professional manner.'
-q2='He combines leadership and vision with practical approaches that work in the realities of everyday life of institutions, governments and wider stakeholders.'
-home+=f'<section class="section testimonials"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Recommendations</span><h2>Trusted by colleagues.</h2></div></div><div class="quotes"><blockquote><div class="quote-mark">“</div><p>{q1}</p><cite>Dr Anders Jägerskog<br>Senior Water Resources Management Specialist at the World Bank</cite></blockquote><blockquote><div class="quote-mark">“</div><p>{q2}</p><cite>Rob Wolters<br>Executive Director ECNC and Chief Executive ECNC Land &amp; Sea Group</cite></blockquote></div></div></section>'
+# Testimonials managed through Pages CMS.
+home+=f'<section class="section testimonials"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("recommendations_label", "Recommendations"))}</span><h2>{E(M["home"].get("recommendations_heading", "Trusted by colleagues."))}</h2></div></div><div class="quotes">'
+for recommendation in M['home'].get('recommendations', []):
+ home+=f'<blockquote><div class="quote-mark">“</div><p>{E(recommendation["text"])}</p><cite>{E(recommendation["name"])}<br>{E(recommendation.get("role", ""))}</cite></blockquote>'
+home+='</div></div></section>'
 home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">The journal</span><h2>Notes from the field.</h2></div><a class="textlink" href="/blog">Explore the archive →</a></div><div class="journal-grid">'+''.join(post_card(p) for p in M['posts'][:3])+'</div></div></section>'
-videos=sections('/')[1] if False else None
-# Video headings in document order.
-hb=M['pages']['/']['blocks'];start=next(i for i,b in enumerate(hb) if b.get('text')=='Video Resources');end=next(i for i,b in enumerate(hb) if b.get('text')=='Recommendations'); vb=hb[start:end];vheads=[b['text'] for b in vb if b['type']=='h3'];vtexts=[]
-for i,b in enumerate(vb):
- if b['type']=='h3':vtexts.append([x['text'] for x in vb[i+1:i+3] if x['type']=='p'])
-home+='<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Video resources</span><h2>Conversations on sustainability.</h2></div></div><div class="video-grid">'
-for i,vid in enumerate(M['videos']):home+=f'<a class="video" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener noreferrer"><span class="play" aria-hidden="true">▷</span><h3>{E(vheads[i])}</h3><p>{E(" · ".join(vtexts[i]))}</p><span class="textlink">Watch on YouTube ↗</span></a>'
+# Preserve original home blocks for the About page.
+hb=M['pages']['/']['blocks']
+# Video cards managed through Pages CMS, in editor list order.
+home+=f'<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("videos_label", "Video resources"))}</span><h2>{E(M["home"].get("videos_heading", "Conversations on sustainability."))}</h2></div></div><div class="video-grid">'
+for video in M['home'].get('videos', []):
+ vid=video['youtube_id'].strip()
+ if not re.fullmatch(r'[A-Za-z0-9_-]{11}', vid):
+  raise ValueError('Invalid YouTube ID: '+vid)
+ details=' · '.join(value for value in [video.get('date', ''), video.get('description', '')] if value)
+ home+=f'<a class="video" href="https://www.youtube.com/watch?v={E(vid)}" target="_blank" rel="noopener noreferrer"><span class="play" aria-hidden="true">▷</span><h3>{E(video["title"])}</h3><p>{E(details)}</p><span class="textlink">Watch on YouTube ↗</span></a>'
 home+='</div></div></section>';page('/','Home',home)
 # About, complete recommendations and service descriptions.
 bs=M['pages']['/about']['blocks'];body=intro('About','Experience, with purpose.','A biologist’s perspective. An environmental leader’s experience. A practical approach to sustainability.')

@@ -162,6 +162,95 @@
               "required": true
             }
           ]
+        },
+        {
+          "name": "recommendations_label",
+          "label": "Oznaka sekcije preporuka",
+          "type": "string"
+        },
+        {
+          "name": "recommendations_heading",
+          "label": "Naslov sekcije preporuka",
+          "type": "string"
+        },
+        {
+          "name": "recommendations",
+          "label": "Preporuke na početnoj strani",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{name}"
+            }
+          },
+          "fields": [
+            {
+              "name": "text",
+              "label": "Tekst preporuke",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "name",
+              "label": "Ime autora",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "role",
+              "label": "Funkcija / organizacija",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "name": "videos_label",
+          "label": "Oznaka video sekcije",
+          "type": "string"
+        },
+        {
+          "name": "videos_heading",
+          "label": "Naslov video sekcije",
+          "type": "string"
+        },
+        {
+          "name": "videos",
+          "label": "Video resources — video sadržaji",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naslov videa",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "date",
+              "label": "Datum (tekst za prikaz)",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "label": "Opis videa",
+              "type": "text"
+            },
+            {
+              "name": "youtube_id",
+              "label": "YouTube ID (deo adrese posle v=)",
+              "type": "string",
+              "required": true,
+              "pattern": {
+                "regex": "^[A-Za-z0-9_-]{11}$",
+                "message": "Unesite samo YouTube ID od 11 znakova, npr. 7UULHk-7KT4."
+              }
+            }
+          ]
         }
       ],
       "operations": {
