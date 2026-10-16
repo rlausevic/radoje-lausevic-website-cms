@@ -118,6 +118,11 @@ for i,p in enumerate(projects):
 body+='</div></section>';page('/projects','Projects',body)
 # Resume files and publication attachments managed through Pages CMS.
 resume=json.loads((ROOT/'content/cms/resume.json').read_text())
+def document_files(value):
+ if value is None:return []
+ if isinstance(value,str):return [value] if value.strip() else []
+ if isinstance(value,list) and all(isinstance(item,str) for item in value):return [item for item in value if item.strip()]
+ raise ValueError('Document files must be a path or list of paths')
 def document_link(value):
  url=(value or '').strip()
  if not url:return ''
@@ -126,11 +131,18 @@ def document_link(value):
  if url.startswith('/assets/') and not (DIST/urllib.parse.unquote(url.lstrip('/'))).is_file():
   raise ValueError('Document not found: '+url)
  return url
+def document_downloads(value,label='Download'):
+ links=[]
+ for value in document_files(value):
+  url=document_link(value)
+  extension=Path(urllib.parse.urlsplit(url).path).suffix.lstrip('.').upper() or 'FILE'
+  filename=urllib.parse.unquote(Path(urllib.parse.urlsplit(url).path).name)
+  links.append(f'<p><a class="textlink" href="{E(url)}" download>{E(label)} {E(extension)} ↓</a> <small>{E(filename)}</small></p>')
+ return ''.join(links)
 def download_card(title,description,value):
- url=document_link(value)
- if not url:return ''
- extension=Path(urllib.parse.urlsplit(url).path).suffix.lstrip('.').upper() or 'FILE'
- return f'<article class="download"><span>{E(extension)} document</span><h2>{E(title)}</h2><p>{E(description)}</p><a href="{E(url)}" download>Download {E(extension)} ↓</a></article>'
+ links=document_downloads(value)
+ if not links:return ''
+ return f'<article class="download"><span>Documents</span><h2>{E(title)}</h2><p>{E(description)}</p>{links}</article>'
 body=intro(resume.get('label','Qualifications & publications'),resume.get('heading','Resume.'),resume.get('lead','Explore my academic background, download a CV and read selected publications.'))+'<section class="section"><div class="wrap"><div class="download-grid">'
 for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:
  body+=download_card(resume.get(key+'_title',title),resume.get(key+'_description',description),resume.get(key))
@@ -139,8 +151,7 @@ body+='</div><div class="prose"><h2>Education</h2>'+render(__import__('cms_data'
 if 'publication_items' in resume:
  for publication in resume['publication_items']:
   body+='<article><h3>'+E(publication['title'])+'</h3>'+render(__import__('cms_data').body(publication.get('description','')))
-  url=document_link(publication.get('file'))
-  if url:body+=f'<p><a class="textlink" href="{E(url)}" download>Download publication ↓</a></p>'
+  body+=document_downloads(publication.get('file'),'Download publication')
   body+='</article>'
 body+=render(__import__('cms_data').body(resume.get('publications','')))
 body+='</div></div></section>';page('/resume','Resume',body)

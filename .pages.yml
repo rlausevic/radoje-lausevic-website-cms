@@ -468,9 +468,11 @@
           "label": "Kratak CV — dokument",
           "type": "file",
           "options": {
-            "media": "documents"
+            "media": "documents",
+            "multiple": true,
+            "unique": true
           },
-          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+          "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
         },
         {
           "name": "brief_cv_title",
@@ -487,9 +489,11 @@
           "label": "Europass CV — dokument",
           "type": "file",
           "options": {
-            "media": "documents"
+            "media": "documents",
+            "multiple": true,
+            "unique": true
           },
-          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+          "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
         },
         {
           "name": "europass_cv_title",
@@ -506,9 +510,11 @@
           "label": "Assortis CV — dokument",
           "type": "file",
           "options": {
-            "media": "documents"
+            "media": "documents",
+            "multiple": true,
+            "unique": true
           },
-          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+          "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
         },
         {
           "name": "assortis_cv_title",
@@ -530,9 +536,11 @@
           "label": "Kompletna bibliografija — dokument",
           "type": "file",
           "options": {
-            "media": "documents"
+            "media": "documents",
+            "multiple": true,
+            "unique": true
           },
-          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+          "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
         },
         {
           "name": "education",
@@ -574,9 +582,11 @@
               "label": "Dokument publikacije",
               "type": "file",
               "options": {
-                "media": "documents"
+                "media": "documents",
+                "multiple": true,
+                "unique": true
               },
-              "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+              "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
             }
           ]
         },
