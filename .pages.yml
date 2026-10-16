@@ -20,7 +20,10 @@
       "output": "/assets",
       "extensions": [
         "pdf",
+        "doc",
         "docx",
+        "odt",
+        "rtf",
         "pptx"
       ],
       "rename": "safe"
@@ -446,28 +449,90 @@
       "format": "json",
       "fields": [
         {
+          "name": "label",
+          "label": "Oznaka stranice",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "label": "Naslov stranice",
+          "type": "string"
+        },
+        {
+          "name": "lead",
+          "label": "Uvodni tekst",
+          "type": "text"
+        },
+        {
           "name": "brief_cv",
-          "label": "Kratak CV",
+          "label": "Kratak CV — dokument",
           "type": "file",
           "options": {
             "media": "documents"
-          }
+          },
+          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+        },
+        {
+          "name": "brief_cv_title",
+          "label": "Kratak CV — naziv",
+          "type": "string"
+        },
+        {
+          "name": "brief_cv_description",
+          "label": "Kratak CV — opis",
+          "type": "text"
         },
         {
           "name": "europass_cv",
-          "label": "Europass CV",
+          "label": "Europass CV — dokument",
           "type": "file",
           "options": {
             "media": "documents"
-          }
+          },
+          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+        },
+        {
+          "name": "europass_cv_title",
+          "label": "Europass CV — naziv",
+          "type": "string"
+        },
+        {
+          "name": "europass_cv_description",
+          "label": "Europass CV — opis",
+          "type": "text"
         },
         {
           "name": "assortis_cv",
-          "label": "Assortis CV",
+          "label": "Assortis CV — dokument",
           "type": "file",
           "options": {
             "media": "documents"
-          }
+          },
+          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+        },
+        {
+          "name": "assortis_cv_title",
+          "label": "Assortis CV — naziv",
+          "type": "string"
+        },
+        {
+          "name": "assortis_cv_description",
+          "label": "Assortis CV — opis",
+          "type": "text"
+        },
+        {
+          "name": "bibliography_title",
+          "label": "Naziv kompletne bibliografije",
+          "type": "string"
+        },
+        {
+          "name": "bibliography_file",
+          "label": "Kompletna bibliografija — dokument",
+          "type": "file",
+          "options": {
+            "media": "documents"
+          },
+          "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
         },
         {
           "name": "education",
@@ -479,8 +544,45 @@
           }
         },
         {
+          "name": "publication_items",
+          "label": "Publikacije — tekst i fajlovi",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naslov publikacije",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Autori, izvor i opis",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "file",
+              "label": "Dokument publikacije",
+              "type": "file",
+              "options": {
+                "media": "documents"
+              },
+              "description": "Izaberite postojeći dokument ili otpremite novu verziju, zatim sačuvajte stranicu. PDF, DOC, DOCX, ODT ili RTF."
+            }
+          ]
+        },
+        {
           "name": "publications",
-          "label": "Odabrane publikacije",
+          "label": "Dodatni tekst uz publikacije",
           "type": "rich-text",
           "options": {
             "format": "html",

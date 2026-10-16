@@ -116,14 +116,33 @@ body=intro('Selected portfolio','Projects.','A selection from more than 100 proj
 for i,p in enumerate(projects):
  body+=f'<article class="project-detail" id="project-{i+1}"><div>{image(p["image"]["src"],p["title"])}</div><div><h2>{E(p["title"])}</h2><p class="date">{E(p["blocks"][0]["text"])}</p>'+render_all(p['blocks'][1:])+'</div></article>'
 body+='</div></section>';page('/projects','Projects',body)
-# Resume, education and selected publications.
-body=intro('Qualifications & publications','Resume.','Explore my academic background, download a CV and read selected publications.')+'<section class="section"><div class="wrap"><div class="download-grid">'
-urls=[a['href'] for a in M['pages']['/resume']['links'] if a['text']=='Download'];labels=[('Brief CV','Concise overview of work experience and skills.'),('Europass CV','Detailed experience, education, skills, projects and publications.'),('Assortis CV','Professional experience and project record in Assortis format.')]
-for i,(title,txt) in enumerate(labels):body+=f'<article class="download"><span>PDF document</span><h2>{title}</h2><p>{txt}</p><a href="{E(urls[i])}" download="Radoje-Lausevic-{["Brief-CV","Europass-CV","Assortis-CV"][i]}.pdf">Download PDF ↓</a></article>'
-body+='</div><div class="prose">'
-for sec in sections('/resume'):
- if sec['title'] not in ['Education','Selected Publications']:continue
- body+=f'<h2>{E(sec["title"])}</h2>'+render_all(sec['blocks'])
+# Resume files and publication attachments managed through Pages CMS.
+resume=json.loads((ROOT/'content/cms/resume.json').read_text())
+def document_link(value):
+ url=(value or '').strip()
+ if not url:return ''
+ if not (url.startswith('/assets/') or url.startswith('https://')):
+  raise ValueError('Document must use /assets/ or https://: '+url)
+ if url.startswith('/assets/') and not (DIST/urllib.parse.unquote(url.lstrip('/'))).is_file():
+  raise ValueError('Document not found: '+url)
+ return url
+def download_card(title,description,value):
+ url=document_link(value)
+ if not url:return ''
+ extension=Path(urllib.parse.urlsplit(url).path).suffix.lstrip('.').upper() or 'FILE'
+ return f'<article class="download"><span>{E(extension)} document</span><h2>{E(title)}</h2><p>{E(description)}</p><a href="{E(url)}" download>Download {E(extension)} ↓</a></article>'
+body=intro(resume.get('label','Qualifications & publications'),resume.get('heading','Resume.'),resume.get('lead','Explore my academic background, download a CV and read selected publications.'))+'<section class="section"><div class="wrap"><div class="download-grid">'
+for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:
+ body+=download_card(resume.get(key+'_title',title),resume.get(key+'_description',description),resume.get(key))
+body+=download_card(resume.get('bibliography_title','Complete bibliography'),'',resume.get('bibliography_file'))
+body+='</div><div class="prose"><h2>Education</h2>'+render(__import__('cms_data').body(resume.get('education','')))+'<h2>Selected Publications</h2>'
+if 'publication_items' in resume:
+ for publication in resume['publication_items']:
+  body+='<article><h3>'+E(publication['title'])+'</h3>'+render(__import__('cms_data').body(publication.get('description','')))
+  url=document_link(publication.get('file'))
+  if url:body+=f'<p><a class="textlink" href="{E(url)}" download>Download publication ↓</a></p>'
+  body+='</article>'
+body+=render(__import__('cms_data').body(resume.get('publications','')))
 body+='</div></div></section>';page('/resume','Resume',body)
 # Gallery.
 gb=M['pages']['/galleries']['blocks'];body=intro('Connecting with nature','My favourite places.','Flowers of my Mediterranean garden in Montenegro — a personal connection with nature.')+'<section class="section"><div class="wrap"><div class="gallery-grid">';seen=set()
