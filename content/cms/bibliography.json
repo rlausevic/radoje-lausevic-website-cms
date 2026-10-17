@@ -80,8 +80,12 @@
       "year": "2017",
       "reference": "R. Laušević, A. Štulina, M. Birtić Vučić, M. Bartula (2017). From Knowledge to Competencies. Designing an eLearning course. Faculty Futura, Belgrade, Serbia. ISBN 978-86-86859-55-6.",
       "authors": "R. Laušević, A. Štulina, M. Birtić Vučić, M. Bartula",
+      "volume_issue_pages": "ISBN 978-86-86859-55-6",
       "publisher": "Faculty Futura, Belgrade, Serbia",
-      "description": "<p>ISBN 978-86-86859-55-6</p>"
+      "description": "<p>This publication introduces online learning methodology and the key principles for designing e-courses for lifelong learning and continuous professional development. It provides practical guidance for professionals preparing training, lectures and courses through distance learning platforms and other eLearning formats, supporting flexible learning at a time and place convenient to the learner.</p>",
+      "files": [
+        "/assets/fromknowledge2competencies.pdf"
+      ]
     },
     {
       "category": "Publications",
