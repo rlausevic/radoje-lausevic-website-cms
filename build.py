@@ -192,18 +192,6 @@ def download_card(title,description,value):
  links=document_downloads(value)
  if not links:return ''
  return f'<article class="download"><span>Documents</span><h2>{E(title)}</h2><p>{E(description)}</p>{links}</article>'
-body=intro(resume.get('label','Qualifications & publications'),resume.get('heading','Resume.'),resume.get('lead','Explore my academic background, download a CV and read selected publications.'))+'<section class="section"><div class="wrap"><div class="download-grid">'
-for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:
- body+=download_card(resume.get(key+'_title',title),resume.get(key+'_description',description),resume.get(key))
-body+=download_card(resume.get('bibliography_title','Complete bibliography'),'',resume.get('bibliography_file'))
-body+='</div><div class="prose"><h2>Education</h2>'+render(__import__('cms_data').body(resume.get('education','')))+'<h2>Selected Publications</h2>'
-if 'publication_items' in resume:
- for publication in resume['publication_items']:
-  body+='<article><h3>'+E(publication['title'])+'</h3>'+render(__import__('cms_data').body(publication.get('description','')))
-  body+=document_downloads(publication.get('file'),'Download publication')
-  body+='</article>'
-body+=render(__import__('cms_data').body(resume.get('publications','')))
-body+='</div></div></section>';page('/resume','Resume',body)
 # Bibliography: fixed category groups, with entries in their CMS list order.
 bibliography=json.loads((ROOT/'content/cms/bibliography.json').read_text())
 bibliography_categories=['Publications','Articles','Conferences','Invited lectures']
@@ -251,6 +239,27 @@ for category in bibliography_categories:
  body+='</section>'
 body+='</div><p class="empty" id="no-bibliography"'+(' hidden' if bibliography_items else '')+'>No bibliography items found. Try another search or select all categories.</p></div></section>'
 page('/bibliography','Bibliography',body,bibliography.get('lead'))
+body=intro(resume.get('label','Qualifications & publications'),resume.get('heading','Resume.'),resume.get('lead','Explore my academic background, download a CV and read selected publications.'))+'<section class="section"><div class="wrap"><div class="download-grid">'
+for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:
+ body+=download_card(resume.get(key+'_title',title),resume.get(key+'_description',description),resume.get(key))
+body+=download_card(resume.get('bibliography_title','Complete bibliography'),'',resume.get('bibliography_file'))
+body+='</div><div class="prose"><h2>Education</h2>'+render(__import__('cms_data').body(resume.get('education','')))+'<h2>Selected Bibliogrpahy</h2>'
+for category in bibliography_categories:
+ items=[item for item in bibliography_items if item['category']==category][:3]
+ body+=f'<section class="bibliography-group"><h3>{E(category)}</h3>'
+ if items:body+='<ul class="bibliography-list">'
+ for item in items:
+  body+=f'<li class="bibliography-item"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
+  description=__import__('cms_data').body(item.get('description') or '')
+  if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
+  for index,value in enumerate(document_files(item.get('files')),1):
+   url=document_link(value)
+   body+=f' <a class="bibliography-download" href="{E(url)}" download aria-label="Download: {E(item["title"])} ({index})">Download</a>'
+  body+='</li>'
+ if items:body+='</ul>'
+ else:body+='<p class="category-empty">No entries in this category yet.</p>'
+ body+='</section>'
+body+='<p><a class="textlink" href="/bibliography">View full Bibliography →</a></p></div></div></section>';page('/resume','Resume',body)
 # Gallery.
 gb=M['pages']['/galleries']['blocks'];body=intro('Connecting with nature','My favourite places.','Flowers of my Mediterranean garden in Montenegro — a personal connection with nature.')+'<section class="section"><div class="wrap"><div class="gallery-grid">';seen=set()
 for i,b in enumerate(gb):
