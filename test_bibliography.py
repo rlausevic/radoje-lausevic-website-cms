@@ -18,7 +18,7 @@ class BibliographyCMS(unittest.TestCase):
    result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
    html=(root/'dist/bibliography/index.html').read_text()
    self.assertLess(html.index('First publication'),html.index('Second article'));self.assertLess(html.index('Second article'),html.index('First article'))
-   self.assertIn('3 bibliography items',html);self.assertIn('Download PDF',html);self.assertIn('target="_blank"',html)
+   self.assertIn('3 bibliography items',html);self.assertIn('>Download</a>',html);self.assertNotIn('<dl',html);self.assertIn('<ul class="bibliography-list">',html);self.assertIn('target="_blank"',html)
    self.assertIn('searchable detailed bibliography',html);self.assertIn('Invited lectures',html)
    for name,modelname in [('experience.json','experience_entries'),('projects.json','project_entries')]:
     code="import json;from pathlib import Path;from cms_data import load_cms;m=load_cms(Path('.'),json.loads(Path('content/site.json').read_text()));print(json.dumps([(p['title'],p['order']) for p in m['"+modelname+"']]))"

@@ -216,21 +216,37 @@ for item in bibliography_items:
  if url:
   parsed=urllib.parse.urlsplit(url)
   if parsed.scheme not in {'http','https'} or not parsed.hostname:raise ValueError('Bibliography: invalid URL '+url)
+def bibliography_citation(item):
+ authors=str(item.get('authors') or '').strip()
+ year=str(item['year']).strip() if item.get('year') is not None else ''
+ prefix=' '.join(part for part in [authors,'('+year+')' if year else ''] if part)
+ title=str(item['title']).strip()
+ def sentence(value):
+  value=str(value or '').strip()
+  return E(value)+('' if value.endswith('.') else '.') if value else ''
+ citation=(E(prefix)+': ' if prefix else '')+sentence(title)
+ venue=', '.join(str(item.get(field) or '').strip() for field in ['venue','volume_issue_pages'] if str(item.get(field) or '').strip())
+ for value in [venue,item.get('publisher')]:
+  if value:citation+=' '+sentence(value)
+ url=str(item.get('url') or '').strip()
+ if url:citation+=f' <a href="{E(url)}">{E(url)}</a>.'
+ return citation
 body=intro(bibliography.get('label','Bibliography'),bibliography.get('heading','Research, knowledge and dialogue.'),bibliography.get('lead',''))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="bibliography-search">Search Bibliography<input type="search" id="bibliography-search" placeholder="Search Bibliography…" aria-controls="bibliography-results"></label><label for="bibliography-category">Category<select id="bibliography-category"><option value="">All categories</option>'+''.join(f'<option value="{E(category)}">{E(category)}</option>' for category in bibliography_categories)+'</select></label></div>'
 body+=f'<p class="result-count" id="bibliography-result-count" role="status" aria-live="polite">{len(bibliography_items)} bibliography {"item" if len(bibliography_items)==1 else "items"}</p><div id="bibliography-results">'
 for category in bibliography_categories:
  items=[item for item in bibliography_items if item['category']==category]
  body+=f'<section class="bibliography-group" data-archive-group><h2>{E(category)}</h2><p class="category-description">{E(category_descriptions.get(category,""))}</p>'
+ if items:body+='<ul class="bibliography-list">'
  for item in items:
   description=__import__('cms_data').body(item.get('description') or '')
   searchable=' '.join(str(item.get(field) or '') for field in ['category','title','year','url','reference','authors','venue','volume_issue_pages','publisher'])+' '+description['text']
-  body+=f'<article class="bibliography-item" data-bibliography data-categories="{E(category)}" data-search="{E(searchable.lower())}"><h3>{E(item["title"])}</h3>'
-  if item.get('reference'):body+=f'<p class="bibliography-reference">{E(item["reference"])}</p>'
-  metadata=[('Year',item.get('year')),('Authors',item.get('authors')),('Journal/Conference name',item.get('venue')),('Volume, Issue, Pages',item.get('volume_issue_pages')),('Publisher',item.get('publisher'))]
-  body+='<dl class="bibliography-metadata">'+''.join(f'<div><dt>{E(label)}</dt><dd>{E(value)}</dd></div>' for label,value in metadata if value is not None and str(value).strip())+'</dl>'
-  if description['text']:body+='<details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
-  if item.get('url'):body+=f'<p><a class="textlink" href="{E(item["url"].strip())}">Read online ↗</a></p>'
-  body+=document_downloads(item.get('files'),'Download')+'</article>'
+  body+=f'<li class="bibliography-item" data-bibliography data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
+  if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
+  for index,value in enumerate(document_files(item.get('files')),1):
+   url=document_link(value)
+   body+=f' <a class="bibliography-download" href="{E(url)}" download aria-label="Download: {E(item["title"])} ({index})">Download</a>'
+  body+='</li>'
+ if items:body+='</ul>'
  if not items:body+='<p class="category-empty">No entries in this category yet.</p>'
  body+='</section>'
 body+='</div><p class="empty" id="no-bibliography"'+(' hidden' if bibliography_items else '')+'>No bibliography items found. Try another search or select all categories.</p></div></section>'
