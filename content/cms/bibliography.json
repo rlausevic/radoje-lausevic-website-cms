@@ -148,7 +148,7 @@
       "authors": "Laušević, R., Jones-Walters, L. and Nieto, A (Eds)",
       "volume_issue_pages": "ISBN 978-90-76762-26-5",
       "publisher": "Szentendre, REC, Tilburg, ECNC",
-      "description": "<p>Prepared as the technical background report of the project: 'Climate change impacts on biodiversity in South-East Europe'; funded by AECID-Agencia Española de Cooperación Internacional para el Desarrollo (Spanish International Cooperation Agency for Development). It accompanies the document: Proceedings of the conference: Changing climate, changing biodiversity in South-East Europe; Belgrade, 18-19 June 2008. (Nieto, Wijnja and Jones-Walters, 2008). </p>",
+      "description": "<p>Prepared as the technical background report of the project: 'Climate change impacts on biodiversity in South-East Europe'; funded by AECID-Agencia Española de Cooperación Internacional para el Desarrollo (Spanish International Cooperation Agency for Development). It accompanies the document: Proceedings of the conference: Changing climate, changing biodiversity in South-East Europe; Belgrade, 18-19 June 2008. (Nieto, Wijnja and Jones-Walters, 2008).</p>",
       "files": [
         "/assets/2008-climate-change-technical-background-report-compressed.pdf"
       ]
@@ -178,8 +178,12 @@
       "year": "2002",
       "reference": "Laušević, R. (2002): Manual to guide Yugoslav Export Credit Agency in conducting the environmental screening and review of the enterprise applying for YECA's facilities. Contracting authority: YECA, Belgrade. 55 pp.",
       "authors": "Laušević, R.",
+      "venue": "Contracting authority: YECA, Belgrade",
       "volume_issue_pages": "55 pp.",
-      "description": "<p>Contracting authority: YECA, Belgrade</p>"
+      "description": "<p>The Government of the Federal Republic of Yugoslavia has received a Trust Fund Grant from the state of Japan for preparation of the Export Finance Facilitation Project. The objective of the project is to support establishment of the Yugoslav Export Credit Agency (YECA) as a permanent institution to implement a wide range of facilities aimed at supporting the import of essential goods and services and the export of goods and services produced or manufactured in Yugoslavia.</p><p>Facilities supporting imports comprise:</p><ul><li><p>a political risk insurance facility supporting trade exposure of foreign entities in Yugoslavia, and</p></li><li><p>limited comprehensive import credit insurance.</p></li></ul><p>Export support facilities comprise:</p><ul><li><p>working capital loans and guarantees</p></li><li><p>export credit insurance, and</p></li><li><p>exporter performance insurance.</p></li></ul><p>This Manual was developed in order to ensure that no working capital loans/guarantees, contract bonds or credit insurance would be available to support environmentally harmful activities. The Manual follows current Yugoslav (Serbian and Montenegr ian) environmental procedures, rules and regulations (for the legal framework, see Chapter 4), as well as the World Bank policy and procedures on environmental assessment, Based on the working directive 4.01.</p>",
+      "files": [
+        "/assets/yeca-em-lausevicv03.pdf"
+      ]
     },
     {
       "category": "Publications",
