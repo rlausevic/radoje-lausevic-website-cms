@@ -20,253 +20,194 @@
       "description": "Invited lectures and presentations for universities, institutions and professional audiences, bringing research and practical experience into discussions on environmental challenges and sustainable development."
     }
   ],
+  "bibliography_instructions": "Prevucite stavke da promenite redosled. Na sajtu su grupisane po kategorijama; unutar kategorije prate redosled ove liste.",
   "items": [
     {
       "category": "Publications",
       "title": "Evaluating status of European eel (Anguilla anguilla) in Skadar Lake",
       "year": "2018",
-      "url": "",
       "reference": "Mrdak, D., Djurović, M., Laušević, R. (2018): Evaluating status of European eel (Anguilla anguilla) in Skadar Lake. Kotor, Podgorica: University of Montenegro, Institute of Marine Biology. 16 pp.",
       "authors": "Mrdak, D., Djurović, M., Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "16 pp.",
       "publisher": "Kotor, Podgorica: University of Montenegro, Institute of Marine Biology",
-      "description": "",
-      "files": []
+      "description": "<p>This study and publication were carried out under the project “Marine Biodiversity Conservation Center “Boka Aquarium” (MonteAqua)”, implemented by the Institute of Marine Biology of the University of Montenegro (IMB) in cooperation with the Center for Fisheries and Biodiversity Conservation of Inland Waters, Institute of Biology and Ecology, Faculty of Science, University of Kragujevac. Study is developed as IMB’s project co-funding.</p><p>Conclusions and recommendations</p><ul><li><p>Eel is highly endangered fish species due to several factors (overfishing of glass eel, yellows and silvers; swimming bladder parasite which originate from Anguilla japonica, habitat loss, riverine connectivity loss) and still is not clear whether some of them are curtail or it is synergetic effect of all of theme or the detected dramatic decrease of eel abundance is related to some climate changes in Atlantic ocean (The North Atlantic Oscillation – NOA) which caused cyclic changes in main Gulf current which is essential for dispersal of eel larvae</p></li><li><p>In close future, together with Albanian partners, we have to develop constant monitoring program for monitoring of glass eel immigration and sliver eel emigration from Lake Skadar and to estimate the eel biomass in this Lake in order to understand what is happening with eels in this system</p></li><li><p>As soon as possible, together with Albanian partners and based on previously mentioned results of monitoring and findings, we have to produce the Eel Management Plan for Lake Skadar</p></li><li><p>In order to regulate downstream migration of silver eels and to satisfied demands of “eel directive” we have to work on regulation and controlling of harvesting of fish trap on Bojana river in Albania during downstream eel migration</p></li><li><p>In order to reduce fishing pressure on eel live stock in Lake Skadar we suggest to estimate development of eel farming and using of glass eels and elevers from Bojana delta as fish farm stocking material</p></li><li><p>Eel has to be proposed as flagship species for the Lake Skadar Aquarium</p></li><li><p>Taking in mind the importance of Lake Skadar as huge eel habitat, eel vulnerability, global threats, biological importance, marketing potential and eel unique and mysterious life cycle as well as unique body shape, we strongly suggest to proclaim eel, together with pelican, for a flagship species of whole Lake Skadar.</p></li></ul><p></p>",
+      "files": [
+        "/assets/2018-evaluating-status-of-european-eel.pdf"
+      ]
     },
     {
       "category": "Publications",
       "title": "Rare and Endangered Fish Species in The Adriatic Sea and Proposal for Marine Flagship Species",
       "year": "2018",
-      "url": "",
       "reference": "Pešić, A., Ikica, Z., Joksimović, A., Djurović, M., Laušević, R. (2018): Rare and Endangered Fish Species in The Adriatic Sea and Proposal for Marine Flagship Species. Kotor: University of Montenegro, Institute of Marine Biology. 36 pp.",
       "authors": "Pešić, A., Ikica, Z., Joksimović, A., Djurović, M., Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "36 pp.",
       "publisher": "Kotor: University of Montenegro, Institute of Marine Biology",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Publications",
       "title": "Preventing marine pollution",
       "year": "2018",
-      "url": "",
       "reference": "Mandić, M., Djurović, M., Drakulović, D., Krasić, M., Laušević, R. (2018): Preventing marine pollution. Kotor: University of Montenegro, Institute of Marine Biology. 24 pp.",
       "authors": "Mandić, M., Djurović, M., Drakulović, D., Krasić, M., Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "24 pp.",
       "publisher": "Kotor: University of Montenegro, Institute of Marine Biology",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Publications",
       "title": "Idejni koncept Boka akvarijuma",
       "year": "2018",
-      "url": "",
       "reference": "Simić, V., Mirović, I., Laušević, R. (2018) Idejni koncept Boka akvarijuma. Dokument projekta MonteAqua. [Concept design of the Aquarium Boka; MonteAqua Project document]. Univerzitet u Kragujevcu, Srbija, Prirodno-matematički fakultet. Univerzitet Crne Gore – Institut za biologiju mora [University of Kragujevac, Serbia, Faculty of Science. University of Montenegro, Institute of Marine Biology]. 41 pp.",
       "authors": "Simić, V., Mirović, I., Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "41 pp.",
       "publisher": "Univerzitet u Kragujevcu, Srbija, Prirodno-matematički fakultet. Univerzitet Crne Gore – Institut za biologiju mora [University of Kragujevac, Serbia, Faculty of Science. University of Montenegro, Institute of Marine Biology]",
-      "description": "<p>Dokument projekta MonteAqua. [Concept design of the Aquarium Boka; MonteAqua Project document]</p>",
-      "files": []
+      "description": "<p>Dokument projekta MonteAqua. [Concept design of the Aquarium Boka; MonteAqua Project document]</p>"
     },
     {
       "category": "Publications",
       "title": "From Knowledge to Competencies. Designing an eLearning course",
       "year": "2017",
-      "url": "",
       "reference": "R. Laušević, A. Štulina, M. Birtić Vučić, M. Bartula (2017). From Knowledge to Competencies. Designing an eLearning course. Faculty Futura, Belgrade, Serbia. ISBN 978-86-86859-55-6.",
       "authors": "R. Laušević, A. Štulina, M. Birtić Vučić, M. Bartula",
-      "venue": "",
-      "volume_issue_pages": "",
       "publisher": "Faculty Futura, Belgrade, Serbia",
-      "description": "<p>ISBN 978-86-86859-55-6</p>",
-      "files": []
+      "description": "<p>ISBN 978-86-86859-55-6</p>"
     },
     {
       "category": "Publications",
       "title": "Water, Growth and Stability",
       "year": "2016",
-      "url": "",
       "reference": "R. Laušević, V. Vassilev, A. Kis, F. Abdulla and S. Milutinović (2016). Water, Growth and Stability. Background document for the REC’s World Café 2016 at WWW2016. Regional Environmental Center, Szentendre, Hungary. ISBN 978-963-9638-71-6.",
       "authors": "R. Laušević, V. Vassilev, A. Kis, F. Abdulla and S. Milutinović",
-      "venue": "",
-      "volume_issue_pages": "",
       "publisher": "Regional Environmental Center, Szentendre, Hungary",
-      "description": "<p>Background document for the REC’s World Café 2016 at WWW2016; ISBN 978-963-9638-71-6</p>",
-      "files": []
+      "description": "<p>Background document for the REC’s World Café 2016 at WWW2016; ISBN 978-963-9638-71-6</p>"
     },
     {
       "category": "Publications",
       "title": "Local Water Security Action Planning Manual",
       "year": "2016",
-      "url": "",
       "reference": "R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović (2016). Local Water Security Action Planning Manual. Regional Environmental Center, Szentendre, Hungary. ISBN 978-963-9638-69-3.",
       "authors": "R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović",
-      "venue": "",
-      "volume_issue_pages": "",
       "publisher": "Regional Environmental Center, Szentendre, Hungary",
-      "description": "<p>ISBN 978-963-9638-69-3</p>",
-      "files": []
+      "description": "<p>ISBN 978-963-9638-69-3</p>"
     },
     {
       "category": "Publications",
       "title": "Local Water Security Assessment for Improved Water Management in Selected Countries in the Middle East and North Africa (MENA) Region",
       "year": "2015",
-      "url": "",
       "reference": "Milutinović, S., Laušević, R., Petersen-Perlman, J., Bartula, M., Solujić, A. (2015): Local Water Security Assessment for Improved Water Management in Selected Countries in the Middle East and North Africa (MENA) Region. Project report. WaterSUM, Component 2: Water and Security. Budapest: REC - Regional Environmental Center, Szentendre. 342 pp.",
       "authors": "Milutinović, S., Laušević, R., Petersen-Perlman, J., Bartula, M., Solujić, A.",
-      "venue": "",
       "volume_issue_pages": "342 pp.",
       "publisher": "Budapest: REC - Regional Environmental Center, Szentendre",
-      "description": "<p>Project report. WaterSUM, Component 2: Water and Security</p>",
-      "files": []
+      "description": "<p>Project report. WaterSUM, Component 2: Water and Security</p>"
     },
     {
       "category": "Publications",
       "title": "Reporting for Sustainability",
       "year": "2013",
-      "url": "",
       "reference": "Brčeski, I., Laušević, R. (Eds) (2013): Reporting for Sustainability. Conference Proceedings. 7-10 May 2013, Becici, Montenegro. Regional Environmental Center, Country Office Serbia. ISBN 978-86-7550-070-4. 512 pp.",
       "authors": "Brčeski, I., Laušević, R. (Eds)",
-      "venue": "",
       "volume_issue_pages": "512 pp.",
       "publisher": "Regional Environmental Center, Country Office Serbia",
-      "description": "<p>Conference Proceedings. 7-10 May 2013, Becici, Montenegro; ISBN 978-86-7550-070-4</p>",
-      "files": []
+      "description": "<p>Conference Proceedings. 7-10 May 2013, Becici, Montenegro; ISBN 978-86-7550-070-4</p>"
     },
     {
       "category": "Publications",
       "title": "Climate change and biodiversity in South-East Europe - impacts and action",
       "year": "2008",
-      "url": "",
       "reference": "Laušević, R., Jones-Walters, L. and Nieto, A (Eds) (2008): Climate change and biodiversity in South-East Europe - impacts and action. Szentendre, REC, Tilburg, ECNC. ISBN 978-90-76762-26-5.",
       "authors": "Laušević, R., Jones-Walters, L. and Nieto, A (Eds)",
-      "venue": "",
-      "volume_issue_pages": "",
       "publisher": "Szentendre, REC, Tilburg, ECNC",
-      "description": "<p>ISBN 978-90-76762-26-5</p>",
-      "files": []
+      "description": "<p>ISBN 978-90-76762-26-5</p>"
     },
     {
       "category": "Publications",
       "title": "Green Pack in Serbia",
       "year": "2003",
-      "url": "",
       "reference": "Orlović, V., Laušević, R. (Eds) (2003): Green Pack in Serbia. - Regional Environmental Center for Central and Eastern Europe Country Office Yugoslavia. 61 pp. [In Serbian]. ISBN 86-7550-011-4.",
       "authors": "Orlović, V., Laušević, R. (Eds)",
-      "venue": "",
       "volume_issue_pages": "61 pp.",
       "publisher": "Regional Environmental Center for Central and Eastern Europe Country Office Yugoslavia",
-      "description": "<p>[In Serbian]. ISBN 86-7550-011-4</p>",
-      "files": []
+      "description": "<p>[In Serbian]. ISBN 86-7550-011-4</p>"
     },
     {
       "category": "Publications",
       "title": "LEAP in Yugoslavia - Contemporary practice",
       "year": "2002",
-      "url": "",
       "reference": "Laušević, R., Katić, M. (Eds) (2002): LEAP in Yugoslavia - Contemporary practice. - REC CO Yugoslavia, Belgrade.",
       "authors": "Laušević, R., Katić, M. (Eds)",
-      "venue": "",
-      "volume_issue_pages": "",
       "publisher": "REC CO Yugoslavia, Belgrade",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Publications",
       "title": "Manual to guide Yugoslav Export Credit Agency in conducting the environmental screening and review of the enterprise applying for YECA's facilities",
       "year": "2002",
-      "url": "",
       "reference": "Laušević, R. (2002): Manual to guide Yugoslav Export Credit Agency in conducting the environmental screening and review of the enterprise applying for YECA's facilities. Contracting authority: YECA, Belgrade. 55 pp.",
       "authors": "Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "55 pp.",
-      "publisher": "",
-      "description": "<p>Contracting authority: YECA, Belgrade</p>",
-      "files": []
+      "description": "<p>Contracting authority: YECA, Belgrade</p>"
     },
     {
       "category": "Publications",
       "title": "Environmental analysis of FR Yugoslavia",
       "year": "2001",
-      "url": "",
       "reference": "Laušević, R., Simić, J. (Eds) (2001): Environmental analysis of FR Yugoslavia. - REC CO Yugoslavia, Belgrade. 101 pp. ISBN 86-7550-004-1.",
       "authors": "Laušević, R., Simić, J. (Eds)",
-      "venue": "",
       "volume_issue_pages": "101 pp.",
       "publisher": "REC CO Yugoslavia, Belgrade",
-      "description": "<p>ISBN 86-7550-004-1</p>",
-      "files": []
+      "description": "<p>ISBN 86-7550-004-1</p>"
     },
     {
       "category": "Publications",
       "title": "They kill rivers, don't they?",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (Ed.) (2000): They kill rivers, don't they? Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade, 80 pp (In Serbian).",
       "authors": "Laušević, R. (Ed.)",
-      "venue": "",
       "volume_issue_pages": "80 pp",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>(In Serbian)</p>",
-      "files": []
+      "description": "<p>(In Serbian)</p>"
     },
     {
       "category": "Publications",
       "title": "Four river banks - living world and natural heritage of Danube watershed in Yugoslavia",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (Ed.) (1999): Four river banks - living world and natural heritage of Danube watershed in Yugoslavia. - Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade. 106 pp (In Serbian).",
       "authors": "Laušević, R. (Ed.)",
-      "venue": "",
       "volume_issue_pages": "106 pp",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>(In Serbian)</p>",
-      "files": []
+      "description": "<p>(In Serbian)</p>"
     },
     {
       "category": "Publications",
       "title": "War in Europe - Ecocide",
       "year": "1999",
-      "url": "",
       "reference": "Radoje Laušević (Ed.) (1999): War in Europe - Ecocide. - Tehnokratia 2. Belgrade, 64 pp.",
       "authors": "Radoje Laušević (Ed.)",
-      "venue": "",
       "volume_issue_pages": "64 pp.",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Publications",
       "title": "Planktonic diatoms (Bacillariophyta) in Vlasinsko Jezero reservoir - Ecological study",
       "year": "1995",
-      "url": "",
       "reference": "Laušević, R. (1995): Planktonic diatoms (Bacillariophyta) in Vlasinsko Jezero reservoir - Ecological study. - Doctoral thesis. University of Belgrade, Fac. Biology. 121 pp.",
       "authors": "Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "121 pp.",
       "publisher": "University of Belgrade, Fac. Biology",
-      "description": "<p>Doctoral thesis</p>",
-      "files": []
+      "description": "<p>Doctoral thesis</p>"
     },
     {
       "category": "Publications",
       "title": "Floristical and ecological study of algae of Samokovska stream",
       "year": "1992",
-      "url": "",
       "reference": "Laušević, R. (1992): Floristical and ecological study of algae of Samokovska stream. - Master of Science Paper. University of Belgrade, Fac. Biology. 195 pp.",
       "authors": "Laušević, R.",
-      "venue": "",
       "volume_issue_pages": "195 pp.",
       "publisher": "University of Belgrade, Fac. Biology",
-      "description": "<p>Master of Science Paper</p>",
-      "files": []
+      "description": "<p>Master of Science Paper</p>"
     },
     {
       "category": "Articles",
@@ -278,8 +219,7 @@
       "venue": "The Montenegrin Adriatic Coast. The Handbook of Environmental Chemistry",
       "volume_issue_pages": "vol 109",
       "publisher": "Springer, Cham",
-      "description": "<p>In: Joksimović A., Đurović M., Zonn I.S., Kostianoy A.G., Semenov A.V. (eds).</p>",
-      "files": []
+      "description": "<p>In: Joksimović A., Đurović M., Zonn I.S., Kostianoy A.G., Semenov A.V. (eds).</p>"
     },
     {
       "category": "Articles",
@@ -290,61 +230,49 @@
       "authors": "M. Bartula, R. Laušević, U. Radojević",
       "venue": "Water Utility Journal",
       "volume_issue_pages": "15: 3-13",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Participatory planning for biodiversity protection in Western Balkans",
       "year": "2015",
-      "url": "",
       "reference": "Laušević, R., Bartula, M. (2015). Participatory planning for biodiversity protection in Western Balkans. Natural Areas Journal, 36(3):339-344.",
       "authors": "Laušević, R., Bartula, M.",
       "venue": "Natural Areas Journal",
       "volume_issue_pages": "36(3):339-344",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Stakeholders participation in waste water management - case study MENA",
       "year": "2015",
-      "url": "",
       "reference": "Laušević, R., Milutinović, S., Ignjatović, J., Bartula, M., Sušić, S., Popović, A., Koszta, I. (2015). Stakeholders participation in waste water management - case study MENA. International Conference \"Waste waters, municipal solid wastes and hazardous wastes\", Proceedings: 29-34. Association for water technology and sanitary engineering, Serbia waterworks and sewerage association, Institute for chemistry, technology and metallurgy, Budva, Montenegro.",
       "authors": "Laušević, R., Milutinović, S., Ignjatović, J., Bartula, M., Sušić, S., Popović, A., Koszta, I.",
       "venue": "International Conference \"Waste waters, municipal solid wastes and hazardous wastes\"",
       "volume_issue_pages": "Proceedings: 29-34",
       "publisher": "Association for water technology and sanitary engineering, Serbia waterworks and sewerage association, Institute for chemistry, technology and metallurgy, Budva, Montenegro",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Stakeholders involvement in biodiversity action planning",
       "year": "2015",
-      "url": "",
       "reference": "Laušević, R., Bartula, M., Solujić, A. S. (2015): Stakeholders involvement in biodiversity action planning. The Eleventh Regional Conference EnE15- ENV.net Conference \"EU Environmental Horizontal Legislation: Methods, Standards and Tools\". Ambasadori održivog razvoja i životne sredine, Proceedings: 115-118, Belgrade, Serbia.",
       "authors": "Laušević, R., Bartula, M., Solujić, A. S.",
       "venue": "The Eleventh Regional Conference EnE15- ENV.net Conference \"EU Environmental Horizontal Legislation: Methods, Standards and Tools\"",
       "volume_issue_pages": "Proceedings: 115-118",
       "publisher": "Ambasadori održivog razvoja i životne sredine",
-      "description": "<p>Belgrade, Serbia</p>",
-      "files": []
+      "description": "<p>Belgrade, Serbia</p>"
     },
     {
       "category": "Articles",
       "title": "Environmental Management and Information System for Surface Lignite Mining",
       "year": "2015",
-      "url": "",
       "reference": "Simić, A., Laušević, R., Popović, A., Bartula, M. (2015): Environmental Management and Information System for Surface Lignite Mining. V International Symposium \"Mining and Environmental protection\". Center for environmental engineering, Mining Department, Faculty of Mining and geology, Belgrade. Proceedings. Vrdnik, Serbia.",
       "authors": "Simić, A., Laušević, R., Popović, A., Bartula, M.",
       "venue": "V International Symposium \"Mining and Environmental protection\"",
-      "volume_issue_pages": "",
       "publisher": "Center for environmental engineering, Mining Department, Faculty of Mining and geology, Belgrade",
-      "description": "<p>Proceedings. Vrdnik, Serbia</p>",
-      "files": []
+      "description": "<p>Proceedings. Vrdnik, Serbia</p>"
     },
     {
       "category": "Articles",
@@ -355,620 +283,510 @@
       "authors": "Laušević, R.",
       "venue": "Enlargement Europe – Infrastructure",
       "volume_issue_pages": "118-119",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Green Pack – Multimedia Educational Pack for Environmental Education",
       "year": "2003",
-      "url": "",
       "reference": "Laušević, R. (2003): Green Pack – Multimedia Educational Pack for Environmental Education. In: Orlović, V., Laušević, R. (eds): Green Pack in Serbia. – Regional Environmental Center for Central and Eastern Europe Country Office Yugoslavia. 49-61. [In Serbian]. ISBN 86-7550-011-4.",
       "authors": "Laušević, R.",
       "venue": "Green Pack in Serbia",
       "volume_issue_pages": "49-61",
       "publisher": "Regional Environmental Center for Central and Eastern Europe Country Office Yugoslavia",
-      "description": "<p>In: Orlović, V., Laušević, R. (eds). [In Serbian]. ISBN 86-7550-011-4.</p>",
-      "files": []
+      "description": "<p>In: Orlović, V., Laušević, R. (eds). [In Serbian]. ISBN 86-7550-011-4.</p>"
     },
     {
       "category": "Articles",
       "title": "Rivers",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (2000): Rivers. In: Radoje Laušević (Ed.): They kill rivers, don't they? Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade, 2000. 7-23. [In Serbian].",
       "authors": "Laušević, R.",
       "venue": "They kill rivers, don't they?",
       "volume_issue_pages": "7-23",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "Food chains and food webs",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (2000): Food chains and food webs. In: Radoje Laušević (Ed.): They kill rivers, don't they? Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade, 2000. 23-24. [In Serbian].",
       "authors": "Laušević, R.",
       "venue": "They kill rivers, don't they?",
       "volume_issue_pages": "23-24",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "Pollution of rivers",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (2000): Pollution of rivers. In: Radoje Laušević (Ed.): They kill rivers, don't they? Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade, 2000. 25-26. [In Serbian].",
       "authors": "Laušević, R.",
       "venue": "They kill rivers, don't they?",
       "volume_issue_pages": "25-26",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "Toxic pollution",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R., Bartula, M. (2000): Toxic pollution. In: Radoje Laušević (Ed.): They kill rivers, don't they? Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade, 2000. 27-32. [In Serbian].",
       "authors": "Laušević, R., Bartula, M.",
       "venue": "They kill rivers, don't they?",
       "volume_issue_pages": "27-32",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "What has happened to the river Tisa?",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (2000): What has happened to the river Tisa? In: Radoje Laušević (Ed.): They kill rivers, don't they? Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade, 2000. 33-38. [In Serbian].",
       "authors": "Laušević, R.",
       "venue": "They kill rivers, don't they?",
       "volume_issue_pages": "33-38",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "Benthic algae in the River Vlasina (Serbia, Yugoslavia)",
       "year": "1999",
-      "url": "",
       "reference": "Nikitović, J., Laušević, R. (1999): Benthic algae in the River Vlasina (Serbia, Yugoslavia). - Ekologija 34(1-2): 19-26.",
       "authors": "Nikitović, J., Laušević, R.",
       "venue": "Ekologija",
       "volume_issue_pages": "34(1-2): 19-26",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Running waters",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): Running waters. In: Radoje Laušević (Ed.): Four river banks - living world and natural heritage of Danube watershed in Yugoslavia. -Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade. 9-16. [In Serbian]",
       "authors": "Laušević, R.",
       "venue": "Four river banks - living world and natural heritage of Danube watershed in Yugoslavia",
       "volume_issue_pages": "9-16",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "Living world of Danube and River Sava in Yugoslavia",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): Living world of Danube and River Sava in Yugoslavia. In: Radoje Laušević (Ed.): Four river banks - living world and natural heritage of Danube watershed in Yugoslavia. - Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade. 17-23. [In Serbian]",
       "authors": "Laušević, R.",
       "venue": "Four river banks - living world and natural heritage of Danube watershed in Yugoslavia",
       "volume_issue_pages": "17-23",
       "publisher": "Serbian Ecological Society & Institute for Nature Protection of Serbia, Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.). [In Serbian].</p>"
     },
     {
       "category": "Articles",
       "title": "General environmental effects of NATO aggression",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): General environmental effects of NATO aggression. In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 16-17.",
       "authors": "Laušević, R.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "16-17",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "Destruction of FRY",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): Destruction of FRY. In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 18-21.",
       "authors": "Laušević, R.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "18-21",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "Radioactivity",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): Radioactivity. - In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 27.",
       "authors": "Laušević, R.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "27",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "More on air pollution",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): More on air pollution. In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 31-33.",
       "authors": "Laušević, R.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "31-33",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "Water pollution",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R., Spasojević, M. (1999): Water pollution. In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 34-37.",
       "authors": "Laušević, R., Spasojević, M.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "34-37",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "Soil pollution",
       "year": "1999",
-      "url": "",
       "reference": "Spasojević, M., Laušević, R. (1999): Soil pollution. - In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 42.",
       "authors": "Spasojević, M., Laušević, R.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "42",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "Chronic effects on human health",
       "year": "1999",
-      "url": "",
       "reference": "Spasojević, M., Laušević, R. (1999): Chronic effects on human health. - In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 57.",
       "authors": "Spasojević, M., Laušević, R.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "57",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "Anticipated future risks",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R., Lakušić, D., Spasojević, M. (1999): Anticipated future risks. - In: Radoje Laušević (Ed.): War in Europe - Ecocide. - Tehnokratia 2. Belgrade. 63.",
       "authors": "Laušević, R., Lakušić, D., Spasojević, M.",
       "venue": "War in Europe - Ecocide",
       "volume_issue_pages": "63",
       "publisher": "Tehnokratia 2. Belgrade",
-      "description": "<p>In: Radoje Laušević (Ed.).</p>",
-      "files": []
+      "description": "<p>In: Radoje Laušević (Ed.).</p>"
     },
     {
       "category": "Articles",
       "title": "The significance of green algae in Vlasinsko Jezero reservoir phytoplankton (Serbia)",
       "year": "1998",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1998): The significance of green algae in Vlasinsko Jezero reservoir phytoplankton (Serbia). - Biologia, Bratislava, 53/4: 519-527.",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Biologia, Bratislava",
       "volume_issue_pages": "53/4: 519-527",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Phytoplankton in River Sava near Belgrade",
       "year": "1998",
-      "url": "",
       "reference": "Laušević, R., Nikitović, J., Tomašević, V. (1998): Phytoplankton in River Sava near Belgrade. - Ekologija 33(1-2): 29-40.",
       "authors": "Laušević, R., Nikitović, J., Tomašević, V.",
       "venue": "Ekologija",
       "volume_issue_pages": "33(1-2): 29-40",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Vlasinsko Jezero reservoir",
       "year": "1997",
-      "url": "",
       "reference": "Stanković, S., Laušević, R. (1997): Vlasinsko Jezero reservoir. In: Blaženčić, J. (Ed.): Vlasinsko Jezero reservoir - Hydrobiological study. Faculty of Biology, Belgrade. 1-24. (In Serbian with Summary in English).",
       "authors": "Stanković, S., Laušević, R.",
       "venue": "Vlasinsko Jezero reservoir - Hydrobiological study",
       "volume_issue_pages": "1-24",
       "publisher": "Faculty of Biology, Belgrade",
-      "description": "<p>In: Blaženčić, J. (Ed.). (In Serbian with Summary in English).</p>",
-      "files": []
+      "description": "<p>In: Blaženčić, J. (Ed.). (In Serbian with Summary in English).</p>"
     },
     {
       "category": "Articles",
       "title": "Floristical composition of algae in Vlasinsko Jezero reservoir",
       "year": "1997",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1997): Floristical composition of algae in Vlasinsko Jezero reservoir. In: Blaženčić, J. (Ed.): Vlasinsko Jezero reservoir - Hydrobiological study. Faculty of Biology, Belgrade. 61-90. (In Serbian with Summary in English).",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Vlasinsko Jezero reservoir - Hydrobiological study",
       "volume_issue_pages": "61-90",
       "publisher": "Faculty of Biology, Belgrade",
-      "description": "<p>In: Blaženčić, J. (Ed.). (In Serbian with Summary in English).</p>",
-      "files": []
+      "description": "<p>In: Blaženčić, J. (Ed.). (In Serbian with Summary in English).</p>"
     },
     {
       "category": "Articles",
       "title": "Seasonal and spatial dynamics of phytoplankton in Vlasinsko Jezero reservoir",
       "year": "1997",
-      "url": "",
       "reference": "Laušević, R., Cvijan, M. (1997): Seasonal and spatial dynamics of phytoplankton in Vlasinsko Jezero reservoir. In: Blaženčić, J. (Ed.): Vlasinsko Jezero reservoir - Hydrobiological study. Faculty of Biology, Belgrade. 91-130. (In Serbian with Summary in English).",
       "authors": "Laušević, R., Cvijan, M.",
       "venue": "Vlasinsko Jezero reservoir - Hydrobiological study",
       "volume_issue_pages": "91-130",
       "publisher": "Faculty of Biology, Belgrade",
-      "description": "<p>In: Blaženčić, J. (Ed.). (In Serbian with Summary in English).</p>",
-      "files": []
+      "description": "<p>In: Blaženčić, J. (Ed.). (In Serbian with Summary in English).</p>"
     },
     {
       "category": "Articles",
       "title": "Benthic algal communities in the River Samokovska (Kopaonik Mts, Yugoslavia)",
       "year": "1997",
-      "url": "",
       "reference": "Laušević, R. (1997): Benthic algal communities in the River Samokovska (Kopaonik Mts, Yugoslavia). - Acta Hydrobiologica 39(3-4): 77-91.",
       "authors": "Laušević, R.",
       "venue": "Acta Hydrobiologica",
       "volume_issue_pages": "39(3-4): 77-91",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "A check-list of the algae of the Koponik mountain",
       "year": "1996",
-      "url": "",
       "reference": "Laušević, R., Cvijan, M. (1996): A check-list of the algae of the Koponik mountain. - Ekologija 31(1): 17-42.",
       "authors": "Laušević, R., Cvijan, M.",
       "venue": "Ekologija",
       "volume_issue_pages": "31(1): 17-42",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Contribution of Nedeljko Košanin (1874-1934) to the algological investigations in Serbia",
       "year": "1995",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1995): Contribution of Nedeljko Košanin (1874-1934) to the algological investigations in Serbia. - Sveske Matice srpske 29: 76-90. Novi Sad.",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Sveske Matice srpske",
       "volume_issue_pages": "29: 76-90",
-      "publisher": "",
-      "description": "<p>Novi Sad</p>",
-      "files": []
+      "description": "<p>Novi Sad</p>"
     },
     {
       "category": "Articles",
       "title": "Diversity of freshwater algae in Yugoslavia with a review of species of international importance",
       "year": "1995",
-      "url": "",
       "reference": "Blaženčić, J., Cvijan, M., Laušević, R. (1995): Diversity of freshwater algae in Yugoslavia with a review of species of international importance. In: Stevanović, V., Vasić, V. (Eds.): Biodiversity in Yugoslavia with the Survey of Species of International Significance. Faculty of Biology, Univ. Belgrade & Ecolibri, Belgrade. 159-172. (In Serbian).",
       "authors": "Blaženčić, J., Cvijan, M., Laušević, R.",
       "venue": "Biodiversity in Yugoslavia with the Survey of Species of International Significance",
       "volume_issue_pages": "159-172",
       "publisher": "Faculty of Biology, Univ. Belgrade & Ecolibri, Belgrade",
-      "description": "<p>In: Stevanović, V., Vasić, V. (Eds.). (In Serbian).</p>",
-      "files": []
+      "description": "<p>In: Stevanović, V., Vasić, V. (Eds.). (In Serbian).</p>"
     },
     {
       "category": "Articles",
       "title": "Changes in phytoplankton community structure and dynamics as indicators of reservoir eutrophication",
       "year": "1995",
-      "url": "",
       "reference": "Laušević, R. (1995): Changes in phytoplankton community structure and dynamics as indicators of reservoir eutrophication. - Int. Conf. Preventive Engineering and Living Environment, 23-24.11.1995. Niš. Faculty of Occupational Safety. C15-1 - C15-4. (In Serbian with Abstract in English).",
       "authors": "Laušević, R.",
       "venue": "Int. Conf. Preventive Engineering and Living Environment",
       "volume_issue_pages": "C15-1 - C15-4",
       "publisher": "Faculty of Occupational Safety",
-      "description": "<p>23-24.11.1995. Niš. (In Serbian with Abstract in English).</p>",
-      "files": []
+      "description": "<p>23-24.11.1995. Niš. (In Serbian with Abstract in English).</p>"
     },
     {
       "category": "Articles",
       "title": "Algological and saprobiological analysis of river Beljevina (Yugoslavia)",
       "year": "1995",
-      "url": "",
       "reference": "Nikitović, J., Laušević, R. (1995): Algological and saprobiological analysis of river Beljevina (Yugoslavia). - Ekologija, 30(1-2): 27-39. (In Serbian with abstract in English).",
       "authors": "Nikitović, J., Laušević, R.",
       "venue": "Ekologija",
       "volume_issue_pages": "30(1-2): 27-39",
-      "publisher": "",
-      "description": "<p>(In Serbian with abstract in English)</p>",
-      "files": []
+      "description": "<p>(In Serbian with abstract in English)</p>"
     },
     {
       "category": "Articles",
       "title": "Planktonic diatoms in the Vlasinsko Jezero reservoir",
       "year": "1994",
-      "url": "",
       "reference": "Laušević, R., Cvijan M. (1994): Planktonic diatoms in the Vlasinsko Jezero reservoir. - In: Marino, D. & Montresor, M. (eds.): Proceedings of the 13th Int. Diatom Symposium 1994, Italy. Biopres Ltd., Bristol. 295-309.",
       "authors": "Laušević, R., Cvijan M.",
       "venue": "Proceedings of the 13th Int. Diatom Symposium 1994, Italy",
       "volume_issue_pages": "295-309",
       "publisher": "Biopres Ltd., Bristol",
-      "description": "<p>In: Marino, D. &amp; Montresor, M. (eds.)</p>",
-      "files": []
+      "description": "<p>In: Marino, D. &amp; Montresor, M. (eds.)</p>"
     },
     {
       "category": "Articles",
       "title": "Floristical composition of algae of Borsko Jezero lake (Yugoslavia)",
       "year": "1993/94",
-      "url": "",
       "reference": "Laušević, R., Nikitović, J. (1993/94): Floristical composition of algae of Borsko Jezero lake (Yugoslavia). - Bull. Nat. Hist. Mus. Belgrade. B48: 73-81.",
       "authors": "Laušević, R., Nikitović, J.",
       "venue": "Bull. Nat. Hist. Mus. Belgrade",
       "volume_issue_pages": "B48: 73-81",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Floristical composition of algae in the Samokovska stream",
       "year": "1993",
-      "url": "",
       "reference": "Laušević, R. (1993): Floristical composition of algae in the Samokovska stream. - Arch. Biol. Sci., Belgrade. 45(3-4): 125-136.",
       "authors": "Laušević, R.",
       "venue": "Arch. Biol. Sci., Belgrade",
       "volume_issue_pages": "45(3-4): 125-136",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Desmids of Vlasinsko Lake - from Peat Bog to Lake",
       "year": "1991",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1991): Desmids of Vlasinsko Lake - from Peat Bog to Lake. - Arch. Protistenkd. 139: 15-24.",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Arch. Protistenkd.",
       "volume_issue_pages": "139: 15-24",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Floristical study of algae of Vlasinsko Lake (Yugoslavia)",
       "year": "1991",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1991): Floristical study of algae of Vlasinsko Lake (Yugoslavia). - Bull. Nat. Hist. Mus. Belgrade, B 46: 57-69.",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Bull. Nat. Hist. Mus. Belgrade",
       "volume_issue_pages": "B 46: 57-69",
-      "publisher": "",
-      "description": "",
-      "files": []
+      "description": "<p></p>"
     },
     {
       "category": "Articles",
       "title": "Saprobiological analysis of the river Lugomir by use of algae as bioindicators",
       "year": "1990-1991",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1990-1991): Saprobiological analysis of the river Lugomir by use of algae as bioindicators. - Glas. Inst. bot. i Bot. bašte Univ. u Beogradu, Beograd, 24-25: 115-127. (In Serbian with Abstract in English).",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Glas. Inst. bot. i Bot. bašte Univ. u Beogradu, Beograd",
       "volume_issue_pages": "24-25: 115-127",
-      "publisher": "",
-      "description": "<p>(In Serbian with Abstract in English)</p>",
-      "files": []
+      "description": "<p>(In Serbian with Abstract in English)</p>"
     },
     {
       "category": "Articles",
       "title": "A new diatoms in Serbian flora",
       "year": "1988",
-      "url": "",
       "reference": "Cvijan, M, Laušević, R. (1988): A new diatoms in Serbian flora. - Glas. Inst. bot. i Bot. bašte Univ. u Beogradu, Beograd, 22: 195-204. (In Serbian with Abstract in English).",
       "authors": "Cvijan, M, Laušević, R.",
       "venue": "Glas. Inst. bot. i Bot. bašte Univ. u Beogradu, Beograd",
       "volume_issue_pages": "22: 195-204",
-      "publisher": "",
-      "description": "<p>(In Serbian with Abstract in English)</p>",
-      "files": []
+      "description": "<p>(In Serbian with Abstract in English)</p>"
     },
     {
       "category": "Articles",
       "title": "Ecological game - Everything for man and from man, possibility of application in the teaching of ecology",
       "year": "1986",
-      "url": "",
       "reference": "Laušević, R., Paunović, K. (1986): Ecological game - Everything for man and from man, possibility of application in the teaching of ecology. - Istraživač 1/86: 89-93, IAC RK MIS, Beograd (In Serbian).",
       "authors": "Laušević, R., Paunović, K.",
       "venue": "Istraživač",
       "volume_issue_pages": "1/86: 89-93",
       "publisher": "IAC RK MIS, Beograd",
-      "description": "<p>(In Serbian)</p>",
-      "files": []
+      "description": "<p>(In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "From digital collaboration to demonstration centres: BLUECONNECTʼs integrated infrastructure for sustainable Adriatic aquaculture and fisheries",
       "year": "2026",
-      "url": "",
       "reference": "Radoje Laušević, Mirko Đurović, Branka Pestorić, Mirjana Bartula (2026): From digital collaboration to demonstration centres: BLUECONNECTʼs integrated infrastructure for sustainable Adriatic aquaculture and fisheries. 4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026, 22-25 September 2026, Kotor, Montenegro, Book of Abstracts: 107. Institute of Marine Biology, University of Montenegro. 136 pp.",
       "authors": "Radoje Laušević, Mirko Đurović, Branka Pestorić, Mirjana Bartula",
       "venue": "4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026",
       "volume_issue_pages": "Book of Abstracts: 107",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>",
-      "files": []
+      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "From skills gaps to cross-border learning: The SKILLS project approach to blue economy education in the south Adriatic",
       "year": "2026",
-      "url": "",
       "reference": "Mirko Đurović, Branka Pestorić, Radoje Laušević, Mirjana Bartula (2026): From skills gaps to cross-border learning: The SKILLS project approach to blue economy education in the south Adriatic. 4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026, 22-25 September 2026, Kotor, Montenegro, Book of Abstracts: 125. Institute of Marine Biology, University of Montenegro. 136 pp.",
       "authors": "Mirko Đurović, Branka Pestorić, Radoje Laušević, Mirjana Bartula",
       "venue": "4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026",
       "volume_issue_pages": "Book of Abstracts: 125",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>",
-      "files": []
+      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "From blue skills to blue growth: The Adriatic blue growth cluster digital platform for cross-border knowledge, learning and innovation",
       "year": "2026",
-      "url": "",
       "reference": "Radoje Laušević, Stefan Planić, Mirko Đurović, Mirjana Bartula (2026): From blue skills to blue growth: The Adriatic blue growth cluster digital platform for cross-border knowledge, learning and innovation. 4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026, 22-25 September 2026, Kotor, Montenegro, Book of Abstracts: 127. Institute of Marine Biology, University of Montenegro. 136 pp.",
       "authors": "Radoje Laušević, Stefan Planić, Mirko Đurović, Mirjana Bartula",
       "venue": "4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026",
       "volume_issue_pages": "Book of Abstracts: 127",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>",
-      "files": []
+      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Regionalising BlueComp for the South Adriatic: An evidence based qualification framework for blue-economy skills",
       "year": "2026",
-      "url": "",
       "reference": "Radoje Laušević, Mirjana Bartula, Mirko Đurović, Branka Pestorić (2026): Regionalising BlueComp for the South Adriatic: An evidence based qualification framework for blue-economy skills. 4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026, 22-25 September 2026, Kotor, Montenegro, Book of Abstracts: 128. Institute of Marine Biology, University of Montenegro. 136 pp.",
       "authors": "Radoje Laušević, Mirjana Bartula, Mirko Đurović, Branka Pestorić",
       "venue": "4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026",
       "volume_issue_pages": "Book of Abstracts: 128",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>",
-      "files": []
+      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Bridging blue economy skills gaps in the south Adriatic: Comparative evidence from Montenegro, Albania and Italy",
       "year": "2026",
-      "url": "",
       "reference": "Ivana Ognjanović, Radoje Laušević, Mirjana Bartula, Mirko Đurović (2026): Bridging blue economy skills gaps in the south Adriatic: Comparative evidence from Montenegro, Albania and Italy. 4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026, 22-25 September 2026, Kotor, Montenegro, Book of Abstracts: 130. Institute of Marine Biology, University of Montenegro. 136 pp.",
       "authors": "Ivana Ognjanović, Radoje Laušević, Mirjana Bartula, Mirko Đurović",
       "venue": "4th International Conference on Adriatic Biodiversity Protection - AdriBioPro2026",
       "volume_issue_pages": "Book of Abstracts: 130",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>",
-      "files": []
+      "description": "<p>22-25 September 2026, Kotor, Montenegro. 136 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Blue Pass Guide",
       "year": "2022",
-      "url": "",
       "reference": "Radoje Laušević, Nenad Antolović (2022): Blue Pass Guide. International Conference Adriatic Biodiversity Protection - AdriBioPro2022, 13-17 June 2022, Kotor, Montenegro, Book of Abstracts: 57. Institute of Marine Biology, University of Montenegro. 111 pp.",
       "authors": "Radoje Laušević, Nenad Antolović",
       "venue": "International Conference Adriatic Biodiversity Protection - AdriBioPro2022",
       "volume_issue_pages": "Book of Abstracts: 57",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>13-17 June 2022, Kotor, Montenegro. 111 pp.</p>",
-      "files": []
+      "description": "<p>13-17 June 2022, Kotor, Montenegro. 111 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Exploring cross-border aquatic biodiversity",
       "year": "2022",
-      "url": "",
       "reference": "Radoje Laušević, Nenad Antolović, Aleksandar Joksimović (2022): Exploring cross-border aquatic biodiversity. International Conference Adriatic Biodiversity Protection - AdriBioPro2022, 13-17 June 2022, Kotor, Montenegro, Book of Abstracts: 58. Institute of Marine Biology, University of Montenegro. 111 pp.",
       "authors": "Radoje Laušević, Nenad Antolović, Aleksandar Joksimović",
       "venue": "International Conference Adriatic Biodiversity Protection - AdriBioPro2022",
       "volume_issue_pages": "Book of Abstracts: 58",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>13-17 June 2022, Kotor, Montenegro. 111 pp.</p>",
-      "files": []
+      "description": "<p>13-17 June 2022, Kotor, Montenegro. 111 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Preventing marine pollution",
       "year": "2019",
-      "url": "",
       "reference": "Milica Mandić, Mirko Đurović, Dragana Drakulović, Milena Krasić, Radoje Laušević (2019): Preventing marine pollution. International Conference Adriatic Biodiversity Protection – AdriBioPro2019, 7-10 April 2019, Kotor, Montenegro, Book of Abstracts: 50. Institute of Marine Biology, University of Montenegro. 126 pp.",
       "authors": "Milica Mandić, Mirko Đurović, Dragana Drakulović, Milena Krasić, Radoje Laušević",
       "venue": "International Conference Adriatic Biodiversity Protection – AdriBioPro2019",
       "volume_issue_pages": "Book of Abstracts: 50",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>7-10 April 2019, Kotor, Montenegro. 126 pp.</p>",
-      "files": []
+      "description": "<p>7-10 April 2019, Kotor, Montenegro. 126 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Rare and Endangered Fish Species in the Adriatic Sea and Proposal for Marine Flagship Species",
       "year": "2019",
-      "url": "",
       "reference": "Ana Pešić, Zdravko Ikica, Aleksandar Joksimović, Mirko Đurović, Olivera Marković, Radoje Laušević (2019): Rare and Endangered Fish Species in the Adriatic Sea and Proposal for Marine Flagship Species. International Conference Adriatic Biodiversity Protection – AdriBioPro2019, 7-10 April 2019, Kotor, Montenegro, Book of Abstracts: 68. Institute of Marine Biology, University of Montenegro. 126 pp.",
       "authors": "Ana Pešić, Zdravko Ikica, Aleksandar Joksimović, Mirko Đurović, Olivera Marković, Radoje Laušević",
       "venue": "International Conference Adriatic Biodiversity Protection – AdriBioPro2019",
       "volume_issue_pages": "Book of Abstracts: 68",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>7-10 April 2019, Kotor, Montenegro. 126 pp.</p>",
-      "files": []
+      "description": "<p>7-10 April 2019, Kotor, Montenegro. 126 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "Center for Adriatic Biodiversity Conservation",
       "year": "2019",
-      "url": "",
       "reference": "Radoje Laušević, Mirko Đurović (2019): Center for Adriatic Biodiversity Conservation. International Conference Adriatic Biodiversity Protection – AdriBioPro2019, 7-10 April 2019, Kotor, Montenegro, Book of Abstracts: 86. Institute of Marine Biology, University of Montenegro. 126 pp.",
       "authors": "Radoje Laušević, Mirko Đurović",
       "venue": "International Conference Adriatic Biodiversity Protection – AdriBioPro2019",
       "volume_issue_pages": "Book of Abstracts: 86",
       "publisher": "Institute of Marine Biology, University of Montenegro",
-      "description": "<p>7-10 April 2019, Kotor, Montenegro. 126 pp.</p>",
-      "files": []
+      "description": "<p>7-10 April 2019, Kotor, Montenegro. 126 pp.</p>"
     },
     {
       "category": "Conferences",
       "title": "John Dory, Zeus faber, as suggested flagship species of aquarium Boka",
       "year": "2018",
-      "url": "",
       "reference": "Ana Pešić, Zdravko Ikica, Aleksandar Joksimović, Olivera Marković, Mirko Đurović, Radoje Laušević (2018). John Dory, Zeus faber, as suggested flagship species of aquarium Boka. VIII International Conference „WATER & FISH“ 13-15 June 2018, Zemun, Serbia. Conference proceedings, 406-410. ISBN 978-86-7834-224-0.",
       "authors": "Ana Pešić, Zdravko Ikica, Aleksandar Joksimović, Olivera Marković, Mirko Đurović, Radoje Laušević",
       "venue": "VIII International Conference „WATER & FISH“",
       "volume_issue_pages": "Conference proceedings, 406-410",
-      "publisher": "",
-      "description": "<p>13-15 June 2018, Zemun, Serbia; ISBN 978-86-7834-224-0</p>",
-      "files": []
+      "description": "<p>13-15 June 2018, Zemun, Serbia; ISBN 978-86-7834-224-0</p>"
     },
     {
       "category": "Conferences",
@@ -979,516 +797,392 @@
       "authors": "Slobodan Milutinović, Radoje Laušević",
       "venue": "First Scientific Conference \"Urban Security and Urban Development\"",
       "volume_issue_pages": "195-208",
-      "publisher": "",
-      "description": "<p>Beograd, 21.6.2017. Ed. Svetlana Stanarević, Aleksandra Đukić, 368 pp; UDK=351.79:551.583(1-2)(5-15)(61)</p>",
-      "files": []
+      "description": "<p>Beograd, 21.6.2017. Ed. Svetlana Stanarević, Aleksandra Đukić, 368 pp; UDK=351.79:551.583(1-2)(5-15)(61)</p>"
     },
     {
       "category": "Conferences",
       "title": "Local planning for biodiversity protection in the Western Balkans",
       "year": "2014",
-      "url": "",
       "reference": "Laušević, R., Bartula, M., Solujić, A. S. (2014): Local planning for biodiversity protection in the Western Balkans. 1st International Conference \"Ecological Improvement of Devastated Sites for Sustainable Development\", Futura, University Singidunum, Belgrade, Serbia, 29-30 September 2014. 176-182.",
       "authors": "Laušević, R., Bartula, M., Solujić, A. S.",
       "venue": "1st International Conference \"Ecological Improvement of Devastated Sites for Sustainable Development\"",
       "volume_issue_pages": "176-182",
-      "publisher": "",
-      "description": "<p>Futura, University Singidunum, Belgrade, Serbia, 29-30 September 2014</p>",
-      "files": []
+      "description": "<p>Futura, University Singidunum, Belgrade, Serbia, 29-30 September 2014</p>"
     },
     {
       "category": "Conferences",
       "title": "Waste Flow Monitoring in Serbia [Monitoring tokova otpada u Srbiji]",
       "year": "2014",
-      "url": "",
       "reference": "R. Laušević, A. Popović, V. Pavićević, (2014): Waste Flow Monitoring in Serbia [Monitoring tokova otpada u Srbiji], Proceedings of the International Conference: Waste Waters, Municipal Solid Wastes and Hazardous Wastes, Association for Water Technology and Sanitary Engineering, 1-3 April 2014, Zlatibor, Serbia, ISBN 978-86-82931-61-4.",
       "authors": "R. Laušević, A. Popović, V. Pavićević,",
       "venue": "International Conference: Waste Waters, Municipal Solid Wastes and Hazardous Wastes",
-      "volume_issue_pages": "",
       "publisher": "Association for Water Technology and Sanitary Engineering",
-      "description": "<p>Proceedings. 1-3 April 2014, Zlatibor, Serbia, ISBN 978-86-82931-61-4.</p>",
-      "files": []
+      "description": "<p>Proceedings. 1-3 April 2014, Zlatibor, Serbia, ISBN 978-86-82931-61-4.</p>"
     },
     {
       "category": "Conferences",
       "title": "Environmental management and information system - TEAMS in Serbia",
       "year": "2013",
-      "url": "",
       "reference": "T. Aamodt, Laušević, R., S. Berge, A. Popović, B. Kotanjac (2013): Environmental management and information system - TEAMS in Serbia. - Proc. Int. Conf. Reporting for Sustainability, Bečići, Montenegro. pp. 105-112.",
       "authors": "T. Aamodt, Laušević, R., S. Berge, A. Popović, B. Kotanjac",
       "venue": "Proc. Int. Conf. Reporting for Sustainability",
       "volume_issue_pages": "pp. 105-112",
-      "publisher": "",
-      "description": "<p>Bečići, Montenegro</p>",
-      "files": []
+      "description": "<p>Bečići, Montenegro</p>"
     },
     {
       "category": "Conferences",
       "title": "Environmental Management and Information System - TEAMS PCS in Kolubara, Serbia",
       "year": "2013",
-      "url": "",
       "reference": "Laušević, R., A. Simić and A. Popović (2013): Environmental Management and Information System - TEAMS PCS in Kolubara, Serbia. - Conference Proceedings 6th International Conference on Sustainable Energy and Environmental Protection-SEEP, 20-23 August 2013, Maribor, Slovenia. 206-211 pp.",
       "authors": "Laušević, R., A. Simić and A. Popović",
       "venue": "6th International Conference on Sustainable Energy and Environmental Protection-SEEP",
       "volume_issue_pages": "206-211 pp.",
-      "publisher": "",
-      "description": "<p>Conference Proceedings. 20-23 August 2013, Maribor, Slovenia.</p>",
-      "files": []
+      "description": "<p>Conference Proceedings. 20-23 August 2013, Maribor, Slovenia.</p>"
     },
     {
       "category": "Conferences",
       "title": "Biodefense: vision of a broader cooperation",
       "year": "2008",
-      "url": "",
       "reference": "M. L. Gullino, R. Lausevic, J. Stack (2008): Biodefense: vision of a broader cooperation. – Journal of Plant Pathology 90 (2, Supplement), Abstracts of invited and offered papers of ICPP 2008, 9th International Congress of Plant Pathology: Healthy and Safe Food for Everybody, August 24-29, 2008, Torino, Italy.",
       "authors": "M. L. Gullino, R. Lausevic, J. Stack",
       "venue": "Journal of Plant Pathology",
       "volume_issue_pages": "90 (2, Supplement)",
-      "publisher": "",
-      "description": "<p>Abstracts of invited and offered papers of ICPP 2008, 9th International Congress of Plant Pathology: Healthy and Safe Food for Everybody, August 24-29, 2008, Torino, Italy</p>",
-      "files": []
+      "description": "<p>Abstracts of invited and offered papers of ICPP 2008, 9th International Congress of Plant Pathology: Healthy and Safe Food for Everybody, August 24-29, 2008, Torino, Italy</p>"
     },
     {
       "category": "Conferences",
       "title": "Consequences of NATO aggression on the environment with chronic effects on human health (Posledice NATO agresije na životnu sredinu sa hroničnim efektima na ljudsko zdravlje)",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (2000): Consequences of NATO aggression on the environment with chronic effects on human health (Posledice NATO agresije na životnu sredinu sa hroničnim efektima na ljudsko zdravlje). – Prvi internacionalni simpozijum lekara iz dijaspore i otadžbine: »Posledice poremećaja ekološke ravnoteže na zdravlje stanovništva Balkana. 26.04.2000. KBC »Bežanijska kosa«. Book of Abstracts, 7.",
       "authors": "Laušević, R.",
       "venue": "Prvi internacionalni simpozijum lekara iz dijaspore i otadžbine: »Posledice poremećaja ekološke ravnoteže na zdravlje stanovništva Balkana",
       "volume_issue_pages": "Book of Abstracts, 7",
-      "publisher": "",
-      "description": "<p>26.04.2000. KBC »Bežanijska kosa«</p>",
-      "files": []
+      "description": "<p>26.04.2000. KBC »Bežanijska kosa«</p>"
     },
     {
       "category": "Conferences",
       "title": "An overview of negative consequences of NATO aggression on water resources of Yugoslavia",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R. (2000): An overview of negative consequences of NATO aggression on water resources of Yugoslavia. – Conference »Water Protection 2000« JDZV, Mataruška Banja, 6-9. June 2000. pp. 29-34. (In Serbian with Summary in English).",
       "authors": "Laušević, R.",
       "venue": "Conference »Water Protection 2000«",
       "volume_issue_pages": "pp. 29-34",
-      "publisher": "",
-      "description": "<p>JDZV, Mataruška Banja, 6-9. June 2000; (In Serbian with Summary in English)</p>",
-      "files": []
+      "description": "<p>JDZV, Mataruška Banja, 6-9. June 2000; (In Serbian with Summary in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "Diversity of net diatom plankton of Vlasinsko Jezero reservoir (Serbia, Yugoslavia)",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R. (1999): Diversity of net diatom plankton of Vlasinsko Jezero reservoir (Serbia, Yugoslavia). – In: Mayama, Idei & Koizumi (eds): Proceedings of the Fourteenth International Diatom Symposium, Tokyo, Japan, September 2-8, 1996. Koeltz. Scientific Books, Koenigstein. 307-320.",
       "authors": "Laušević, R.",
       "venue": "Proceedings of the Fourteenth International Diatom Symposium",
       "volume_issue_pages": "307-320",
       "publisher": "Koeltz. Scientific Books, Koenigstein",
-      "description": "<p>In: Mayama, Idei &amp; Koizumi (eds). Tokyo, Japan, September 2-8, 1996.</p>",
-      "files": []
+      "description": "<p>In: Mayama, Idei &amp; Koizumi (eds). Tokyo, Japan, September 2-8, 1996.</p>"
     },
     {
       "category": "Conferences",
       "title": "Spring diatom bloom in Gračanka reservoir (Serbia, Yugoslavia)",
       "year": "1998",
-      "url": "",
       "reference": "Laušević, R., Karadžić, V., Vasiljević, M. (1998): Spring diatom bloom in Gračanka reservoir (Serbia, Yugoslavia). – 2nd Congress of Biologists of Macedonia, 3-5 September, Ohrid, Macedonia.",
       "authors": "Laušević, R., Karadžić, V., Vasiljević, M.",
       "venue": "2nd Congress of Biologists of Macedonia",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>3-5 September, Ohrid, Macedonia</p>",
-      "files": []
+      "description": "<p>3-5 September, Ohrid, Macedonia</p>"
     },
     {
       "category": "Conferences",
       "title": "Phytoplankton and saprobiological analysis of river Sava (Serbia, Yugoslavia)",
       "year": "1998",
-      "url": "",
       "reference": "Nikitović, J., Laušević, R., Karadžić, V. (1998): Phytoplankton and saprobiological analysis of river Sava (Serbia, Yugoslavia). – 2nd Congress of Biologists of Macedonia, 3-5 September, Ohrid, Macedonia.",
       "authors": "Nikitović, J., Laušević, R., Karadžić, V.",
       "venue": "2nd Congress of Biologists of Macedonia",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>3-5 September, Ohrid, Macedonia</p>",
-      "files": []
+      "description": "<p>3-5 September, Ohrid, Macedonia</p>"
     },
     {
       "category": "Conferences",
       "title": "Diatoms - bioindicators of water quality",
       "year": "1996",
-      "url": "",
       "reference": "Laušević, R., Nikitović, J. (1996): Diatoms - bioindicators of water quality. Conference “Water protection '96”, JDZV, Ulcinj, 4-7 Jun 1996. pp. 323-327. (In Serbian with Summary in English).",
       "authors": "Laušević, R., Nikitović, J.",
       "venue": "Conference “Water protection '96”",
       "volume_issue_pages": "pp. 323-327",
-      "publisher": "",
-      "description": "<p>JDZV, Ulcinj, 4-7 Jun 1996; (In Serbian with Summary in English)</p>",
-      "files": []
+      "description": "<p>JDZV, Ulcinj, 4-7 Jun 1996; (In Serbian with Summary in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "A review of methods for Chlorophyll a detection in samples of phytoplankton and periphyton",
       "year": "1996",
-      "url": "",
       "reference": "Laušević, R., Tomašević, V. (1996): A review of methods for Chlorophyll a detection in samples of phytoplankton and periphyton. - Conference “Water protection '96” JDZV, Ulcinj, 4-7 Jun 1996. pp 351-355. (In Serbian with Summary in English).",
       "authors": "Laušević, R., Tomašević, V.",
       "venue": "Conference “Water protection '96”",
       "volume_issue_pages": "pp 351-355",
-      "publisher": "",
-      "description": "<p>JDZV, Ulcinj, 4-7 Jun 1996; (In Serbian with Summary in English)</p>",
-      "files": []
+      "description": "<p>JDZV, Ulcinj, 4-7 Jun 1996; (In Serbian with Summary in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "Quantitative analysis of phytoplankton of the Sava river",
       "year": "1996",
-      "url": "",
       "reference": "Nikitović, J., Laušević, R., Tomašević, V. (1996): Quantitative analysis of phytoplankton of the Sava river. - 5th Yugoslav Ecological Congress. 22-27 September 1996, Belgrade, Yugoslavia. Book of Abstracts. pp. 19 (In Serbian).",
       "authors": "Nikitović, J., Laušević, R., Tomašević, V.",
       "venue": "5th Yugoslav Ecological Congress",
       "volume_issue_pages": "Book of Abstracts. pp. 19",
-      "publisher": "",
-      "description": "<p>22-27 September 1996, Belgrade, Yugoslavia. (In Serbian)</p>",
-      "files": []
+      "description": "<p>22-27 September 1996, Belgrade, Yugoslavia. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "Oscillatoria rubescens (D. C.) Gom. (Cyanophyta) in Uvac reservoir",
       "year": "1996",
-      "url": "",
       "reference": "Laušević, R., Nikitović, J. (1996): Oscillatoria rubescens (D. C.) Gom. (Cyanophyta) in Uvac reservoir. - 5th Yugoslav Ecological Congress. 22-27 September 1996, Belgrade, Yugoslavia. Book of Abstracts. pp. 23 (In Serbian).",
       "authors": "Laušević, R., Nikitović, J.",
       "venue": "5th Yugoslav Ecological Congress",
       "volume_issue_pages": "Book of Abstracts. pp. 23",
-      "publisher": "",
-      "description": "<p>22-27 September 1996, Belgrade, Yugoslavia. (In Serbian)</p>",
-      "files": []
+      "description": "<p>22-27 September 1996, Belgrade, Yugoslavia. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "Methodology of hydrobiological investigations of reservoir water quality",
       "year": "1996",
-      "url": "",
       "reference": "Laušević, R. (1996): Methodology of hydrobiological investigations of reservoir water quality. - 5th Yugoslav Ecological Congress. 22-27 September 1996, Belgrade, Yugoslavia. Book of Abstracts. pp. 100 (In Serbian).",
       "authors": "Laušević, R.",
       "venue": "5th Yugoslav Ecological Congress",
       "volume_issue_pages": "Book of Abstracts. pp. 100",
-      "publisher": "",
-      "description": "<p>22-27 September 1996, Belgrade, Yugoslavia. (In Serbian)</p>",
-      "files": []
+      "description": "<p>22-27 September 1996, Belgrade, Yugoslavia. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "Diversity of diatom flora in Vlasinsko Jezero reservoir (Serbia, Yugoslavia)",
       "year": "1996",
-      "url": "",
       "reference": "Laušević, R. (1996): Diversity of diatom flora in Vlasinsko Jezero reservoir (Serbia, Yugoslavia). - 14th Int. Diatom symposium, 2-8 September, Tokyo, Japan. pp 67.",
       "authors": "Laušević, R.",
       "venue": "14th Int. Diatom symposium",
       "volume_issue_pages": "pp 67",
-      "publisher": "",
-      "description": "<p>2-8 September, Tokyo, Japan</p>",
-      "files": []
+      "description": "<p>2-8 September, Tokyo, Japan</p>"
     },
     {
       "category": "Conferences",
       "title": "Diatom flora in Vlasinsko Jezero reservoir (South East Serbia, Yugoslavia)",
       "year": "1995",
-      "url": "",
       "reference": "Laušević, R. (1995): Diatom flora in Vlasinsko Jezero reservoir (South East Serbia, Yugoslavia). 26th Congress of Int. Ass. of Theoretical and Applied Limnology, Brazil, 23-29 July 1995. Abstracts. pp. 156.",
       "authors": "Laušević, R.",
       "venue": "26th Congress of Int. Ass. of Theoretical and Applied Limnology",
       "volume_issue_pages": "Abstracts. pp. 156",
-      "publisher": "",
-      "description": "<p>Brazil, 23-29 July 1995</p>",
-      "files": []
+      "description": "<p>Brazil, 23-29 July 1995</p>"
     },
     {
       "category": "Conferences",
       "title": "Micro algae and Saprobiological analysis of Vlasinsko lake",
       "year": "1994",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1994): Micro algae and Saprobiological analysis of Vlasinsko lake. - Conference “Water protection '94”, JDZV, Igalo. pp. 128-134. (In Serbian).",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Conference “Water protection '94”",
       "volume_issue_pages": "pp. 128-134",
-      "publisher": "",
-      "description": "<p>JDZV, Igalo; (In Serbian)</p>",
-      "files": []
+      "description": "<p>JDZV, Igalo; (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "Primary production of Vlasinsko lake",
       "year": "1994",
-      "url": "",
       "reference": "Laušević, R., Cvijan, M. (1994): Primary production of Vlasinsko lake. - Conference “Water protection '94”, pp. 135-138. JDZV, Igalo. (In Serbian).",
       "authors": "Laušević, R., Cvijan, M.",
       "venue": "Conference “Water protection '94”",
       "volume_issue_pages": "pp. 135-138",
-      "publisher": "",
-      "description": "<p>JDZV, Igalo. (In Serbian)</p>",
-      "files": []
+      "description": "<p>JDZV, Igalo. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "Micro-phytobenthos and Saprobiological analysis of the tributaries of Vlasinsko lake",
       "year": "1994",
-      "url": "",
       "reference": "Laušević, R., Cvijan, M. (1994): Micro-phytobenthos and Saprobiological analysis of the tributaries of Vlasinsko lake. - Conference “Water protection '94”, pp. 204-209. JDZV, Igalo. (In Serbian).",
       "authors": "Laušević, R., Cvijan, M.",
       "venue": "Conference “Water protection '94”",
       "volume_issue_pages": "pp. 204-209",
-      "publisher": "",
-      "description": "<p>JDZV, Igalo. (In Serbian)</p>",
-      "files": []
+      "description": "<p>JDZV, Igalo. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "Saprobiological analysis of the Borsko lake",
       "year": "1994",
-      "url": "",
       "reference": "Laušević, R., Nikitović, J. (1994): Saprobiological analysis of the Borsko lake. - Second Meeting on Environmental Value and Protection, Borsko Jezero, 9-11.06.1994, pp. 163-164. (In Serbian with Abstract in English).",
       "authors": "Laušević, R., Nikitović, J.",
       "venue": "Second Meeting on Environmental Value and Protection",
       "volume_issue_pages": "pp. 163-164",
-      "publisher": "",
-      "description": "<p>Borsko Jezero, 9-11.06.1994; (In Serbian with Abstract in English)</p>",
-      "files": []
+      "description": "<p>Borsko Jezero, 9-11.06.1994; (In Serbian with Abstract in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "Summer 1990 aspect of the algae of the Borsko lake",
       "year": "1994",
-      "url": "",
       "reference": "Laušević, R., Nikitović, J. (1994): Summer 1990 aspect of the algae of the Borsko lake. - Second Meeting on Environmental Value and Protection, Borsko Jezero, 9-11.06.1994, pp. 165-166. (In Serbian with Abstract in English).",
       "authors": "Laušević, R., Nikitović, J.",
       "venue": "Second Meeting on Environmental Value and Protection",
       "volume_issue_pages": "pp. 165-166",
-      "publisher": "",
-      "description": "<p>Borsko Jezero, 9-11.06.1994; (In Serbian with Abstract in English)</p>",
-      "files": []
+      "description": "<p>Borsko Jezero, 9-11.06.1994; (In Serbian with Abstract in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "Autecological characteristics of diatoms (Bacillariophyta) in Serbian freshwaters. 1. Planktonic diatoms in the accumulation of Vlasinsko lake”",
       "year": "1994",
-      "url": "",
       "reference": "Laušević, R., Cvijan M. (1994): Autecological characteristics of diatoms (Bacillariophyta) in Serbian freshwaters. 1. Planktonic diatoms in the accumulation of Vlasinsko lake”. 13th International Diatom Symposium, 1-7 September 1994, Acquafredda di Maratea (PZ), Italy. Abstract book, pp. 216.",
       "authors": "Laušević, R., Cvijan M.",
       "venue": "13th International Diatom Symposium",
       "volume_issue_pages": "Abstract book, pp. 216",
-      "publisher": "",
-      "description": "<p>1-7 September 1994, Acquafredda di Maratea (PZ), Italy</p>",
-      "files": []
+      "description": "<p>1-7 September 1994, Acquafredda di Maratea (PZ), Italy</p>"
     },
     {
       "category": "Conferences",
       "title": "Taxonomy and autecology of genus Closterium Nitz. ex Ralfs 1848 (Chlorophyta) in Vlasinsko Jezero reservoir",
       "year": "1993",
-      "url": "",
       "reference": "Laušević, R., Cvijan, M. (1993): Taxonomy and autecology of genus Closterium Nitz. ex Ralfs 1848 (Chlorophyta) in Vlasinsko Jezero reservoir. Third Symposium on South Eastern Flora of Serbia and Possibilities of It’s Rationale Usage. Faculty of Technology and Metallurgy, Leskovac. 14. (In Serbian).",
       "authors": "Laušević, R., Cvijan, M.",
       "venue": "Third Symposium on South Eastern Flora of Serbia and Possibilities of It’s Rationale Usage",
       "volume_issue_pages": "14",
       "publisher": "Faculty of Technology and Metallurgy, Leskovac",
-      "description": "<p>(In Serbian).</p>",
-      "files": []
+      "description": "<p>(In Serbian).</p>"
     },
     {
       "category": "Conferences",
       "title": "Taxonomy and autecology of genus Cosmarium Corda 1834 (Chlorophyta) in Vlasinsko Jezero reservoir",
       "year": "1993",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1993): Taxonomy and autecology of genus Cosmarium Corda 1834 (Chlorophyta) in Vlasinsko Jezero reservoir. Third Symposium on South Eastern Flora of Serbia and Possibilities of Its Rationale Usage. Faculty of Technology and Metallurgy, Leskovac. 13. (In Serbian).",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Third Symposium on South Eastern Flora of Serbia and Possibilities of Its Rationale Usage",
       "volume_issue_pages": "13",
       "publisher": "Faculty of Technology and Metallurgy, Leskovac",
-      "description": "<p>(In Serbian).</p>",
-      "files": []
+      "description": "<p>(In Serbian).</p>"
     },
     {
       "category": "Conferences",
       "title": "Saprobiological analysis of the Samokovska stream",
       "year": "1992",
-      "url": "",
       "reference": "Laušević, R. (1992): Saprobiological analysis of the Samokovska stream. - Conference “Water protection '92”, pp. 156-162. JDZV, Subotica. (In Serbian with Abstract in English).",
       "authors": "Laušević, R.",
       "venue": "Conference “Water protection '92”",
       "volume_issue_pages": "pp. 156-162",
-      "publisher": "",
-      "description": "<p>JDZV, Subotica. (In Serbian with Abstract in English)</p>",
-      "files": []
+      "description": "<p>JDZV, Subotica. (In Serbian with Abstract in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "Long term successive changes, production and seasonal dynamics of Vlasinsko Jezero lake phytoplankton",
       "year": "1992",
-      "url": "",
       "reference": "Laušević, R. (1992): Long term successive changes, production and seasonal dynamics of Vlasinsko Jezero lake phytoplankton.- 15th SIL Int. Cong. of Limnology, Barcelona, 21-27.08.1992.",
       "authors": "Laušević, R.",
       "venue": "15th SIL Int. Cong. of Limnology",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>Barcelona, 21-27.08.1992</p>",
-      "files": []
+      "description": "<p>Barcelona, 21-27.08.1992</p>"
     },
     {
       "category": "Conferences",
       "title": "Biological monitoring of rivers in the Danube basin in Serbia",
       "year": "1992",
-      "url": "",
       "reference": "Mitrović-TutundžIć, V., Laušević, R., Blaženčić, J. (1992): Biological monitoring of rivers in the Danube basin in Serbia. - International Scientific Forum “Danube the River of Cooperation. Beograd.",
       "authors": "Mitrović-TutundžIć, V., Laušević, R., Blaženčić, J.",
       "venue": "International Scientific Forum “Danube the River of Cooperation",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>Beograd</p>",
-      "files": []
+      "description": "<p>Beograd</p>"
     },
     {
       "category": "Conferences",
       "title": "Nedeljko Košanin's contribution to algological investigations in Serbia",
       "year": "1991",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1991): Nedeljko Košanin's contribution to algological investigations in Serbia. -Symposium “Nedeljko Košanin and nature sciences”, pp. 207-224. Beograd - Ivanjica. (In Serbian with Abstract in English).",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Symposium “Nedeljko Košanin and nature sciences”",
       "volume_issue_pages": "pp. 207-224",
-      "publisher": "",
-      "description": "<p>Beograd - Ivanjica. (In Serbian with Abstract in English)</p>",
-      "files": []
+      "description": "<p>Beograd - Ivanjica. (In Serbian with Abstract in English)</p>"
     },
     {
       "category": "Conferences",
       "title": "Saprobiological analysis of the Samokovska stream in summer 1988",
       "year": "1990",
-      "url": "",
       "reference": "Laušević, R. (1990): Saprobiological analysis of the Samokovska stream in summer 1988. - Symposium “Nature of Mts. Kopaonik - Protection and Using”, Book of abstracts, pp. 66. Inst. Turizam PMF, Beograd, Kopaonik. (In Serbian).",
       "authors": "Laušević, R.",
       "venue": "Symposium “Nature of Mts. Kopaonik - Protection and Using”",
       "volume_issue_pages": "Book of abstracts, pp. 66",
-      "publisher": "",
-      "description": "<p>Inst. Turizam PMF, Beograd, Kopaonik. (In Serbian)</p>",
-      "files": []
+      "description": "<p>Inst. Turizam PMF, Beograd, Kopaonik. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "The algae of Vlasinsko lake - from peat-bog to lake",
       "year": "1990",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1990): The algae of Vlasinsko lake - from peat-bog to lake. - Second Symposium on Flora of SE Serbia and Possibilities of its Sustainable Using. Book of abstracts, pp. 30-31 (A-7). TMF, Leskovac. (In Serbian).",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "Second Symposium on Flora of SE Serbia and Possibilities of its Sustainable Using",
       "volume_issue_pages": "Book of abstracts, pp. 30-31 (A-7)",
-      "publisher": "",
-      "description": "<p>TMF, Leskovac. (In Serbian)</p>",
-      "files": []
+      "description": "<p>TMF, Leskovac. (In Serbian)</p>"
     },
     {
       "category": "Conferences",
       "title": "The Desmids of Vlasina lake - from peat-bog to lake",
       "year": "1990",
-      "url": "",
       "reference": "Cvijan, M., Laušević, R. (1990): The Desmids of Vlasina lake - from peat-bog to lake.- International Symposium Biology and Taxonomy of Green Algae, Smolenice, Czecho-Slovakia; Abstracts, pp. 20.",
       "authors": "Cvijan, M., Laušević, R.",
       "venue": "International Symposium Biology and Taxonomy of Green Algae",
       "volume_issue_pages": "Abstracts, pp. 20",
-      "publisher": "",
-      "description": "<p>Smolenice, Czecho-Slovakia</p>",
-      "files": []
+      "description": "<p>Smolenice, Czecho-Slovakia</p>"
     },
     {
       "category": "Conferences",
       "title": "Floristical composition of algae and Saprobiological analysis of the River Lugomir by use of algae as bioindicators",
       "year": "1986",
-      "url": "",
       "reference": "Laušević, R. (1986): Floristical composition of algae and Saprobiological analysis of the River Lugomir by use of algae as bioindicators. - First Symposium on Serbian Flora and Vegetation, Book of abstracts, pp. 44-45, Inst. Bot. Bot. Bašta, Beograd. (In Serbian).",
       "authors": "Laušević, R.",
       "venue": "First Symposium on Serbian Flora and Vegetation",
       "volume_issue_pages": "Book of abstracts, pp. 44-45",
       "publisher": "Inst. Bot. Bot. Bašta, Beograd",
-      "description": "<p>(In Serbian)</p>",
-      "files": []
+      "description": "<p>(In Serbian)</p>"
     },
     {
       "category": "Invited lectures",
       "title": "TEAMS SR Platform for Nanoscale Monitoring Data Management and Reporting",
       "year": "2013",
-      "url": "",
       "reference": "R. Lauševic, T. Aamodt, A. Popovic, S. Berge, B. Kotanjac (2013): TEAMS SR Platform for Nanoscale Monitoring Data Management and Reporting. - Abstracts Book of Conference NANOSMAT, 22-25 September 2013, Granada, Spain. 793-794 pp.",
       "authors": "R. Lauševic, T. Aamodt, A. Popovic, S. Berge, B. Kotanjac",
       "venue": "Conference NANOSMAT",
       "volume_issue_pages": "793-794 pp.",
-      "publisher": "",
-      "description": "<p>Abstracts Book. 22-25 September 2013, Granada, Spain.</p>",
-      "files": []
+      "description": "<p>Abstracts Book. 22-25 September 2013, Granada, Spain.</p>"
     },
     {
       "category": "Invited lectures",
       "title": "Ecological consequences of bombing in Yugoslavia (Ekološke posledice bombardovanja u Jugoslaviji)",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R.: Ecological consequences of bombing in Yugoslavia (Ekološke posledice bombardovanja u Jugoslaviji). – ECCO 2000. AIESEC Beograd, 03 – 06.April 2000, Belgrade.",
       "authors": "Laušević, R.",
       "venue": "ECCO 2000",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>AIESEC Beograd, 03 – 06.April 2000, Belgrade</p>",
-      "files": []
+      "description": "<p>AIESEC Beograd, 03 – 06.April 2000, Belgrade</p>"
     },
     {
       "category": "Invited lectures",
       "title": "Ecological consequences of NATO bombing of Yugoslavia",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R.: Ecological consequences of NATO bombing of Yugoslavia. – University of Bristol, School of Geography. Bristol, UK, 28.03.2000.",
       "authors": "Laušević, R.",
       "venue": "University of Bristol, School of Geography",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>Bristol, UK, 28.03.2000</p>",
-      "files": []
+      "description": "<p>Bristol, UK, 28.03.2000</p>"
     },
     {
       "category": "Invited lectures",
       "title": "Ecological consequences of NATO bombing of Yugoslavia",
       "year": "2000",
-      "url": "",
       "reference": "Laušević, R.: Ecological consequences of NATO bombing of Yugoslavia. – University of Bradford, 25th March 2000. Conference 'The Yugoslav Crisis: International Responses and the Way Forward. Bradford, UK.",
       "authors": "Laušević, R.",
       "venue": "Conference 'The Yugoslav Crisis: International Responses and the Way Forward",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>University of Bradford, 25th March 2000; Bradford, UK</p>",
-      "files": []
+      "description": "<p>University of Bradford, 25th March 2000; Bradford, UK</p>"
     },
     {
       "category": "Invited lectures",
       "title": "Ecological consequences of NATO aggression on Yugoslavia (Ekološke posledice NATO agresije na Jugoslaviju)",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R.: Ecological consequences of NATO aggression on Yugoslavia (Ekološke posledice NATO agresije na Jugoslaviju). – Ministry of Education of Republic of Serbia (Ministarstvo prosvete Republike Srbije. Seminar za nastavnike biologije opštine Novi Sad. Zavod za zaštitu prirode Srbije, Odeljenje u Novom Sadu), Novi Sad, 11.11.1999.",
       "authors": "Laušević, R.",
       "venue": "Ministry of Education of Republic of Serbia",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>(Ministarstvo prosvete Republike Srbije. Seminar za nastavnike biologije opštine Novi Sad. Zavod za zaštitu prirode Srbije, Odeljenje u Novom Sadu), Novi Sad, 11.11.1999</p>",
-      "files": []
+      "description": "<p>(Ministarstvo prosvete Republike Srbije. Seminar za nastavnike biologije opštine Novi Sad. Zavod za zaštitu prirode Srbije, Odeljenje u Novom Sadu), Novi Sad, 11.11.1999</p>"
     },
     {
       "category": "Invited lectures",
       "title": "Environmental consequences of NATO bombing of Yugoslavia",
       "year": "1999",
-      "url": "",
       "reference": "Laušević, R.: Environmental consequences of NATO bombing of Yugoslavia. – Religion, Science and Environment: Symposium III: River of life – Down the Danube to the Black Sea. 16-24 October 1999.",
       "authors": "Laušević, R.",
       "venue": "Religion, Science and Environment: Symposium III: River of life – Down the Danube to the Black Sea",
-      "volume_issue_pages": "",
-      "publisher": "",
-      "description": "<p>16-24 October 1999</p>",
-      "files": []
+      "description": "<p>16-24 October 1999</p>"
     }
   ]
 }
