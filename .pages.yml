@@ -625,8 +625,15 @@
           ]
         },
         {
-          "name": "items",
+          "name": "bibliography_instructions",
           "label": "Bibliografske jedinice",
+          "type": "text",
+          "readonly": true,
+          "default": "Prevucite stavke da promenite redosled. Na sajtu su grupisane po kategorijama; unutar kategorije prate redosled ove liste."
+        },
+        {
+          "name": "items",
+          "label": false,
           "type": "object",
           "list": {
             "collapsible": {
@@ -634,7 +641,6 @@
               "summary": "{index}. {title}"
             }
           },
-          "description": "Prevucite stavke da promenite redosled. Na sajtu su grupisane po kategorijama; unutar kategorije prate redosled ove liste.",
           "fields": [
             {
               "name": "category",
