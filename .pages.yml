@@ -265,47 +265,49 @@
     {
       "name": "experience",
       "label": "Radno iskustvo",
-      "type": "collection",
-      "path": "content/cms/experience",
+      "type": "file",
+      "path": "content/cms/experience.json",
       "format": "json",
-      "filename": "{title}.json",
       "fields": [
         {
-          "name": "title",
-          "label": "Funkcija / organizacija",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "period",
-          "label": "Period",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "order",
-          "label": "Redosled prikaza",
-          "type": "number",
-          "required": true
-        },
-        {
-          "name": "body",
-          "label": "Opis angažmana",
-          "type": "rich-text",
-          "options": {
-            "format": "html",
-            "media": "images"
-          }
+          "name": "items",
+          "label": "Radno iskustvo",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{index}. {title}"
+            }
+          },
+          "description": "Prevucite stavku pomoću ručice da promenite redosled. Broj i redosled prikaza automatski prate poziciju u listi. Posle izmena kliknite Save.",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Funkcija / organizacija",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "period",
+              "label": "Period",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "body",
+              "label": "Opis angažmana",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            }
+          ]
         }
       ],
-      "view": {
-        "primary": "title",
-        "fields": [
-          "title"
-        ],
-        "search": [
-          "title"
-        ]
+      "operations": {
+        "delete": false,
+        "rename": false
       }
     },
     {
@@ -341,65 +343,67 @@
     {
       "name": "projects",
       "label": "Projekti",
-      "type": "collection",
-      "path": "content/cms/projects",
+      "type": "file",
+      "path": "content/cms/projects.json",
       "format": "json",
-      "filename": "{title}.json",
       "fields": [
         {
-          "name": "title",
-          "label": "Naziv projekta",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "period",
-          "label": "Period realizacije",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "order",
-          "label": "Redosled prikaza",
-          "type": "number",
-          "required": true
-        },
-        {
-          "name": "image",
-          "label": "Fotografija projekta",
-          "type": "image",
-          "options": {
-            "media": "images"
-          }
-        },
-        {
-          "name": "image_alt",
-          "label": "Opis fotografije",
-          "type": "string"
-        },
-        {
-          "name": "summary",
-          "label": "Kratak opis za početnu stranu",
-          "type": "text"
-        },
-        {
-          "name": "body",
-          "label": "Detaljni opis",
-          "type": "rich-text",
-          "options": {
-            "format": "html",
-            "media": "images"
-          }
+          "name": "items",
+          "label": "Projekti",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{index}. {title}"
+            }
+          },
+          "description": "Prevucite stavku pomoću ručice da promenite redosled. Broj i redosled prikaza automatski prate poziciju u listi. Posle izmena kliknite Save.",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naziv projekta",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "period",
+              "label": "Period realizacije",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "image",
+              "label": "Fotografija projekta",
+              "type": "image",
+              "options": {
+                "media": "images"
+              }
+            },
+            {
+              "name": "image_alt",
+              "label": "Opis fotografije",
+              "type": "string"
+            },
+            {
+              "name": "summary",
+              "label": "Kratak opis za početnu stranu",
+              "type": "text"
+            },
+            {
+              "name": "body",
+              "label": "Detaljni opis",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            }
+          ]
         }
       ],
-      "view": {
-        "primary": "title",
-        "fields": [
-          "title"
-        ],
-        "search": [
-          "title"
-        ]
+      "operations": {
+        "delete": false,
+        "rename": false
       }
     },
     {
@@ -559,6 +563,157 @@
             "format": "html",
             "media": "images"
           }
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "bibliography",
+      "label": "Bibliography",
+      "type": "file",
+      "path": "content/cms/bibliography.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "label",
+          "label": "Oznaka stranice",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "label": "Naslov stranice",
+          "type": "string"
+        },
+        {
+          "name": "lead",
+          "label": "Uvodni tekst",
+          "type": "text"
+        },
+        {
+          "name": "categories",
+          "label": "Opisi kategorija",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{name}"
+            }
+          },
+          "fields": [
+            {
+              "name": "name",
+              "label": "Category",
+              "type": "select",
+              "required": true,
+              "options": {
+                "values": [
+                  "Publications",
+                  "Articles",
+                  "Conferences",
+                  "Invited lectures"
+                ]
+              }
+            },
+            {
+              "name": "description",
+              "label": "Opis kategorije",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "name": "items",
+          "label": "Bibliografske jedinice",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{index}. {title}"
+            }
+          },
+          "description": "Prevucite stavke da promenite redosled. Na sajtu su grupisane po kategorijama; unutar kategorije prate redosled ove liste.",
+          "fields": [
+            {
+              "name": "category",
+              "label": "Category",
+              "type": "select",
+              "required": true,
+              "default": "Publications",
+              "options": {
+                "values": [
+                  "Publications",
+                  "Articles",
+                  "Conferences",
+                  "Invited lectures"
+                ]
+              }
+            },
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "year",
+              "label": "Year",
+              "type": "number"
+            },
+            {
+              "name": "url",
+              "label": "URL",
+              "type": "string",
+              "description": "Puna HTTP/HTTPS adresa. Ostavite prazno ako nema onlajn izvora."
+            },
+            {
+              "name": "reference",
+              "label": "Reference",
+              "type": "text"
+            },
+            {
+              "name": "authors",
+              "label": "Authors",
+              "type": "text"
+            },
+            {
+              "name": "venue",
+              "label": "Journal/Conference name",
+              "type": "string"
+            },
+            {
+              "name": "volume_issue_pages",
+              "label": "Volume, Issue, Pages",
+              "type": "string"
+            },
+            {
+              "name": "publisher",
+              "label": "Publisher",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "files",
+              "label": "Add file",
+              "type": "file",
+              "options": {
+                "media": "documents",
+                "multiple": true,
+                "unique": true
+              },
+              "description": "Kliknite Upload da otpremite dokument ili Select da izaberete postojeći. Upload ostaje dostupan i kada je fajl već dodat."
+            }
+          ]
         }
       ],
       "operations": {

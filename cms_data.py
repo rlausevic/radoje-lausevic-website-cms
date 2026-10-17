@@ -38,16 +38,23 @@ def load_cms(root,original):
  def read(path):return json.loads((base/path).read_text())
  model=copy.deepcopy(original);model['site']=read('settings.json');model['home']=read('home.json')
  a=read('about.json');model['pages']['/about']['blocks']=[body(a['body'])];model['about']=a
+ def ordered_entries(name):
+  source=base/(name+'.json')
+  if source.exists():items=read(name+'.json').get('items') or []
+  else:items=[json.loads(f.read_text()) for f in sorted((base/name).glob('*.json'),key=lambda f:(json.loads(f.read_text()).get('order',0),f.name))]
+  # List position is the canonical order; ignore any legacy order value.
+  return [dict(item,order=index) for index,item in enumerate(items,1)]
+ model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
  network=read('network.json');blocks=[]
- for f in sorted((base/'experience').glob('*.json'),key=lambda f:(json.loads(f.read_text()).get('order',0),f.name)):
-  p=json.loads(f.read_text());blocks +=[text('h2',p['title']),text('p',p['period']),body(p['body'])]
+ for p in model['experience_entries']:
+  blocks +=[text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]
  blocks +=[text('h2','My Professional Network'),body(network['body'])]
  model['pages']['/work-experience']={'blocks':blocks,'links':[{'text':'Get full list','href':network['document']}]}
  blocks=[]
- for f in sorted((base/'projects').glob('*.json'),key=lambda f:(json.loads(f.read_text()).get('order',0),f.name)):
-  p=json.loads(f.read_text());blocks +=[{'type':'image','src':p.get('image') or model['site']['landscape'],'alt':p.get('image_alt',p['title'])},text('h2',p['title']),text('p',p['period']),body(p['body'])]
+ for p in model['project_entries']:
+  blocks +=[{'type':'image','src':p.get('image') or model['site']['landscape'],'alt':p.get('image_alt') or p['title']},text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]
  model['pages']['/projects']={'blocks':blocks,'links':[]}
- model['project_summaries']={json.loads(f.read_text())['title']:json.loads(f.read_text()).get('summary','') for f in (base/'projects').glob('*.json')}
+ model['project_summaries']={p['title']:p.get('summary') or '' for p in model['project_entries']}
  r=read('resume.json');model['pages']['/resume']={'blocks':[text('h2','Education'),body(r['education']),text('h2','Selected Publications'),body(r['publications'])],'links':[{'text':'Download','href':r[k]} for k in ['brief_cv','europass_cv','assortis_cv']]}
  g=read('gallery.json');blocks=[]
  for item in g['items']:blocks +=[{'type':'image','src':item['image'],'alt':item['title']},text('p',item['caption'])]
