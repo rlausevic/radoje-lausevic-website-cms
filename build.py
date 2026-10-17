@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the portable static website. Python standard library only."""
 from pathlib import Path
+from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
@@ -24,6 +25,33 @@ def render_all(bs):
  if listing:out.append('</ul>')
  return ''.join(out)
 
+def apply_link_targets(document):
+ # Normalize every rendered anchor, including CMS rich text and shared navigation.
+ domain=urllib.parse.urlsplit(S['domain']).hostname or ''
+ canonical=domain.removeprefix('www.').lower()
+ internal_hosts={canonical,'www.'+canonical,'radoje-lausevic-website-cms.pages.dev'}
+ class Anchors(HTMLParser):
+  def __init__(self):
+   super().__init__(convert_charrefs=False);self.edits=[]
+  def handle_starttag(self,tag,attrs):
+   if tag!='a':return
+   attributes=dict(attrs);href=(attributes.get('href') or '').strip()
+   parsed=urllib.parse.urlsplit(href)
+   external=(parsed.scheme.lower() in {'http','https'} or (not parsed.scheme and bool(parsed.netloc))) and (parsed.hostname or '').lower() not in internal_hosts
+   # Remove a stale target from internal links and email/telephone actions.
+   attributes.pop('target',None)
+   if external:
+    attributes['target']='_blank'
+    rel=set((attributes.get('rel') or '').lower().split())-{'opener'}
+    attributes['rel']=' '.join(sorted(rel|{'noopener','noreferrer'}))
+   replacement='<a'+''.join(' '+key+('="'+E(value)+'"' if value is not None else '') for key,value in attributes.items())+'>'
+   line,column=self.getpos();offset=sum(len(value) for value in lines[:line-1])+column
+   self.edits.append((offset,len(self.get_starttag_text()),replacement))
+ lines=document.splitlines(keepends=True)
+ parser=Anchors();parser.feed(document);parser.close()
+ for offset,length,replacement in reversed(parser.edits):document=document[:offset]+replacement+document[offset+length:]
+ return document
+
 def page(path,title,body,desc=None):
  def fixlink(match):
   value=html.unescape(match.group(1))
@@ -44,6 +72,7 @@ def page(path,title,body,desc=None):
   except ValueError:pass
  fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
  data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css"><script src="/assets/site.js" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}<a class="nav-contact" href="/contact">Let's talk ↗</a></nav></div></header><main id="main">{body}</main><section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section><footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a><a href="/resume">Download CV</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
+ data=apply_link_targets(data)
  f=DIST/('index.html' if path=='/' else path.strip('/')+'/index.html');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(data);written.append(path)
 def intro(label,title,text=''):
  return f'<section class="page-intro"><div class="wrap"><span class="eyebrow">{E(label)}</span><h1>{E(title)}</h1><p>{E(text)}</p></div></section>'
