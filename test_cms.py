@@ -16,6 +16,24 @@ class CMSBuild(unittest.TestCase):
    d['published']=True;p.write_text(json.dumps(d));build();self.assertIn('CMS body content',(r/'dist/post/cms-check/index.html').read_text());self.assertIn('New topic',(r/'dist/blog/index.html').read_text())
    d['published']=False;p.write_text(json.dumps(d));build();self.assertFalse((r/'dist/post/cms-check/index.html').exists());self.assertNotIn('/post/cms-check',(r/'dist/sitemap.xml').read_text())
    d['published']=True;d['path']='/post/../../outside';p.write_text(json.dumps(d));build(ok=False)
+ def test_resume_optional_documents(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
+   p=root/'content/cms/resume.json';data=json.loads(p.read_text())
+   for key in ['brief_cv','europass_cv','assortis_cv','bibliography_file','education','publications']:data.pop(key,None)
+   data['heading']='Updated resume from CMS'
+   data['brief_cv_title']='Updated brief CV'
+   data['brief_cv_description']='Current document from CMS'
+   asset='/assets/'+next((root/'dist/assets').glob('*.pdf')).name
+   data['brief_cv']=[asset];p.write_text(json.dumps(data))
+   result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr)
+   html=(root/'dist/resume/index.html').read_text()
+   for value in ['Updated resume from CMS','Updated brief CV','Current document from CMS',asset,'View full Bibliography']:self.assertIn(value,html)
+   self.assertNotIn('Assortis CV</h2>',html)
+   from cms_data import load_cms
+   model=load_cms(root,json.loads((root/'content/site.json').read_text()))
+   self.assertEqual(model['pages']['/resume']['links'],[{'text':'Download','href':asset}])
  def test_html_filter(self):
   from cms_data import body
   rendered=body('<p onclick="bad()">Hello<script>bad()</script><a href="javascript:bad()">link</a></p>')['html']

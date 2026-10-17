@@ -55,7 +55,13 @@ def load_cms(root,original):
   blocks +=[{'type':'image','src':p.get('image') or model['site']['landscape'],'alt':p.get('image_alt') or p['title']},text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]
  model['pages']['/projects']={'blocks':blocks,'links':[]}
  model['project_summaries']={p['title']:p.get('summary') or '' for p in model['project_entries']}
- r=read('resume.json');model['pages']['/resume']={'blocks':[text('h2','Education'),body(r['education']),text('h2','Selected Publications'),body(r['publications'])],'links':[{'text':'Download','href':r[k]} for k in ['brief_cv','europass_cv','assortis_cv']]}
+ r=read('resume.json');resume_links=[]
+ # Pages CMS omits optional fields after Remove; documents may be strings or lists.
+ for key in ['brief_cv','europass_cv','assortis_cv','bibliography_file']:
+  files=r.get(key) or []
+  if isinstance(files,str):files=[files]
+  resume_links.extend({'text':'Download','href':url} for url in files if url)
+ model['pages']['/resume']={'blocks':[text('h2','Education'),body(r.get('education') or ''),text('h2','Selected Publications'),body(r.get('publications') or '')],'links':resume_links}
  g=read('gallery.json');blocks=[]
  for item in g['items']:blocks +=[{'type':'image','src':item['image'],'alt':item['title']},text('p',item['caption'])]
  blocks +=[text('h2','Flowers of My Mediterranean Garden'),body(g['body'])];model['pages']['/galleries']={'blocks':blocks,'links':[]}
