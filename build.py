@@ -223,7 +223,7 @@ def bibliography_citation(item):
  title=str(item['title']).strip()
  def sentence(value):
   value=str(value or '').strip()
-  return E(value)+('' if value.endswith('.') else '.') if value else ''
+  return E(value)+('' if value.endswith(('.', '?', '!')) else '.') if value else ''
  citation=(E(prefix)+': ' if prefix else '')+sentence(title)
  venue=', '.join(str(item.get(field) or '').strip() for field in ['venue','volume_issue_pages'] if str(item.get(field) or '').strip())
  for value in [venue,item.get('publisher')]:
