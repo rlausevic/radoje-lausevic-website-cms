@@ -12,7 +12,7 @@ class BibliographyCMS(unittest.TestCase):
    exp['items'].reverse();projects['items'].reverse()
    exp['items'][0]['order']=999;projects['items'][0]['order']=999
    save('experience.json',exp);save('projects.json',projects)
-   b=read('bibliography.json');template=b['items'][0]
+   b=read('bibliography.json');template=dict(b['items'][0],files=['/assets/'+next((root/'dist/assets').glob('*.pdf')).name])
    b['items']=[dict(template,category='Articles',title='Second article'),dict(template,category='Publications',title='First publication',url='https://example.org/publication',files=[template['files'][0]],description='<p>Searchable detailed bibliography</p>'),dict(template,category='Articles',title='First article')]
    save('bibliography.json',b)
    result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)

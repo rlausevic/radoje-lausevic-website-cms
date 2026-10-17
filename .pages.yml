@@ -660,7 +660,8 @@
             {
               "name": "year",
               "label": "Year",
-              "type": "number"
+              "type": "string",
+              "description": "Godina ili izvorni raspon godina, npr. 2026, 1993/94 ili 1990-1991."
             },
             {
               "name": "url",
@@ -671,7 +672,8 @@
             {
               "name": "reference",
               "label": "Reference",
-              "type": "text"
+              "type": "text",
+              "description": "Integralna referenca iz izvornog dokumenta. Sačuvajte je u celosti."
             },
             {
               "name": "authors",
