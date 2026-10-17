@@ -74,9 +74,7 @@ for item in video_archive.get('items') or []:
  video['date_display']=datetime.date.fromisoformat(video['date_iso']).strftime('%b %d, %Y')
  video['content']=__import__('cms_data').body(video.get('body') or '')
  video['excerpt']=video.get('excerpt') or ''
- youtube_id=parsed.path.strip('/') if parsed.hostname in {'youtu.be','www.youtu.be'} else urllib.parse.parse_qs(parsed.query).get('v',[''])[0] if parsed.hostname in {'youtube.com','www.youtube.com','m.youtube.com'} else ''
- thumbnail='https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg' if re.fullmatch(r'[A-Za-z0-9_-]{11}',youtube_id) else S['landscape']
- video['cover']=video.get('cover') or thumbnail
+ video['cover']=video.get('cover') or S['landscape']
  videos.append(video)
 # Rebuild detail routes so removed videos do not leave stale pages behind.
 if (DIST/'video').exists():shutil.rmtree(DIST/'video')
@@ -120,7 +118,7 @@ body+=f'<p class="result-count" id="video-result-count" role="status" aria-live=
 page('/video','Video',body,video_archive.get('lead'))
 for video in videos:
  body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</p></header><div class="prose">'
- body+=image(video['cover'],video['title'])+f'<p class="lead">{E(video["excerpt"])}</p>'+render(video['content'])+f'<p><a class="button" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></p>'
+ body+=image(video['cover'],video['title'])+(render(video['content']) if video['content']['text'] else f'<p>{E(video["excerpt"])}</p>')+f'<p><a class="button" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></p>'
  body+='</div></div></article>';page(video['path'],video['title'],body,video['excerpt'])
 # Work experience.
 body=intro('Professional journey','Work experience.','Leadership, research and project management across universities, international organisations and consultancy.')+'<section class="section"><div class="wrap">'

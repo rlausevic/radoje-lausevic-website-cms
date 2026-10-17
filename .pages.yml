@@ -750,7 +750,7 @@
               "options": {
                 "media": "images"
               },
-              "description": "Otpremite naslovnu fotografiju. Ako je polje prazno, za YouTube se automatski prikazuje naslovna slika videa."
+              "description": "Izaberite postojeću fotografiju ili otpremite svoju. Ako je polje prazno, prikazuje se podrazumevana naslovna fotografija sajta."
             },
             {
               "name": "date",
