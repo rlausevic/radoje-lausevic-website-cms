@@ -19,52 +19,5 @@
       "name": "Invited lectures",
       "description": "Invited lectures and presentations for universities, institutions and professional audiences, bringing research and practical experience into discussions on environmental challenges and sustainable development."
     }
-  ],
-  "items": [
-    {
-      "category": "Articles",
-      "title": "Stakeholder analysis for supporting local water security planning in the Kingdom of Jordan",
-      "year": 2017,
-      "url": "",
-      "reference": "M. Bartula, R. Laušević, U. Radojević (2017). Water Utility Journal 15: 3-13.",
-      "authors": "M. Bartula, R. Laušević, U. Radojević",
-      "venue": "Water Utility Journal",
-      "volume_issue_pages": "15: 3–13",
-      "publisher": "",
-      "description": "<p>Stakeholder analysis (SA) represents a precondition for setting up an effective stakeholder participation in water management since it helps to better understand stakeholders` role and actions, identify whose stake should be taken into account, reveals power relations among stakeholders, helps to understand the diverse range of potentially conflicting interests, analyze driving forces and existing coordination among stakeholders, and identify bottlenecks in communication which affect daily operations or strategic planning for the future way forward. This paper presents the results of a SA performed in the Kingdom of Jordan for water management sector with the purpose of assessing stakeholders’ capacity to participate in water management planning process based on following attributes: power, interest, knowledge, attitude, legitimacy, attention getting capacity and existing and desired level of involvement. Statistical correlation of stakeholders` knowledge about water management issues and power in water management sector with other attributes was investigated as well. This was designed to determine the importance of stakeholders` level of knowledge and power relevant for success of water management process. </p>",
-      "files": [
-        "/assets/9c25abe53a3ba269.pdf"
-      ]
-    },
-    {
-      "category": "Publications",
-      "title": "Local Water Security Action Planning Manual",
-      "year": 2016,
-      "url": "",
-      "reference": "R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović (2016). Regional Environmental Center, Szentendre, Hungary. ISBN 978-963-9638-69-3",
-      "authors": "R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović",
-      "venue": "",
-      "volume_issue_pages": "",
-      "publisher": "Regional Environmental Center, Szentendre, Hungary",
-      "description": "<p>This <a href=\"/assets/951edadca49390b4.pdf\">manual </a>is a step-by-step guidebook for practitioners who are developing local water security action plans (LWSAPs) in local communities. The authors have compiled an original methodology comprising seven interrelated activities, some supported by a separate tailored methodology, which cover stakeholder analysis, public opinion assessment, local water security assessment, and problem analysis and prioritisation. Each of the seven activities comprises two or more steps, making a total of 20 steps in the LWSAP process. All 20 steps, and the deliverables related to each one, are described in detail in the manual.</p>",
-      "files": [
-        "/assets/951edadca49390b4.pdf"
-      ]
-    },
-    {
-      "category": "Articles",
-      "title": "Participatory planning for biodiversity protection in Western Balkans",
-      "year": 2015,
-      "url": "",
-      "reference": "Laušević, R., Bartula, M. (2015). Natural Areas Journal, 36(3):339-344.",
-      "authors": "Laušević, R., Bartula, M.",
-      "venue": "Natural Areas Journal",
-      "volume_issue_pages": "36(3): 339–344",
-      "publisher": "",
-      "description": "<p>The rich Western Balkans biodiversity and ecosystem services suffer from negative anthropogenic activities. Solving those problems requires a coherent strategy for biodiversity conservation with a focus on the involvement of relevant stakeholders. This paper presents a Local Biodiversity Action Plan (LBAP) as a tool for biodiversity protection and conservation on a local level in five countries of the Western Balkans. Results indicate that the LBAP improved local planning practices and secured stakeholder involvement by adequate stakeholder analysis and well defined incentives in the form of probiodiversity business (PBB). LBAP also enabled municipalities to assess biodiversity potential on their territory, and to develop a comprehensive planning document and biodiversity protection action plan. </p>",
-      "files": [
-        "/assets/f2a0b0e306dfce6f.pdf"
-      ]
-    }
   ]
 }
