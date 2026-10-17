@@ -140,33 +140,6 @@
           "type": "text"
         },
         {
-          "name": "services",
-          "label": "Usluge",
-          "type": "object",
-          "list": {
-            "min": 1,
-            "max": 6,
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{title}"
-            }
-          },
-          "fields": [
-            {
-              "name": "title",
-              "label": "Naziv usluge",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "description",
-              "label": "Kratak opis",
-              "type": "text",
-              "required": true
-            }
-          ]
-        },
-        {
           "name": "recommendations_label",
           "label": "Oznaka sekcije preporuka",
           "type": "string"
@@ -177,36 +150,6 @@
           "type": "string"
         },
         {
-          "name": "recommendations",
-          "label": "Preporuke na početnoj strani",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{name}"
-            }
-          },
-          "fields": [
-            {
-              "name": "text",
-              "label": "Tekst preporuke",
-              "type": "text",
-              "required": true
-            },
-            {
-              "name": "name",
-              "label": "Ime autora",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "role",
-              "label": "Funkcija / organizacija",
-              "type": "string"
-            }
-          ]
-        },
-        {
           "name": "videos_label",
           "label": "Oznaka video sekcije",
           "type": "string"
@@ -215,45 +158,6 @@
           "name": "videos_heading",
           "label": "Naslov video sekcije",
           "type": "string"
-        },
-        {
-          "name": "videos",
-          "label": "Video resources — video sadržaji",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{title}"
-            }
-          },
-          "fields": [
-            {
-              "name": "title",
-              "label": "Naslov videa",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "date",
-              "label": "Datum (tekst za prikaz)",
-              "type": "string"
-            },
-            {
-              "name": "description",
-              "label": "Opis videa",
-              "type": "text"
-            },
-            {
-              "name": "youtube_id",
-              "label": "YouTube ID (deo adrese posle v=)",
-              "type": "string",
-              "required": true,
-              "pattern": {
-                "regex": "^[A-Za-z0-9_-]{11}$",
-                "message": "Unesite samo YouTube ID od 11 znakova, npr. 7UULHk-7KT4."
-              }
-            }
-          ]
         }
       ],
       "operations": {
@@ -279,21 +183,78 @@
         },
         {
           "name": "services",
-          "label": "Detaljni opisi usluga",
-          "type": "rich-text",
-          "options": {
-            "format": "html",
-            "media": "images"
-          }
+          "label": "My services — ekspertize",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naziv",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "motto",
+              "label": "Moto",
+              "type": "string"
+            },
+            {
+              "name": "summary",
+              "label": "Kratak opis za prvu stranu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Detaljan opis",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            }
+          ],
+          "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
         },
         {
           "name": "recommendations",
-          "label": "Preporuke kolega",
-          "type": "rich-text",
-          "options": {
-            "format": "html",
-            "media": "images"
-          }
+          "label": "Professional recommendations — preporuke",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{author}"
+            }
+          },
+          "fields": [
+            {
+              "name": "author",
+              "label": "Davalac preporuke",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "summary",
+              "label": "Kratak tekst preporuke za prvu stranu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "body",
+              "label": "Detaljan tekst preporuke",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            }
+          ],
+          "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
         }
       ],
       "operations": {
@@ -747,6 +708,97 @@
           "sort": "date",
           "order": "desc"
         }
+      }
+    },
+    {
+      "name": "videos",
+      "label": "Video",
+      "type": "file",
+      "path": "content/cms/videos.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "label",
+          "label": "Oznaka stranice",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "label": "Naslov stranice",
+          "type": "string"
+        },
+        {
+          "name": "lead",
+          "label": "Uvodni tekst",
+          "type": "text"
+        },
+        {
+          "name": "items",
+          "label": "Video arhiva",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "cover",
+              "label": "Cover photo",
+              "type": "image",
+              "options": {
+                "media": "images"
+              },
+              "description": "Otpremite naslovnu fotografiju. Ako je polje prazno, za YouTube se automatski prikazuje naslovna slika videa."
+            },
+            {
+              "name": "date",
+              "label": "Datum",
+              "type": "date",
+              "required": true,
+              "options": {
+                "format": "yyyy-MM-dd"
+              }
+            },
+            {
+              "name": "title",
+              "label": "Naslov",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "excerpt",
+              "label": "Kratak sadržaj za naslovnu stranu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "body",
+              "label": "Detaljan sadržaj",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "link",
+              "label": "Link",
+              "type": "string",
+              "required": true,
+              "pattern": {
+                "regex": "^https://[^\\s]+$",
+                "message": "Unesite punu HTTPS adresu videa (YouTube, Vimeo ili drugi servis)."
+              }
+            }
+          ],
+          "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
       }
     }
   ]

@@ -8,3 +8,19 @@ const dialog=document.querySelector('#gallery-dialog');
 if(dialog){document.querySelectorAll('[data-gallery]').forEach(btn=>btn.addEventListener('click',()=>{const image=dialog.querySelector('img');image.src=btn.dataset.src;image.alt=btn.dataset.caption;dialog.querySelector('p').textContent=btn.dataset.caption;dialog.showModal();}));dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});}
 const form=document.querySelector('#contact-form');
 if(form){form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const values=new FormData(form);const subject=String(values.get('subject')||'Website inquiry');const body='Name: '+values.get('name')+'\nEmail: '+values.get('email')+'\n\n'+values.get('message');location.href='mailto:'+encodeURIComponent(form.dataset.email)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);document.querySelector('#contact-status').textContent='Your email application should open with the message prepared. Please send it there. If it does not open, email '+form.dataset.email+' directly.';});}
+
+// Search the video archive, including detailed descriptions.
+const videoSearch=document.querySelector('#video-search');
+if(videoSearch){
+ const videoCards=[...document.querySelectorAll('[data-video]')];
+ const videoCount=document.querySelector('#video-result-count');
+ const videoEmpty=document.querySelector('#no-videos');
+ const filterVideos=()=>{
+  const query=videoSearch.value.trim().toLowerCase();let matched=0;
+  videoCards.forEach(card=>{const visible=!query||card.dataset.search.includes(query);card.hidden=!visible;if(visible)matched++;});
+  videoCount.textContent=matched+' '+(matched===1?'video':'videos');
+  videoEmpty.hidden=matched>0;
+ };
+ const query=new URLSearchParams(location.search).get('search');if(query)videoSearch.value=query;
+ videoSearch.addEventListener('input',filterVideos);filterVideos();
+}

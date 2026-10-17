@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Build the portable static website. Python standard library only."""
 from pathlib import Path
-import json,html,re,urllib.parse,datetime
+import json,html,re,urllib.parse,datetime,hashlib,shutil
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
 E=lambda s:html.escape(str(s),quote=True)
-NAV=[('/', 'Home'),('/about','About'),('/work-experience','Experience'),('/projects','Projects'),('/resume','Resume'),('/blog','Journal')]
+NAV=[('/', 'Home'),('/about','About'),('/work-experience','Experience'),('/projects','Projects'),('/resume','Resume'),('/blog','Journal'),('/video','Video')]
 CAT={'Offical Development Assistance':'Official Development Assistance','Sustainable Consumption and Product':'Sustainable Consumption & Production','Sustainable lifestiles':'Sustainable Lifestyles','Data vizualization':'Data Visualization'}
 def image(src,alt='',cls='',eager=False):
  return f'<img src="{E(src)}" alt="{E(alt)}" class="{E(cls)}" loading="{"eager" if eager else "lazy"}" decoding="async">' if src else ''
@@ -35,7 +35,7 @@ def page(path,title,body,desc=None):
    return 'href="/blog?category='+E(urllib.parse.quote(category))+'"'
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
- active='/blog' if path.startswith('/post/') else path
+ active='/blog' if path.startswith('/post/') else '/video' if path.startswith('/video/') else path
  nav=''.join(f'<a href="{u}"'+(' aria-current="page"' if active==u else '')+f'>{t}</a>' for u,t in NAV)
  schema={'@context':'https://schema.org','@type':'Person','name':S['name'],'url':S['domain'],'jobTitle':'Senior Environmental Consultant','email':S['email'],'sameAs':[S['linkedin'],S['twitter']]}
  if path.startswith('/post/'):
@@ -58,17 +58,37 @@ def sections(path):
 def post_card(p,heading='h3'):
  cats='|'.join(CAT.get(c,c) for c in p['categories'])
  return f'<a class="post-card" data-post data-categories="{E(cats)}" data-search="{E((p["title"]+" "+p["excerpt"]+" "+cats+" "+" ".join(b.get("text","") for b in p["blocks"])).lower())}" href="{p["path"]}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date">{E(p["date"])} · JOURNAL</span><{heading}>{E(p["title"])}</{heading}><p>{E(p["excerpt"])}</p><span class="read">Read article &nbsp; ↗</span></a>'
+# A shared ordered source powers About and the home previews.
+expertise=M['about'].get('services') or []
+recommendations=M['about'].get('recommendations') or []
+video_archive=json.loads((ROOT/'content/cms/videos.json').read_text())
+videos=[];video_paths=set()
+for item in video_archive.get('items') or []:
+ video=dict(item);link=video.get('link','').strip();parsed=urllib.parse.urlsplit(link)
+ if parsed.scheme!='https' or not parsed.hostname or any(c.isspace() for c in link):raise ValueError('Invalid video link: '+link)
+ video['link']=link
+ path='/video/'+hashlib.sha256(link.encode()).hexdigest()[:16]
+ if path in video_paths:raise ValueError('Duplicate video link: '+link)
+ video_paths.add(path);video['path']=path
+ video['date_iso']=datetime.date.fromisoformat(video['date'][:10]).isoformat()
+ video['date_display']=datetime.date.fromisoformat(video['date_iso']).strftime('%b %d, %Y')
+ video['content']=__import__('cms_data').body(video.get('body') or '')
+ video['excerpt']=video.get('excerpt') or ''
+ youtube_id=parsed.path.strip('/') if parsed.hostname in {'youtu.be','www.youtu.be'} else urllib.parse.parse_qs(parsed.query).get('v',[''])[0] if parsed.hostname in {'youtube.com','www.youtube.com','m.youtube.com'} else ''
+ thumbnail='https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg' if re.fullmatch(r'[A-Za-z0-9_-]{11}',youtube_id) else S['landscape']
+ video['cover']=video.get('cover') or thumbnail
+ videos.append(video)
+# Rebuild detail routes so removed videos do not leave stale pages behind.
+if (DIST/'video').exists():shutil.rmtree(DIST/'video')
+def video_card(video,heading='h3'):
+ search=' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video['content']['text']]).lower()
+ return f'<article class="post-card video-card" data-video data-search="{E(search)}"><a class="video-detail-link" href="{E(video["path"])}"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span><{heading}>{E(video["title"])}</{heading}><p>{E(video["excerpt"])}</p></a><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 projects=sections('/projects')
 # Home: compact editorial introduction; detailed source content on inner pages.
 home=f'''<div class="wrap"><section class="hero"><div><span class="eyebrow">Senior Environmental Consultant</span><h1>{E(M["home"]["heading"])}</h1><p class="lead">{E(M["home"]["lead"])}</p><div class="actions"><a class="button" href="/projects">Explore my work <span aria-hidden="true">↗</span></a><a class="textlink" href="/about">Meet Radoje →</a></div><p class="hero-foot">Biologist · Project manager · Environmental leader</p></div><div class="hero-art"><div class="accent-block"></div>{image(S['portrait'],S['name']+' — environmental consultant','portrait',True)}<div class="photo-note"><span>PhD</span><span>IN BIOLOGY<br>UNIVERSITY OF BELGRADE</span></div></div></section></div><div class="stat-strip"><div class="wrap stats"><div class="stat"><strong>100+</strong><span>Projects managed<br>or supervised</span></div><div class="stat"><strong>€50m+</strong><span>Total project<br>portfolio</span></div><div class="stat"><strong>3</strong><span>Connected fields<br>of consultancy</span></div></div></div>'''
-home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">How I can help</span><h2>Experience that moves<br>ideas into action.</h2></div><p>Tools, guidance and support for institutions, organisations and communities working towards sustainability.</p></div><div class="services">'
-services=sections('/')[:3]
-for i,s in enumerate(services):
- # My Services is a parent heading; its three subheadings are rendered separately below.
- pass
-servicecopy=[('Leadership','Build trust, mobilise resources and guide diverse teams. Strategic vision and practical management for complex organisations.'),('Project management','From planning to delivery, bring structure to demanding projects and translate priorities into measurable results.'),('Environmental research','Biodiversity, water management, environmental security and local action planning, informed by stakeholder analysis and participation.')]
-servicecopy=[(item['title'],item['description']) for item in M['home']['services']]
-for i,(t,txt) in enumerate(servicecopy):home+=f'<article class="service"><span class="num">0{i+1} / EXPERTISE</span><h3>{t}</h3><p>{txt}</p><a class="textlink" href="/about">Learn more →</a></article>'
+home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">How I can help</span><h2>Experience that moves<br>ideas into action.</h2></div><a class="textlink" href="/about#my-services">View all expertise →</a></div><div class="services">'
+for i,item in enumerate(expertise[:3]):
+ home+=f'<article class="service"><span class="num">0{i+1} / EXPERTISE</span><h3>{E(item["title"])}</h3><p class="motto">{E(item.get("motto") or "")}</p><p>{E(item.get("summary") or "")}</p><a class="textlink" href="/about#expertise-{i+1}">Learn more →</a></article>'
 home+='</div></div></section>'
 home+=f'<div class="landscape">{image(S["landscape"],"Aerial view of islands from the original website")}<div class="caption">{E(M["home"]["landscape_quote"])}<small>Connecting with nature</small></div></div>'
 home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Selected work</span><h2>From research to impact.</h2></div><a class="textlink" href="/projects">View all projects →</a></div><div class="project-grid">'
@@ -77,30 +97,31 @@ for i,p in enumerate(projects[:2]):
  title=p['title']
  home+=f'<a class="project-card" href="/projects#project-{i+1}"><div class="image-wrap">{image(p["image"]["src"],p["title"])}</div><span class="eyebrow">{E(p["blocks"][0]["text"])}</span><h3>{title}</h3><p>{E(desc[:180])}…</p></a>'
 home+='</div></div></section>'
-# Testimonials managed through Pages CMS.
-home+=f'<section class="section testimonials"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("recommendations_label", "Recommendations"))}</span><h2>{E(M["home"].get("recommendations_heading", "Trusted by colleagues."))}</h2></div></div><div class="quotes">'
-for recommendation in M['home'].get('recommendations', []):
- home+=f'<blockquote><div class="quote-mark">“</div><p>{E(recommendation["text"])}</p><cite>{E(recommendation["name"])}<br>{E(recommendation.get("role", ""))}</cite></blockquote>'
+# The first two full recommendations in About provide the home excerpts.
+home+=f'<section class="section testimonials"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("recommendations_label", "Recommendations"))}</span><h2>{E(M["home"].get("recommendations_heading", "Trusted by colleagues."))}</h2></div><a class="textlink" href="/about#recommendations">View all recommendations →</a></div><div class="quotes">'
+for recommendation in recommendations[:2]:
+ home+=f'<blockquote><div class="quote-mark">“</div><p>{E(recommendation["summary"])}</p><cite>{E(recommendation["author"])}</cite></blockquote>'
 home+='</div></div></section>'
 home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">The journal</span><h2>Notes from the field.</h2></div><a class="textlink" href="/blog">Explore the archive →</a></div><div class="journal-grid">'+''.join(post_card(p) for p in M['posts'][:3])+'</div></div></section>'
-# Preserve original home blocks for the About page.
-hb=M['pages']['/']['blocks']
-# Video cards managed through Pages CMS, in editor list order.
-home+=f'<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("videos_label", "Video resources"))}</span><h2>{E(M["home"].get("videos_heading", "Conversations on sustainability."))}</h2></div></div><div class="video-grid">'
-for video in M['home'].get('videos', []):
- vid=video['youtube_id'].strip()
- if not re.fullmatch(r'[A-Za-z0-9_-]{11}', vid):
-  raise ValueError('Invalid YouTube ID: '+vid)
- details=' · '.join(value for value in [video.get('date', ''), video.get('description', '')] if value)
- home+=f'<a class="video" href="https://www.youtube.com/watch?v={E(vid)}" target="_blank" rel="noopener noreferrer"><span class="play" aria-hidden="true">▷</span><h3>{E(video["title"])}</h3><p>{E(details)}</p><span class="textlink">Watch on YouTube ↗</span></a>'
-home+='</div></div></section>';page('/','Home',home)
+# The home video preview uses the same ordered archive as /video.
+home+=f'<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("videos_label", "Video resources"))}</span><h2>{E(M["home"].get("videos_heading", "Conversations on sustainability."))}</h2></div><a class="textlink" href="/video">View all videos →</a></div><div class="journal-grid">'+''.join(video_card(video) for video in videos[:3])+'</div></div></section>';page('/','Home',home)
 # About, complete recommendations and service descriptions.
 bs=M['pages']['/about']['blocks'];body=intro('About','Experience, with purpose.','A biologist’s perspective. An environmental leader’s experience. A practical approach to sustainability.')
-body+=f'<section class="section"><div class="wrap two-col"><aside class="side-note">{image(S["portrait"],S["name"])}<p>PhD in Biology<br>University of Belgrade</p><a class="textlink" href="/resume">Explore my CV →</a></aside><div class="prose">'+render_all(b for b in bs if b['type'] in ['p','html'] and b['text']!='Here to Serve You')+'<h2>My services</h2>'
-start=next(i for i,b in enumerate(hb) if b.get('text')=='My Services');end=next(i for i,b in enumerate(hb) if b.get('text')=='Video Resources')
-body+=render({'type':'html','html':__import__('cms_data').body(M['about']['services'])['html']})+'</div></div></section>'
-start=next(i for i,b in enumerate(hb) if b.get('text')=='Recommendations');end=next(i for i,b in enumerate(hb) if b.get('text')=='Contact Me')
-body+='<section class="section testimonials"><div class="wrap prose"><span class="eyebrow">Professional recommendations</span><h2>What colleagues say</h2>'+render(__import__('cms_data').body(M['about']['recommendations']))+'</div></section>';page('/about','About',body)
+body+=f'<section class="section"><div class="wrap two-col"><aside class="side-note">{image(S["portrait"],S["name"])}<p>PhD in Biology<br>University of Belgrade</p><a class="textlink" href="/resume">Explore my CV →</a></aside><div class="prose">'+render_all(b for b in bs if b['type'] in ['p','html'] and b['text']!='Here to Serve You')+'<h2 id="my-services">My services</h2>'
+for i,item in enumerate(expertise):
+ body+=f'<article class="expertise-detail" id="expertise-{i+1}"><h3>{E(item["title"])}</h3><p class="motto">{E(item.get("motto") or "")}</p>'+render(__import__('cms_data').body(item.get('description') or ''))+'</article>'
+body+='</div></div></section><section class="section testimonials" id="recommendations"><div class="wrap prose"><span class="eyebrow">Professional recommendations</span><h2>What colleagues say</h2>'
+for item in recommendations:
+ body+='<blockquote class="recommendation-detail">'+render(__import__('cms_data').body(item.get('body') or ''))+f'<cite>{E(item["author"])}</cite></blockquote>'
+body+='</div></section>';page('/about','About',body)
+# Video archive shares Journal typography, card layout and search behavior.
+body=intro(video_archive.get('label','Video archive'),video_archive.get('heading','Conversation on sustainability'),video_archive.get('lead','Project updates, environmental insights and personal observations'))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="video-search">Search video archive<input type="search" id="video-search" placeholder="Search video archive…" aria-controls="video-results"></label></div>'
+body+=f'<p class="result-count" id="video-result-count" role="status" aria-live="polite">{len(videos)} {"video" if len(videos)==1 else "videos"}</p><div class="journal-grid" id="video-results">'+''.join(video_card(video,'h2') for video in videos)+'</div><p class="empty" id="no-videos"'+(' hidden' if videos else '')+'>No videos found. Try another search.</p></div></section>'
+page('/video','Video',body,video_archive.get('lead'))
+for video in videos:
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</p></header><div class="prose">'
+ body+=image(video['cover'],video['title'])+f'<p class="lead">{E(video["excerpt"])}</p>'+render(video['content'])+f'<p><a class="button" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></p>'
+ body+='</div></div></article>';page(video['path'],video['title'],body,video['excerpt'])
 # Work experience.
 body=intro('Professional journey','Work experience.','Leadership, research and project management across universities, international organisations and consultancy.')+'<section class="section"><div class="wrap">'
 for sec in sections('/work-experience'):

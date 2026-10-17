@@ -2,78 +2,8 @@
   "heading": "Working towards a more sustainable future.",
   "lead": "I bring people, knowledge and resources together to turn environmental challenges into lasting progress.",
   "landscape_quote": "Nature is not my environment — it is embedded in me.",
-  "services": [
-    {
-      "title": "Leadership",
-      "description": "Build trust, mobilise resources and guide diverse teams. Strategic vision and practical management for complex organisations."
-    },
-    {
-      "title": "Project management",
-      "description": "From planning to delivery, bring structure to demanding projects and translate priorities into measurable results."
-    },
-    {
-      "title": "Environmental research",
-      "description": "Biodiversity, water management, environmental security and local action planning, informed by stakeholder analysis and participation."
-    }
-  ],
   "recommendations_label": "Recommendations",
   "recommendations_heading": "Trusted by colleagues.",
-  "recommendations": [
-    {
-      "text": "Radoje is a dedicated professional that approaches the tasks set before him in a structured and professional manner.",
-      "name": "Dr Anders Jägerskog",
-      "role": "Senior Water Resources Management Specialist at the World Bank"
-    },
-    {
-      "text": "Radoje is a highly professional person with excellent knowledge of development issues. He can conduct policy dialogue at government and non-government levels with strong objectivity and professional integrity.",
-      "name": "Kristina Salomonson",
-      "role": "Methods and Policy Specialist for Strategy Processes at Sida"
-    }
-  ],
   "videos_label": "Video resources",
-  "videos_heading": "Conversations on sustainability.",
-  "videos": [
-    {
-      "title": "Transboundary Water Resources",
-      "date": "March 25, 2016",
-      "description": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
-      "youtube_id": "7UULHk-7KT4"
-    },
-    {
-      "title": "Water Security",
-      "date": "March 25, 2016",
-      "description": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
-      "youtube_id": "7nyVQJ3qFPQ"
-    },
-    {
-      "title": "Water Growth and Stability",
-      "date": "May 9, 2016",
-      "description": "Radoje Lausevic about Water Growth and Stability Initiative",
-      "youtube_id": "VDaB0gDs1Zo"
-    },
-    {
-      "title": "LINK Ukraine",
-      "date": "January 23, 2023",
-      "description": "Supporting sustainable development of Ukraine",
-      "youtube_id": "UFzhN8GOscQ"
-    },
-    {
-      "title": "WGS Initiative",
-      "date": "April 29, 2016",
-      "description": "Water, Growth and Stability Initiative",
-      "youtube_id": "MMenHrPAh_M"
-    },
-    {
-      "title": "WATER SUM",
-      "date": "April 29, 2016",
-      "description": "Sustainable Use of Transboundary Water Resources and Water Security Management",
-      "youtube_id": "dR5K4fferXk"
-    },
-    {
-      "title": "Marine Biodiversity Conservation Center \"Aquarium Boka\"",
-      "date": "13.10.2022",
-      "description": "Discover Aquarium Boka in Kotor, Montenegro’s first public aquarium, where marine research, education, and conservation come together to showcase Adriatic biodiversity and inspire protection of our seas. I was the Project Manager from 2017 to 2020.",
-      "youtube_id": "X9Ox3ipikoU"
-    }
-  ]
+  "videos_heading": "Conversations on sustainability."
 }
