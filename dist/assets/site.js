@@ -67,3 +67,13 @@ setupArchiveSearch({input:'#post-search',category:'#post-category',cards:'[data-
 setupArchiveSearch({input:'#video-search',cards:'[data-video]',count:'#video-result-count',empty:'#no-videos',singular:'video',plural:'videos'});
 setupArchiveSearch({input:'#bibliography-search',category:'#bibliography-category',cards:'[data-bibliography]',count:'#bibliography-result-count',empty:'#no-bibliography',singular:'bibliography item',plural:'bibliography items',groups:'[data-archive-group]'});
 setupArchiveSearch({input:'#project-search',category:'#project-category',cards:'[data-project]',count:'#project-result-count',empty:'#no-projects',singular:'project',plural:'projects'});
+
+// Deep links from Home and the former About sections reveal the full service.
+const expertiseCards=document.querySelectorAll('.expertise-card');
+if(expertiseCards.length){
+ const revealExpertise=()=>{
+  const card=[...expertiseCards].find(item=>'#'+item.id===location.hash);
+  if(card){card.open=true;card.scrollIntoView({block:'start'});}
+ };
+ revealExpertise();window.addEventListener('hashchange',revealExpertise);
+}

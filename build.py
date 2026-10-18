@@ -180,16 +180,16 @@ if recommendations:
  body+='</div></section>'
 body+='<section class="section" id="cv-documents"><div class="wrap prose"><h2>CV &amp; documents</h2><div class="actions">'+cv_download()+'<a class="textlink" href="/resume">View full CV &amp; documents →</a></div></div></section>';page('/about','About',body)
 # Expertise is the sole service source for this page, Home and project topics.
-body=intro(expertise_page.get('label','Expertise'),expertise_page.get('heading','Expertise.'),expertise_page.get('lead',''))+'<section class="section" id="my-services"><div class="wrap prose">'
+body=intro(expertise_page.get('label','Expertise'),expertise_page.get('heading','Expertise.'),expertise_page.get('lead',''))+'<section class="section" id="my-services"><div class="wrap journal-grid expertise-grid">'
 for i,item in enumerate(expertise):
- body+=f'<article class="expertise-detail" id="expertise-{i+1}"><h2>{E(item["title"])}</h2><p class="motto">{E(item.get("motto") or "")}</p><p>{E(item.get("summary") or "")}</p>'
+ body+=f'<details class="expertise-card" id="expertise-{i+1}"><summary><h2>{E(item["title"])}</h2><span class="textlink expertise-expand">View details →</span><span class="textlink expertise-collapse">Hide details ↑</span></summary><div class="prose expertise-content"><p class="motto">{E(item.get("motto") or "")}</p><p>{E(item.get("summary") or "")}</p>'
  support=__import__('cms_data').body(item.get('support') or '')
  if support['text']:body+='<h3>Services</h3>'+render(support)
  detail=__import__('cms_data').body(item.get('description') or '')
  if detail['text']:body+='<h3>Experience &amp; approach</h3>'+render(detail)
  related=[project for project in project_entries if project.get('topic')==item['title']]
  if related:body+='<h3>Selected projects</h3><ul>'+''.join(f'<li><a href="{E(project_path(project))}">{E(project["title"])}</a></li>' for project in related)+'</ul>'
- body+='<p><a class="textlink" href="/contact">Discuss a collaboration →</a></p></article>'
+ body+='<p><a class="textlink" href="/contact">Discuss a collaboration →</a></p></div></details>'
 body+='</div></section>';page('/expertise','Expertise',body,expertise_page.get('lead'))
 # Insights draws directly from the existing archives, never copied entries.
 body=intro('Insights','Ideas, conversations & field stories.','Explore articles, video conversations and moments from the field.')
