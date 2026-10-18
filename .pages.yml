@@ -372,6 +372,22 @@
               "required": true
             },
             {
+              "name": "topic",
+              "label": "Izbor oblasti",
+              "type": "select",
+              "options": {
+                "values": [
+                  "Leadership and Governance",
+                  "Project and Programme Management",
+                  "Blue Economy and Skills Development",
+                  "Environmental Research and Policy",
+                  "Climate and Energy Planning"
+                ],
+                "placeholder": "Izaberite oblast ekspertize"
+              },
+              "description": "Lista se automatski usklađuje sa Biografija → My services nakon čuvanja izmena. Ponovo učitajte CMS da vidite ažurirane nazive."
+            },
+            {
               "name": "image",
               "label": "Fotografija projekta",
               "type": "image",
@@ -517,52 +533,11 @@
           }
         },
         {
-          "name": "publication_items",
-          "label": "Publikacije — tekst i fajlovi",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{title}"
-            }
-          },
-          "fields": [
-            {
-              "name": "title",
-              "label": "Naslov publikacije",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "description",
-              "label": "Autori, izvor i opis",
-              "type": "rich-text",
-              "options": {
-                "format": "html",
-                "media": "images"
-              }
-            },
-            {
-              "name": "file",
-              "label": "Dokument publikacije",
-              "type": "file",
-              "options": {
-                "media": "documents",
-                "multiple": true,
-                "unique": true
-              },
-              "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
-            }
-          ]
-        },
-        {
-          "name": "publications",
-          "label": "Dodatni tekst uz publikacije",
-          "type": "rich-text",
-          "options": {
-            "format": "html",
-            "media": "images"
-          }
+          "name": "bibliography_note",
+          "label": "Selected Bibliography",
+          "type": "text",
+          "readonly": true,
+          "default": "Prva tri unosa iz svake kategorije preuzimaju se automatski sa CMS stranice Bibliography. Tamo uredite sadržaj i redosled."
         }
       ],
       "operations": {

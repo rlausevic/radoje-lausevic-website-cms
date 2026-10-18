@@ -38,3 +38,4 @@ function setupArchiveSearch({input,category,cards,count,empty,singular,plural,gr
 setupArchiveSearch({input:'#post-search',category:'#post-category',cards:'[data-post]',count:'#result-count',empty:'#no-results',singular:'article',plural:'articles'});
 setupArchiveSearch({input:'#video-search',cards:'[data-video]',count:'#video-result-count',empty:'#no-videos',singular:'video',plural:'videos'});
 setupArchiveSearch({input:'#bibliography-search',category:'#bibliography-category',cards:'[data-bibliography]',count:'#bibliography-result-count',empty:'#no-bibliography',singular:'bibliography item',plural:'bibliography items',groups:'[data-archive-group]'});
+setupArchiveSearch({input:'#project-search',category:'#project-category',cards:'[data-project]',count:'#project-result-count',empty:'#no-projects',singular:'project',plural:'projects'});

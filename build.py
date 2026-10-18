@@ -6,6 +6,10 @@ import json,html,re,urllib.parse,datetime,hashlib,shutil
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
+resume=json.loads((ROOT/'content/cms/resume.json').read_text())
+brief_files=resume.get('brief_cv') or []
+if isinstance(brief_files,str):brief_files=[brief_files]
+brief_cv_url=brief_files[0] if brief_files else '/resume'
 E=lambda s:html.escape(str(s),quote=True)
 ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js']}
 NAV=[('/', 'Home'),('/about','About'),('/work-experience','Experience'),('/projects','Projects'),('/resume','Resume'),('/bibliography','Bibliography'),('/blog','Journal'),('/video','Video')]
@@ -64,7 +68,7 @@ def page(path,title,body,desc=None):
    return 'href="/blog?category='+E(urllib.parse.quote(category))+'"'
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
- active='/blog' if path.startswith('/post/') else '/video' if path.startswith('/video/') else path
+ active='/blog' if path.startswith('/post/') else '/video' if path.startswith('/video/') else '/projects' if path.startswith('/project/') else path
  nav=''.join(f'<a href="{u}"'+(' aria-current="page"' if active==u else '')+f'>{t}</a>' for u,t in NAV)
  schema={'@context':'https://schema.org','@type':'Person','name':S['name'],'url':S['domain'],'jobTitle':'Senior Environmental Consultant','email':S['email'],'sameAs':[S['linkedin'],S['twitter']]}
  if path.startswith('/post/'):
@@ -73,7 +77,7 @@ def page(path,title,body,desc=None):
   except ValueError:pass
  resume_styles='<style>.resume-education p,.resume-education li{line-height:1.4}.resume-education p{margin:0 0 6px}.resume-education h3{font-size:22px;line-height:1.3;margin:18px 0 6px}.resume-education h3:first-child{margin-top:0}</style>' if path=='/resume' else ''
  fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
- data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}<script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}<a class="nav-contact" href="/contact">Let's talk ↗</a></nav></div></header><main id="main">{body}</main><section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section><footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a><a href="/resume">Download CV</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
+ data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}<script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}<a class="nav-contact" href="/contact">Let's talk ↗</a></nav></div></header><main id="main">{body}</main><section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section><footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a><a href="{E(brief_cv_url)}"{(' download' if brief_files else '')}>Download CV</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
  data=apply_link_targets(data)
  f=DIST/('index.html' if path=='/' else path.strip('/')+'/index.html');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(data);written.append(path)
 def intro(label,title,text=''):
@@ -113,6 +117,11 @@ def video_card(video,heading='h3'):
  search=' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video['content']['text']]).lower()
  return f'<article class="post-card video-card" data-video data-search="{E(search)}"><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span><{heading}>{E(video["title"])}</{heading}><p>{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 projects=sections('/projects')
+project_entries=M['project_entries']
+expertise_topics=list(dict.fromkeys([item['title'] for item in expertise]+[item['topic'] for item in project_entries if item.get('topic')]))
+def project_path(project):
+ return '/project/'+hashlib.sha256(project['title'].encode()).hexdigest()[:16]
+
 # Home: compact editorial introduction; detailed source content on inner pages.
 home=f'''<div class="wrap"><section class="hero"><div><span class="eyebrow">Senior Environmental Consultant</span><h1>{E(M["home"]["heading"])}</h1><p class="lead">{E(M["home"]["lead"])}</p><div class="actions"><a class="button" href="/projects">Explore my work <span aria-hidden="true">↗</span></a><a class="textlink" href="/about">Meet Radoje →</a></div><p class="hero-foot">Biologist · Project manager · Environmental leader</p></div><div class="hero-art"><div class="accent-block"></div>{image(S['portrait'],S['name']+' — environmental consultant','portrait',True)}<div class="photo-note"><span>PhD</span><span>IN BIOLOGY<br>UNIVERSITY OF BELGRADE</span></div></div></section></div><div class="stat-strip"><div class="wrap stats"><div class="stat"><strong>100+</strong><span>Projects managed<br>or supervised</span></div><div class="stat"><strong>€50m+</strong><span>Total project<br>portfolio</span></div><div class="stat"><strong>3</strong><span>Connected fields<br>of consultancy</span></div></div></div>'''
 home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">How I can help</span><h2>Experience that moves<br>ideas into action.</h2></div><a class="textlink" href="/about#my-services">View all expertise →</a></div><div class="services">'
@@ -124,7 +133,7 @@ home+='<section class="section"><div class="wrap"><div class="section-head"><div
 for i,p in enumerate(projects[:2]):
  desc=M['project_summaries'].get(p['title'],'')
  title=p['title']
- home+=f'<a class="project-card" href="/projects#project-{i+1}"><div class="image-wrap">{image(p["image"]["src"],p["title"])}</div><span class="eyebrow">{E(p["blocks"][0]["text"])}</span><h3>{title}</h3><p>{E(desc[:180])}…</p></a>'
+ home+=f'<a class="project-card" href="{E(project_path(project_entries[i]))}"><div class="image-wrap">{image(p["image"]["src"],p["title"])}</div><span class="eyebrow">{E(p["blocks"][0]["text"])}</span><h3>{title}</h3><p>{E(desc[:180])}…</p></a>'
 home+='</div></div></section>'
 # The first two full recommendations in About provide the home excerpts.
 home+=f'<section class="section testimonials"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("recommendations_label", "Recommendations"))}</span><h2>{E(M["home"].get("recommendations_heading", "Trusted by colleagues."))}</h2></div><a class="textlink" href="/about#recommendations">View all recommendations →</a></div><div class="quotes">'
@@ -161,11 +170,23 @@ body+='</div></section><section class="section testimonials"><div class="wrap pr
 network=next(x for x in sections('/work-experience') if x['title']=='My Professional Network');body+=render_all(network['blocks'])
 links=M['pages']['/work-experience']['links'];full=next((a['href'] for a in links if a['text']=='Get full list'),'')
 body+=f'<p><a class="button" href="{E(full)}" download>Download the full network list ↓</a></p></div></section>';page('/work-experience','Work experience',body)
-# All projects.
-body=intro('Selected portfolio','Projects.','A selection from more than 100 projects managed or supervised, with a total portfolio exceeding €50 million.')+'<section class="section"><div class="wrap">'
-for i,p in enumerate(projects):
- body+=f'<article class="project-detail" id="project-{i+1}"><div>{image(p["image"]["src"],p["title"])}</div><div><h2>{E(p["title"])}</h2><p class="date">{E(p["blocks"][0]["text"])}</p>'+render_all(p['blocks'][1:])+'</div></article>'
-body+='</div></section>';page('/projects','Projects',body)
+# Projects archive uses Journal cards and the shared search engine.
+if (DIST/'project').exists():shutil.rmtree(DIST/'project')
+body=intro('Selected portfolio','Projects.','A selection from more than 100 projects managed or supervised, with a total portfolio exceeding €50 million.')+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="project-search">Search projects<input type="search" id="project-search" placeholder="Search projects…" aria-controls="project-results"></label><label for="project-category">Topic of expertise<select id="project-category"><option value="">All topics</option>'+''.join(f'<option value="{E(topic)}">{E(topic)}</option>' for topic in expertise_topics)+'</select></label></div>'
+body+=f'<p class="result-count" id="project-result-count" role="status" aria-live="polite">{len(project_entries)} projects</p><div class="journal-grid" id="project-results">'
+project_paths=set()
+for i,project in enumerate(project_entries):
+ path=project_path(project)
+ if path in project_paths:raise ValueError('Duplicate project title: '+project['title'])
+ project_paths.add(path)
+ detail=__import__('cms_data').body(project.get('body') or '')
+ topic=project.get('topic') or ''
+ search=' '.join([project['title'],project['period'],project.get('summary') or '',topic,detail['text']]).lower()
+ body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><span class="date">{E(project["period"])}</span><h2>{E(project["title"])}</h2><p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
+body+='</div><p class="empty" id="no-projects" hidden>No projects found. Try another search or select all topics.</p></div></section>';page('/projects','Projects',body)
+for project in project_entries:
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1><p class="article-meta">{E(project["period"])}</p></header><div class="prose">'+image(project.get('image') or S['landscape'],project.get('image_alt') or project['title'])+render(__import__('cms_data').body(project.get('body') or ''))+'</div></div></article>'
+ page(project_path(project),project['title'],body,project.get('summary'))
 # Resume files and publication attachments managed through Pages CMS.
 resume=json.loads((ROOT/'content/cms/resume.json').read_text())
 def document_files(value):
@@ -242,7 +263,7 @@ body=intro(resume.get('label','Qualifications & publications'),resume.get('headi
 for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:
  body+=download_card(resume.get(key+'_title',title),resume.get(key+'_description',description),resume.get(key))
 body+=download_card(resume.get('bibliography_title','Complete bibliography'),'',resume.get('bibliography_file'))
-body+='</div><div class="prose"><h2>Education</h2><div class="resume-education">'+render(__import__('cms_data').body(resume.get('education','')))+'</div><h2>Selected Bibliogrpahy</h2>'
+body+='</div><div class="prose"><h2>Education</h2><div class="resume-education">'+render(__import__('cms_data').body(resume.get('education','')))+'</div><h2>Selected Bibliography</h2>'
 for category in bibliography_categories:
  items=[item for item in bibliography_items if item['category']==category][:3]
  body+=f'<section class="bibliography-group"><h3>{E(category)}</h3>'
