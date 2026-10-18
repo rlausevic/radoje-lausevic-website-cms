@@ -38,6 +38,7 @@ def load_cms(root,original):
  def read(path):return json.loads((base/path).read_text())
  model=copy.deepcopy(original);model['site']=read('settings.json');model['home']=read('home.json')
  a=read('about.json');model['pages']['/about']['blocks']=[body(a['body'])];model['about']=a
+ model['expertise']=read('expertise.json') if (base/'expertise.json').exists() else {'services':a.get('services') or []}
  def ordered_entries(name):
   source=base/(name+'.json')
   if source.exists():items=read(name+'.json').get('items') or []

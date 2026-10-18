@@ -6,7 +6,7 @@ class ProjectArchive(unittest.TestCase):
  def test_cms_topics_details_and_footer(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
-   about=root/'content/cms/about.json';data=json.loads(about.read_text());data['services'].append({'title':'Test expertise','motto':'','summary':'Test','description':''});about.write_text(json.dumps(data))
+   about=root/'content/cms/expertise.json';data=json.loads(about.read_text());data['services'].append({'title':'Test expertise','motto':'','summary':'Test','description':''});about.write_text(json.dumps(data))
    subprocess.run([sys.executable,'scripts/sync_expertise.py'],cwd=root,check=True)
    cfg=json.loads((root/'.pages.yml').read_text());projects=next(x for x in cfg['content'] if x['name']=='projects')['fields'][0]['fields']
    self.assertEqual(next(x for x in projects if x['name']=='topic')['options']['values'],[x['title'] for x in data['services']])
@@ -18,10 +18,10 @@ class ProjectArchive(unittest.TestCase):
    self.assertIn('data-categories="Test expertise"',archive);self.assertIn('searchable detailed project content',archive)
    links=re.findall(r'href="(/project/[a-f0-9]+)">View all details',archive);self.assertEqual(len(links),len(data['items']))
    first=(root/'dist'/links[0].strip('/')/'index.html').read_text();self.assertIn('<p>Searchable detailed project content</p>',first)
-   self.assertIn('href="/projects" aria-current="page"',first)
+   self.assertIn('href="/projects" aria-current="true"',first)
    brief=json.loads((root/'content/cms/resume.json').read_text())['brief_cv'];brief=brief[0] if isinstance(brief,list) else brief
    for page in ['index.html','resume/index.html','projects/index.html']:
-    html=(root/'dist'/page).read_text();self.assertIn('href="'+brief+'" download>Download CV',html)
+    html=(root/'dist'/page).read_text();self.assertIn('href="'+brief+'" download aria-label="Download CV — Europass Brief CV">Download CV',html)
    self.assertIn('Selected Bibliography',(root/'dist/resume/index.html').read_text())
    self.assertNotIn('Selected Bibliogrpahy',(root/'dist/resume/index.html').read_text())
    data['items'].reverse();data['items'].pop();p.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)

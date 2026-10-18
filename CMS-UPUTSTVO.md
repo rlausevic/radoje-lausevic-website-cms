@@ -32,12 +32,13 @@ Ako ste `www.radojelausevic.com` već povezali sa starim projektom, prvo proveri
 
 - **Podešavanja sajta:** ime, kontakt, domen, opis za pretraživače, portret i panorama.
 - **Početna strana:** naslov, uvod i kratki opisi usluga.
-- **Biografija:** tekst biografije, detaljni opisi usluga i preporuke.
-- **Radno iskustvo:** dodajte/uredite angažman; broj „Redosled prikaza“ određuje poziciju na stranici.
+- **Biografija:** Profile, izbor Career highlights iz Radnog iskustva, kratak uvod za Expertise i preporuke. Profesionalna mreža ima svoj postojeći CMS izvor.
+- **Expertise — oblasti usluga:** jedini izvor pet oblasti, njihovih kratkih uvoda, Services i detaljnih opisa. Selected projects se povezuju automatski prema polju Izbor oblasti u Projektima. Prve tri ekspertize prikazuju se na početnoj strani.
+- **Radno iskustvo:** dodajte/uredite angažman i prevucite stavke radi promene redosleda. Puna istorija ostaje na `/work-experience`; izabrani angažmani se prikazuju na About.
 - **Projekti:** dodajte/uredite projekat, period, fotografiju, kratak i detaljan opis; redosled određuje prikaz, prva dva se prikazuju i na početnoj strani.
 - **Profesionalna mreža:** tekst i PDF dokument.
-- **CV i publikacije:** zamenite CV fajlove i uredite tekst obrazovanja/publikacija.
-- **Galerija:** dodajte fotografije, naslove i opise.
+- **CV i publikacije:** jedno polje **Download CV — Europass Brief CV** kontroliše dokument u zaglavlju, na About i u podnožju. Detaljni CV ostaje zaseban dokument. Obrazovanje se uređuje ovde; Selected Bibliography se automatski preuzima iz Bibliography.
+- **Galerija:** postojeća galerija je jedan album; uređujte njegov naslov, datum, kratak opis, fotografije i tekst. Insights prikazuje jedan pregled ovog albuma, bez kopiranja fotografija u nove zapise.
 - **Blog objave:** kreirajte ili uredite tekst, datum, naslovnu fotografiju, opis i teme.
 
 Za novu blog objavu unesite adresu poput `/post/novi-projekat`. Koristite mala latinična slova bez dijakritika, brojeve i crtice. **Kod postojećih objava sačuvajte adresu**, kako spoljne veze ne bi prestale da rade. Naziv JSON fajla je nezavisan od javne adrese.
@@ -47,6 +48,10 @@ Polje **Objavljeno**:
 - uključeno: objava se prikazuje na sajtu nakon uspešnog Cloudflare build-a.
 
 Novi datum ne zakazuje buduću objavu: uključena opcija Objavljeno objavljuje tekst odmah nakon build-a. Najnovije objavljene objave se prikazuju prve.
+
+Insights automatski prikazuje do tri najnovije Journal objave, do tri najnovija videa i postojeću galeriju. Pregledi nemaju zasebne kopije sadržaja.
+
+Posle izmene Expertise, GitHub Actions automatski ažurira izbor oblasti u CMS Projektima. Posle izmene Radnog iskustva ažurira izbor Career highlights. Osvežite CMS nakon završetka workflow-a.
 
 Klikom na Save sačuvate promenu na GitHub-u. Cloudflare zatim automatski gradi i objavljuje sajt. Sačekajte uspešan deployment i osvežite javni sajt. Ako build prijavi grešku, prethodna uspešna verzija ostaje aktivna; otvorite deployment log da vidite razlog.
 

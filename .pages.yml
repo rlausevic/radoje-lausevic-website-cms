@@ -174,7 +174,7 @@
       "fields": [
         {
           "name": "body",
-          "label": "Biografija",
+          "label": "Profile — profesionalni profil",
           "type": "rich-text",
           "options": {
             "format": "html",
@@ -182,44 +182,29 @@
           }
         },
         {
-          "name": "services",
-          "label": "My services — ekspertize",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{title}"
-            }
+          "name": "career_highlights",
+          "label": "Career highlights — izbor iz radnog iskustva",
+          "type": "select",
+          "options": {
+            "multiple": true,
+            "values": [
+              "Founder: Agency Partner Consulting",
+              "Project Manager",
+              "Independent Senior Environmental Consultant",
+              "Associate Professor at Faculty for Applied Ecology, Belgrade, Serbia",
+              "Deputy Executive Director for Environmental Policy, Regional Environmental Center for Central and Eastern Europe (REC)",
+              "Regional Director for South East Europe, Regional Environmental Center for Central and Eastern Europe (REC)",
+              "Director, Country Office Serbia and Montenegro, Regional Environmental Center for Central and Eastern Europe (REC)",
+              "Assistant Professor, Faculty of Biology, University of Belgrade",
+              "Teaching Assistant, Faculty of Biology, University of Belgrade"
+            ]
           },
-          "fields": [
-            {
-              "name": "title",
-              "label": "Naziv",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "motto",
-              "label": "Moto",
-              "type": "string"
-            },
-            {
-              "name": "summary",
-              "label": "Kratak opis za prvu stranu",
-              "type": "text",
-              "required": true
-            },
-            {
-              "name": "description",
-              "label": "Detaljan opis",
-              "type": "rich-text",
-              "options": {
-                "format": "html",
-                "media": "images"
-              }
-            }
-          ],
-          "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
+          "description": "Sadržaj se preuzima iz Radnog iskustva, bez dupliranja zapisa."
+        },
+        {
+          "name": "expertise_intro",
+          "label": "Kratak uvod za Expertise",
+          "type": "text"
         },
         {
           "name": "recommendations",
@@ -255,6 +240,90 @@
             }
           ],
           "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
+        },
+        {
+          "name": "network_note",
+          "label": "Professional network",
+          "type": "text",
+          "readonly": true,
+          "default": "Sadržaj se uređuje na CMS stranici Profesionalna mreža i automatski prikazuje ovde i u Career history."
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "expertise",
+      "label": "Expertise — oblasti usluga",
+      "type": "file",
+      "path": "content/cms/expertise.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "label",
+          "label": "Oznaka stranice",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "label": "Naslov",
+          "type": "string"
+        },
+        {
+          "name": "lead",
+          "label": "Uvod",
+          "type": "text"
+        },
+        {
+          "name": "services",
+          "label": "My services — ekspertize",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{title}"
+            }
+          },
+          "fields": [
+            {
+              "name": "title",
+              "label": "Naziv",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "motto",
+              "label": "Moto",
+              "type": "string"
+            },
+            {
+              "name": "summary",
+              "label": "Kratak opis za prvu stranu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "support",
+              "label": "Services — konkretne vrste podrške",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "description",
+              "label": "Detaljan opis",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            }
+          ],
+          "description": "Jedini izvor oblasti usluga za Expertise, početnu stranicu i izbor oblasti projekata. Selected projects se automatski povezuju prema izabranoj oblasti projekta."
         }
       ],
       "operations": {
@@ -385,7 +454,7 @@
                 ],
                 "placeholder": "Izaberite oblast ekspertize"
               },
-              "description": "Lista se automatski usklađuje sa Biografija → My services nakon čuvanja izmena. Ponovo učitajte CMS da vidite ažurirane nazive."
+              "description": "Lista se automatski usklađuje sa CMS stranicom Expertise nakon čuvanja izmena. Ponovo učitajte CMS da vidite ažurirane nazive."
             },
             {
               "name": "image",
@@ -446,14 +515,14 @@
         },
         {
           "name": "brief_cv",
-          "label": "Kratak CV — dokument",
+          "label": "Download CV — Europass Brief CV (centralni dokument)",
           "type": "file",
           "options": {
             "media": "documents",
             "multiple": true,
             "unique": true
           },
-          "description": "Kliknite Upload za otpremanje novog fajla ili Select za izbor postojećeg. Upload ostaje dostupan uz postojeće fajlove. Posle otpremanja uklonite staru verziju iz izbora pomoću Remove i kliknite Save. Možete zadržati više formata (npr. PDF i DOCX)."
+          "description": "Ovaj dokument koristi dugme Download CV u zaglavlju, na About i u podnožju. Prvi PDF iz ovog polja koristi se za direktno preuzimanje."
         },
         {
           "name": "brief_cv_title",
@@ -711,6 +780,21 @@
       "path": "content/cms/gallery.json",
       "format": "json",
       "fields": [
+        {
+          "name": "title",
+          "label": "Naslov galerije",
+          "type": "string"
+        },
+        {
+          "name": "date",
+          "label": "Datum galerije",
+          "type": "date"
+        },
+        {
+          "name": "summary",
+          "label": "Kratak opis za Insights",
+          "type": "text"
+        },
         {
           "name": "items",
           "label": "Fotografije",

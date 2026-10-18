@@ -1,7 +1,35 @@
 'use strict';
 const toggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#primary-nav');
-if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Close ×':'Menu ☰';});document.addEventListener('keydown',e=>{if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';}});}
+const insightsToggle=document.querySelector('.insights-toggle');
+const insightsMenu=document.querySelector('#insights-menu');
+function closeInsights(){
+ if(!insightsToggle||!insightsMenu)return;
+ insightsMenu.hidden=true;insightsToggle.setAttribute('aria-expanded','false');insightsToggle.setAttribute('aria-label','Open Insights submenu');
+}
+function closeNavigation(){
+ if(!toggle||!nav)return;
+ nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';closeInsights();
+}
+if(toggle&&nav){
+ toggle.addEventListener('click',()=>{const open=!nav.classList.contains('open');if(open){nav.classList.add('open');toggle.setAttribute('aria-expanded','true');toggle.textContent='Close ×';}else closeNavigation();});
+ nav.addEventListener('click',event=>{if(event.target.closest('a'))closeNavigation();});
+}
+if(insightsToggle&&insightsMenu){
+ const openInsights=()=>{insightsMenu.hidden=false;insightsToggle.setAttribute('aria-expanded','true');insightsToggle.setAttribute('aria-label','Close Insights submenu');};
+ insightsToggle.addEventListener('click',()=>{if(insightsMenu.hidden)openInsights();else closeInsights();});
+ insightsToggle.addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();openInsights();insightsMenu.querySelector('a')?.focus();}});
+ document.addEventListener('click',event=>{if(!event.target.closest('.nav-insights'))closeInsights();});
+ document.addEventListener('focusin',event=>{if(!event.target.closest('.nav-insights'))closeInsights();});
+}
+if(toggle&&nav)document.addEventListener('keydown',event=>{
+ if(event.key!=='Escape')return;
+ const mobileOpen=nav.classList.contains('open'),submenuOpen=insightsMenu&&!insightsMenu.hidden;
+ if(!mobileOpen&&!submenuOpen)return;
+ event.preventDefault();closeNavigation();if(mobileOpen)toggle.focus();else insightsToggle.focus();
+});
+// Preserve incoming links to the former About expertise sections.
+if(location.pathname==='/about'&&/^#expertise-\d+$/.test(location.hash))location.replace('/expertise'+location.hash);
 const dialog=document.querySelector('#gallery-dialog');
 if(dialog){document.querySelectorAll('[data-gallery]').forEach(btn=>btn.addEventListener('click',()=>{const image=dialog.querySelector('img');image.src=btn.dataset.src;image.alt=btn.dataset.caption;dialog.querySelector('p').textContent=btn.dataset.caption;dialog.showModal();}));dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});}
 const form=document.querySelector('#contact-form');
