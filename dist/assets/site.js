@@ -29,7 +29,7 @@ if(toggle&&nav)document.addEventListener('keydown',event=>{
  event.preventDefault();closeNavigation();if(mobileOpen)toggle.focus();else insightsToggle.focus();
 });
 // Preserve incoming links to the former About expertise sections.
-if(location.pathname==='/about'&&/^#expertise-\d+$/.test(location.hash))location.replace('/expertise'+location.hash);
+if(String(location.pathname||'').replace(/\/$/,'')==='/about'&&/^#expertise-\d+$/.test(location.hash))location.replace('/expertise'+location.hash);
 const dialog=document.querySelector('#gallery-dialog');
 if(dialog){document.querySelectorAll('[data-gallery]').forEach(btn=>btn.addEventListener('click',()=>{const image=dialog.querySelector('img');image.src=btn.dataset.src;image.alt=btn.dataset.caption;dialog.querySelector('p').textContent=btn.dataset.caption;dialog.showModal();}));dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});}
 const form=document.querySelector('#contact-form');

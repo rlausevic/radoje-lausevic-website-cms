@@ -72,4 +72,9 @@ button.events.click();assert.equal(menu.hidden,false);assert.equal(button.attrs[
 button.events.keydown({key:'ArrowDown',preventDefault(){}});assert.equal(menu.hidden,false);assert.equal(first.focused,true);
 toggle.events.click();assert.equal(toggle.attrs['aria-expanded'],'true');assert(nav.classList.contains('open'));docEvents.keydown({key:'Escape',preventDefault(){}});assert(!nav.classList.contains('open'));assert.equal(toggle.attrs['aria-expanded'],'false');assert.equal(menu.hidden,true);assert.equal(toggle.focused,true);
 """],cwd=ROOT,check=True)
+ def test_old_about_anchors_after_trailing_slash_redirect(self):
+  subprocess.run(['node','-e',r"""
+const vm=require('vm'),fs=require('fs'),assert=require('assert');
+for(const pathname of ['/about','/about/']){let destination;vm.runInNewContext(fs.readFileSync('dist/assets/site.js','utf8'),{document:{querySelector:()=>null,querySelectorAll:()=>[]},location:{pathname,hash:'#expertise-3',search:'',replace:url=>destination=url},URLSearchParams});assert.equal(destination,'/expertise#expertise-3');}
+"""],cwd=ROOT,check=True)
 if __name__=='__main__':unittest.main()
