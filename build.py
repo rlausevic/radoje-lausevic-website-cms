@@ -165,9 +165,10 @@ selected=set(about.get('career_highlights') or [])
 career=[item for item in M['experience_entries'] if item['title'] in selected]
 if career:
  body+='<section class="section" id="career-highlights"><div class="wrap prose"><h2>Career highlights</h2>'
+ body+='<div class="career-cards">'
  for item in career:
-  summary=__import__('cms_data').body(item.get('body') or '')['text']
-  body+=f'<article class="career-highlight"><h3>{E(item["title"])}</h3><p class="date">{E(item["period"])}</p><p>{E(summary[:320])}{"…" if len(summary)>320 else ""}</p></article>'
+  body+=f'<details class="career-card"><summary><h3>{E(item["title"])}</h3><span class="date">{E(item["period"])}</span><span class="textlink career-expand">View details →</span><span class="textlink career-collapse">Hide details ↑</span></summary><div class="career-content">'+render(__import__('cms_data').body(item.get('body') or ''))+'</div></details>'
+ body+='</div>'
  body+='<p><a class="textlink" href="/work-experience">View full career history →</a></p></div></section>'
 body+='<section class="section" id="professional-network"><div class="wrap prose"><h2>Professional network</h2>'+render(__import__('cms_data').body(network_data.get('body') or ''))
 network_documents=network_data.get('document') or []
