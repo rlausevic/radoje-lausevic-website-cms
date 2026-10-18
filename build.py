@@ -177,7 +177,10 @@ for url in network_documents:body+=f'<p><a class="textlink" href="{E(url)}" down
 body+='</div></section>'
 if recommendations:
  body+='<section class="section testimonials" id="recommendations"><div class="wrap prose"><span class="eyebrow">Professional recommendations</span><h2>Recommendations</h2>'
- for item in recommendations:body+='<blockquote class="recommendation-detail">'+render(__import__('cms_data').body(item.get('body') or ''))+f'<cite>{E(item["author"])}</cite></blockquote>'
+ body+='<div class="recommendation-cards">'
+ for item in recommendations:
+  body+=f'<details class="recommendation-card"><summary><h3>{E(item["author"])}</h3><span class="recommendation-summary">{E(item.get("summary") or "")}</span><span class="textlink recommendation-expand">View full recommendation →</span><span class="textlink recommendation-collapse">Hide full recommendation ↑</span></summary><blockquote class="recommendation-content">'+render(__import__('cms_data').body(item.get('body') or ''))+'</blockquote></details>'
+ body+='</div>'
  body+='</div></section>'
 body+='<section class="section" id="cv-documents"><div class="wrap prose"><h2>CV &amp; documents</h2><div class="actions">'+cv_download()+'<a class="textlink" href="/resume">View full CV &amp; documents →</a></div></div></section>';page('/about','About',body)
 # Expertise is the sole service source for this page, Home and project topics.
