@@ -158,6 +158,16 @@
           "name": "videos_heading",
           "label": "Naslov video sekcije",
           "type": "string"
+        },
+        {
+          "name": "galleries_label",
+          "label": "Galerije: nadnaslov",
+          "type": "string"
+        },
+        {
+          "name": "galleries_heading",
+          "label": "Galerije: naslov",
+          "type": "string"
         }
       ],
       "operations": {
@@ -781,23 +791,23 @@
       "format": "json",
       "fields": [
         {
-          "name": "title",
-          "label": "Naslov galerije",
+          "name": "label",
+          "label": "Nadnaslov",
           "type": "string"
         },
         {
-          "name": "date",
-          "label": "Datum galerije",
-          "type": "date"
+          "name": "heading",
+          "label": "Naslov",
+          "type": "string"
         },
         {
-          "name": "summary",
-          "label": "Kratak opis za Insights",
+          "name": "lead",
+          "label": "Podnaslov",
           "type": "text"
         },
         {
-          "name": "items",
-          "label": "Fotografije",
+          "name": "albums",
+          "label": "Galerije",
           "type": "object",
           "list": {
             "collapsible": {
@@ -807,34 +817,91 @@
           },
           "fields": [
             {
+              "name": "path",
+              "label": "Adresa galerije: /gallery/naziv-galerije",
+              "type": "string",
+              "required": true,
+              "pattern": {
+                "regex": "^/gallery/[A-Za-z0-9_-]+$",
+                "message": "Primer: /gallery/moj-album. Sačuvajte istu adresu pri kasnijim izmenama."
+              }
+            },
+            {
               "name": "title",
-              "label": "Naslov fotografije",
+              "label": "Naslov galerije",
               "type": "string",
               "required": true
             },
             {
-              "name": "image",
-              "label": "Fotografija",
-              "type": "image",
+              "name": "date",
+              "label": "Datum galerije",
+              "type": "date",
+              "required": true,
               "options": {
-                "media": "images"
+                "format": "yyyy-MM-dd"
               }
             },
             {
-              "name": "caption",
-              "label": "Opis fotografije",
+              "name": "topic",
+              "label": "Oblast",
+              "type": "select",
+              "options": {
+                "values": [
+                  "Leadership and Governance",
+                  "Project and Programme Management",
+                  "Blue Economy and Skills Development",
+                  "Environmental Research and Policy",
+                  "Climate and Energy Planning"
+                ]
+              }
+            },
+            {
+              "name": "summary",
+              "label": "Kratak opis za Insights",
               "type": "text"
+            },
+            {
+              "name": "photos",
+              "label": "Fotografije",
+              "type": "object",
+              "list": {
+                "collapsible": {
+                  "collapsed": true,
+                  "summary": "{title}"
+                }
+              },
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Naslov fotografije",
+                  "type": "string",
+                  "required": true
+                },
+                {
+                  "name": "image",
+                  "label": "Fotografija",
+                  "type": "image",
+                  "options": {
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "caption",
+                  "label": "Opis fotografije",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "name": "body",
+              "label": "Tekst galerije",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
             }
           ]
-        },
-        {
-          "name": "body",
-          "label": "Tekst galerije",
-          "type": "rich-text",
-          "options": {
-            "format": "html",
-            "media": "images"
-          }
         }
       ],
       "operations": {
@@ -855,6 +922,20 @@
           "label": "Naslov",
           "type": "string",
           "required": true
+        },
+        {
+          "name": "topic",
+          "label": "Oblast",
+          "type": "select",
+          "options": {
+            "values": [
+              "Leadership and Governance",
+              "Project and Programme Management",
+              "Blue Economy and Skills Development",
+              "Environmental Research and Policy",
+              "Climate and Energy Planning"
+            ]
+          }
         },
         {
           "name": "path",
@@ -988,6 +1069,20 @@
               "label": "Naslov",
               "type": "string",
               "required": true
+            },
+            {
+              "name": "topic",
+              "label": "Oblast",
+              "type": "select",
+              "options": {
+                "values": [
+                  "Leadership and Governance",
+                  "Project and Programme Management",
+                  "Blue Economy and Skills Development",
+                  "Environmental Research and Policy",
+                  "Climate and Energy Planning"
+                ]
+              }
             },
             {
               "name": "excerpt",

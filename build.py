@@ -69,16 +69,16 @@ def page(path,title,body,desc=None):
   if value.startswith('/blog/categories/'):
    slug=value.split('/')[-1]
    category=next((CAT.get(c,c) for post in M['posts'] for c in post['categories'] if c.lower().replace(' ','-')==slug),'')
-   return 'href="/blog?category='+E(urllib.parse.quote(category))+'"'
+   return 'href="/blog?search='+E(urllib.parse.quote(category))+'"'
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
- insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/video/'))
+ insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/video/','/gallery/'))
  active='/insights' if insights_paths else '/projects' if path.startswith('/project/') else '/about' if path in {'/resume','/work-experience'} else path
  nav=''
  for url,label in NAV:
   current=(' aria-current="page"' if path==url else ' aria-current="true"') if active==url else ''
   if url=='/insights':
-   sub=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==href else ' aria-current="true"' if (href=='/blog' and path.startswith('/post/')) or (href=='/video' and path.startswith('/video/')) else '')+f'>{name}</a>' for href,name in [('/blog','Journal'),('/video','Video'),('/galleries','Galleries')])
+   sub=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==href else ' aria-current="true"' if (href=='/blog' and path.startswith('/post/')) or (href=='/video' and path.startswith('/video/')) or (href=='/galleries' and path.startswith('/gallery/')) else '')+f'>{name}</a>' for href,name in [('/blog','Journal'),('/video','Video'),('/galleries','Galleries')])
    nav+=f'<div class="nav-insights"><div class="insights-controls"><a href="{url}"{current}>{label}</a><button class="insights-toggle" type="button" aria-label="Open Insights submenu" aria-expanded="false" aria-controls="insights-menu"><span aria-hidden="true">⌄</span></button></div><div class="insights-menu" id="insights-menu" hidden>{sub}</div></div>'
   else:nav+=f'<a href="{url}"{current}>{label}</a>'
  nav+=cv_download('button nav-download')
@@ -104,7 +104,8 @@ def sections(path):
  return out
 def post_card(p,heading='h3'):
  cats='|'.join(CAT.get(c,c) for c in p['categories'])
- return f'<a class="post-card" data-post data-categories="{E(cats)}" data-search="{E((p["title"]+" "+p["excerpt"]+" "+cats+" "+" ".join(b.get("text","") for b in p["blocks"])).lower())}" href="{p["path"]}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date">{E(p["date"])} · JOURNAL</span><{heading}>{E(p["title"])}</{heading}><p>{E(p["excerpt"])}</p><span class="read">Read article &nbsp; ↗</span></a>'
+ topic=p.get('topic') or ''
+ return f'<a class="post-card" data-post data-categories="{E(topic)}" data-search="{E((p["title"]+" "+p["excerpt"]+" "+topic+" "+p["date_iso"]+" "+p["date"]+" "+cats+" "+" ".join(b.get("text","") for b in p["blocks"])).lower())}" href="{p["path"]}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date">{E(p["date"])} · JOURNAL</span><{heading}>{E(p["title"])}</{heading}><p>{E(p["excerpt"])}</p><span class="read">Read article &nbsp; ↗</span></a>'
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
@@ -127,8 +128,31 @@ for item in video_archive.get('items') or []:
 # Rebuild detail routes so removed videos do not leave stale pages behind.
 if (DIST/'video').exists():shutil.rmtree(DIST/'video')
 def video_card(video,heading='h3'):
- search=' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video['content']['text']]).lower()
- return f'<article class="post-card video-card" data-video data-search="{E(search)}"><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span><{heading}>{E(video["title"])}</{heading}><p>{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
+ search=' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video.get('topic') or '',video['content']['text']]).lower()
+ return f'<article class="post-card video-card" data-video data-categories="{E(video.get("topic") or "")}" data-search="{E(search)}"><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span><{heading}>{E(video["title"])}</{heading}><p>{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
+# Multiple albums share one CMS source across Home, Insights and the archive.
+gallery_archive=json.loads((ROOT/'content/cms/gallery.json').read_text())
+galleries=[];gallery_paths=set()
+for item in gallery_archive.get('albums') or []:
+ album=dict(item);path=album.get('path') or ''
+ if not re.fullmatch(r'/gallery/[A-Za-z0-9_-]+',path):raise ValueError('Invalid gallery address: '+path)
+ if path in gallery_paths:raise ValueError('Duplicate gallery address: '+path)
+ gallery_paths.add(path)
+ album['date_iso']=datetime.date.fromisoformat(album['date'][:10]).isoformat()
+ album['date_display']=datetime.date.fromisoformat(album['date_iso']).strftime('%b %d, %Y')
+ album['photos']=[photo for photo in album.get('photos') or [] if photo.get('image')]
+ album['content']=__import__('cms_data').body(album.get('body') or '')
+ galleries.append(album)
+galleries.sort(key=lambda album:(album['date_iso'],album['title']),reverse=True)
+if (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
+def gallery_card(album,heading='h3'):
+ cover=album['photos'][0]['image'] if album['photos'] else S['landscape']
+ search=' '.join([album['title'],album['date_iso'],album['date_display'],album.get('topic') or '',album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']])
+ return f'<article class="post-card gallery-card" data-album data-categories="{E(album.get("topic") or "")}" data-search="{E(search)}"><div class="image-wrap">{image(cover,album["title"])}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span><{heading}>{E(album["title"])}</{heading}><p>{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
+def topic_select(identifier):
+ values=list(dict.fromkeys(item['title'] for item in expertise))
+ return '<label for="'+identifier+'">Topic<select id="'+identifier+'"><option value="">All topics</option>'+''.join(f'<option value="{E(topic)}">{E(topic)}</option>' for topic in values)+'</select></label>'
+
 projects=sections('/projects')
 project_entries=M['project_entries']
 expertise_topics=list(dict.fromkeys([item['title'] for item in expertise]+[item['topic'] for item in project_entries if item.get('topic')]))
@@ -155,7 +179,8 @@ for recommendation in recommendations[:2]:
 home+='</div></div></section>'
 home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">The journal</span><h2>Notes from the field.</h2></div><a class="textlink" href="/blog">Explore the archive →</a></div><div class="journal-grid">'+''.join(post_card(p) for p in M['posts'][:3])+'</div></div></section>'
 # The home video preview uses the same ordered archive as /video.
-home+=f'<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("videos_label", "Video resources"))}</span><h2>{E(M["home"].get("videos_heading", "Conversations on sustainability."))}</h2></div><a class="textlink" href="/video">View all videos →</a></div><div class="journal-grid">'+''.join(video_card(video) for video in videos[:3])+'</div></div></section>';page('/','Home',home)
+home+=f'<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("videos_label", "Video resources"))}</span><h2>{E(M["home"].get("videos_heading", "Conversations on sustainability."))}</h2></div><a class="textlink" href="/video">View all videos →</a></div><div class="journal-grid">'+''.join(video_card(video) for video in videos[:3])+'</div></div></section>'
+home+=f'<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("galleries_label") or "Galleries")}</span><h2>{E(M["home"].get("galleries_heading") or "Snapshots from my activities.")}</h2></div><a class="textlink" href="/galleries">View all galleries →</a></div><div class="journal-grid">'+''.join(gallery_card(album) for album in galleries[:3])+'</div></div></section>';page('/','Home',home)
 # About: shared source records provide career highlights, network and recommendations.
 about=M['about'];network_data=json.loads((ROOT/'content/cms/network.json').read_text())
 body=intro('About','Experience, with purpose.','A biologist’s perspective. An environmental leader’s experience. A practical approach to sustainability.')
@@ -201,14 +226,11 @@ if M['posts']:
  body+='<section class="section"><div class="wrap"><div class="section-head"><h2>Journal</h2><a class="textlink" href="/blog">View all articles →</a></div><div class="journal-grid">'+''.join(post_card(post,'h3') for post in M['posts'][:3])+'</div></div></section>'
 if videos:
  body+='<section class="section"><div class="wrap"><div class="section-head"><h2>Video</h2><a class="textlink" href="/video">View all videos →</a></div><div class="journal-grid">'+''.join(video_card(video,'h3') for video in sorted(videos,key=lambda item:item['date_iso'],reverse=True)[:3])+'</div></div></section>'
-gallery_source=json.loads((ROOT/'content/cms/gallery.json').read_text())
-# The existing gallery is one album, with photos stored in items, not separate albums.
-if gallery_source.get('items'):
- cover=gallery_source['items'][0]
- body+='<section class="section"><div class="wrap"><div class="section-head"><h2>Galleries</h2><a class="textlink" href="/galleries">View all galleries →</a></div><div class="journal-grid"><a class="post-card" href="/galleries"><div class="image-wrap">'+image(cover.get('image') or S['landscape'],gallery_source.get('title') or cover.get('title',''))+'</div><span class="date">'+E(gallery_source.get('date') or '')+'</span><h3>'+E(gallery_source.get('title') or 'My favourite places')+'</h3><p>'+E(gallery_source.get('summary') or '')+'</p><span class="read">View gallery →</span></a></div></div></section>'
+if galleries:
+ body+='<section class="section"><div class="wrap"><div class="section-head"><h2>Galleries</h2><a class="textlink" href="/galleries">View all galleries →</a></div><div class="journal-grid">'+''.join(gallery_card(album) for album in galleries[:3])+'</div></div></section>'
 page('/insights','Insights',body)
 # Video archive shares Journal typography, card layout and search behavior.
-body=intro(video_archive.get('label','Video archive'),video_archive.get('heading','Conversation on sustainability'),video_archive.get('lead','Project updates, environmental insights and personal observations'))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="video-search">Search video archive<input type="search" id="video-search" placeholder="Search video archive…" aria-controls="video-results"></label></div>'
+body=intro(video_archive.get('label','Video archive'),video_archive.get('heading','Conversation on sustainability'),video_archive.get('lead','Project updates, environmental insights and personal observations'))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="video-search">Search video archive<input type="search" id="video-search" placeholder="Search video archive…" aria-controls="video-results"></label>'+topic_select('video-category')+'</div>'
 body+=f'<p class="result-count" id="video-result-count" role="status" aria-live="polite">{len(videos)} {"video" if len(videos)==1 else "videos"}</p><div class="journal-grid" id="video-results">'+''.join(video_card(video,'h2') for video in videos)+'</div><p class="empty" id="no-videos"'+(' hidden' if videos else '')+'>No videos found. Try another search.</p></div></section>'
 page('/video','Video',body,video_archive.get('lead'))
 for video in videos:
@@ -334,16 +356,19 @@ for category in bibliography_categories:
  else:body+='<p class="category-empty">No entries in this category yet.</p>'
  body+='</section>'
 body+='<p><a class="textlink" href="/bibliography">View full Bibliography →</a></p></div></div></section>';page('/resume','Resume',body)
-# Gallery.
-gb=M['pages']['/galleries']['blocks'];body=intro('Connecting with nature','My favourite places.','Flowers of my Mediterranean garden in Montenegro — a personal connection with nature.')+'<section class="section"><div class="wrap"><div class="gallery-grid">';seen=set()
-for i,b in enumerate(gb):
- if b['type']!='image' or b['src']==S['landscape'] or b['src'] in seen:continue
- seen.add(b['src']);caption=gb[i+1].get('text',b['alt']);label=b['alt']
- body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(b["src"])}" data-caption="{E(caption)}" aria-label="Enlarge {E(label)}">{image(b["src"],caption)}<span>{label} ↗</span></button>'
-body+='</div><div class="prose" style="margin-top:50px">'
-idx=next(i for i,b in enumerate(gb) if b.get('text')=='Flowers of My Mediterranean Garden');body+=render_all(gb[idx+1:])+'</div></div></section><dialog class="gallery-dialog" id="gallery-dialog"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>';page('/galleries','Galleries',body)
-# Blog searchable archive.
-cats=sorted(set(CAT.get(c,c) for p in M['posts'] for c in p['categories']));body=intro('Journal archive','Notes, ideas & field stories.','Project updates, environmental insights and personal observations from the original journal.')+f'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label>Search the journal<input type="search" id="post-search" placeholder="Search articles…"></label><label>Topic<select id="post-category"><option value="">All topics</option>'+''.join(f'<option value="{E(c)}">{E(c)}</option>' for c in cats)+f'</select></label></div><p class="result-count" id="result-count" role="status">{len(M["posts"])} articles</p><div class="journal-grid">'+''.join(post_card(p,'h2') for p in M['posts'])+'</div><p class="empty" id="no-results" hidden>No articles found. Try another search or select all topics.</p></div></section>';page('/blog','Journal',body)
+# Gallery archive and stable individual album routes.
+body=intro(gallery_archive.get('label') or 'Photo galleries',gallery_archive.get('heading') or 'My favourite photos.',gallery_archive.get('lead') or '')+'<section class="section"><div class="wrap"><div class="filters"><label for="gallery-search">Search the gallery<input type="search" id="gallery-search" placeholder="Search the gallery…" aria-controls="gallery-results"></label>'+topic_select('gallery-category')+'</div>'
+body+=f'<p class="result-count" id="gallery-result-count" role="status" aria-live="polite">{len(galleries)} '+('gallery' if len(galleries)==1 else 'galleries')+'</p><div class="journal-grid" id="gallery-results">'+''.join(gallery_card(album,'h2') for album in galleries)+'</div><p class="empty" id="no-galleries"'+(' hidden' if galleries else '')+'>No galleries found. Try another search or select all topics.</p></div></section>'
+page('/galleries','Galleries',body)
+for album in galleries:
+ body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header><div class="gallery-grid">'
+ for photo in album['photos']:
+  caption=photo.get('caption') or photo.get('title') or album['title']
+  body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(photo["image"])}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
+ body+='</div><div class="prose gallery-description">'+render(album['content'])+'</div></div></article><dialog class="gallery-dialog" id="gallery-dialog"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>'
+ page(album['path'],album['title'],body,album.get('summary'))
+# Blog uses the same full-text search and expertise filter as Projects.
+body=intro('Journal archive','Notes, ideas & field stories.','Project updates, environmental insights and personal observations from the original journal.')+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="post-search">Search the journal<input type="search" id="post-search" placeholder="Search articles…" aria-controls="post-results"></label>'+topic_select('post-category')+'</div>'+f'<p class="result-count" id="result-count" role="status" aria-live="polite">{len(M["posts"])} articles</p><div class="journal-grid" id="post-results">'+''.join(post_card(p,'h2') for p in M['posts'])+'</div><p class="empty" id="no-results" hidden>No articles found. Try another search or select all topics.</p></div></section>';page('/blog','Journal',body)
 for i,p in enumerate(M['posts']):
  body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(', '.join(CAT.get(c,c) for c in p['categories'])) if p['categories'] else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
  if p['cover'] and p['cover'] not in p.get('body',''):body+=image(p['cover'],p['title'])

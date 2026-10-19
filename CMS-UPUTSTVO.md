@@ -77,3 +77,11 @@ Nisu potrebni dodatni Python paketi. Blog nacrti i uklonjene objave brišu se iz
 - https://pagescms.org/docs/quick-start/
 - https://developers.cloudflare.com/pages/get-started/git-integration/
 - https://developers.cloudflare.com/pages/get-started/direct-upload/
+
+### Oblasti objava, videa i galerija
+
+Polje **Oblast** u Blog objavama, Video arhivi i Galeriji koristi nazive iz **Expertise — oblasti usluga / My services**. Nakon izmene naziva oblasti, GitHub workflow automatski osvežava izbore u CMS-u. Ponovo otvorite CMS da vidite nove izbore. Raniji unosi bez izabrane oblasti ostaju vidljivi uz **All topics**; oblast im dodelite uređivanjem unosa. Ranije slobodne teme članaka ostaju sačuvane i uključene u tekstualnu pretragu.
+
+### Više galerija
+
+U **Galerija** uređuju se zajednički nadnaslov, naslov i podnaslov arhive, a lista **Galerije** sadrži pojedinačne albume. Novi album dobija naslov, datum, oblast, kratak opis, fotografije i tekst. Unesite jedinstvenu adresu, npr. `/gallery/moje-fotografije`, i ne menjajte je posle objavljivanja. Prva fotografija je naslovna fotografija kartice. Datum određuje redosled od najnovijeg ka najstarijem; Home i Insights automatski prikazuju do tri najnovije galerije. Postojeći album sa svim fotografijama sačuvan je kao prvi unos. Klik na **View full gallery** otvara album, a klik na fotografiju otvara uvećan prikaz.

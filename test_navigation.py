@@ -48,7 +48,7 @@ class NavigationTests(unittest.TestCase):
    self.assertNotIn('services',read('about.json'))
    expertise=read('expertise.json');expertise['services'][0]['summary']='One source expertise check';save('expertise.json',expertise)
    about=read('about.json');about['body']='<p>Updated profile check</p>';about['recommendations'][0]['summary']='Shared recommendation check';save('about.json',about)
-   gallery=read('gallery.json');gallery['title']='Shared album check';save('gallery.json',gallery)
+   gallery=read('gallery.json');gallery['albums'][0]['title']='Shared album check';save('gallery.json',gallery)
    archive=read('videos.json');archive['items'].reverse();save('videos.json',archive)
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    self.assertIn('One source expertise check',(root/'dist/index.html').read_text());self.assertIn('One source expertise check',(root/'dist/expertise/index.html').read_text())
@@ -58,7 +58,7 @@ class NavigationTests(unittest.TestCase):
    self.assertEqual(insights.count('data-post '),3)
    videos=sorted(archive['items'],key=lambda item:item['date'],reverse=True)[:3]
    pos=[insights.index(html.escape(x['title'])) for x in videos];self.assertEqual(pos,sorted(pos))
-   self.assertEqual(insights.count('View gallery →'),1)
+   self.assertEqual(insights.count('View full gallery →'),1)
    schema=json.loads((root/'.pages.yml').read_text());about_schema=next(x for x in schema['content'] if x['name']=='about');expertise_schema=next(x for x in schema['content'] if x['name']=='expertise')
    self.assertNotIn('services',[x['name'] for x in about_schema['fields']]);self.assertIn('services',[x['name'] for x in expertise_schema['fields']])
  def test_disclosure_keyboard_escape_and_mobile_menu(self):

@@ -13,7 +13,7 @@ class CMSBuild(unittest.TestCase):
    self.assertIn('CMS editing check',(r/'dist/index.html').read_text())
    self.assertNotIn('{len(M', (r/'dist/blog/index.html').read_text())
    p=r/'content/cms/posts/test-entry.json';d={'title':'Test article','path':'/post/cms-check','date':'2026-10-13','published':False,'cover':'','excerpt':'Test excerpt','categories':['New topic'],'body':'<p>CMS body content</p>'};p.write_text(json.dumps(d));build();self.assertFalse((r/'dist/post/cms-check/index.html').exists())
-   d['published']=True;p.write_text(json.dumps(d));build();self.assertIn('CMS body content',(r/'dist/post/cms-check/index.html').read_text());self.assertIn('New topic',(r/'dist/blog/index.html').read_text())
+   d['published']=True;p.write_text(json.dumps(d));build();self.assertIn('CMS body content',(r/'dist/post/cms-check/index.html').read_text());self.assertIn('new topic',(r/'dist/blog/index.html').read_text())
    d['published']=False;p.write_text(json.dumps(d));build();self.assertFalse((r/'dist/post/cms-check/index.html').exists());self.assertNotIn('/post/cms-check',(r/'dist/sitemap.xml').read_text())
    d['published']=True;d['path']='/post/../../outside';p.write_text(json.dumps(d));build(ok=False)
  def test_resume_optional_documents(self):

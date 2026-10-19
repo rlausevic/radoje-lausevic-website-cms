@@ -63,9 +63,6 @@ def load_cms(root,original):
   if isinstance(files,str):files=[files]
   resume_links.extend({'text':'Download','href':url} for url in files if url)
  model['pages']['/resume']={'blocks':[text('h2','Education'),body(r.get('education') or ''),text('h2','Selected Publications'),body(r.get('publications') or '')],'links':resume_links}
- g=read('gallery.json');blocks=[]
- for item in g['items']:blocks +=[{'type':'image','src':item['image'],'alt':item['title']},text('p',item['caption'])]
- blocks +=[text('h2','Flowers of My Mediterranean Garden'),body(g['body'])];model['pages']['/galleries']={'blocks':blocks,'links':[]}
  posts=[];paths=set()
  for f in (base/'posts').glob('*.json'):
   p=json.loads(f.read_text())

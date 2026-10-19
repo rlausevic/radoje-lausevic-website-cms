@@ -1,23 +1,32 @@
 {
-  "items": [
+  "label": "Photo galleries",
+  "heading": "My favourite photos.",
+  "lead": "Snapshots from my activities.",
+  "albums": [
     {
-      "image": "/assets/05b9e20d243b08cb.webp",
-      "caption": "Spartium junceum, commonly known as Spanish broom or weaver's broom, is a species of flowering plant in the family Fabaceae. In my garden I have one plant.",
-      "title": "Spartium junceum"
-    },
-    {
-      "image": "/assets/0c78336c56089c82.webp",
-      "caption": "Close up of flower of Spartium junceum, commonly known as Spanish broom.",
-      "title": "Spartium junceum"
-    },
-    {
-      "image": "/assets/2756b4b866c34d13.webp",
-      "caption": "Nerium oleander is a shrub or small tree in the dogbane family Apocynaceae, toxic in all its parts. We have just few salmon-pink.",
-      "title": "Nerium oleander"
+      "path": "/gallery/flowers-of-my-mediterranean-garden",
+      "title": "Flowers of My Mediterranean Garden",
+      "date": "2017-06-05",
+      "topic": "",
+      "summary": "Flowers from my Mediterranean garden in Montenegro — a personal connection with nature.",
+      "photos": [
+        {
+          "image": "/assets/05b9e20d243b08cb.webp",
+          "caption": "Spartium junceum, commonly known as Spanish broom or weaver's broom, is a species of flowering plant in the family Fabaceae. In my garden I have one plant.",
+          "title": "Spartium junceum"
+        },
+        {
+          "image": "/assets/0c78336c56089c82.webp",
+          "caption": "Close up of flower of Spartium junceum, commonly known as Spanish broom.",
+          "title": "Spartium junceum"
+        },
+        {
+          "image": "/assets/2756b4b866c34d13.webp",
+          "caption": "Nerium oleander is a shrub or small tree in the dogbane family Apocynaceae, toxic in all its parts. We have just few salmon-pink.",
+          "title": "Nerium oleander"
+        }
+      ],
+      "body": "<h2>Flowers of My Mediterranean Garden</h2><p>June 5, 2017</p><p>On the occasion of #WorldEnvironmentDay 2017 I am posting flowers of my Mediterranean garden in Montenegro. Nature is not my environment – it is embedded in me and significant part of my professional career I spent in efforts to protect the nature. Whenever I am visiting my garden I’m reconnecting with nature and celebrating this places that matter to me. I hope you will enjoy browsing these photos. Get connect and pay quick visit if you are passing by.</p><p>Interested in those places? Get in touch with me today.</p>"
     }
-  ],
-  "body": "<h2>Flowers of My Mediterranean Garden</h2><p>June 5, 2017</p><p>On the occasion of #WorldEnvironmentDay 2017 I am posting flowers of my Mediterranean garden in Montenegro. Nature is not my environment – it is embedded in me and significant part of my professional career I spent in efforts to protect the nature. Whenever I am visiting my garden I’m reconnecting with nature and celebrating this places that matter to me. I hope you will enjoy browsing these photos. Get connect and pay quick visit if you are passing by.</p><p>Interested in those places? Get in touch with me today.</p>",
-  "title": "Flowers of My Mediterranean Garden",
-  "date": "2017-06-05",
-  "summary": "Flowers from my Mediterranean garden in Montenegro — a personal connection with nature."
+  ]
 }

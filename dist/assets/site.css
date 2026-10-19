@@ -53,3 +53,6 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 /* Home: a quiet portrait caption and less space between sections. */
 .page-home .hero{min-height:0;padding:32px 0 24px}.page-home .hero-art{margin:0;padding-bottom:0}.page-home .hero-art .accent-block{bottom:36px}.page-home .portrait-note{position:static;margin:10px 0 0;font-size:12px;line-height:1.4;color:var(--muted)}.page-home main>.section{padding:28px 0}.page-home .stat{padding-top:20px;padding-bottom:20px}.page-home .cta{padding:36px 0}.page-home .footer{padding-top:30px}.page-home .footer-top{padding-bottom:24px}
 @media(max-width:850px){.page-home .hero{padding:24px 0;gap:28px}.page-home main>.section{padding:24px 0}.page-home .cta{padding:28px 0}}
+
+/* Compact footer and album details share the site's archive rhythm. */
+.page-home .footer,.page-inner .footer{padding:22px 0 14px}.page-home .footer-top,.page-inner .footer-top{padding-bottom:14px;gap:24px}body .footer p{margin:6px 0 0;line-height:1.4}body .footer-links{gap:8px 18px;line-height:1.4}body .footer-bottom{padding-top:12px;line-height:1.4;gap:8px}.gallery-description{margin-top:24px}.gallery-card .read{align-self:flex-start}.gallery-card{overflow-wrap:anywhere}
