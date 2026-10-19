@@ -32,10 +32,6 @@ if(toggle&&nav)document.addEventListener('keydown',event=>{
 if(String(location.pathname||'').replace(/\/$/,'')==='/about'&&/^#expertise-\d+$/.test(location.hash))location.replace('/expertise'+location.hash);
 const dialog=document.querySelector('#gallery-dialog');
 if(dialog){document.querySelectorAll('[data-gallery]').forEach(btn=>btn.addEventListener('click',()=>{const image=dialog.querySelector('img');image.src=btn.dataset.src;image.alt=btn.dataset.caption;dialog.querySelector('p').textContent=btn.dataset.caption;dialog.showModal();}));dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});}
-const form=document.querySelector('#contact-form');
-if(form){form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const values=new FormData(form);const subject=String(values.get('subject')||'Website inquiry');const body='Name: '+values.get('name')+'\nEmail: '+values.get('email')+'\n\n'+values.get('message');location.href='mailto:'+encodeURIComponent(form.dataset.email)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);document.querySelector('#contact-status').textContent='Your email application should open with the message prepared. Please send it there. If it does not open, email '+form.dataset.email+' directly.';});}
-
-
 // One search engine for Journal, Video and Bibliography.
 function setupArchiveSearch({input,category,cards,count,empty,singular,plural,groups}){
  const search=document.querySelector(input);if(!search)return;

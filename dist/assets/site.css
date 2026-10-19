@@ -56,3 +56,6 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 
 /* Compact footer and album details share the site's archive rhythm. */
 .page-home .footer,.page-inner .footer{padding:22px 0 14px}.page-home .footer-top,.page-inner .footer-top{padding-bottom:14px;gap:24px}body .footer p{margin:6px 0 0;line-height:1.4}body .footer-links{gap:8px 18px;line-height:1.4}body .footer-bottom{padding-top:12px;line-height:1.4;gap:8px}.gallery-description{margin-top:24px}.gallery-card .read{align-self:flex-start}.gallery-card{overflow-wrap:anywhere}
+
+/* Accessible contact states preserve the compact form layout. */
+.contact-form fieldset{border:0;margin:0;padding:0;min-width:0}.contact-form button:disabled{opacity:.6;cursor:wait}.contact-form [data-state=error]{color:#8b3526}.contact-form [data-state=success]{color:var(--ink)}.contact-form #contact-security{margin:8px 0 14px}.contact-trap,.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}.contact-form .form-note{overflow-wrap:anywhere}
