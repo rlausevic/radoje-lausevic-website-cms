@@ -14,7 +14,17 @@ export function configured(env) {
 export function contactConfig(request, env) {
  if(request.method!=='GET')return json({ok:false},405,{Allow:'GET'});
  const enabled=HOSTS.has(new URL(request.url).hostname)&&configured(env);
- return json({enabled,siteKey:enabled?env.TURNSTILE_SITE_KEY:null});
+ const result={enabled,siteKey:enabled?env.TURNSTILE_SITE_KEY:null};
+ if(new URL(request.url).searchParams.get('diagnostics')==='1')result.checks={
+  version:'contact-config-1',
+  allowedHost:HOSTS.has(new URL(request.url).hostname),
+  emailBinding:typeof env.EMAIL?.send==='function',
+  recipient:typeof env.CONTACT_RECIPIENT==='string' && /^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(env.CONTACT_RECIPIENT),
+  siteKey:!!env.TURNSTILE_SITE_KEY,
+  secretKey:!!env.TURNSTILE_SECRET_KEY,
+  liveKeys:!TEST_KEYS.test(env.TURNSTILE_SITE_KEY||'')&&!TEST_KEYS.test(env.TURNSTILE_SECRET_KEY||'')
+ };
+ return json(result);
 }
 async function limitedBody(request) {
  const reader=request.body?.getReader();if(!reader)throw new Error('body');
