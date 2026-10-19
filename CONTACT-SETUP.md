@@ -21,7 +21,7 @@ The visitor's address is used only as Reply-To. The form cannot choose recipient
    "send_email": [{"name":"EMAIL"}]
    ```
    Set encrypted `CONTACT_RECIPIENT` and the two Turnstile environment values on that Worker. `keep_vars` preserves dashboard variables; encrypted secrets stay outside git. `CONTACT_RATE_LIMITER` is configured at 5 attempts per minute per client IP per location. No external API key is needed.
-5. For **Pages**, configure the same `EMAIL` binding, encrypted `CONTACT_RECIPIENT` and Turnstile keys on the Pages project production environment, then redeploy. Worker configuration does not apply to Pages. Where a rate-limit binding is available, use `CONTACT_RATE_LIMITER`; otherwise an in-memory per-isolate attempt limiter supplements mandatory Turnstile validation. It is best-effort, not an exact account-wide quota. For stricter limits, add a Cloudflare rate limit rule for POST `/api/contact`.
+5. **Pages does not support a direct send_email binding.** In the Pages project, add a Production **Service binding** named `CONTACT_SERVICE`, selecting the Worker `radoje-lausevic-website-cms` (production), then redeploy Pages. Both Pages API handlers forward the original request to that Worker over the private service binding, preserving the URL, Origin and body. The Worker must hold `EMAIL`, `CONTACT_RECIPIENT` and both Turnstile keys. Values stored only on Pages do not configure the Worker. Pages variables may remain but are not used when the service binding is present. No public Worker URL or CORS bypass is needed.
 
 ## Verification
 

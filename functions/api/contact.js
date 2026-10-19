@@ -1,2 +1,4 @@
 import {contact} from '../../server/contact.mjs';
-export const onRequest = ({request,env}) => contact(request,env);
+export const onRequest = ({request,env}) => env.CONTACT_SERVICE
+ ? env.CONTACT_SERVICE.fetch(request)
+ : contact(request,env);
