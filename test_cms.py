@@ -11,6 +11,9 @@ class CMSBuild(unittest.TestCase):
     self.assertEqual(x.returncode==0,ok,x.stderr);return x
    h=r/'content/cms/home.json';d=json.loads(h.read_text());d['heading']='CMS editing check';h.write_text(json.dumps(d));build()
    self.assertIn('CMS editing check',(r/'dist/index.html').read_text())
+   journal=r/'content/cms/journal.json';journal.write_text(json.dumps({'label':'CMS journal label','heading':'CMS journal heading','lead':'CMS journal introduction'}));build()
+   page=(r/'dist/blog/index.html').read_text()
+   for value in ['CMS journal label','CMS journal heading','CMS journal introduction','id="post-search"','id="post-category"']:self.assertIn(value,page)
    self.assertNotIn('{len(M', (r/'dist/blog/index.html').read_text())
    p=r/'content/cms/posts/test-entry.json';d={'title':'Test article','path':'/post/cms-check','date':'2026-10-13','published':False,'cover':'','excerpt':'Test excerpt','categories':['New topic'],'body':'<p>CMS body content</p>'};p.write_text(json.dumps(d));build();self.assertFalse((r/'dist/post/cms-check/index.html').exists())
    d['published']=True;p.write_text(json.dumps(d));build();self.assertIn('CMS body content',(r/'dist/post/cms-check/index.html').read_text());self.assertIn('new topic',(r/'dist/blog/index.html').read_text())

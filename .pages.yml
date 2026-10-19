@@ -910,6 +910,35 @@
       }
     },
     {
+      "name": "journal",
+      "label": "Journal",
+      "type": "file",
+      "path": "content/cms/journal.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "label",
+          "label": "Nadnaslov",
+          "type": "string"
+        },
+        {
+          "name": "heading",
+          "label": "Naslov",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "lead",
+          "label": "Uvodni tekst",
+          "type": "text"
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
       "name": "posts",
       "label": "Blog objave",
       "type": "collection",
