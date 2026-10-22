@@ -218,19 +218,21 @@
     },
     {
       "title": "Aquatic ecosystems",
+      "full_name": "Structure and dynamics of aquatic ecosystems of different trophic levels",
       "path": "/project/7a62e37c0c51e425",
       "topic": "Environmental Research and Policy",
       "image": "/assets/8eb636d23c2eb4eb.webp",
       "image_alt": "Vlasina lake panorama",
       "summary": "As a research team member, I contributed to hydrobiological (limnological) research of Vlasina reservoir (Serbia). My research was focused on floristical composition of algae and seasonal and spatial dynamics of phytoplankton in Vlasina reservoir.",
+      "role": "Researchers",
       "assignment_start": "1996-01-01",
       "assignment_end": "2000-12-31",
       "assignment_ongoing": false,
-      "project_start": "2026-10-22",
-      "project_end": "2026-10-22",
-      "body": "<p><strong>Full project name:</strong> Structure and dynamics of aquatic ecosystems of different trophic levels<br><strong>Project acronym: </strong>Aquatic ecosystems<br><strong>Role: </strong>researcher<br><strong>Contracted by</strong>: Ministry of Science, Republic of Serbia<br><strong>Geographical coverage</strong>: Serbia</p><p>As a research team member, I contributed to hydrobiological (limnological) research of Vlasina reservoir (Serbia). My research was focused on floristical composition of algae and seasonal and spatial dynamics of phytoplankton in Vlasina reservoir.</p>",
-      "contribution": "<p></p>",
-      "results": "<p></p>"
+      "project_start": "1996-01-01",
+      "project_end": "2000-12-31",
+      "body": "<p>The project investigated the structure and dynamics of aquatic ecosystems at different trophic levels in Serbia. Its hydrobiological and limnological research included Vlasina Reservoir, examining algal species composition and seasonal and spatial patterns in phytoplankton communities.</p>",
+      "contribution": "<p><strong>Contracted by</strong>: Ministry of Science, Republic of Serbia<br><strong>Geographical coverage</strong>: Serbia</p><p>As a research team member contracted by the Ministry of Science of the Republic of Serbia, contributed to hydrobiological and limnological research at Vlasina Reservoir. Focused on algal species composition and the seasonal and spatial dynamics of phytoplankton.</p>",
+      "results": "<ul><li><p>Contributed to the characterisation of algal species composition in Vlasina Reservoir.</p></li><li><p>Investigated seasonal changes and spatial variation in phytoplankton communities.</p></li><li><p>Contributed research findings to the project’s broader investigation of aquatic ecosystem structure and dynamics.</p></li></ul><p></p>"
     }
   ]
 }
