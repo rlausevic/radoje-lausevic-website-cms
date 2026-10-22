@@ -25,6 +25,19 @@ class BibliographyCMS(unittest.TestCase):
     data=json.loads(subprocess.check_output([sys.executable,'-c',code],cwd=root,text=True));expected=read(name)['items']
     self.assertEqual([p[0] for p in data],[p['title'] for p in expected]);self.assertEqual([p[1] for p in data],list(range(1,len(expected)+1)))
    home=(root/'dist/index.html').read_text();self.assertLess(home.index(projects['items'][0]['title']),home.index(projects['items'][1]['title']))
+   # Shuffled years, equal-year ties, ranges and undated entries must work in every category.
+   cases=[('Undated', ''),('Older', '1990-1991'),('Newest A', '2026'),('Range', '1993/94'),('Newest B', 2026),('Recent', '2022'),('Unknown', 'n.d.')]
+   categories=['Publications','Articles','Conferences','Invited lectures']
+   b['items']=[dict(template,category=category,title=category+' '+label,year=year) for label,year in cases for category in reversed(categories)]
+   save('bibliography.json',b)
+   result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+   html=(root/'dist/bibliography/index.html').read_text();resume=(root/'dist/resume/index.html').read_text()
+   for category in categories:
+    expected=[category+' '+label for label in ['Newest A','Newest B','Recent','Range','Older','Undated','Unknown']]
+    positions=[html.index(title) for title in expected];self.assertEqual(positions,sorted(positions))
+    selected=[resume.index(title) for title in expected[:3]];self.assertEqual(selected,sorted(selected))
+    for title in expected[3:]:self.assertNotIn(title,resume)
+   positions=[html.index(category+' Newest A') for category in categories];self.assertEqual(positions,sorted(positions))
    b['items']=[];save('bibliography.json',b);result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr);self.assertIn('0 bibliography items',(root/'dist/bibliography/index.html').read_text())
    b['items']=[dict(template,title='')];save('bibliography.json',b);self.assertNotEqual(subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True).returncode,0)
  def test_shared_search_categories_and_terms(self):

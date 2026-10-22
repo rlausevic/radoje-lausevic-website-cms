@@ -688,7 +688,7 @@
           "label": "Selected Bibliography",
           "type": "text",
           "readonly": true,
-          "default": "Prva tri unosa iz svake kategorije preuzimaju se automatski sa CMS stranice Bibliography. Tamo uredite sadržaj i redosled."
+          "default": "Automatski se prikazuju prva tri rada iz svake kategorije Bibliography nakon sortiranja po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled u CMS listi."
         }
       ],
       "operations": {
@@ -755,7 +755,7 @@
           "label": "Bibliografske jedinice",
           "type": "text",
           "readonly": true,
-          "default": "Prevucite stavke da promenite redosled. Na sajtu su grupisane po kategorijama; unutar kategorije prate redosled ove liste."
+          "default": "Na sajtu su stavke grupisane po kategorijama i sortirane po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled ove liste. Kod raspona koristi se prva godina; stavke bez godine su na kraju."
         },
         {
           "name": "items",

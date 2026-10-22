@@ -318,10 +318,14 @@ def download_card(title,description,value):
  links=document_downloads(value)
  if not links:return ''
  return f'<article class="download"><span>Documents</span><h2>{E(title)}</h2><p>{E(description)}</p>{links}</article>'
-# Bibliography: fixed category groups, with entries in their CMS list order.
+# Bibliography: newest year first; stable ties preserve the CMS list order.
 bibliography=json.loads((ROOT/'content/cms/bibliography.json').read_text())
 bibliography_categories=['Publications','Articles','Conferences','Invited lectures']
-bibliography_items=bibliography.get('items') or []
+def bibliography_year(item):
+ # Use the first year for ranges such as 1993/94 and 1990-1991; undated entries go last.
+ match=re.search(r'(?<!\d)(\d{4})(?!\d)',str(item.get('year') or ''))
+ return int(match.group(1)) if match else -1
+bibliography_items=sorted(bibliography.get('items') or [],key=bibliography_year,reverse=True)
 category_descriptions={item['name']:item.get('description') or '' for item in bibliography.get('categories') or []}
 for item in bibliography_items:
  if not str(item.get('title') or '').strip():raise ValueError('Bibliography: Title is required')
