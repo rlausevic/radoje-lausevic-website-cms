@@ -279,14 +279,16 @@ for i,project in enumerate(project_entries):
  project_paths.add(path)
  detail=__import__('cms_data').body(project.get('body') or '')
  topic=project.get('topic') or ''
- search=' '.join([project['title'],project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '',topic,detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
+ search=' '.join([project['title'],project.get('full_name') or '',project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '',topic,detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
  assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(project["period"])}</p>' if project['period'] else ''
  body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><h2>{E(project["title"])}</h2>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
 body+='</div><p class="empty" id="no-projects" hidden>No projects found. Try another search or select all topics.</p></div></section>';page('/projects','Projects',body)
 for project in project_entries:
- metadata=''.join('<div><dt>'+label+'</dt><dd>'+E(value)+'</dd></div>' for label,value in [('Role',project.get('role') or ''),('My assignment',project['period']),('Project duration',project.get('project_duration') or '')] if value)
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1>'+('<dl class="project-meta">'+metadata+'</dl>' if metadata else '')+'</header><div class="prose">'+image(project.get('image') or S['landscape'],project.get('image_alt') or project['title'])
- for field,label in [('body','Project overview'),('contribution','My contribution'),('results','Selected results')]:
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
+ for label,value in [('Full project name:',project.get('full_name') or ''),('Project duration:',project.get('project_duration') or ''),('My role:',project.get('role') or ''),('My assignment:',project['period'])]:
+  if value:body+='<section class="project-section"><h2>'+label+'</h2><p>'+E(value)+'</p></section>'
+ body+=image(project.get('image') or S['landscape'],project.get('image_alt') or project['title'])
+ for field,label in [('body','Project overview:'),('contribution','My contribution:'),('results','Selected results:')]:
   content=__import__('cms_data').body(project.get(field) or '')
   if content['text'] or '<img ' in content['html']:body+='<section class="project-section"><h2>'+label+'</h2>'+render(content)+'</section>'
  body+='</div></div></article>'

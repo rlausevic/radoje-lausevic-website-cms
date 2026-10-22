@@ -7,21 +7,25 @@ class ProjectArchive(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
    fields=next(x for x in json.loads((root/'.pages.yml').read_text())['content'] if x['name']=='projects')['fields'][0]['fields']
-   self.assertEqual(len(fields),15);self.assertNotIn('period',[x['name'] for x in fields])
+   self.assertEqual(len(fields),16);self.assertNotIn('period',[x['name'] for x in fields])
    source=root/'content/cms/projects.json';data=json.loads(source.read_text());p=data['items'][0]
-   p.update(title='Test assignment',assignment_start='2024-08-30',assignment_end='2025-01-13',assignment_ongoing=False,project_start='2023-07-01',project_end='2028-10-31',role='Test policy expert',contribution='<p>Unique stakeholder support</p>',results='<p>Unique verified output</p>')
+   p.update(title='Test assignment',full_name='Unique full project name',assignment_start='2024-08-30',assignment_end='2025-01-13',assignment_ongoing=False,project_start='2023-07-01',project_end='2028-10-31',role='Test policy expert',contribution='<p>Unique stakeholder support</p>',results='<p>Unique verified output</p>')
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text();detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
    self.assertIn('<strong>My assignment:</strong> Aug 2024 – Jan 2025',archive)
    self.assertLess(archive.index('Test assignment</h2>'),archive.index('<strong>My assignment:</strong>'))
    self.assertIn('unique stakeholder support',archive);self.assertIn('unique verified output',archive);self.assertIn('test policy expert',archive)
-   for text in ['<dt>Role</dt><dd>Test policy expert','<dt>My assignment</dt><dd>Aug 2024 – Jan 2025','<dt>Project duration</dt><dd>Jul 2023 – Oct 2028','Project overview','My contribution','Selected results','Unique verified output']:
+   for text in ['<h2>Full project name:</h2><p>Unique full project name','<h2>My role:</h2><p>Test policy expert','<h2>My assignment:</h2><p>Aug 2024 – Jan 2025','<h2>Project duration:</h2><p>Jul 2023 – Oct 2028','Project overview:','My contribution:','Selected results:','Unique verified output']:
     self.assertIn(text,detail)
-   p.update(assignment_ongoing=True,assignment_end='2025-01-13',project_start='',project_end='',role='',contribution='',results='<p> </p>')
+   order=['← Back to projects','<h1>Test assignment</h1>','<h2>Full project name:</h2>','<h2>Project duration:</h2>','<h2>My role:</h2>','<h2>My assignment:</h2>','src="'+p['image']+'"','<h2>Project overview:</h2>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']
+   positions=[detail.index(value) for value in order];self.assertEqual(positions,sorted(positions))
+   self.assertIn('unique full project name',archive)
+   self.assertEqual(next(x for x in fields if x['name']=='title')['label'],'Akronim')
+   p.update(full_name='',assignment_ongoing=True,assignment_end='2025-01-13',project_start='',project_end='',role='',contribution='',results='<p> </p>')
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
    self.assertIn('Aug 2024 – present',detail)
-   for text in ['<dt>Role</dt>','<dt>Project duration</dt>','<h2>My contribution</h2>','<h2>Selected results</h2>']:self.assertNotIn(text,detail)
+   for text in ['<h2>Full project name:</h2>','<h2>My role:</h2>','<h2>Project duration:</h2>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']:self.assertNotIn(text,detail)
  def test_project_date_validation(self):
   from cms_data import project_period
   self.assertEqual(project_period({}),'')
