@@ -15,9 +15,9 @@ class ProjectArchive(unittest.TestCase):
    self.assertIn('<strong>My assignment:</strong> Aug 2024 – Jan 2025',archive)
    self.assertLess(archive.index('Test assignment</h2>'),archive.index('<strong>My assignment:</strong>'))
    self.assertIn('unique stakeholder support',archive);self.assertIn('unique verified output',archive);self.assertIn('test policy expert',archive)
-   for text in ['<h2>Full project name:</h2><p>Unique full project name','<h2>My role:</h2><p>Test policy expert','<h2>My assignment:</h2><p>Aug 2024 – Jan 2025','<h2>Project duration:</h2><p>Jul 2023 – Oct 2028','Project overview:','My contribution:','Selected results:','Unique verified output']:
+   for text in ['<strong>Full project name:</strong> Unique full project name','<strong>My role:</strong> Test policy expert','<strong>My assignment:</strong> Aug 2024 – Jan 2025','<strong>Project duration:</strong> Jul 2023 – Oct 2028','Project overview:','My contribution:','Selected results:','Unique verified output']:
     self.assertIn(text,detail)
-   order=['← Back to projects','<h1>Test assignment</h1>','<h2>Full project name:</h2>','<h2>Project duration:</h2>','<h2>My role:</h2>','<h2>My assignment:</h2>','src="'+p['image']+'"','<h2>Project overview:</h2>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']
+   order=['← Back to projects','<h1>Test assignment</h1>','<strong>Full project name:</strong>','<strong>Project duration:</strong>','<strong>My role:</strong>','<strong>My assignment:</strong>','src="'+p['image']+'"','<h2>Project overview:</h2>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']
    positions=[detail.index(value) for value in order];self.assertEqual(positions,sorted(positions))
    self.assertIn('unique full project name',archive)
    self.assertEqual(next(x for x in fields if x['name']=='title')['label'],'Akronim')
@@ -25,7 +25,7 @@ class ProjectArchive(unittest.TestCase):
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
    self.assertIn('Aug 2024 – present',detail)
-   for text in ['<h2>Full project name:</h2>','<h2>My role:</h2>','<h2>Project duration:</h2>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']:self.assertNotIn(text,detail)
+   for text in ['<strong>Full project name:</strong>','<strong>My role:</strong>','<strong>Project duration:</strong>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']:self.assertNotIn(text,detail)
  def test_project_date_validation(self):
   from cms_data import project_period
   self.assertEqual(project_period({}),'')
