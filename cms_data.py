@@ -56,6 +56,10 @@ def project_period(project,prefix='assignment'):
  # Compatibility for older content; new CMS records use the separate fields.
  if prefix=='assignment' and not any(k in project for k in ['assignment_start','assignment_end','assignment_ongoing']):return project.get('period') or ''
  return ''
+def project_sort_date(project):
+ """Sort by the stored assignment end, including ongoing assignments."""
+ try:return datetime.date.fromisoformat(project.get('assignment_end') or '')
+ except (ValueError,TypeError):return datetime.date.min
 def load_cms(root,original):
  base=root/'content/cms'
  if not base.exists():return original
@@ -67,12 +71,14 @@ def load_cms(root,original):
   source=base/(name+'.json')
   if source.exists():items=read(name+'.json').get('items') or []
   else:items=[json.loads(f.read_text()) for f in sorted((base/name).glob('*.json'),key=lambda f:(json.loads(f.read_text()).get('order',0),f.name))]
-  # List position is the canonical order; ignore any legacy order value.
+  # Preserve CMS list order; ignore any legacy order value.
   return [dict(item,order=index) for index,item in enumerate(items,1)]
  model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
  for project in model['project_entries']:
   project['period']=project_period(project)
   project['project_duration']=project_period(project,'project')
+ # Stable sorting preserves CMS order for equal or missing end dates.
+ model['project_entries'].sort(key=project_sort_date,reverse=True)
  network=read('network.json');blocks=[]
  for p in model['experience_entries']:
   blocks +=[text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]

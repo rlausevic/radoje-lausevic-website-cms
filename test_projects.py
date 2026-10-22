@@ -13,7 +13,7 @@ class ProjectArchive(unittest.TestCase):
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text();detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
    self.assertIn('<strong>My assignment:</strong> Aug 2024 – Jan 2025',archive)
-   self.assertLess(archive.index('Test assignment</h2>'),archive.index('<strong>My assignment:</strong>'))
+   self.assertLess(archive.index('Test assignment</h2>'),archive.index('<strong>My assignment:</strong>',archive.index('Test assignment</h2>')))
    self.assertIn('unique stakeholder support',archive);self.assertIn('unique verified output',archive);self.assertIn('test policy expert',archive)
    for text in ['<strong>Full project name:</strong> Unique full project name','<strong>My role:</strong> Test policy expert','<strong>My assignment:</strong> Aug 2024 – Jan 2025','<strong>Project duration:</strong> Jul 2023 – Oct 2028','Project overview:','My contribution:','Selected results:','Unique verified output']:
     self.assertIn(text,detail)
@@ -26,6 +26,24 @@ class ProjectArchive(unittest.TestCase):
    detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
    self.assertIn('Aug 2024 – present',detail)
    for text in ['<strong>Full project name:</strong>','<strong>My role:</strong>','<strong>Project duration:</strong>','<h2>My contribution:</h2>','<h2>Selected results:</h2>']:self.assertNotIn(text,detail)
+ def test_assignment_end_sort_and_home_selection(self):
+  from cms_data import project_sort_date
+  self.assertLess(project_sort_date({}),project_sort_date({'assignment_end':'2026-01-01'}))
+  self.assertEqual(project_sort_date({'assignment_end':'invalid'}),project_sort_date({}))
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
+   source=root/'content/cms/projects.json';data=json.loads(source.read_text())
+   # Keep all existing paths and redirects, but exercise ties, missing dates and ongoing dates.
+   for p in data['items']:p.update(assignment_start='',assignment_end='',assignment_ongoing=False)
+   data['items'][0].update(assignment_end='2027-01-01',assignment_ongoing=True)
+   data['items'][1].update(assignment_end='2029-01-01')
+   data['items'][2].update(assignment_end='2027-01-01')
+   expected=[data['items'][i]['path'] for i in [1,0,2]+list(range(3,len(data['items'])))]
+   source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
+   archive=(root/'dist/projects/index.html').read_text();home=(root/'dist/index.html').read_text()
+   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),expected)
+   self.assertEqual(re.findall(r'<a class="project-card" href="([^\"]+)"',home),expected[:2])
+   self.assertEqual(json.loads(source.read_text()),data)
  def test_project_date_validation(self):
   from cms_data import project_period
   self.assertEqual(project_period({}),'')
@@ -47,8 +65,8 @@ class ProjectArchive(unittest.TestCase):
    archive=(root/'dist/projects/index.html').read_text()
    self.assertIn('Search projects',archive);self.assertIn('Topic of expertise',archive);self.assertIn('value="Test expertise"',archive)
    self.assertIn('data-categories="Test expertise"',archive);self.assertIn('searchable detailed project content',archive)
-   links=re.findall(r'href="(/project/[a-f0-9]+)">View all details',archive);self.assertEqual(len(links),len(data['items']))
-   first=(root/'dist'/links[0].strip('/')/'index.html').read_text();self.assertIn('<p>Searchable detailed project content</p>',first)
+   links=re.findall(r'href="(/project/[A-Za-z0-9_-]+)">View all details',archive);self.assertEqual(len(links),len(data['items']))
+   edited_path=data['items'][0]['path'];first=(root/'dist'/edited_path.strip('/')/'index.html').read_text();self.assertIn('<p>Searchable detailed project content</p>',first)
    self.assertIn('href="/projects" aria-current="true"',first)
    brief=json.loads((root/'content/cms/resume.json').read_text())['brief_cv'];brief=brief[0] if isinstance(brief,list) else brief
    for page in ['index.html','resume/index.html','projects/index.html']:
@@ -56,7 +74,7 @@ class ProjectArchive(unittest.TestCase):
    self.assertIn('Selected Bibliography',(root/'dist/resume/index.html').read_text())
    self.assertNotIn('Selected Bibliogrpahy',(root/'dist/resume/index.html').read_text())
    data['items'].reverse();data['items'].pop();p.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
-   self.assertFalse((root/'dist'/links[0].strip('/')/'index.html').exists())
+   self.assertFalse((root/'dist'/edited_path.strip('/')/'index.html').exists())
  def test_permanent_addresses_and_legacy_redirects(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
@@ -69,7 +87,7 @@ class ProjectArchive(unittest.TestCase):
    data['items'].reverse();source.write_text(json.dumps(data))
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text()
-   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in data['items']])
+   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in sorted(data['items'],key=lambda p:p.get('assignment_end') or '',reverse=True)])
    for p in data['items']:
     detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
     self.assertIn(p['title'],detail)

@@ -436,7 +436,7 @@
               "summary": "{index}. {title}"
             }
           },
-          "description": "Prevucite stavku pomoću ručice da promenite redosled. Broj i redosled prikaza automatski prate poziciju u listi. Posle izmena kliknite Save.",
+          "description": "Na sajtu se projekti prikazuju prema polju Završetak angažmana, od najnovijeg ka najstarijem. Za jednake datume važi redosled ove liste; projekti bez datuma su na kraju. Posle izmena kliknite Save.",
           "fields": [
             {
               "name": "title",
@@ -510,7 +510,7 @@
               "options": {
                 "format": "yyyy-MM-dd"
               },
-              "description": "Ako je Angažman u toku uključen, ovaj datum se ne koristi na sajtu; prikazuje se present."
+              "description": "Određuje redosled projekata na sajtu i u Selected work, od najnovijeg ka najstarijem. Ako je Angažman u toku uključen, umesto datuma u tekstu se prikazuje present, ali se datum i dalje koristi za sortiranje."
             },
             {
               "name": "assignment_ongoing",
