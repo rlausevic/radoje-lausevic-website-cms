@@ -284,7 +284,7 @@ for i,project in enumerate(project_entries):
  body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><h2>{E(project["title"])}</h2>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
 body+='</div><p class="empty" id="no-projects" hidden>No projects found. Try another search or select all topics.</p></div></section>';page('/projects','Projects',body)
 for project in project_entries:
- body=f'<article class="article project-detail"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
+ body=f'<article class="article project-page"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
  body+='<div class="project-facts">'
  for label,value in [('Full project name:',project.get('full_name') or ''),('Project duration:',project.get('project_duration') or ''),('My role:',project.get('role') or ''),('My assignment:',project['period'])]:
   if value:body+='<p><strong>'+label+'</strong> '+E(value)+'</p>'

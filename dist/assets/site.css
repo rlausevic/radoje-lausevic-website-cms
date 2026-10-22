@@ -64,15 +64,15 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 .project-assignment,.project-card .project-assignment{font-size:14px;line-height:1.4;margin:6px 0 10px}.project-archive-card .project-assignment{font-size:14px;margin:6px 0 10px}.project-meta{display:grid;gap:6px;margin:12px 0 0;font-size:15px;line-height:1.45}.project-meta>div{display:flex;flex-wrap:wrap;column-gap:8px}.project-meta dt{font-weight:600}.project-meta dt:after{content:':'}.project-meta dd{margin:0}.project-section+.project-section{margin-top:24px}
 
 /* Compact project details follow the common left page gutter. */
-.page-inner .project-detail .article-head{max-width:900px;margin:0;padding:18px 0 10px;text-align:left}
-.page-inner .project-detail .article-head h1{font-size:clamp(32px,4vw,44px);margin:8px 0}
-.project-detail .prose{max-width:900px;margin:0;text-align:left}
-.project-detail .prose p,.project-detail .prose li{line-height:1.45}
-.project-detail .prose p{margin-bottom:8px}
-.project-detail .project-facts p{margin:0 0 5px;line-height:1.4}
-.project-detail .project-facts strong{font-weight:600;color:var(--ink)}
-.project-detail .prose .project-cover{display:block;width:auto;max-width:100%;max-height:360px;object-position:left center;margin:12px 0 16px}
-.project-detail .project-section>h2{font:inherit;font-weight:400;line-height:1.4;margin:16px 0 6px;color:var(--ink)}
-.project-detail .project-section+.project-section{margin-top:16px}
-.project-detail .prose ul,.project-detail .prose ol{margin:6px 0 10px;padding-left:22px}
-@media(max-width:600px){.project-detail .prose .project-cover{max-height:280px}.page-inner .project-detail .article-head{padding-top:14px}}
+.page-inner .project-page .article-head{max-width:900px;margin:0;padding:18px 0 10px;text-align:left}
+.page-inner .project-page .article-head h1{font-size:clamp(32px,4vw,44px);margin:8px 0}
+.project-page .prose{max-width:900px;margin:0;text-align:left}
+.project-page .prose p,.project-page .prose li{line-height:1.45}
+.project-page .prose p{margin-bottom:8px}
+.project-page .project-facts p{margin:0 0 5px;line-height:1.4}
+.project-page .project-facts strong{font-weight:700;color:var(--ink)}
+.project-page .prose .project-cover{display:block;width:auto;max-width:100%;max-height:360px;object-position:left center;margin:12px 0 16px}
+.project-page .project-section>h2{font:inherit;font-weight:400;line-height:1.4;margin:16px 0 6px;color:var(--ink)}
+.project-page .project-section+.project-section{margin-top:16px}
+.project-page .prose ul,.project-page .prose ol{margin:6px 0 10px;padding-left:22px}
+@media(max-width:600px){.project-page .prose .project-cover{max-height:280px}.page-inner .project-page .article-head{padding-top:14px}}
