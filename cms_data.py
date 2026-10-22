@@ -32,6 +32,29 @@ class CleanHTML(HTMLParser):
 def body(value):
  p=CleanHTML();p.feed(value or '');return {'type':'html','html':''.join(p.out),'text':' '.join(' '.join(p.text).split())}
 def text(tag,value):return {'type':tag,'text':value,'html':html.escape(value)}
+def project_period(project,prefix='assignment'):
+ """Use English month/year labels without inferring an ongoing assignment."""
+ months=('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
+ def read_date(key):
+  value=project.get(key) or ''
+  if not value:return None
+  if not isinstance(value,str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',value):raise ValueError('Invalid project date: '+key)
+  try:return datetime.date.fromisoformat(value)
+  except ValueError:raise ValueError('Invalid project date: '+key)
+ start=read_date(prefix+'_start');end=read_date(prefix+'_end')
+ ongoing=project.get('assignment_ongoing',False) if prefix=='assignment' else False
+ if not isinstance(ongoing,bool):raise ValueError('Angažman u toku must be true or false')
+ if ongoing and end:raise ValueError('Clear Završetak angažmana when Angažman u toku is selected')
+ if start and end and end<start:raise ValueError('Project end date precedes start date: '+prefix)
+ label=lambda date:months[date.month-1]+' '+str(date.year)
+ if start and end:return label(start)+' – '+label(end)
+ if start and ongoing:return label(start)+' – present'
+ if ongoing:return 'Ongoing'
+ if start:return 'From '+label(start)
+ if end:return 'Until '+label(end)
+ # Compatibility for older content; new CMS records use the separate fields.
+ if prefix=='assignment' and not any(k in project for k in ['assignment_start','assignment_end','assignment_ongoing']):return project.get('period') or ''
+ return ''
 def load_cms(root,original):
  base=root/'content/cms'
  if not base.exists():return original
@@ -46,6 +69,9 @@ def load_cms(root,original):
   # List position is the canonical order; ignore any legacy order value.
   return [dict(item,order=index) for index,item in enumerate(items,1)]
  model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
+ for project in model['project_entries']:
+  project['period']=project_period(project)
+  project['project_duration']=project_period(project,'project')
  network=read('network.json');blocks=[]
  for p in model['experience_entries']:
   blocks +=[text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]

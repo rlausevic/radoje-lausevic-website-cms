@@ -189,7 +189,9 @@ home+='<section class="section"><div class="wrap"><div class="section-head"><div
 for i,p in enumerate(projects[:2]):
  desc=M['project_summaries'].get(p['title'],'')
  title=p['title']
- home+=f'<a class="project-card" href="{E(project_path(project_entries[i]))}"><div class="image-wrap">{image(p["image"]["src"],p["title"])}</div><span class="eyebrow">{E(p["blocks"][0]["text"])}</span><h3>{title}</h3><p>{E(desc[:180])}…</p></a>'
+ assignment=project_entries[i]['period']
+ assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(assignment)}</p>' if assignment else ''
+ home+=f'<a class="project-card" href="{E(project_path(project_entries[i]))}"><div class="image-wrap">{image(p["image"]["src"],p["title"])}</div><h3>{title}</h3>{assignment_label}<p>{E(desc[:180])}…</p></a>'
 home+='</div></div></section>'
 # The first two full recommendations in About provide the home excerpts.
 home+=f'<section class="section testimonials"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("recommendations_label", "Recommendations"))}</span><h2>{E(M["home"].get("recommendations_heading", "Trusted by colleagues."))}</h2></div><a class="textlink" href="/about#recommendations">View all recommendations →</a></div><div class="quotes">'
@@ -277,11 +279,17 @@ for i,project in enumerate(project_entries):
  project_paths.add(path)
  detail=__import__('cms_data').body(project.get('body') or '')
  topic=project.get('topic') or ''
- search=' '.join([project['title'],project['period'],project.get('summary') or '',topic,detail['text']]).lower()
- body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><span class="date">{E(project["period"])}</span><h2>{E(project["title"])}</h2><p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
+ search=' '.join([project['title'],project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '',topic,detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
+ assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(project["period"])}</p>' if project['period'] else ''
+ body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><h2>{E(project["title"])}</h2>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
 body+='</div><p class="empty" id="no-projects" hidden>No projects found. Try another search or select all topics.</p></div></section>';page('/projects','Projects',body)
 for project in project_entries:
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1><p class="article-meta">{E(project["period"])}</p></header><div class="prose">'+image(project.get('image') or S['landscape'],project.get('image_alt') or project['title'])+render(__import__('cms_data').body(project.get('body') or ''))+'</div></div></article>'
+ metadata=''.join('<div><dt>'+label+'</dt><dd>'+E(value)+'</dd></div>' for label,value in [('Role',project.get('role') or ''),('My assignment',project['period']),('Project duration',project.get('project_duration') or '')] if value)
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1>'+('<dl class="project-meta">'+metadata+'</dl>' if metadata else '')+'</header><div class="prose">'+image(project.get('image') or S['landscape'],project.get('image_alt') or project['title'])
+ for field,label in [('body','Project overview'),('contribution','My contribution'),('results','Selected results')]:
+  content=__import__('cms_data').body(project.get(field) or '')
+  if content['text'] or '<img ' in content['html']:body+='<section class="project-section"><h2>'+label+'</h2>'+render(content)+'</section>'
+ body+='</div></div></article>'
  page(project_path(project),project['title'],body,project.get('summary'))
 # Resume files and publication attachments managed through Pages CMS.
 def document_files(value):

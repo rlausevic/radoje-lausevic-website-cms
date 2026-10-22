@@ -452,12 +452,6 @@
               "description": "Jedinstvena putanja, npr. /project/naziv-projekta. Posle objavljivanja sačuvajte ovu adresu i pri promeni naziva ili redosleda projekta. Ako adresu ipak menjate, potrebno je dodati trajno preusmerenje sa stare adrese."
             },
             {
-              "name": "period",
-              "label": "Period realizacije",
-              "type": "string",
-              "required": true
-            },
-            {
               "name": "topic",
               "label": "Izbor oblasti",
               "type": "select",
@@ -492,8 +486,74 @@
               "type": "text"
             },
             {
+              "name": "role",
+              "label": "Uloga",
+              "type": "string"
+            },
+            {
+              "name": "assignment_start",
+              "label": "Početak angažmana",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              }
+            },
+            {
+              "name": "assignment_end",
+              "label": "Završetak angažmana",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
+              "description": "Ostavite prazno ako je Angažman u toku uključen."
+            },
+            {
+              "name": "assignment_ongoing",
+              "label": "Angažman u toku",
+              "type": "boolean",
+              "default": false,
+              "description": "Na sajtu se prikazuje present. Odnosi se na Vaš angažman, a ne na trajanje projekta."
+            },
+            {
+              "name": "project_start",
+              "label": "Početak projekta",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
+              "description": "Ukupno trajanje projekta; nije period Vašeg angažmana."
+            },
+            {
+              "name": "project_end",
+              "label": "Završetak projekta",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              },
+              "description": "Planirani ili stvarni završetak projekta."
+            },
+            {
               "name": "body",
-              "label": "Detaljni opis",
+              "label": "Pregled projekta",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              },
+              "description": "Project overview — postojeći detaljni opis je sačuvan ovde. Po potrebi rasporedite tekst u polja Uloga, Moj doprinos i Ostvareni rezultati."
+            },
+            {
+              "name": "contribution",
+              "label": "Moj doprinos",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "results",
+              "label": "Ostvareni rezultati",
               "type": "rich-text",
               "options": {
                 "format": "html",
