@@ -26,6 +26,55 @@ class ProjectArchive(unittest.TestCase):
    self.assertNotIn('Selected Bibliogrpahy',(root/'dist/resume/index.html').read_text())
    data['items'].reverse();data['items'].pop();p.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    self.assertFalse((root/'dist'/links[0].strip('/')/'index.html').exists())
+ def test_permanent_addresses_and_legacy_redirects(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
+   source=root/'content/cms/projects.json';data=json.loads(source.read_text())
+   paths={p['path'] for p in data['items']}
+   legacy=json.loads((root/'content/project-redirects.json').read_text())
+   self.assertEqual(legacy['/project/2c631ae227efe57f'],'/project/66b9602360ee8e93')
+   # Rename every project and reverse CMS order without changing any address.
+   for p in data['items']:p['title']='Renamed '+p['title']
+   data['items'].reverse();source.write_text(json.dumps(data))
+   subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
+   archive=(root/'dist/projects/index.html').read_text()
+   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in data['items']])
+   for p in data['items']:
+    detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
+    self.assertIn(p['title'],detail)
+    self.assertIn(p['path'],(root/'dist/sitemap.xml').read_text())
+   rules=(root/'dist/_redirects').read_text().splitlines()
+   for old,new in legacy.items():
+    self.assertIn(new,paths)
+    self.assertIn(old+' '+new+' 301',rules)
+    self.assertIn(old+'/ '+new+' 301',rules)
+    self.assertNotIn(old,(root/'dist/sitemap.xml').read_text())
+   # Home and Expertise links still point at the same current projects.
+   for name in ['index.html','expertise/index.html']:
+    links=re.findall(r'href="(/project/[^\"]+)"',(root/'dist'/name).read_text())
+    self.assertTrue(links)
+    self.assertTrue(set(links)<=paths)
+   # New projects can use readable URLs independent of their titles.
+   data['items'].append({'title':'A new project','path':'/project/new-project','period':'2026','body':''})
+   source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
+   self.assertTrue((root/'dist/project/new-project/index.html').exists())
+ def test_invalid_project_routes_and_redirects_fail_build(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
+   source=root/'content/cms/projects.json';original=json.loads(source.read_text())
+   mapping=root/'content/project-redirects.json';legacy=mapping.read_text()
+   def fails(message):
+    result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
+    self.assertNotEqual(result.returncode,0);self.assertIn(message,result.stderr)
+   for invalid in [None,'/project/../../outside','/project/name?query=yes','/about','/project/with space']:
+    data=json.loads(json.dumps(original));data['items'][0]['path']=invalid;source.write_text(json.dumps(data))
+    fails('Invalid or missing permanent project address')
+   data=json.loads(json.dumps(original));data['items'][0]['path']=data['items'][1]['path'];source.write_text(json.dumps(data));fails('Duplicate permanent project address')
+   source.write_text(json.dumps(original));path=original['items'][0]['path']
+   for redirects,error in [({'/project/old':'/project/missing'},'destination must be an existing project'),({path:path},'conflicts with a current project'),({'/project/old':'/project/other','/project/other':'/project/old'},'destination must be an existing project')]:
+    mapping.write_text(json.dumps(redirects));fails(error)
+   mapping.write_text('{"/project/old":"'+path+'","/project/old":"'+path+'"}');fails('Duplicate project redirect source')
+   mapping.write_text(legacy)
  def test_search_and_topic_combination(self):
   subprocess.run(['node','-e',r"""
 const vm=require('vm'),fs=require('fs'),assert=require('assert');let filter,change;

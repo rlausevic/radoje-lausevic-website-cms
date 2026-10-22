@@ -159,7 +159,24 @@ projects=sections('/projects')
 project_entries=M['project_entries']
 expertise_topics=list(dict.fromkeys([item['title'] for item in expertise]+[item['topic'] for item in project_entries if item.get('topic')]))
 def project_path(project):
- return '/project/'+hashlib.sha256(project['title'].encode()).hexdigest()[:16]
+ path=project.get('path')
+ if not isinstance(path,str) or not re.fullmatch(r'/project/[A-Za-z0-9_-]+',path):
+  raise ValueError('Invalid or missing permanent project address: '+str(path))
+ return path
+current_project_paths=[project_path(project) for project in project_entries]
+if len(set(current_project_paths))!=len(current_project_paths):raise ValueError('Duplicate permanent project address')
+def unique_redirects(pairs):
+ result={}
+ for source,target in pairs:
+  if source in result:raise ValueError('Duplicate project redirect source: '+source)
+  result[source]=target
+ return result
+project_redirects=json.loads((ROOT/'content/project-redirects.json').read_text(),object_pairs_hook=unique_redirects)
+if not isinstance(project_redirects,dict):raise ValueError('Project redirects must be an address mapping')
+for source,target in project_redirects.items():
+ if not re.fullmatch(r'/project/[A-Za-z0-9_-]+',source):raise ValueError('Invalid project redirect source: '+source)
+ if not isinstance(target,str) or target not in current_project_paths:raise ValueError('Project redirect destination must be an existing project: '+str(target))
+ if source in current_project_paths:raise ValueError('Project redirect source conflicts with a current project: '+source)
 
 # Home: compact editorial introduction; detailed source content on inner pages.
 home=f'''<div class="wrap"><section class="hero"><div><span class="eyebrow">Senior Environmental Consultant</span><h1>{E(M["home"]["heading"])}</h1><p class="lead">{E(M["home"]["lead"])}</p><div class="actions"><a class="button" href="/projects">Explore my work <span aria-hidden="true">↗</span></a><a class="textlink" href="/about">Meet Radoje →</a></div><p class="hero-foot">Biologist · Project manager · Environmental leader</p></div><figure class="hero-art"><div class="accent-block"></div>{image(S['portrait'],S['name']+' — environmental consultant','portrait',True)}<figcaption class="portrait-note">PhD in Biology · University of Belgrade</figcaption></figure></section></div><div class="stat-strip"><div class="wrap stats"><div class="stat"><strong>100+</strong><span>Projects managed<br>or supervised</span></div><div class="stat"><strong>€50m+</strong><span>Total project<br>portfolio</span></div><div class="stat"><strong>5</strong><span>Connected fields<br>of expertise</span></div></div></div>'''
@@ -256,7 +273,7 @@ body+=f'<p class="result-count" id="project-result-count" role="status" aria-liv
 project_paths=set()
 for i,project in enumerate(project_entries):
  path=project_path(project)
- if path in project_paths:raise ValueError('Duplicate project title: '+project['title'])
+ if path in project_paths:raise ValueError('Duplicate project address: '+path)
  project_paths.add(path)
  detail=__import__('cms_data').body(project.get('body') or '')
  topic=project.get('topic') or ''
@@ -389,6 +406,8 @@ page('/404','Page not found',intro('404','This page could not be found.','Explor
 (DIST/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+S['domain']+'/sitemap.xml\n')
 (DIST/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n/assets/*\n  Cache-Control: public, max-age=86400\n')
 redirects=['/home / 301','/index.html / 301','/blog/hashtags/:tag /blog?search=:tag 301']
+for source,target in project_redirects.items():
+ redirects.extend([source+' '+target+' 301',source+'/ '+target+' 301'])
 for c in M['posts']:
  for cat in c['categories']:
   slug=cat.lower().replace(' ','-');redirects.append('/blog/categories/'+slug+' /blog?category='+urllib.parse.quote(CAT.get(cat,cat))+' 301')

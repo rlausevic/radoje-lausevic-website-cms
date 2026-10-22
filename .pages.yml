@@ -445,6 +445,13 @@
               "required": true
             },
             {
+              "name": "path",
+              "label": "Trajna adresa projekta",
+              "type": "string",
+              "required": true,
+              "description": "Jedinstvena putanja, npr. /project/naziv-projekta. Posle objavljivanja sačuvajte ovu adresu i pri promeni naziva ili redosleda projekta. Ako adresu ipak menjate, potrebno je dodati trajno preusmerenje sa stare adrese."
+            },
+            {
               "name": "period",
               "label": "Period realizacije",
               "type": "string",
