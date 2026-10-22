@@ -41,10 +41,11 @@ def project_period(project,prefix='assignment'):
   if not isinstance(value,str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',value):raise ValueError('Invalid project date: '+key)
   try:return datetime.date.fromisoformat(value)
   except ValueError:raise ValueError('Invalid project date: '+key)
- start=read_date(prefix+'_start');end=read_date(prefix+'_end')
+ start=read_date(prefix+'_start')
  ongoing=project.get('assignment_ongoing',False) if prefix=='assignment' else False
  if not isinstance(ongoing,bool):raise ValueError('Angažman u toku must be true or false')
- if ongoing and end:raise ValueError('Clear Završetak angažmana when Angažman u toku is selected')
+ # CMS date controls can retain a date; the explicit ongoing flag takes precedence.
+ end=None if ongoing else read_date(prefix+'_end')
  if start and end and end<start:raise ValueError('Project end date precedes start date: '+prefix)
  label=lambda date:months[date.month-1]+' '+str(date.year)
  if start and end:return label(start)+' – '+label(end)

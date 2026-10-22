@@ -17,7 +17,7 @@ class ProjectArchive(unittest.TestCase):
    self.assertIn('unique stakeholder support',archive);self.assertIn('unique verified output',archive);self.assertIn('test policy expert',archive)
    for text in ['<dt>Role</dt><dd>Test policy expert','<dt>My assignment</dt><dd>Aug 2024 – Jan 2025','<dt>Project duration</dt><dd>Jul 2023 – Oct 2028','Project overview','My contribution','Selected results','Unique verified output']:
     self.assertIn(text,detail)
-   p.update(assignment_ongoing=True,assignment_end='',project_start='',project_end='',role='',contribution='',results='<p> </p>')
+   p.update(assignment_ongoing=True,assignment_end='2025-01-13',project_start='',project_end='',role='',contribution='',results='<p> </p>')
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
    self.assertIn('Aug 2024 – present',detail)
@@ -25,8 +25,10 @@ class ProjectArchive(unittest.TestCase):
  def test_project_date_validation(self):
   from cms_data import project_period
   self.assertEqual(project_period({}),'')
+  self.assertEqual(project_period({'assignment_start':'2026-09-07','assignment_end':'2026-10-22','assignment_ongoing':True}),'Sep 2026 – present')
+  self.assertEqual(project_period({'assignment_start':'2026-09-07','assignment_end':'2020-01-01','assignment_ongoing':True}),'Sep 2026 – present')
   self.assertEqual(project_period({'project_start':'2023-07-01'},'project'),'From Jul 2023')
-  for data in [{'assignment_start':'bad'},{'assignment_start':'2024-02-30'},{'assignment_start':'2026-01-01','assignment_end':'2025-01-01'},{'assignment_ongoing':True,'assignment_end':'2025-01-01'},{'assignment_ongoing':'false'}]:
+  for data in [{'assignment_start':'bad'},{'assignment_start':'2024-02-30'},{'assignment_start':'2026-01-01','assignment_end':'2025-01-01'},{'assignment_ongoing':'false'}]:
    with self.assertRaises(ValueError):project_period(data)
  def test_cms_topics_details_and_footer(self):
   with tempfile.TemporaryDirectory() as temp:

@@ -505,7 +505,7 @@
               "options": {
                 "format": "yyyy-MM-dd"
               },
-              "description": "Ostavite prazno ako je Angažman u toku uključen."
+              "description": "Ako je Angažman u toku uključen, ovaj datum se ne koristi na sajtu; prikazuje se present."
             },
             {
               "name": "assignment_ongoing",
