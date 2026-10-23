@@ -32,7 +32,22 @@ class Archives(unittest.TestCase):
    archive=(root/'dist/galleries/index.html').read_text();self.assertEqual(archive.count('data-album '),4)
    for v in ['Archive CMS label','Archive CMS heading','Archive CMS introduction','hiddenneedle','Shared topic']:self.assertIn(v,archive)
    album=(root/'dist/gallery/flowers-of-my-mediterranean-garden/index.html').read_text()
-   for photo in original['photos']:self.assertIn(photo['image'],album);self.assertIn(html.escape(photo['caption'],quote=True),album)
+   for photo in original['photos']:self.assertIn(html.escape(photo['caption'],quote=True),album)
+   class GalleryMarkup(HTMLParser):
+    def __init__(self):super().__init__();self.previews=[];self.enlarged=[]
+    def handle_starttag(self,tag,attrs):
+     attrs=dict(attrs)
+     if tag=='button' and 'data-gallery' in attrs:self.enlarged.append(attrs['data-src'])
+     if tag=='img' and attrs.get('src','').startswith('/media/gallery/'):
+      self.previews.append(attrs['src']);self.assert_srcset=attrs.get('srcset')
+   markup=GalleryMarkup();markup.feed(album)
+   self.assertEqual(len(markup.previews),len(original['photos']))
+   self.assertEqual(len(markup.enlarged),len(original['photos']))
+   self.assertTrue(markup.assert_srcset)
+   self.assertTrue(set(markup.previews).isdisjoint(markup.enlarged))
+   for url in markup.previews+markup.enlarged:self.assertTrue((root/'dist'/url.lstrip('/')).is_file())
+   for route in ['index.html','insights/index.html','galleries/index.html']:
+    page=(root/'dist'/route).read_text();self.assertIn('/media/gallery/',page);self.assertIn('srcset=',page)
    self.assertEqual(album.count('data-gallery '),len(original['photos']))
    for route,selector in [('blog','post-category'),('video','video-category'),('galleries','gallery-category')]:
     page=(root/'dist'/route/'index.html').read_text();self.assertIn(f'id="{selector}"',page);self.assertIn('data-categories="Shared topic"',page)

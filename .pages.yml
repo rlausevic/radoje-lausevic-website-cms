@@ -952,6 +952,7 @@
                 {
                   "name": "image",
                   "label": "Fotografija",
+                  "description": "Unesite jednu fotografiju, preporučeno do 1920 px po dužoj strani. Pri objavljivanju se automatski prave manje verzije za mrežu i veća za uvećanje; original ostaje sačuvan.",
                   "type": "image",
                   "options": {
                     "media": "images"
