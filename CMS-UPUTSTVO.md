@@ -85,3 +85,10 @@ Polje **Oblast** u Blog objavama, Video arhivi i Galeriji koristi nazive iz **Ex
 ### Više galerija
 
 U **Galerija** uređuju se zajednički nadnaslov, naslov i podnaslov arhive, a lista **Galerije** sadrži pojedinačne albume. Novi album dobija naslov, datum, oblast, kratak opis, fotografije i tekst. Unesite jedinstvenu adresu, npr. `/gallery/moje-fotografije`, i ne menjajte je posle objavljivanja. Prva fotografija je naslovna fotografija kartice. Datum određuje redosled od najnovijeg ka najstarijem; Home i Insights automatski prikazuju do tri najnovije galerije. Postojeći album sa svim fotografijama sačuvan je kao prvi unos. Klik na **View full gallery** otvara album, a klik na fotografiju otvara uvećan prikaz.
+
+
+### Automatska priprema fotografija galerije
+
+U CMS unesite jednu fotografiju (JPEG, PNG ili WebP), uz očuvan odnos stranica. Preporuka je duža stranica 1920 px, npr. 1920 × 1440 px ili 1440 × 1920 px. Pri svakom objavljivanju sajt automatski pravi WebP verzije do 480 i 960 px za kartice i mrežu, i do 1920 px za uvećanje. Manje originale ne uvećava. Fotografije sa telefona pravilno se okreću prema EXIF orijentaciji. Velika verzija se učitava tek kada posetilac klikne fotografiju.
+
+Original ostaje u CMS-u. Automatske verzije su u zasebnom izlaznom direktorijumu `dist/media/gallery`, ne uređuju se ručno i ne pojavljuju se među CMS originalima. Zamena fotografije automatski daje novu adresu obrađenim verzijama. Obrada se obavlja nakon uspešnog uploada i ne menja ograničenje veličine uploada u Pages CMS-u.

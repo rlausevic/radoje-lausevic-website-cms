@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Build the portable static website. Python standard library only."""
+"""Build the portable static website, including optimized gallery images."""
 from pathlib import Path
 from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
+from gallery_images import GalleryImages
+gallery_images=GalleryImages(DIST)
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
 resume=json.loads((ROOT/'content/cms/resume.json').read_text())
 brief_files=resume.get('brief_cv') or []
@@ -18,6 +20,14 @@ def cv_download(cls='button'):
 CAT={'Offical Development Assistance':'Official Development Assistance','Sustainable Consumption and Product':'Sustainable Consumption & Production','Sustainable lifestiles':'Sustainable Lifestyles','Data vizualization':'Data Visualization'}
 def image(src,alt='',cls='',eager=False):
  return f'<img src="{E(src)}" alt="{E(alt)}" class="{E(cls)}" loading="{"eager" if eager else "lazy"}" decoding="async">' if src else ''
+def gallery_image(src,alt='',card=False):
+ variants=gallery_images.prepare(src)
+ if not variants:return image(src,alt)
+ preview=variants['previews'][0]
+ srcset=', '.join(f'{variant["url"]} {variant["width"]}w' for variant in variants['previews'])
+ mobile='calc(100vw - 36px)' if card else 'calc((100vw - 56px) / 2)'
+ sizes=f'(max-width: 600px) {mobile}, (max-width: 850px) calc((100vw - 68px) / 2), (max-width: 1100px) calc((100vw - 96px) / 3), (max-width: 1320px) calc((100vw - 128px) / 3), 400px'
+ return f'<img src="{E(preview["url"])}" srcset="{E(srcset)}" sizes="{E(sizes)}" width="{preview["width"]}" height="{preview["height"]}" alt="{E(alt)}" loading="lazy" decoding="async">'
 def render(b):
  if b['type']=='html':return b['html']
  if b['type']=='image':return image(b['src'],b['alt'])
@@ -150,7 +160,7 @@ if (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
 def gallery_card(album,heading='h3'):
  cover=album['photos'][0]['image'] if album['photos'] else S['landscape']
  search=' '.join([album['title'],album['date_iso'],album['date_display'],album.get('topic') or '',album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']])
- return f'<article class="post-card gallery-card" data-album data-categories="{E(album.get("topic") or "")}" data-search="{E(search)}"><div class="image-wrap">{image(cover,album["title"])}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span><{heading}>{E(album["title"])}</{heading}><p>{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
+ return f'<article class="post-card gallery-card" data-album data-categories="{E(album.get("topic") or "")}" data-search="{E(search)}"><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span><{heading}>{E(album["title"])}</{heading}><p>{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
 def topic_select(identifier):
  values=list(dict.fromkeys(item['title'] for item in expertise))
  return '<label for="'+identifier+'">Topic<select id="'+identifier+'"><option value="">All topics</option>'+''.join(f'<option value="{E(topic)}">{E(topic)}</option>' for topic in values)+'</select></label>'
@@ -398,7 +408,9 @@ for album in galleries:
  body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header><div class="gallery-grid">'
  for photo in album['photos']:
   caption=photo.get('caption') or photo.get('title') or album['title']
-  body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(photo["image"])}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
+  variants=gallery_images.prepare(photo['image'])
+  enlarged=variants['large']['url'] if variants else photo['image']
+  body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(enlarged)}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{gallery_image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
  body+='</div><div class="prose gallery-description">'+render(album['content'])+'</div></div></article><dialog class="gallery-dialog" id="gallery-dialog"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>'
  page(album['path'],album['title'],body,album.get('summary'))
 # Blog uses the same full-text search and expertise filter as Projects.
@@ -419,7 +431,7 @@ page('/404','Page not found',intro('404','This page could not be found.','Explor
 (DIST/'404.html').write_text((DIST/'404/index.html').read_text());(DIST/'404/index.html').unlink();(DIST/'404').rmdir()
 (DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+E(S['domain']+p)+'</loc></url>' for p in written if p!='/404')+'</urlset>')
 (DIST/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+S['domain']+'/sitemap.xml\n')
-(DIST/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n/assets/*\n  Cache-Control: public, max-age=86400\n')
+(DIST/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n/assets/*\n  Cache-Control: public, max-age=86400\n/media/gallery/*\n  Cache-Control: public, max-age=31536000, immutable\n')
 redirects=['/home / 301','/index.html / 301','/blog/hashtags/:tag /blog?search=:tag 301']
 for source,target in project_redirects.items():
  redirects.extend([source+' '+target+' 301',source+'/ '+target+' 301'])
