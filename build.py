@@ -137,6 +137,8 @@ for item in video_archive.get('items') or []:
  video['excerpt']=video.get('excerpt') or ''
  video['cover']=video.get('cover') or S['landscape']
  videos.append(video)
+# Newest dates first across the archive and shared previews; retain CMS order for ties.
+videos.sort(key=lambda video:video['date_iso'],reverse=True)
 # Rebuild detail routes so removed videos do not leave stale pages behind.
 if (DIST/'video').exists():shutil.rmtree(DIST/'video')
 def video_card(video,heading='h3'):

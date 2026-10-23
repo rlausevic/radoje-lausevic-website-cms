@@ -1,5 +1,5 @@
 """Check shared CMS sources, archive routes, search and removable video content."""
-import json,shutil,subprocess,sys,tempfile,unittest
+import json,re,hashlib,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 class VideoCMS(unittest.TestCase):
@@ -13,10 +13,16 @@ class VideoCMS(unittest.TestCase):
     self.assertEqual(result.returncode==0,ok,result.stderr)
    services=read('expertise.json');services['services'].reverse();services['services'][0].update(title='Shared expertise',motto='Shared motto',summary='Homepage expertise excerpt',description='<p>Expertise full text</p>')
    save('expertise.json',services);about=read('about.json');about['recommendations'].reverse();about['recommendations'][0].update(author='Shared recommendation author',summary='Homepage recommendation excerpt',body='<p>Recommendation full text</p>');save('about.json',about)
-   archive=read('videos.json');archive['items'].reverse();archive['items'][0].update(title='Shared video title',excerpt='Homepage video excerpt',body='<p>Unique searchable detail</p>');save('videos.json',archive);build()
+   archive=read('videos.json');archive['items'].reverse();archive['items'][0].update(title='Shared video title',date='2099-01-01',excerpt='Homepage video excerpt',body='<p>Unique searchable detail</p>');save('videos.json',archive);build()
    home=(root/'dist/index.html').read_text();page=(root/'dist/about/index.html').read_text();videos=(root/'dist/video/index.html').read_text()
    for value in ['Shared expertise','Shared motto','Homepage expertise excerpt','Shared recommendation author','Homepage recommendation excerpt','Shared video title','Homepage video excerpt']:self.assertIn(value,home)
    self.assertEqual(home.count('data-video '),3);self.assertEqual(home.count('<blockquote>'),2)
+   expected=['/video/'+hashlib.sha256(item['link'].encode()).hexdigest()[:16] for item in sorted(archive['items'],key=lambda item:item['date'],reverse=True)]
+   self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',videos),expected)
+   self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',home),expected[:3])
+   insights=(root/'dist/insights/index.html').read_text()
+   self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',insights),expected[:3])
+
    self.assertIn('Expertise full text',(root/'dist/expertise/index.html').read_text());self.assertIn('Recommendation full text',page)
    self.assertIn('Unique searchable detail'.lower(),videos);self.assertIn(str(len(archive['items']))+' videos',videos)
    self.assertNotIn('Unique searchable detail',home)

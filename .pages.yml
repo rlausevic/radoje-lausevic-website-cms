@@ -1212,7 +1212,7 @@
               }
             }
           ],
-          "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
+          "description": "Video zapisi se na sajtu automatski prikazuju prema polju Datum, od najnovijeg ka najstarijem. Za isti datum važi redosled ove liste. Posle izmena kliknite Save."
         }
       ],
       "operations": {
