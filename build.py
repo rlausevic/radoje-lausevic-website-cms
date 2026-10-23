@@ -161,6 +161,13 @@ def gallery_card(album,heading='h3'):
  cover=album['photos'][0]['image'] if album['photos'] else S['landscape']
  search=' '.join([album['title'],album['date_iso'],album['date_display'],album.get('topic') or '',album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']])
  return f'<article class="post-card gallery-card" data-album data-categories="{E(album.get("topic") or "")}" data-search="{E(search)}"><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span><{heading}>{E(album["title"])}</{heading}><p>{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
+def gallery_description(album):
+ content=album['content'];words=content['text'].split()
+ if not words:return ''
+ full=render(content)
+ if len(words)<=100:return '<div class="prose gallery-description">'+full+'</div>'
+ preview=E(' '.join(words[:55]))+'…'
+ return '<details class="prose gallery-description gallery-intro"><summary><span class="gallery-intro-preview">'+preview+'</span><span class="textlink gallery-read-more">Read more</span><span class="textlink gallery-read-less">Read less</span></summary><div class="gallery-intro-full">'+full+'</div></details>'
 def topic_select(identifier):
  values=list(dict.fromkeys(item['title'] for item in expertise))
  return '<label for="'+identifier+'">Topic<select id="'+identifier+'"><option value="">All topics</option>'+''.join(f'<option value="{E(topic)}">{E(topic)}</option>' for topic in values)+'</select></label>'
@@ -405,13 +412,13 @@ body=intro(gallery_archive.get('label') or 'Photo galleries',gallery_archive.get
 body+=f'<p class="result-count" id="gallery-result-count" role="status" aria-live="polite">{len(galleries)} '+('gallery' if len(galleries)==1 else 'galleries')+'</p><div class="journal-grid" id="gallery-results">'+''.join(gallery_card(album,'h2') for album in galleries)+'</div><p class="empty" id="no-galleries"'+(' hidden' if galleries else '')+'>No galleries found. Try another search or select all topics.</p></div></section>'
 page('/galleries','Galleries',body)
 for album in galleries:
- body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header><div class="gallery-grid">'
+ body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'+gallery_description(album)+'<div class="gallery-grid">'
  for photo in album['photos']:
   caption=photo.get('caption') or photo.get('title') or album['title']
   variants=gallery_images.prepare(photo['image'])
   enlarged=variants['large']['url'] if variants else photo['image']
   body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(enlarged)}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{gallery_image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
- body+='</div><div class="prose gallery-description">'+render(album['content'])+'</div></div></article><dialog class="gallery-dialog" id="gallery-dialog"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>'
+ body+='</div></div></article><dialog class="gallery-dialog" id="gallery-dialog"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>'
  page(album['path'],album['title'],body,album.get('summary'))
 # Blog uses the same full-text search and expertise filter as Projects.
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
