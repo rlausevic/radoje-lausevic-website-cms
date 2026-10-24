@@ -219,10 +219,12 @@ home+=f'<section class="section testimonials"><div class="wrap"><div class="sect
 for recommendation in recommendations[:2]:
  home+=f'<blockquote><div class="quote-mark">“</div><p>{E(recommendation["summary"])}</p><cite>{E(recommendation["author"])}</cite></blockquote>'
 home+='</div></div></section>'
-home+='<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">The journal</span><h2>Notes from the field.</h2></div><a class="textlink" href="/blog">Explore the archive →</a></div><div class="journal-grid">'+''.join(post_card(p) for p in M['posts'][:3])+'</div></div></section>'
-# The home video preview uses the same ordered archive as /video.
-home+=f'<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("videos_label", "Video resources"))}</span><h2>{E(M["home"].get("videos_heading", "Conversations on sustainability."))}</h2></div><a class="textlink" href="/video">View all videos →</a></div><div class="journal-grid">'+''.join(video_card(video) for video in videos[:3])+'</div></div></section>'
-home+=f'<section class="section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">{E(M["home"].get("galleries_label") or "Galleries")}</span><h2>{E(M["home"].get("galleries_heading") or "Snapshots from my activities.")}</h2></div><a class="textlink" href="/galleries">View all galleries →</a></div><div class="journal-grid">'+''.join(gallery_card(album) for album in galleries[:3])+'</div></div></section>';page('/','Home',home)
+# One latest item per collection keeps Home compact; Insights retains the full previews.
+home+='<section class="section home-insights" id="home-insights"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Insights</span><h2>Latest from the field.</h2></div><a class="button" href="/insights">Explore Insights →</a></div><div class="journal-grid">'
+home+=''.join(post_card(post) for post in M['posts'][:1])
+home+=''.join(video_card(video) for video in videos[:1])
+home+=''.join(gallery_card(album) for album in galleries[:1])
+home+='</div></div></section>';page('/','Home',home)
 # About: shared source records provide career highlights, network and recommendations.
 about=M['about'];network_data=json.loads((ROOT/'content/cms/network.json').read_text())
 body=intro('About','Experience, with purpose.','A biologist’s perspective. An environmental leader’s experience. A practical approach to sustainability.')

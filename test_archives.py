@@ -9,7 +9,7 @@ class Archives(unittest.TestCase):
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
    def read(p):return json.loads((root/p).read_text())
    def save(p,d):(root/p).write_text(json.dumps(d))
-   data=read('content/cms/gallery.json');original=copy.deepcopy(data['albums'][0]);data.update(label='Archive CMS label',heading='Archive CMS heading',lead='Archive CMS introduction')
+   data=read('content/cms/gallery.json');original=copy.deepcopy(data['albums'][0]);data['albums']=[original];data.update(label='Archive CMS label',heading='Archive CMS heading',lead='Archive CMS introduction')
    for index,date in enumerate(['2026-01-01','2026-03-01','2026-02-01']):
     album=copy.deepcopy(original);album.update(path=f'/gallery/roundtrip-{index}',title=f'Gallery {index}',date=date,topic='Shared topic',summary=f'Preview {index}',body=f'<p>Full gallery {index} hiddenneedle</p>');data['albums'].append(album)
    save('content/cms/gallery.json',data)
@@ -26,8 +26,9 @@ class Archives(unittest.TestCase):
    def build():subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    build()
    for route in ['index.html','insights/index.html']:
-    page=(root/'dist'/route).read_text();self.assertEqual(page.count('data-album '),3)
-    self.assertEqual([page.index(f'>Gallery {i}</h3>') for i in [1,2,0]],sorted(page.index(f'>Gallery {i}</h3>') for i in [1,2,0]))
+    page=(root/'dist'/route).read_text();indices=[1] if route=='index.html' else [1,2,0]
+    self.assertEqual(page.count('data-album '),len(indices))
+    self.assertEqual([page.index(f'>Gallery {i}</h3>') for i in indices],sorted(page.index(f'>Gallery {i}</h3>') for i in indices))
     self.assertNotIn(original['path'],page)
    archive=(root/'dist/galleries/index.html').read_text();self.assertEqual(archive.count('data-album '),4)
    for v in ['Archive CMS label','Archive CMS heading','Archive CMS introduction','hiddenneedle','Shared topic']:self.assertIn(v,archive)
