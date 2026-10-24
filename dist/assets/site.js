@@ -31,7 +31,45 @@ if(toggle&&nav)document.addEventListener('keydown',event=>{
 // Preserve incoming links to the former About expertise sections.
 if(String(location.pathname||'').replace(/\/$/,'')==='/about'&&/^#expertise-\d+$/.test(location.hash))location.replace('/expertise'+location.hash);
 const dialog=document.querySelector('#gallery-dialog');
-if(dialog){document.querySelectorAll('[data-gallery]').forEach(btn=>btn.addEventListener('click',()=>{const image=dialog.querySelector('img');image.src=btn.dataset.src;image.alt=btn.dataset.caption;dialog.querySelector('p').textContent=btn.dataset.caption;dialog.showModal();}));dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});}
+if(dialog){
+ const photos=[...document.querySelectorAll('[data-gallery]')];
+ const image=dialog.querySelector('img'),caption=dialog.querySelector('#gallery-caption');
+ const counter=dialog.querySelector('[data-gallery-counter]');
+ const previous=dialog.querySelector('[data-gallery-previous]'),next=dialog.querySelector('[data-gallery-next]');
+ const stage=dialog.querySelector('.gallery-stage');
+ let current=0,swipe=null;
+ const showPhoto=index=>{
+  if(!photos.length)return;
+  current=(index+photos.length)%photos.length;
+  const photo=photos[current];
+  image.src=photo.dataset.src;image.alt=photo.dataset.caption||'';
+  caption.textContent=photo.dataset.caption||'';counter.textContent=`${current+1} / ${photos.length}`;
+  previous.disabled=next.disabled=photos.length<2;
+ };
+ photos.forEach((photo,index)=>photo.addEventListener('click',()=>{showPhoto(index);dialog.showModal();}));
+ previous.addEventListener('click',()=>showPhoto(current-1));
+ next.addEventListener('click',()=>showPhoto(current+1));
+ dialog.querySelector('[data-gallery-close]').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+ dialog.addEventListener('keydown',event=>{
+  if(!dialog.open||event.altKey||event.ctrlKey||event.metaKey)return;
+  if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+   event.preventDefault();showPhoto(current+(event.key==='ArrowLeft'?-1:1));
+  }
+ });
+ stage.addEventListener('pointerdown',event=>{
+  if(event.pointerType!=='touch'||!event.isPrimary){swipe=null;return;}
+  swipe={id:event.pointerId,x:event.clientX,y:event.clientY};
+  stage.setPointerCapture(event.pointerId);
+ });
+ stage.addEventListener('pointerup',event=>{
+  if(!swipe||event.pointerId!==swipe.id)return;
+  const dx=event.clientX-swipe.x,dy=event.clientY-swipe.y;swipe=null;
+  if(Math.abs(dx)>=48&&Math.abs(dx)>Math.abs(dy)*1.25)showPhoto(current+(dx<0?1:-1));
+ });
+ stage.addEventListener('pointercancel',()=>{swipe=null;});
+ dialog.addEventListener('close',()=>{swipe=null;});
+}
 // One search engine for Journal, Video and Bibliography.
 function setupArchiveSearch({input,category,cards,count,empty,singular,plural,groups}){
  const search=document.querySelector(input);if(!search)return;

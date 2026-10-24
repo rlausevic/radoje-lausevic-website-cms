@@ -420,7 +420,7 @@ for album in galleries:
   variants=gallery_images.prepare(photo['image'])
   enlarged=variants['large']['url'] if variants else photo['image']
   body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(enlarged)}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{gallery_image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
- body+='</div></div></article><dialog class="gallery-dialog" id="gallery-dialog"><button type="button" autofocus>Close ×</button><img alt=""><p></p></dialog>'
+ body+='</div></div></article><dialog class="gallery-dialog" id="gallery-dialog" aria-label="Photo viewer" aria-describedby="gallery-caption"><div class="gallery-toolbar"><span class="gallery-counter" data-gallery-counter role="status" aria-live="polite" aria-atomic="true"></span><button type="button" data-gallery-close autofocus aria-label="Close photo viewer">Close ×</button></div><div class="gallery-stage"><img alt="" draggable="false"></div><p id="gallery-caption"></p><div class="gallery-controls"><button type="button" data-gallery-previous aria-label="Previous photo">← Previous</button><button type="button" data-gallery-next aria-label="Next photo">Next →</button></div></dialog>'
  page(album['path'],album['title'],body,album.get('summary'))
 # Blog uses the same full-text search and expertise filter as Projects.
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
