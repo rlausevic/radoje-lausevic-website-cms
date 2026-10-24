@@ -5,6 +5,7 @@ from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
+from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
 gallery_images=GalleryImages(DIST)
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
@@ -13,6 +14,7 @@ brief_files=resume.get('brief_cv') or []
 if isinstance(brief_files,str):brief_files=[brief_files]
 brief_cv_url=next((url for url in brief_files if urllib.parse.urlsplit(url).path.lower().endswith('.pdf')),brief_files[0] if brief_files else '')
 E=lambda s:html.escape(str(s),quote=True)
+related_catalog=load_catalog(ROOT)
 ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js']}
 NAV=[('/about','About'),('/expertise','Expertise'),('/projects','Projects'),('/bibliography','Bibliography'),('/insights','Insights'),('/contact','Contact')]
 def cv_download(cls='button'):
@@ -128,7 +130,7 @@ for item in video_archive.get('items') or []:
  video=dict(item);link=video.get('link','').strip();parsed=urllib.parse.urlsplit(link)
  if parsed.scheme!='https' or not parsed.hostname or any(c.isspace() for c in link):raise ValueError('Invalid video link: '+link)
  video['link']=link
- path='/video/'+hashlib.sha256(link.encode()).hexdigest()[:16]
+ path=video_path(link)
  if path in video_paths:raise ValueError('Duplicate video link: '+link)
  video_paths.add(path);video['path']=path
  video['date_iso']=datetime.date.fromisoformat(video['date'][:10]).isoformat()
@@ -302,6 +304,11 @@ for i,project in enumerate(project_entries):
  assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(project["period"])}</p>' if project['period'] else ''
  body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><h2>{E(project["title"])}</h2>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
 body+='</div><p class="empty" id="no-projects" hidden>No projects found. Try another search or select all topics.</p></div></section>';page('/projects','Projects',body)
+def related_links(project):
+ groups=selected_content(project,related_catalog)
+ if not groups:return ''
+ links=''.join('<li><span class="related-type">'+E(label)+' · </span><a href="'+E(item['href'])+'">'+E(item['title'])+'</a></li>' for _,label,items in groups for item in items)
+ return '<section class="project-section related-content"><h2>Related content:</h2><ul class="related-list">'+links+'</ul></section>'
 for project in project_entries:
  body=f'<article class="article project-page"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
  body+='<div class="project-facts">'
@@ -311,7 +318,7 @@ for project in project_entries:
  for field,label in [('body','Project overview:'),('contribution','My contribution:'),('results','Selected results:')]:
   content=__import__('cms_data').body(project.get(field) or '')
   if content['text'] or '<img ' in content['html']:body+='<section class="project-section"><h2>'+label+'</h2>'+render(content)+'</section>'
- body+='</div></div></article>'
+ body+=related_links(project)+'</div></div></article>'
  page(project_path(project),project['title'],body,project.get('summary'))
 # Resume files and publication attachments managed through Pages CMS.
 def document_files(value):
@@ -377,7 +384,7 @@ for category in bibliography_categories:
  for item in items:
   description=__import__('cms_data').body(item.get('description') or '')
   searchable=' '.join(str(item.get(field) or '') for field in ['category','title','year','url','reference','authors','venue','volume_issue_pages','publisher'])+' '+description['text']
-  body+=f'<li class="bibliography-item" data-bibliography data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
+  body+=f'<li class="bibliography-item" id="bibliography-{E(bibliography_id(item))}" data-bibliography data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
@@ -414,7 +421,10 @@ body=intro(gallery_archive.get('label') or 'Photo galleries',gallery_archive.get
 body+=f'<p class="result-count" id="gallery-result-count" role="status" aria-live="polite">{len(galleries)} '+('gallery' if len(galleries)==1 else 'galleries')+'</p><div class="journal-grid" id="gallery-results">'+''.join(gallery_card(album,'h2') for album in galleries)+'</div><p class="empty" id="no-galleries"'+(' hidden' if galleries else '')+'>No galleries found. Try another search or select all topics.</p></div></section>'
 page('/galleries','Galleries',body)
 for album in galleries:
- body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'+gallery_description(album)+'<div class="gallery-grid">'
+ body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'
+ related_projects=[project for project in project_entries if any(key=='galleries' and any(item['href']==album['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
+ if related_projects:body+='<div class="gallery-projects prose"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'
+ body+=gallery_description(album)+'<div class="gallery-grid">'
  for photo in album['photos']:
   caption=photo.get('caption') or photo.get('title') or album['title']
   variants=gallery_images.prepare(photo['image'])

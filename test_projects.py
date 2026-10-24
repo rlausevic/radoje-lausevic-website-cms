@@ -7,7 +7,7 @@ class ProjectArchive(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
    fields=next(x for x in json.loads((root/'.pages.yml').read_text())['content'] if x['name']=='projects')['fields'][0]['fields']
-   self.assertEqual(len(fields),16);self.assertNotIn('period',[x['name'] for x in fields])
+   self.assertEqual(len(fields),17);self.assertNotIn('period',[x['name'] for x in fields])
    source=root/'content/cms/projects.json';data=json.loads(source.read_text());p=data['items'][0]
    p.update(title='Test assignment',full_name='Unique full project name',assignment_start='2024-08-30',assignment_end='2025-01-13',assignment_ongoing=False,project_start='2023-07-01',project_end='2028-10-31',role='Test policy expert',contribution='<p>Unique stakeholder support</p>',results='<p>Unique verified output</p>')
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
