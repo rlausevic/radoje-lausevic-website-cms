@@ -645,6 +645,10 @@
                       {
                         "name": "/post/HELM-Kotor-Summer-School",
                         "label": "HELM Kotor Summer School"
+                      },
+                      {
+                        "name": "/post/Sustainable-Future-of-Adriatic-Fisheries",
+                        "label": "Sustainable Future of Adriatic Fisheries"
                       }
                     ],
                     "placeholder": "Izaberite povezane sadržaje"
