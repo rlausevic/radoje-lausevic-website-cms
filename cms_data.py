@@ -2,6 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import json,html,re,datetime,copy,shutil
+from content_paths import collection_records
 class CleanHTML(HTMLParser):
  allowed={'p','h2','h3','h4','strong','b','em','i','u','s','ul','ol','li','blockquote','br','hr','a','img','figure','figcaption','table','thead','tbody','tr','th','td','pre','code','sub','sup'}
  void={'img','br','hr'}
@@ -97,11 +98,10 @@ def load_cms(root,original):
   resume_links.extend({'text':'Download','href':url} for url in files if url)
  model['pages']['/resume']={'blocks':[text('h2','Education'),body(r.get('education') or ''),text('h2','Selected Publications'),body(r.get('publications') or '')],'links':resume_links}
  posts=[];paths=set()
- for f in (base/'posts').glob('*.json'):
-  p=json.loads(f.read_text())
+ for p in collection_records(root,'posts','post'):
   if not p.get('published',True):continue
   path=p.get('path','')
-  if not re.fullmatch(r'/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+',path):raise ValueError(f'{f.name}: address must use /post/your-article-name with letters, digits and hyphens')
+  if not re.fullmatch(r'/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+',path):raise ValueError(f'{path}: address must use /post/your-article-name with letters, digits and hyphens')
   if path in paths:raise ValueError('Two articles have the same address: '+path)
   paths.add(path)
   p.pop('categories',None)

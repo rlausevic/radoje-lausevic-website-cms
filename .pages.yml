@@ -108,6 +108,111 @@
           "options": {
             "media": "images"
           }
+        },
+        {
+          "name": "archive_pages",
+          "label": "Naslovi i uvodni tekstovi arhiva",
+          "type": "object",
+          "fields": [
+            {
+              "name": "bibliography",
+              "label": "Bibliography",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Oznaka stranice",
+                  "type": "string"
+                },
+                {
+                  "name": "heading",
+                  "label": "Naslov stranice",
+                  "type": "string"
+                },
+                {
+                  "name": "lead",
+                  "label": "Uvodni tekst",
+                  "type": "text"
+                },
+                {
+                  "name": "categories",
+                  "label": "Opisi kategorija",
+                  "type": "object",
+                  "list": {
+                    "collapsible": {
+                      "collapsed": true,
+                      "summary": "{name}"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Category",
+                      "type": "select",
+                      "required": true,
+                      "options": {
+                        "values": [
+                          "Publications",
+                          "Articles",
+                          "Conferences",
+                          "Invited lectures"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "description",
+                      "label": "Opis kategorije",
+                      "type": "text"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "gallery",
+              "label": "Galerije",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Nadnaslov",
+                  "type": "string"
+                },
+                {
+                  "name": "heading",
+                  "label": "Naslov",
+                  "type": "string"
+                },
+                {
+                  "name": "lead",
+                  "label": "Podnaslov",
+                  "type": "text"
+                }
+              ]
+            },
+            {
+              "name": "videos",
+              "label": "Video",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Oznaka stranice",
+                  "type": "string"
+                },
+                {
+                  "name": "heading",
+                  "label": "Naslov stranice",
+                  "type": "string"
+                },
+                {
+                  "name": "lead",
+                  "label": "Uvodni tekst",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
         }
       ],
       "operations": {
@@ -757,107 +862,8 @@
       }
     },
     {
-      "name": "bibliography",
-      "label": "Bibliography — stranica i redosled",
-      "type": "file",
-      "path": "content/cms/bibliography.json",
-      "format": "json",
-      "fields": [
-        {
-          "name": "label",
-          "label": "Oznaka stranice",
-          "type": "string"
-        },
-        {
-          "name": "heading",
-          "label": "Naslov stranice",
-          "type": "string"
-        },
-        {
-          "name": "lead",
-          "label": "Uvodni tekst",
-          "type": "text"
-        },
-        {
-          "name": "categories",
-          "label": "Opisi kategorija",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{name}"
-            }
-          },
-          "fields": [
-            {
-              "name": "name",
-              "label": "Category",
-              "type": "select",
-              "required": true,
-              "options": {
-                "values": [
-                  "Publications",
-                  "Articles",
-                  "Conferences",
-                  "Invited lectures"
-                ]
-              }
-            },
-            {
-              "name": "description",
-              "label": "Opis kategorije",
-              "type": "text"
-            }
-          ]
-        },
-        {
-          "name": "bibliography_instructions",
-          "label": "Bibliografske jedinice",
-          "type": "text",
-          "readonly": true,
-          "default": "Na sajtu su stavke grupisane po kategorijama i sortirane po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled ove liste. Kod raspona koristi se prva godina; stavke bez godine su na kraju."
-        },
-        {
-          "name": "entry_order",
-          "label": "Redosled unosa",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{index}. {title}"
-            }
-          },
-          "description": "Prevucite stavke da promenite redosled. Video i Galerije se sortiraju po datumu, Bibliography po godini; ovaj redosled važi za iste datume/godine. Sadržaj uređujte u odeljku Bibliography — unosi.",
-          "fields": [
-            {
-              "name": "item",
-              "label": "Unos",
-              "type": "reference",
-              "options": {
-                "collection": "bibliography_entries",
-                "value": "{fields.id}",
-                "label": "{fields.title}",
-                "search": "title",
-                "multiple": false
-              }
-            },
-            {
-              "name": "title",
-              "type": "string",
-              "hidden": true,
-              "readonly": true
-            }
-          ]
-        }
-      ],
-      "operations": {
-        "delete": false,
-        "rename": false
-      }
-    },
-    {
       "name": "bibliography_entries",
-      "label": "Bibliography — unosi",
+      "label": "Bibliography",
       "type": "collection",
       "path": "content/cms/bibliography_entries",
       "format": "json",
@@ -888,7 +894,7 @@
           "name": "year",
           "label": "Year",
           "type": "string",
-          "description": "Godina ili izvorni raspon godina, npr. 2026, 1993/94 ili 1990-1991."
+          "description": "Godina ili izvorni raspon godina, npr. 2026, 1993/94 ili 1990-1991. Lista se automatski sortira od najnovije ka najstarijoj godini."
         },
         {
           "name": "url",
@@ -975,88 +981,28 @@
       }
     },
     {
-      "name": "gallery",
-      "label": "Galerije — stranica i redosled",
-      "type": "file",
-      "path": "content/cms/gallery.json",
-      "format": "json",
-      "fields": [
-        {
-          "name": "label",
-          "label": "Nadnaslov",
-          "type": "string"
-        },
-        {
-          "name": "heading",
-          "label": "Naslov",
-          "type": "string"
-        },
-        {
-          "name": "lead",
-          "label": "Podnaslov",
-          "type": "text"
-        },
-        {
-          "name": "entry_order",
-          "label": "Redosled unosa",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{index}. {title}"
-            }
-          },
-          "description": "Prevucite stavke da promenite redosled. Video i Galerije se sortiraju po datumu, Bibliography po godini; ovaj redosled važi za iste datume/godine. Sadržaj uređujte u odeljku Galerije — unosi.",
-          "fields": [
-            {
-              "name": "item",
-              "label": "Unos",
-              "type": "reference",
-              "options": {
-                "collection": "gallery_entries",
-                "value": "{fields.path}",
-                "label": "{fields.title}",
-                "search": "title",
-                "multiple": false
-              }
-            },
-            {
-              "name": "title",
-              "type": "string",
-              "hidden": true,
-              "readonly": true
-            }
-          ]
-        }
-      ],
-      "operations": {
-        "delete": false,
-        "rename": false
-      }
-    },
-    {
       "name": "gallery_entries",
-      "label": "Galerije — unosi",
+      "label": "Galerije",
       "type": "collection",
       "path": "content/cms/gallery_entries",
       "format": "json",
       "filename": "{title}.json",
       "fields": [
         {
-          "name": "path",
-          "label": "Adresa galerije: /gallery/naziv-galerije",
-          "type": "string",
-          "required": true,
-          "pattern": {
-            "regex": "^/gallery/[A-Za-z0-9_-]+$",
-            "message": "Primer: /gallery/moj-album. Sačuvajte istu adresu pri kasnijim izmenama."
-          }
-        },
-        {
           "name": "title",
           "label": "Naslov galerije",
           "type": "string",
           "required": true
+        },
+        {
+          "name": "path",
+          "label": "Adresa unosa",
+          "type": "string",
+          "pattern": {
+            "regex": "^$|^/gallery/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+$",
+            "message": "Koristite /gallery/naziv-unosa ili ostavite prazno za automatsko generisanje."
+          },
+          "description": "Ostavite prazno za automatsku adresu /gallery/slug-iz-naslova. Posle čuvanja i obrade adresa se upisuje u ovo polje. Možete je ručno izmeniti; promena naslova ne menja sačuvanu adresu."
         },
         {
           "name": "date",
@@ -1208,13 +1154,13 @@
         },
         {
           "name": "path",
-          "label": "Adresa: /post/naziv-objave",
+          "label": "Adresa unosa",
           "type": "string",
-          "required": true,
           "pattern": {
-            "regex": "^/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+$",
-            "message": "Primer: /post/moj-novi-projekat. Sačuvajte staru adresu pri izmeni postojeće objave."
-          }
+            "regex": "^$|^/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+$",
+            "message": "Koristite /post/naziv-unosa ili ostavite prazno za automatsko generisanje."
+          },
+          "description": "Ostavite prazno za automatsku adresu /post/slug-iz-naslova. Posle čuvanja i obrade adresa se upisuje u ovo polje. Možete je ručno izmeniti; promena naslova ne menja sačuvanu adresu."
         },
         {
           "name": "date",
@@ -1277,68 +1223,8 @@
       }
     },
     {
-      "name": "videos",
-      "label": "Video — stranica i redosled",
-      "type": "file",
-      "path": "content/cms/videos.json",
-      "format": "json",
-      "fields": [
-        {
-          "name": "label",
-          "label": "Oznaka stranice",
-          "type": "string"
-        },
-        {
-          "name": "heading",
-          "label": "Naslov stranice",
-          "type": "string"
-        },
-        {
-          "name": "lead",
-          "label": "Uvodni tekst",
-          "type": "text"
-        },
-        {
-          "name": "entry_order",
-          "label": "Redosled unosa",
-          "type": "object",
-          "list": {
-            "collapsible": {
-              "collapsed": true,
-              "summary": "{index}. {title}"
-            }
-          },
-          "description": "Prevucite stavke da promenite redosled. Video i Galerije se sortiraju po datumu, Bibliography po godini; ovaj redosled važi za iste datume/godine. Sadržaj uređujte u odeljku Video — unosi.",
-          "fields": [
-            {
-              "name": "item",
-              "label": "Unos",
-              "type": "reference",
-              "options": {
-                "collection": "video_entries",
-                "value": "{fields.link}",
-                "label": "{fields.title}",
-                "search": "title",
-                "multiple": false
-              }
-            },
-            {
-              "name": "title",
-              "type": "string",
-              "hidden": true,
-              "readonly": true
-            }
-          ]
-        }
-      ],
-      "operations": {
-        "delete": false,
-        "rename": false
-      }
-    },
-    {
       "name": "video_entries",
-      "label": "Video — unosi",
+      "label": "Video",
       "type": "collection",
       "path": "content/cms/video_entries",
       "format": "json",

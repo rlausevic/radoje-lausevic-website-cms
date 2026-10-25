@@ -10,5 +10,40 @@
   "twitter": "https://twitter.com/rlausevic",
   "portrait": "/assets/143f80572f202c9c.webp",
   "landscape": "/assets/d95dc7f7de55e194.webp",
-  "logo": "/assets/7d427f9a7c773451.webp"
+  "logo": "/assets/7d427f9a7c773451.webp",
+  "archive_pages": {
+    "bibliography": {
+      "label": "Bibliography",
+      "heading": "Research, knowledge and dialogue.",
+      "lead": "Explore my publications, articles, conference contributions and invited lectures — connecting scientific research with environmental policy, sustainable development and practice.",
+      "categories": [
+        {
+          "name": "Publications",
+          "description": "Books, book chapters, monographs, manuals and reports presenting research findings, practical methodologies and approaches to environmental management."
+        },
+        {
+          "name": "Articles",
+          "description": "Scientific and professional articles covering aquatic ecology, biodiversity conservation, water management, stakeholder participation and sustainability."
+        },
+        {
+          "name": "Conferences",
+          "description": "Contributions to national and international conferences, including oral presentations, posters and published abstracts — sharing findings and exchanging perspectives across disciplines."
+        },
+        {
+          "name": "Invited lectures",
+          "description": "Invited lectures and presentations for universities, institutions and professional audiences, bringing research and practical experience into discussions on environmental challenges and sustainable development."
+        }
+      ]
+    },
+    "gallery": {
+      "label": "Photo galleries",
+      "heading": "My favourite photos.",
+      "lead": "Snapshots from my activities."
+    },
+    "videos": {
+      "label": "Video archive",
+      "heading": "Conversation on sustainability",
+      "lead": "Project updates, environmental insights and personal observations"
+    }
+  }
 }

@@ -2,7 +2,7 @@ name: Sync CMS content choices
 on:
   push:
     branches: [main]
-    paths: ['content/cms/**', .pages.yml, scripts/sync_expertise.py, scripts/sync_related_content.py, related_content.py, content_archives.py]
+    paths: ['content/cms/**', .pages.yml, scripts/sync_expertise.py, scripts/sync_related_content.py, related_content.py, content_archives.py, content_paths.py]
   workflow_dispatch:
 permissions:
   contents: write

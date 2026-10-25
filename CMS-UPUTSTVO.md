@@ -38,10 +38,10 @@ Ako ste `www.radojelausevic.com` već povezali sa starim projektom, prvo proveri
 - **Projekti:** dodajte/uredite projekat, period, fotografiju, kratak i detaljan opis; redosled određuje prikaz, prva dva se prikazuju i na početnoj strani.
 - **Profesionalna mreža:** tekst i PDF dokument.
 - **CV i publikacije:** jedno polje **Download CV — Europass Brief CV** kontroliše dokument u zaglavlju, na About i u podnožju. Detaljni CV ostaje zaseban dokument. Obrazovanje se uređuje ovde; Selected Bibliography se automatski preuzima iz Bibliography.
-- **Galerija:** postojeća galerija je jedan album; uređujte njegov naslov, datum, kratak opis, fotografije i tekst. Insights prikazuje jedan pregled ovog albuma, bez kopiranja fotografija u nove zapise.
+- **Galerije:** uređujte svaki album zasebno: naslov, datum, oblast, kratak opis, fotografije i tekst. Insights prikazuje do tri najnovije galerije.
 - **Blog objave:** kreirajte ili uredite tekst, datum, naslovnu fotografiju, opis i teme.
 
-Za novu blog objavu unesite adresu poput `/post/novi-projekat`. Koristite mala latinična slova bez dijakritika, brojeve i crtice. **Kod postojećih objava sačuvajte adresu**, kako spoljne veze ne bi prestale da rade. Naziv JSON fajla je nezavisan od javne adrese.
+Za novu blog objavu ostavite adresu praznu za automatski slug ili unesite adresu poput `/post/novi-projekat`. Koristite mala latinična slova bez dijakritika, brojeve i crtice. **Kod postojećih objava sačuvajte adresu**, kako spoljne veze ne bi prestale da rade. Naziv JSON fajla je nezavisan od javne adrese.
 
 Polje **Objavljeno**:
 - isključeno: nacrt; ne pojavljuje se na javnom sajtu;
@@ -80,12 +80,11 @@ Nisu potrebni dodatni Python paketi. Blog nacrti i uklonjene objave brišu se iz
 
 ### Oblasti objava, videa i galerija
 
-Polje **Oblast** u Blog objavama, Video arhivi i Galeriji koristi nazive iz **Expertise — oblasti usluga / My services**. Nakon izmene naziva oblasti, GitHub workflow automatski osvežava izbore u CMS-u. Ponovo otvorite CMS da vidite nove izbore. Raniji unosi bez izabrane oblasti ostaju vidljivi uz **All topics**; oblast im dodelite uređivanjem unosa. Ranije slobodne teme članaka ostaju sačuvane i uključene u tekstualnu pretragu.
+Polje **Oblast** u Blog objavama, Video arhivi i Galeriji koristi nazive iz **Expertise — oblasti usluga / My services**. Nakon izmene naziva oblasti, GitHub workflow automatski osvežava izbore u CMS-u. Ponovo otvorite CMS da vidite nove izbore. Raniji unosi bez izabrane oblasti ostaju vidljivi uz **All topics**; oblast im dodelite uređivanjem unosa. Pretraga članaka koristi naslov, kratak opis, tekst i oblast.
 
-### Više galerija
+### Galerije
 
-U **Galerija** uređuju se zajednički nadnaslov, naslov i podnaslov arhive, a lista **Galerije** sadrži pojedinačne albume. Novi album dobija naslov, datum, oblast, kratak opis, fotografije i tekst. Unesite jedinstvenu adresu, npr. `/gallery/moje-fotografije`, i ne menjajte je posle objavljivanja. Prva fotografija je naslovna fotografija kartice. Datum određuje redosled od najnovijeg ka najstarijem; Home i Insights automatski prikazuju do tri najnovije galerije. Postojeći album sa svim fotografijama sačuvan je kao prvi unos. Klik na **View full gallery** otvara album, a klik na fotografiju otvara uvećan prikaz.
-
+U **Galerije** svaki album je zaseban unos, automatski sortiran po datumu od najnovijeg. Prva fotografija je naslovna fotografija kartice. Klik na **View full gallery** otvara album, a klik na fotografiju uvećan prikaz sa kretanjem kroz fotografije.
 
 ### Automatska priprema fotografija galerije
 
@@ -96,12 +95,29 @@ Original ostaje u CMS-u. Automatske verzije su u zasebnom izlaznom direktorijumu
 ## Direktan izbor povezanih sadržaja
 
 U Projekti → Related contents sve četiri liste pretražuju stvarne kolekcije.
-Unose uređujte u **Blog objave**, **Video — unosi**, **Galerije — unosi** i
-**Bibliography — unosi**. Naslovi stranica i uvodni tekst ostaju u odeljcima
-**Video — stranica i redosled**, **Galerije — stranica i redosled** i
-**Bibliography — stranica i redosled**. Tamo se redosled unosa menja prevlačenjem;
-na sajtu se i dalje prvo sortira po datumu, odnosno godini.
+Unose uređujte u **Blog objave**, **Video**, **Galerije** i **Bibliography**.
+Svaki od ovih odeljaka prikazuje jednu kolekciju. Blog, video i galerije imaju
+podrazumevani redosled po datumu od najnovijeg; Bibliography po godini od najnovije.
+Ručni redosled više nije izložen u CMS-u. Postojeći redosled za iste godine ostaje sačuvan.
+
+Naslovi arhiva i njihovi uvodni tekstovi uređuju se u **Podešavanja sajta →
+Naslovi i uvodni tekstovi arhiva**. Tu su i opisi bibliografskih kategorija.
+Unosi se ne dupliraju u podešavanjima.
+
+### Automatska adresa blog objave i galerije
+
+**Naslov** uvek ostaje izmenljiv. Polje **Adresa unosa** možete ostaviti prazno.
+Pri objavljivanju sajt odmah koristi `/post/slug-iz-naslova` ili
+`/gallery/slug-iz-naslova`, a workflow nakon čuvanja upisuje istu adresu u CMS.
+Osvežite formu nakon završetka obrade da vidite generisanu adresu.
+Ako naslov već postoji, dodaje se jedinstveni sufiks. I nacrti rezervišu adresu.
+
+Polje adrese ostaje ručno izmenljivo. Promena naslova ne menja postojeću adresu.
+Postojeće adrese nisu regenerisane. Ručna promena već objavljene adrese zahteva
+posebno preusmerenje ako želite da sačuvate ranije podeljene linkove.
+Video zadržava postojeću adresu; Bibliography koristi trajne UUID oznake.
 
 Video, galerije i bibliografske jedinice čuvaju se pojedinačno u odgovarajućim
-kolekcijama. Stari zajednički JSON fajlovi sadrže samo podešavanja i redosled,
-bez druge kopije sadržaja. Ranije javne adrese i prilozi su sačuvani.
+kolekcijama. Stari zajednički JSON fajlovi čuvaju samo interni redosled za
+izjednačene godine/datume, bez druge kopije sadržaja. Ranije javne adrese i
+prilozi su sačuvani.

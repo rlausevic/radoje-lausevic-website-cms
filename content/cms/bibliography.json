@@ -1,26 +1,4 @@
 {
-  "label": "Bibliography",
-  "heading": "Research, knowledge and dialogue.",
-  "lead": "Explore my publications, articles, conference contributions and invited lectures — connecting scientific research with environmental policy, sustainable development and practice.",
-  "categories": [
-    {
-      "name": "Publications",
-      "description": "Books, book chapters, monographs, manuals and reports presenting research findings, practical methodologies and approaches to environmental management."
-    },
-    {
-      "name": "Articles",
-      "description": "Scientific and professional articles covering aquatic ecology, biodiversity conservation, water management, stakeholder participation and sustainability."
-    },
-    {
-      "name": "Conferences",
-      "description": "Contributions to national and international conferences, including oral presentations, posters and published abstracts — sharing findings and exchanging perspectives across disciplines."
-    },
-    {
-      "name": "Invited lectures",
-      "description": "Invited lectures and presentations for universities, institutions and professional audiences, bringing research and practical experience into discussions on environmental challenges and sustainable development."
-    }
-  ],
-  "bibliography_instructions": "Na sajtu su stavke grupisane po kategorijama i sortirane po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled ove liste. Kod raspona koristi se prva godina; stavke bez godine su na kraju.",
   "entry_order": [
     {
       "item": "a7965e5d-492f-5d94-ac0e-f7c476e364aa",

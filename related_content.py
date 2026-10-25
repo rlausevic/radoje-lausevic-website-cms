@@ -1,5 +1,6 @@
 """Stable content identifiers and shared catalogs for CMS project relationships."""
 import json
+from content_paths import collection_records
 from content_archives import video_path,bibliography_id,read_archive
 from pathlib import Path
 
@@ -9,8 +10,7 @@ def load_catalog(root):
  base=Path(root)/'content/cms'
  read=lambda name:json.loads((base/name).read_text())
  catalog={key:{} for key,_ in GROUPS}
- for path in sorted((base/'posts').glob('*.json')):
-  item=json.loads(path.read_text())
+ for item in collection_records(root,'posts','post'):
   if item.get('published',True):catalog['journal'][item['path']]={'title':item['title'],'href':item['path']}
  for item in read_archive(root,'videos').get('items') or []:
   path=video_path(item['link']);catalog['videos'][item['link'].strip()]={'title':item['title'],'href':path}
