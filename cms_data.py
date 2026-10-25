@@ -104,7 +104,8 @@ def load_cms(root,original):
   if not re.fullmatch(r'/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+',path):raise ValueError(f'{f.name}: address must use /post/your-article-name with letters, digits and hyphens')
   if path in paths:raise ValueError('Two articles have the same address: '+path)
   paths.add(path)
-  p['cover']=p.get('cover') or '';p['categories']=p.get('categories') or [];p['excerpt']=p.get('excerpt') or '';
+  p.pop('categories',None)
+  p['cover']=p.get('cover') or '';p['excerpt']=p.get('excerpt') or '';
   d=datetime.date.fromisoformat(p['date'][:10]);b=body(p.get('body',''));p.update({'date':d.strftime('%b %d, %Y'),'date_iso':d.isoformat(),'blocks':[b]});posts.append(p)
  posts.sort(key=lambda p:(p['date_iso'],p['title']),reverse=True);model['posts']=posts
  # Removed/draft articles must not remain published in the generated directory.

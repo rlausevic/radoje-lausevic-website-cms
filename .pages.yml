@@ -1725,12 +1725,6 @@
           "required": true
         },
         {
-          "name": "categories",
-          "label": "Teme",
-          "type": "string",
-          "list": true
-        },
-        {
           "name": "body",
           "label": "Tekst objave",
           "type": "rich-text",

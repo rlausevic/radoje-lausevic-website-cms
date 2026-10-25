@@ -19,7 +19,6 @@ ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest(
 NAV=[('/about','About'),('/expertise','Expertise'),('/projects','Projects'),('/bibliography','Bibliography'),('/insights','Insights'),('/contact','Contact')]
 def cv_download(cls='button'):
  return f'<a class="{E(cls)}" href="{E(brief_cv_url)}" download aria-label="Download CV — Europass Brief CV">Download CV</a>' if brief_cv_url else ''
-CAT={'Offical Development Assistance':'Official Development Assistance','Sustainable Consumption and Product':'Sustainable Consumption & Production','Sustainable lifestiles':'Sustainable Lifestyles','Data vizualization':'Data Visualization'}
 def image(src,alt='',cls='',eager=False):
  return f'<img src="{E(src)}" alt="{E(alt)}" class="{E(cls)}" loading="{"eager" if eager else "lazy"}" decoding="async">' if src else ''
 def gallery_image(src,alt='',card=False):
@@ -79,9 +78,7 @@ def page(path,title,body,desc=None):
   if value.startswith('/blog/hashtags/'):
    return 'href="/blog?search='+E(urllib.parse.quote(urllib.parse.unquote(value.split('/')[-1])))+'"'
   if value.startswith('/blog/categories/'):
-   slug=value.split('/')[-1]
-   category=next((CAT.get(c,c) for post in M['posts'] for c in post['categories'] if c.lower().replace(' ','-')==slug),'')
-   return 'href="/blog?search='+E(urllib.parse.quote(category))+'"'
+   return 'href="/blog"'
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
  insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/video/','/gallery/'))
@@ -117,9 +114,8 @@ def sections(path):
   elif cur:cur['blocks'].append(b)
  return out
 def post_card(p,heading='h3'):
- cats='|'.join(CAT.get(c,c) for c in p['categories'])
  topic=p.get('topic') or ''
- return f'<a class="post-card" data-post data-categories="{E(topic)}" data-search="{E((p["title"]+" "+p["excerpt"]+" "+topic+" "+p["date_iso"]+" "+p["date"]+" "+cats+" "+" ".join(b.get("text","") for b in p["blocks"])).lower())}" href="{p["path"]}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date">{E(p["date"])} · JOURNAL</span><{heading}>{E(p["title"])}</{heading}><p>{E(p["excerpt"])}</p><span class="read">Read article &nbsp; ↗</span></a>'
+ return f'<a class="post-card" data-post data-categories="{E(topic)}" data-search="{E((p["title"]+" "+p["excerpt"]+" "+topic+" "+" ".join(b.get("text","") for b in p["blocks"])).lower())}" href="{p["path"]}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date">{E(p["date"])} · JOURNAL</span><{heading}>{E(p["title"])}</{heading}><p>{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
@@ -438,7 +434,7 @@ for album in galleries:
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
 body=intro(journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '')+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="post-search">Search the journal<input type="search" id="post-search" placeholder="Search articles…" aria-controls="post-results"></label>'+topic_select('post-category')+'</div>'+f'<p class="result-count" id="result-count" role="status" aria-live="polite">{len(M["posts"])} articles</p><div class="journal-grid" id="post-results">'+''.join(post_card(p,'h2') for p in M['posts'])+'</div><p class="empty" id="no-results" hidden>No articles found. Try another search or select all topics.</p></div></section>';page('/blog','Journal',body)
 for i,p in enumerate(M['posts']):
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(', '.join(CAT.get(c,c) for c in p['categories'])) if p['categories'] else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
  if p['cover'] and p['cover'] not in p.get('body',''):body+=image(p['cover'],p['title'])
  body+='<div class="article-nav">'
  if i>0:body+=f'<a href="{M["posts"][i-1]["path"]}">← Newer article</a>'
@@ -456,9 +452,8 @@ page('/404','Page not found',intro('404','This page could not be found.','Explor
 redirects=['/home / 301','/index.html / 301','/blog/hashtags/:tag /blog?search=:tag 301']
 for source,target in project_redirects.items():
  redirects.extend([source+' '+target+' 301',source+'/ '+target+' 301'])
-for c in M['posts']:
- for cat in c['categories']:
-  slug=cat.lower().replace(' ','-');redirects.append('/blog/categories/'+slug+' /blog?category='+urllib.parse.quote(CAT.get(cat,cat))+' 301')
+# Preserve old category URLs without retaining obsolete topic metadata.
+redirects.append('/blog/categories/* /blog 301')
 for original,localpath in json.loads((ROOT/'content/asset-map.json').read_text()).items():
  if '/_files/ugd/' in original:redirects.append(urllib.parse.urlsplit(original).path+' '+localpath+' 301')
 (DIST/'_redirects').write_text('\n'.join(dict.fromkeys(redirects))+'\n')
