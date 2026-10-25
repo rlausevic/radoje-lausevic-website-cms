@@ -5,6 +5,7 @@ from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
+from content_archives import read_archive
 from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
 gallery_images=GalleryImages(DIST)
@@ -120,7 +121,7 @@ def post_card(p,heading='h3'):
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
 recommendations=M['about'].get('recommendations') or []
-video_archive=json.loads((ROOT/'content/cms/videos.json').read_text())
+video_archive=read_archive(ROOT,'videos')
 videos=[];video_paths=set()
 for item in video_archive.get('items') or []:
  video=dict(item);link=video.get('link','').strip();parsed=urllib.parse.urlsplit(link)
@@ -143,7 +144,7 @@ def video_card(video,heading='h3'):
  search=' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video.get('topic') or '',video['content']['text']]).lower()
  return f'<article class="post-card video-card" data-video data-categories="{E(video.get("topic") or "")}" data-search="{E(search)}"><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span><{heading}>{E(video["title"])}</{heading}><p>{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 # Multiple albums share one CMS source across Home, Insights and the archive.
-gallery_archive=json.loads((ROOT/'content/cms/gallery.json').read_text())
+gallery_archive=read_archive(ROOT,'gallery')
 galleries=[];gallery_paths=set()
 for item in gallery_archive.get('albums') or []:
  album=dict(item);path=album.get('path') or ''
@@ -343,7 +344,7 @@ def download_card(title,description,value):
  if not links:return ''
  return f'<article class="download"><span>Documents</span><h2>{E(title)}</h2><p>{E(description)}</p>{links}</article>'
 # Bibliography: newest year first; stable ties preserve the CMS list order.
-bibliography=json.loads((ROOT/'content/cms/bibliography.json').read_text())
+bibliography=read_archive(ROOT,'bibliography')
 bibliography_categories=['Publications','Articles','Conferences','Invited lectures']
 def bibliography_year(item):
  # Use the first year for ranges such as 1993/94 and 1990-1991; undated entries go last.

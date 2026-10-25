@@ -1,6 +1,7 @@
 """Journal uses expertise topics, with no obsolete theme metadata."""
 import json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
+from content_archives import read_archive,write_archive
 from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parent
 class JournalTopics(unittest.TestCase):
@@ -10,9 +11,9 @@ class JournalTopics(unittest.TestCase):
    schema=json.loads((root/'.pages.yml').read_text());fields=next(x for x in schema['content'] if x['name']=='posts')['fields']
    self.assertNotIn('categories',[x['name'] for x in fields]);self.assertIn('topic',[x['name'] for x in fields])
    for p in (root/'content/cms/posts').glob('*.json'):self.assertNotIn('categories',json.loads(p.read_text()))
-   gallery=root/'content/cms/gallery.json';g=json.loads(gallery.read_text())
+   g=read_archive(root,'gallery')
    for album in g['albums']:album['photos']=[]
-   gallery.write_text(json.dumps(g))
+   write_archive(root,'gallery',g)
    path='/post/topic-check';topic='Environmental Research and Policy'
    item={'title':'Unique title','excerpt':'Unique excerpt','body':'<p>Unique body</p><a href="/blog/categories/old-theme">Continue</a>','topic':topic,'path':path,'date':'2099-01-02','published':True,'cover':'','categories':['ObsoleteSentinel']}
    (root/'content/cms/posts/topic-check.json').write_text(json.dumps(item))

@@ -1,6 +1,7 @@
 """Navigation, source migration, Insights and document regression checks."""
 import html,json,re,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
+from content_archives import ARCHIVES,read_archive,write_archive
 from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parent
 class NavigationTests(unittest.TestCase):
@@ -43,12 +44,14 @@ class NavigationTests(unittest.TestCase):
  def test_cms_single_source_and_insights(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
-   def read(name):return json.loads((root/'content/cms'/name).read_text())
-   def save(name,data):(root/'content/cms'/name).write_text(json.dumps(data))
+   def read(name):return read_archive(root,Path(name).stem) if Path(name).stem in ARCHIVES else json.loads((root/'content/cms'/name).read_text())
+   def save(name,data):
+    if Path(name).stem in ARCHIVES:write_archive(root,Path(name).stem,data)
+    else:(root/'content/cms'/name).write_text(json.dumps(data))
    self.assertNotIn('services',read('about.json'))
    expertise=read('expertise.json');expertise['services'][0]['summary']='One source expertise check';save('expertise.json',expertise)
    about=read('about.json');about['body']='<p>Updated profile check</p>';about['recommendations'][0]['summary']='Shared recommendation check';save('about.json',about)
-   gallery=read('gallery.json');gallery['albums'][0]['title']='Shared album check';save('gallery.json',gallery)
+   gallery=read('gallery.json');gallery['albums'][0].update(title='Shared album check',date='2099-01-01');save('gallery.json',gallery)
    archive=read('videos.json');archive['items'].reverse();save('videos.json',archive)
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    self.assertIn('One source expertise check',(root/'dist/index.html').read_text());self.assertIn('One source expertise check',(root/'dist/expertise/index.html').read_text())
@@ -58,7 +61,7 @@ class NavigationTests(unittest.TestCase):
    self.assertEqual(insights.count('data-post '),3)
    videos=sorted(archive['items'],key=lambda item:item['date'],reverse=True)[:3]
    pos=[insights.index(html.escape(x['title'])) for x in videos];self.assertEqual(pos,sorted(pos))
-   self.assertEqual(insights.count('View full gallery →'),1)
+   self.assertEqual(insights.count('View full gallery →'),min(3,len(gallery['albums'])))
    schema=json.loads((root/'.pages.yml').read_text());about_schema=next(x for x in schema['content'] if x['name']=='about');expertise_schema=next(x for x in schema['content'] if x['name']=='expertise')
    self.assertNotIn('services',[x['name'] for x in about_schema['fields']]);self.assertIn('services',[x['name'] for x in expertise_schema['fields']])
  def test_disclosure_keyboard_escape_and_mobile_menu(self):

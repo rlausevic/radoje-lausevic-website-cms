@@ -92,3 +92,16 @@ U **Galerija** uređuju se zajednički nadnaslov, naslov i podnaslov arhive, a l
 U CMS unesite jednu fotografiju (JPEG, PNG ili WebP), uz očuvan odnos stranica. Preporuka je duža stranica 1920 px, npr. 1920 × 1440 px ili 1440 × 1920 px. Pri svakom objavljivanju sajt automatski pravi WebP verzije do 480 i 960 px za kartice i mrežu, i do 1920 px za uvećanje. Manje originale ne uvećava. Fotografije sa telefona pravilno se okreću prema EXIF orijentaciji. Velika verzija se učitava tek kada posetilac klikne fotografiju.
 
 Original ostaje u CMS-u. Automatske verzije su u zasebnom izlaznom direktorijumu `dist/media/gallery`, ne uređuju se ručno i ne pojavljuju se među CMS originalima. Zamena fotografije automatski daje novu adresu obrađenim verzijama. Obrada se obavlja nakon uspešnog uploada i ne menja ograničenje veličine uploada u Pages CMS-u.
+
+## Direktan izbor povezanih sadržaja
+
+U Projekti → Related contents sve četiri liste pretražuju stvarne kolekcije.
+Unose uređujte u **Blog objave**, **Video — unosi**, **Galerije — unosi** i
+**Bibliography — unosi**. Naslovi stranica i uvodni tekst ostaju u odeljcima
+**Video — stranica i redosled**, **Galerije — stranica i redosled** i
+**Bibliography — stranica i redosled**. Tamo se redosled unosa menja prevlačenjem;
+na sajtu se i dalje prvo sortira po datumu, odnosno godini.
+
+Video, galerije i bibliografske jedinice čuvaju se pojedinačno u odgovarajućim
+kolekcijama. Stari zajednički JSON fajlovi sadrže samo podešavanja i redosled,
+bez druge kopije sadržaja. Ranije javne adrese i prilozi su sačuvani.

@@ -1,6 +1,7 @@
 """CMS relationship choices, stable bibliography targets and reciprocal gallery links."""
 import copy,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
+from content_archives import ARCHIVES,read_archive,write_archive
 from related_content import bibliography_id,load_catalog,selected_content
 ROOT=Path(__file__).resolve().parent
 
@@ -36,8 +37,10 @@ class RelatedContent(unittest.TestCase):
  def test_cms_roundtrip_and_generated_links(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
-   def read(name):return json.loads((root/'content/cms'/name).read_text())
-   def save(name,data):(root/'content/cms'/name).write_text(json.dumps(data))
+   def read(name):return read_archive(root,Path(name).stem) if Path(name).stem in ARCHIVES else json.loads((root/'content/cms'/name).read_text())
+   def save(name,data):
+    if Path(name).stem in ARCHIVES:write_archive(root,Path(name).stem,data)
+    else:(root/'content/cms'/name).write_text(json.dumps(data))
    # This test covers relationships; production image rendering is verified by the full build.
    gallery=read('gallery.json')
    for album in gallery['albums']:album['photos']=[]
@@ -53,11 +56,9 @@ class RelatedContent(unittest.TestCase):
    catalog=load_catalog(root)
    for field in schema[-1]['fields']:
     self.assertTrue(field['options']['multiple'])
-    if field['name']=='journal':
-     self.assertEqual(field['type'],'reference');self.assertEqual(field['options']['collection'],'posts')
-     self.assertEqual(field['options']['value'],'{fields.path}');self.assertEqual(field['options']['label'],'{fields.title}')
-     self.assertNotIn('values',field['options'])
-    else:self.assertEqual({x['name'] for x in field['options']['values']},set(catalog[field['name']]))
+    self.assertEqual(field['type'],'reference');self.assertNotIn('values',field['options'])
+    target={'journal':'posts','videos':'video_entries','galleries':'gallery_entries','bibliography':'bibliography_entries'}[field['name']]
+    self.assertEqual(field['options']['collection'],target)
    def build():subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    build();detail=(root/'dist'/project['path'].strip('/')/'index.html').read_text()
    self.assertIn('<h2>Related content:</h2>',detail)

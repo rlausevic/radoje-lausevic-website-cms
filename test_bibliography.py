@@ -1,18 +1,22 @@
 """Verify bibliography fields, grouped ordering, attachments and shared archive search."""
 import json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
+from content_archives import ARCHIVES,read_archive,write_archive
 ROOT=Path(__file__).resolve().parent
 class BibliographyCMS(unittest.TestCase):
  def test_ordered_sources_and_bibliography(self):
   with tempfile.TemporaryDirectory() as directory:
    root=Path(directory)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
-   def read(name):return json.loads((root/'content/cms'/name).read_text())
-   def save(name,data):(root/'content/cms'/name).write_text(json.dumps(data))
+   def read(name):return read_archive(root,Path(name).stem) if Path(name).stem in ARCHIVES else json.loads((root/'content/cms'/name).read_text())
+   def save(name,data):
+    if Path(name).stem in ARCHIVES:write_archive(root,Path(name).stem,data)
+    else:(root/'content/cms'/name).write_text(json.dumps(data))
    exp=read('experience.json');projects=read('projects.json')
    exp['items'].reverse();projects['items'].reverse()
    exp['items'][0]['order']=999;projects['items'][0]['order']=999
    save('experience.json',exp);save('projects.json',projects)
    b=read('bibliography.json');template=dict(b['items'][0],files=['/assets/'+next((root/'dist/assets').glob('*.pdf')).name])
+   template.pop('id',None)
    b['items']=[dict(template,category='Articles',title='Second article'),dict(template,category='Publications',title='First publication',url='https://example.org/publication',files=[template['files'][0]],description='<p>Searchable detailed bibliography</p>'),dict(template,category='Articles',title='First article')]
    save('bibliography.json',b)
    result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
@@ -23,8 +27,9 @@ class BibliographyCMS(unittest.TestCase):
    for name,modelname in [('experience.json','experience_entries'),('projects.json','project_entries')]:
     code="import json;from pathlib import Path;from cms_data import load_cms;m=load_cms(Path('.'),json.loads(Path('content/site.json').read_text()));print(json.dumps([(p['title'],p['order']) for p in m['"+modelname+"']]))"
     data=json.loads(subprocess.check_output([sys.executable,'-c',code],cwd=root,text=True));expected=read(name)['items']
-    self.assertEqual([p[0] for p in data],[p['title'] for p in expected]);self.assertEqual([p[1] for p in data],list(range(1,len(expected)+1)))
-   home=(root/'dist/index.html').read_text();self.assertLess(home.index(projects['items'][0]['title']),home.index(projects['items'][1]['title']))
+    if name=='projects.json':expected=sorted(expected,key=lambda p:p.get('assignment_end') or '',reverse=True)
+    self.assertEqual([p[0] for p in data],[p['title'] for p in expected]);self.assertEqual(sorted(p[1] for p in data),list(range(1,len(expected)+1)))
+   home=(root/'dist/index.html').read_text();selected=sorted(projects['items'],key=lambda p:p.get('assignment_end') or '',reverse=True)[:2];self.assertLess(home.index(selected[0]['title']),home.index(selected[1]['title']))
    # Shuffled years, equal-year ties, ranges and undated entries must work in every category.
    cases=[('Undated', ''),('Older', '1990-1991'),('Newest A', '2026'),('Range', '1993/94'),('Newest B', 2026),('Recent', '2022'),('Unknown', 'n.d.')]
    categories=['Publications','Articles','Conferences','Invited lectures']

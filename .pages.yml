@@ -569,7 +569,7 @@
               "name": "related_content",
               "label": "Related contents",
               "type": "object",
-              "description": "Izaberite povezane sadržaje. Journal / Blog objave se biraju direktno iz kolekcije, uz pretragu po naslovu, kratkom opisu i oblasti. Za ostale liste nove opcije stižu automatski nakon čuvanja sadržaja; ponovo učitajte CMS. Povezane galerije automatski dobijaju link ka projektu.",
+              "description": "Izaberite povezane sadržaje direktno iz kolekcija Journal, Video, Galerije i Bibliography. Moguć je izbor više stavki uz pretragu. Povezane galerije automatski dobijaju link ka projektu.",
               "fields": [
                 {
                   "name": "journal",
@@ -587,559 +587,41 @@
                 {
                   "name": "videos",
                   "label": "Video",
-                  "type": "select",
+                  "type": "reference",
                   "options": {
+                    "collection": "video_entries",
                     "multiple": true,
-                    "values": [
-                      {
-                        "name": "/video/6ef4a26fa47a6dc4",
-                        "label": "Transboundary Water Resources"
-                      },
-                      {
-                        "name": "/video/c5e88600e99dea71",
-                        "label": "Water Security"
-                      },
-                      {
-                        "name": "/video/46ea151d1b47480f",
-                        "label": "Water Growth and Stability"
-                      },
-                      {
-                        "name": "/video/ab60d466b00962f2",
-                        "label": "LINK Ukraine"
-                      },
-                      {
-                        "name": "/video/8d87697c75603e73",
-                        "label": "WGS Initiative"
-                      },
-                      {
-                        "name": "/video/3dd96e353e856fae",
-                        "label": "WATER SUM"
-                      },
-                      {
-                        "name": "/video/467bbd4bd7040e95",
-                        "label": "Aquarium Boka – Exploring Adriatic Marine Biodiversity"
-                      },
-                      {
-                        "name": "/video/a4b2612e5fc41823",
-                        "label": "EXChAngE Blue Pass – Discover Cross-Border Aquatic Heritage"
-                      },
-                      {
-                        "name": "/video/c013c799cabc193b",
-                        "label": "Blue Growth Cluster – Connecting Montenegro’s Blue Economy"
-                      },
-                      {
-                        "name": "/video/66dceceb9453f9f6",
-                        "label": "AdriBioPro2026 – Conference Highlights"
-                      }
-                    ],
-                    "placeholder": "Izaberite povezane sadržaje"
-                  }
+                    "search": "title,excerpt,topic",
+                    "value": "{fields.link}",
+                    "label": "{fields.title}"
+                  },
+                  "description": "Pretražite i izaberite jednu ili više stavki direktno iz kolekcije."
                 },
                 {
                   "name": "galleries",
                   "label": "Galleries / Galerije",
-                  "type": "select",
+                  "type": "reference",
                   "options": {
+                    "collection": "gallery_entries",
                     "multiple": true,
-                    "values": [
-                      {
-                        "name": "/gallery/flowers-of-my-mediterranean-garden",
-                        "label": "Flowers of My Mediterranean Garden"
-                      },
-                      {
-                        "name": "/gallery/water-sum",
-                        "label": "WATER SUM – Conferences, Workshops and Fieldwork"
-                      },
-                      {
-                        "name": "/gallery/tour",
-                        "label": "TOUR – Conferences, Workshops and Fieldwork"
-                      },
-                      {
-                        "name": "/gallery/aza4ice",
-                        "label": "AZA4ICE – Stakeholder Engagement and Circular Aquaculture"
-                      },
-                      {
-                        "name": "/gallery/secap-fruska-gora",
-                        "label": "SECAP – Energy and Climate Planning Workshop, Fruška Gora"
-                      },
-                      {
-                        "name": "/gallery/blueconnect",
-                        "label": "BLUECONNECT – Connecting People for Blue Growth"
-                      }
-                    ],
-                    "placeholder": "Izaberite povezane sadržaje"
-                  }
+                    "search": "title,summary,topic",
+                    "value": "{fields.path}",
+                    "label": "{fields.title}"
+                  },
+                  "description": "Pretražite i izaberite jednu ili više stavki direktno iz kolekcije."
                 },
                 {
                   "name": "bibliography",
                   "label": "Bibliography",
-                  "type": "select",
+                  "type": "reference",
                   "options": {
+                    "collection": "bibliography_entries",
                     "multiple": true,
-                    "values": [
-                      {
-                        "name": "a7965e5d-492f-5d94-ac0e-f7c476e364aa",
-                        "label": "Evaluating status of European eel (Anguilla anguilla) in Skadar Lake (2018)"
-                      },
-                      {
-                        "name": "773262fb-5a4b-5de1-8b88-2905185d1cec",
-                        "label": "Rare and Endangered Fish Species in The Adriatic Sea and Proposal for Marine Flagship Species (2018)"
-                      },
-                      {
-                        "name": "ec42f2fd-da0f-574a-8d81-7ffb5b267d7f",
-                        "label": "Preventing marine pollution (2018)"
-                      },
-                      {
-                        "name": "1b861d33-0611-5c33-8220-7d57081554f6",
-                        "label": "Idejni koncept Boka akvarijuma (2018)"
-                      },
-                      {
-                        "name": "15545312-ce00-5f72-bd6c-cdd6fb7d45f3",
-                        "label": "From Knowledge to Competencies. Designing an eLearning course (2017)"
-                      },
-                      {
-                        "name": "4f8654eb-a6d8-5f00-beda-48fa5dec4b3c",
-                        "label": "Water, Growth and Stability (2016)"
-                      },
-                      {
-                        "name": "71959f0e-b529-5a2b-9a00-7e3ad4609a46",
-                        "label": "Local Water Security Action Planning Manual (2016)"
-                      },
-                      {
-                        "name": "e53ed15a-cafc-57b7-a09e-f7d845762f3f",
-                        "label": "Local Water Security Assessment for Improved Water Management in Selected Countries in the Middle East and North Africa (MENA) Region (2016)"
-                      },
-                      {
-                        "name": "a7de2df0-1a67-5a33-afbf-916069f36cca",
-                        "label": "Reporting for Sustainability (2013)"
-                      },
-                      {
-                        "name": "c7af7df7-777d-50cc-be6e-bbbe41fc8403",
-                        "label": "Climate change and biodiversity in South-East Europe - impacts and action (2008)"
-                      },
-                      {
-                        "name": "9b78238a-e431-5b2c-a4b7-82d5db68d7c6",
-                        "label": "Green Pack in Serbia (2003)"
-                      },
-                      {
-                        "name": "a58e9c1c-62bf-57df-adb8-08ed2d7ec9ed",
-                        "label": "LEAP in Yugoslavia - Contemporary practice (2002)"
-                      },
-                      {
-                        "name": "4ddacf1f-78c4-5624-8a07-63598ff9d419",
-                        "label": "Manual to guide Yugoslav Export Credit Agency in conducting the environmental screening and review of the enterprise applying for YECA's facilities (2002)"
-                      },
-                      {
-                        "name": "8e123a60-9205-5d2e-9df3-22305cbdb460",
-                        "label": "Environmental analysis of FR Yugoslavia (2001)"
-                      },
-                      {
-                        "name": "d8cf0116-7f6c-5167-9d4b-245f67f9da23",
-                        "label": "They kill rivers, don't they? (2000)"
-                      },
-                      {
-                        "name": "f9c964c7-cf1b-555d-b9be-7a84bf9b5d5f",
-                        "label": "Four river banks - living world and natural heritage of Danube watershed in Yugoslavia (1999)"
-                      },
-                      {
-                        "name": "314a5662-3f09-5e0a-9e3b-394c3bbfa301",
-                        "label": "War in Europe - Ecocide (1999)"
-                      },
-                      {
-                        "name": "7f06b4ef-4c7e-58ab-b0f3-0aced28e8da3",
-                        "label": "Planktonic diatoms (Bacillariophyta) in Vlasinsko Jezero reservoir - Ecological study (1995)"
-                      },
-                      {
-                        "name": "f4ad9792-4265-5438-a471-926eebe15a26",
-                        "label": "Floristical and ecological study of algae of Samokovska stream (1992)"
-                      },
-                      {
-                        "name": "9daad8b7-c287-55b9-ac8f-a2c76371573b",
-                        "label": "Organization of the Center for Adriatic Biodiversity Conservation: “Aquarium Boka” in Institute of Marine Biology, Kotor, Montenegro (2021)"
-                      },
-                      {
-                        "name": "02e94859-f475-534b-b9e8-51cf4df7ac98",
-                        "label": "Stakeholder analysis for supporting local water security planning in the Kingdom of Jordan (2017)"
-                      },
-                      {
-                        "name": "db540248-91c0-53f9-86aa-a547c4878161",
-                        "label": "Participatory planning for biodiversity protection in Western Balkans (2015)"
-                      },
-                      {
-                        "name": "7ce9e7cb-595c-5cf7-8905-d3e25c1f570a",
-                        "label": "Stakeholders participation in waste water management - case study MENA (2015)"
-                      },
-                      {
-                        "name": "2a7a3451-617a-5a4e-807a-ef2f0ff32c24",
-                        "label": "Stakeholders involvement in biodiversity action planning (2015)"
-                      },
-                      {
-                        "name": "0a073352-19b6-5ad4-89b1-55e08fbb8d93",
-                        "label": "Environmental Management and Information System for Surface Lignite Mining (2015)"
-                      },
-                      {
-                        "name": "35682d11-78ff-5814-aeb8-263a2df4a00a",
-                        "label": "Waste Management – A Serbian Perspective (2005)"
-                      },
-                      {
-                        "name": "c0fbb8ef-8227-5f35-8192-00a2a384d867",
-                        "label": "Green Pack – Multimedia Educational Pack for Environmental Education (2003)"
-                      },
-                      {
-                        "name": "7137323f-8d8c-5a0f-bf49-11f982993c0d",
-                        "label": "Rivers (2000)"
-                      },
-                      {
-                        "name": "325503ec-75b8-560f-87d6-770793b28db5",
-                        "label": "Food chains and food webs (2000)"
-                      },
-                      {
-                        "name": "6874274c-ef19-58fb-a699-63c46697f991",
-                        "label": "Pollution of rivers (2000)"
-                      },
-                      {
-                        "name": "155f79e4-f0f7-5768-b48f-acf09544ec88",
-                        "label": "Toxic pollution (2000)"
-                      },
-                      {
-                        "name": "86d2c2c0-f24a-59ca-95ee-69ef34efe010",
-                        "label": "What has happened to the river Tisa? (2000)"
-                      },
-                      {
-                        "name": "063acc8c-c1f9-5dc2-a0f6-e7feaecfab9e",
-                        "label": "Benthic algae in the River Vlasina (Serbia, Yugoslavia) (1999)"
-                      },
-                      {
-                        "name": "56aaa36e-db28-5ed1-b7b8-2db415c140a5",
-                        "label": "Running waters (1999)"
-                      },
-                      {
-                        "name": "a9a54b80-f2ff-58e0-a5ad-2da39a85b092",
-                        "label": "Living world of Danube and River Sava in Yugoslavia (1999)"
-                      },
-                      {
-                        "name": "632293dc-87fc-52d2-a406-c8464c0e80b1",
-                        "label": "General environmental effects of NATO aggression (1999)"
-                      },
-                      {
-                        "name": "dd49dc7a-82f5-531b-97a8-c506cd02580a",
-                        "label": "Destruction of FRY (1999)"
-                      },
-                      {
-                        "name": "f614fc8d-ab9a-5d23-a2ed-ed4e1cb27c6a",
-                        "label": "Radioactivity (1999)"
-                      },
-                      {
-                        "name": "1afa9b29-5049-5bf2-8443-27759de543ef",
-                        "label": "More on air pollution (1999)"
-                      },
-                      {
-                        "name": "624af5e5-6f00-5481-a8bc-5548300ff4d2",
-                        "label": "Water pollution (1999)"
-                      },
-                      {
-                        "name": "b65420ab-0b3d-5df4-8b95-2f3c7861439d",
-                        "label": "Soil pollution (1999)"
-                      },
-                      {
-                        "name": "c7ebd85a-4d19-55e0-a72c-8496fbd0e69f",
-                        "label": "Chronic effects on human health (1999)"
-                      },
-                      {
-                        "name": "fd8298ee-726a-56db-8642-62c04f8a1b75",
-                        "label": "Anticipated future risks (1999)"
-                      },
-                      {
-                        "name": "b4f7a72f-42c1-5545-bb7a-45179619a844",
-                        "label": "The significance of green algae in Vlasinsko Jezero reservoir phytoplankton (Serbia) (1998)"
-                      },
-                      {
-                        "name": "02b41db9-a60e-5c50-8efe-c7705d5bd8f0",
-                        "label": "Phytoplankton in River Sava near Belgrade (1998)"
-                      },
-                      {
-                        "name": "3989a6aa-bf69-5429-b90d-3f0dea796f56",
-                        "label": "Vlasinsko Jezero reservoir (1997)"
-                      },
-                      {
-                        "name": "a74b604d-c47e-59d7-8057-1c935b7dbb45",
-                        "label": "Floristical composition of algae in Vlasinsko Jezero reservoir (1997)"
-                      },
-                      {
-                        "name": "a88b4b43-7518-5fe5-8c33-7b0c16c139be",
-                        "label": "Seasonal and spatial dynamics of phytoplankton in Vlasinsko Jezero reservoir (1997)"
-                      },
-                      {
-                        "name": "488dc819-40e6-5f5d-bc6e-24339a0482e5",
-                        "label": "Benthic algal communities in the River Samokovska (Kopaonik Mts, Yugoslavia) (1997)"
-                      },
-                      {
-                        "name": "b12fb74e-d907-5880-9349-e814dbaa1da1",
-                        "label": "A check-list of the algae of the Koponik mountain (1996)"
-                      },
-                      {
-                        "name": "42e93fca-9f50-5608-89b1-c712c94fc903",
-                        "label": "Contribution of Nedeljko Košanin (1874-1934) to the algological investigations in Serbia (1995)"
-                      },
-                      {
-                        "name": "ebfd5792-620d-5fb6-87b9-b8ea369c7848",
-                        "label": "Diversity of freshwater algae in Yugoslavia with a review of species of international importance (1995)"
-                      },
-                      {
-                        "name": "fad1e5d1-7337-5ca9-b509-effa12ab7807",
-                        "label": "Changes in phytoplankton community structure and dynamics as indicators of reservoir eutrophication (1995)"
-                      },
-                      {
-                        "name": "a55f6838-35f5-5e2c-afd1-b7df3936420b",
-                        "label": "Algological and saprobiological analysis of river Beljevina (Yugoslavia) (1995)"
-                      },
-                      {
-                        "name": "0a85f716-c7d3-5a83-b301-095501c2969b",
-                        "label": "Planktonic diatoms in the Vlasinsko Jezero reservoir (1994)"
-                      },
-                      {
-                        "name": "c6ffca3e-c7c9-5c6c-886c-e10e33c18920",
-                        "label": "Floristical composition of algae of Borsko Jezero lake (Yugoslavia) (1993/94)"
-                      },
-                      {
-                        "name": "f9d4b0b0-0e04-58e4-9565-2c337fda00b4",
-                        "label": "Floristical composition of algae in the Samokovska stream (1993)"
-                      },
-                      {
-                        "name": "3c462931-873d-5e7d-9e20-d17cbe62e4e1",
-                        "label": "Desmids of Vlasinsko Lake - from Peat Bog to Lake (1991)"
-                      },
-                      {
-                        "name": "ad94663b-5976-508c-9e82-16926f273a9c",
-                        "label": "Floristical study of algae of Vlasinsko Lake (Yugoslavia) (1991)"
-                      },
-                      {
-                        "name": "a8cb8641-9e3c-5346-a94d-1dd1f7368c71",
-                        "label": "Saprobiological analysis of the river Lugomir by use of algae as bioindicators (1990-1991)"
-                      },
-                      {
-                        "name": "fdf9db57-905a-5cc8-883e-c3a90499fc1f",
-                        "label": "A new diatoms in Serbian flora (1988)"
-                      },
-                      {
-                        "name": "d0a77c39-2da3-512e-8c20-d821d2cc6a58",
-                        "label": "Ecological game - Everything for man and from man, possibility of application in the teaching of ecology (1986)"
-                      },
-                      {
-                        "name": "a453341d-d00a-5920-a6a3-962810ec0663",
-                        "label": "From digital collaboration to demonstration centres: BLUECONNECTʼs integrated infrastructure for sustainable Adriatic aquaculture and fisheries (2026)"
-                      },
-                      {
-                        "name": "c9b9ca65-ee1d-5b35-890f-920142313f4f",
-                        "label": "From skills gaps to cross-border learning: The SKILLS project approach to blue economy education in the south Adriatic (2026)"
-                      },
-                      {
-                        "name": "446999f5-f8af-568c-8655-c30456dc8a00",
-                        "label": "From blue skills to blue growth: The Adriatic blue growth cluster digital platform for cross-border knowledge, learning and innovation (2026)"
-                      },
-                      {
-                        "name": "a2879b87-bae2-5588-8789-d91066aa49ae",
-                        "label": "Regionalising BlueComp for the South Adriatic: An evidence based qualification framework for blue-economy skills (2026)"
-                      },
-                      {
-                        "name": "82fc023a-0cdd-58a2-a720-f3a887c3dac3",
-                        "label": "Bridging blue economy skills gaps in the south Adriatic: Comparative evidence from Montenegro, Albania and Italy (2026)"
-                      },
-                      {
-                        "name": "6c86e830-3d95-5cdd-a247-d1b5e8b65c9a",
-                        "label": "Blue Pass Guide (2022)"
-                      },
-                      {
-                        "name": "e35acc7e-99a7-560e-83a7-0c3af768dfa7",
-                        "label": "Exploring cross-border aquatic biodiversity (2022)"
-                      },
-                      {
-                        "name": "3e0ead01-c244-5063-a01c-704bb9f4fe49",
-                        "label": "Preventing marine pollution (2019)"
-                      },
-                      {
-                        "name": "b06d420a-d687-5998-9372-9584f5b000ce",
-                        "label": "Rare and Endangered Fish Species in the Adriatic Sea and Proposal for Marine Flagship Species (2019)"
-                      },
-                      {
-                        "name": "cbc2659f-acd5-544f-a1b7-296651d95510",
-                        "label": "Center for Adriatic Biodiversity Conservation (2019)"
-                      },
-                      {
-                        "name": "eeb6a6e5-9c38-52ae-882f-f95185307243",
-                        "label": "John Dory, Zeus faber, as suggested flagship species of aquarium Boka (2018)"
-                      },
-                      {
-                        "name": "fa6ac2a7-a8c1-569d-bd23-ec1b05f60779",
-                        "label": "Planning local water security in changing climate – MENA case study (2018)"
-                      },
-                      {
-                        "name": "4d9066b1-fd97-57d9-9fe5-2fe07d9db1f6",
-                        "label": "Local planning for biodiversity protection in the Western Balkans (2014)"
-                      },
-                      {
-                        "name": "f7f80f5d-6ef0-5629-8e2f-972c2a268b26",
-                        "label": "Waste Flow Monitoring in Serbia [Monitoring tokova otpada u Srbiji] (2014)"
-                      },
-                      {
-                        "name": "7c2a5f3a-d441-56d0-b30b-f7877b44edcd",
-                        "label": "Environmental management and information system - TEAMS in Serbia (2013)"
-                      },
-                      {
-                        "name": "c7485043-da09-555d-a53b-4c38ab3311b7",
-                        "label": "Environmental Management and Information System - TEAMS PCS in Kolubara, Serbia (2013)"
-                      },
-                      {
-                        "name": "4a68d26e-100e-55b4-a725-1edb0000c65c",
-                        "label": "Biodefense: vision of a broader cooperation (2008)"
-                      },
-                      {
-                        "name": "9c077680-ee20-52ae-b21d-b075f46cb035",
-                        "label": "Consequences of NATO aggression on the environment with chronic effects on human health (Posledice NATO agresije na životnu sredinu sa hroničnim efektima na ljudsko zdravlje) (2000)"
-                      },
-                      {
-                        "name": "0d81597c-7d47-591b-9925-8f670049936f",
-                        "label": "An overview of negative consequences of NATO aggression on water resources of Yugoslavia (2000)"
-                      },
-                      {
-                        "name": "ff774429-98c7-50b7-b791-4dfced4920dd",
-                        "label": "Diversity of net diatom plankton of Vlasinsko Jezero reservoir (Serbia, Yugoslavia) (1999)"
-                      },
-                      {
-                        "name": "87a72b2b-1af0-571e-b899-53055f8c2da1",
-                        "label": "Spring diatom bloom in Gračanka reservoir (Serbia, Yugoslavia) (1998)"
-                      },
-                      {
-                        "name": "9f40a3c4-a3c3-5e44-b8bb-80a60e4cac8a",
-                        "label": "Phytoplankton and saprobiological analysis of river Sava (Serbia, Yugoslavia) (1998)"
-                      },
-                      {
-                        "name": "0f92f377-19a5-5822-856a-397424510d4f",
-                        "label": "Diatoms - bioindicators of water quality (1996)"
-                      },
-                      {
-                        "name": "6bc409bb-a690-503b-b48d-142d82a3d11e",
-                        "label": "A review of methods for Chlorophyll a detection in samples of phytoplankton and periphyton (1996)"
-                      },
-                      {
-                        "name": "2f9d287b-5ed1-52d2-bdca-cfc477898b77",
-                        "label": "Quantitative analysis of phytoplankton of the Sava river (1996)"
-                      },
-                      {
-                        "name": "1ada298c-a54d-5a33-a2a0-29295f00cea5",
-                        "label": "Oscillatoria rubescens (D. C.) Gom. (Cyanophyta) in Uvac reservoir (1996)"
-                      },
-                      {
-                        "name": "96e54e43-658f-5dc8-9663-0ae86454bf07",
-                        "label": "Methodology of hydrobiological investigations of reservoir water quality (1996)"
-                      },
-                      {
-                        "name": "6801ba24-d59b-5b93-85a7-787eeb586c0d",
-                        "label": "Diversity of diatom flora in Vlasinsko Jezero reservoir (Serbia, Yugoslavia) (1996)"
-                      },
-                      {
-                        "name": "9c3b8519-8b0c-564e-8df7-5856db077c4b",
-                        "label": "Diatom flora in Vlasinsko Jezero reservoir (South East Serbia, Yugoslavia) (1995)"
-                      },
-                      {
-                        "name": "cd38cab3-182a-5541-b59b-4b222fee2699",
-                        "label": "Micro algae and Saprobiological analysis of Vlasinsko lake (1994)"
-                      },
-                      {
-                        "name": "2b8032b3-abe3-5ae4-8c3c-360fd3368bd2",
-                        "label": "Primary production of Vlasinsko lake (1994)"
-                      },
-                      {
-                        "name": "49769338-85cb-51c4-b26c-387d8f6c0946",
-                        "label": "Micro-phytobenthos and Saprobiological analysis of the tributaries of Vlasinsko lake (1994)"
-                      },
-                      {
-                        "name": "06fb5949-6acf-5e8d-82ed-d05e758d897f",
-                        "label": "Saprobiological analysis of the Borsko lake (1994)"
-                      },
-                      {
-                        "name": "49b90941-63b1-5349-a696-e472113380b7",
-                        "label": "Summer 1990 aspect of the algae of the Borsko lake (1994)"
-                      },
-                      {
-                        "name": "462f9dce-8662-5e40-96da-ff1441f399a0",
-                        "label": "Autecological characteristics of diatoms (Bacillariophyta) in Serbian freshwaters. 1. Planktonic diatoms in the accumulation of Vlasinsko lake” (1994)"
-                      },
-                      {
-                        "name": "39b57f2a-45c5-5aa1-8d83-c39c06feb169",
-                        "label": "Taxonomy and autecology of genus Closterium Nitz. ex Ralfs 1848 (Chlorophyta) in Vlasinsko Jezero reservoir (1993)"
-                      },
-                      {
-                        "name": "da3a26a2-81c7-5580-9235-b94c2e1fd717",
-                        "label": "Taxonomy and autecology of genus Cosmarium Corda 1834 (Chlorophyta) in Vlasinsko Jezero reservoir (1993)"
-                      },
-                      {
-                        "name": "41edfaea-f67f-55ec-a179-3882ce60e47f",
-                        "label": "Saprobiological analysis of the Samokovska stream (1992)"
-                      },
-                      {
-                        "name": "4de41e81-a85b-51db-8672-0b452832b8dd",
-                        "label": "Long term successive changes, production and seasonal dynamics of Vlasinsko Jezero lake phytoplankton (1992)"
-                      },
-                      {
-                        "name": "d166b9f9-adc0-5156-8de7-1c285adc4089",
-                        "label": "Biological monitoring of rivers in the Danube basin in Serbia (1992)"
-                      },
-                      {
-                        "name": "62c784c1-9d41-58c0-8de2-56e87fa0087e",
-                        "label": "Nedeljko Košanin's contribution to algological investigations in Serbia (1991)"
-                      },
-                      {
-                        "name": "c9d7de32-db9b-5485-82ed-810603d94bad",
-                        "label": "Saprobiological analysis of the Samokovska stream in summer 1988 (1990)"
-                      },
-                      {
-                        "name": "a824f939-a7de-5198-a1a3-d7c85d7bea6d",
-                        "label": "The algae of Vlasinsko lake - from peat-bog to lake (1990)"
-                      },
-                      {
-                        "name": "33827799-a897-5b92-8711-1aa5d812c712",
-                        "label": "The Desmids of Vlasina lake - from peat-bog to lake (1990)"
-                      },
-                      {
-                        "name": "10144a86-3ec5-5691-8b20-ff66fe220057",
-                        "label": "Floristical composition of algae and Saprobiological analysis of the River Lugomir by use of algae as bioindicators (1986)"
-                      },
-                      {
-                        "name": "e145bda9-8ea4-53d0-a45c-2c18affd93e6",
-                        "label": "TEAMS SR Platform for Nanoscale Monitoring Data Management and Reporting (2013)"
-                      },
-                      {
-                        "name": "24994f80-9b96-526c-908d-61ac7516db4a",
-                        "label": "Ecological consequences of bombing in Yugoslavia (Ekološke posledice bombardovanja u Jugoslaviji) (2000)"
-                      },
-                      {
-                        "name": "8c88724f-4162-5f8f-8719-5d5a002f743e",
-                        "label": "Ecological consequences of NATO bombing of Yugoslavia (2000)"
-                      },
-                      {
-                        "name": "2a1857dd-0e6f-567d-808b-f77e8134a2e7",
-                        "label": "Ecological consequences of NATO bombing of Yugoslavia (2000)"
-                      },
-                      {
-                        "name": "56c88955-01e6-56f4-8a56-72e9e9e542ec",
-                        "label": "Ecological consequences of NATO aggression on Yugoslavia (Ekološke posledice NATO agresije na Jugoslaviju) (1999)"
-                      },
-                      {
-                        "name": "1fcc0d57-3205-5a87-a2a7-c5c9cae602da",
-                        "label": "Environmental consequences of NATO bombing of Yugoslavia (1999)"
-                      },
-                      {
-                        "name": "84f8d54e-336f-5993-a899-0c340efabcd8",
-                        "label": "Blue Pass EXChAngE - Project publication (2022)"
-                      },
-                      {
-                        "name": "fa039730-a85c-55e3-9a73-747b41ec940e",
-                        "label": "TEAMS success - Setting up the Environmental Management Center in Serbia (2013)"
-                      }
-                    ],
-                    "placeholder": "Izaberite povezane sadržaje"
-                  }
+                    "search": "title,authors,year,reference",
+                    "value": "{fields.id}",
+                    "label": "{fields.title} ({fields.year})"
+                  },
+                  "description": "Pretražite i izaberite jednu ili više stavki direktno iz kolekcije."
                 }
               ]
             }
@@ -1276,7 +758,7 @@
     },
     {
       "name": "bibliography",
-      "label": "Bibliography",
+      "label": "Bibliography — stranica i redosled",
       "type": "file",
       "path": "content/cms/bibliography.json",
       "format": "json",
@@ -1336,8 +818,8 @@
           "default": "Na sajtu su stavke grupisane po kategorijama i sortirane po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled ove liste. Kod raspona koristi se prva godina; stavke bez godine su na kraju."
         },
         {
-          "name": "items",
-          "label": false,
+          "name": "entry_order",
+          "label": "Redosled unosa",
           "type": "object",
           "list": {
             "collapsible": {
@@ -1345,95 +827,25 @@
               "summary": "{index}. {title}"
             }
           },
+          "description": "Prevucite stavke da promenite redosled. Video i Galerije se sortiraju po datumu, Bibliography po godini; ovaj redosled važi za iste datume/godine. Sadržaj uređujte u odeljku Bibliography — unosi.",
           "fields": [
             {
-              "name": "category",
-              "label": "Category",
-              "type": "select",
-              "required": true,
-              "default": "Publications",
+              "name": "item",
+              "label": "Unos",
+              "type": "reference",
               "options": {
-                "values": [
-                  "Publications",
-                  "Articles",
-                  "Conferences",
-                  "Invited lectures"
-                ]
+                "collection": "bibliography_entries",
+                "value": "{fields.id}",
+                "label": "{fields.title}",
+                "search": "title",
+                "multiple": false
               }
             },
             {
               "name": "title",
-              "label": "Title",
               "type": "string",
-              "required": true
-            },
-            {
-              "name": "year",
-              "label": "Year",
-              "type": "string",
-              "description": "Godina ili izvorni raspon godina, npr. 2026, 1993/94 ili 1990-1991."
-            },
-            {
-              "name": "url",
-              "label": "URL",
-              "type": "string",
-              "description": "Puna HTTP/HTTPS adresa. Ostavite prazno ako nema onlajn izvora."
-            },
-            {
-              "name": "reference",
-              "label": "Reference",
-              "type": "text",
-              "description": "Integralna referenca iz izvornog dokumenta. Sačuvajte je u celosti."
-            },
-            {
-              "name": "authors",
-              "label": "Authors",
-              "type": "text"
-            },
-            {
-              "name": "venue",
-              "label": "Journal/Conference name",
-              "type": "string"
-            },
-            {
-              "name": "volume_issue_pages",
-              "label": "Volume, Issue, Pages",
-              "type": "string"
-            },
-            {
-              "name": "publisher",
-              "label": "Publisher",
-              "type": "string"
-            },
-            {
-              "name": "description",
-              "label": "Description",
-              "type": "rich-text",
-              "options": {
-                "format": "html",
-                "media": "images"
-              }
-            },
-            {
-              "name": "files",
-              "label": "Add file",
-              "type": "file",
-              "options": {
-                "media": "documents",
-                "multiple": true,
-                "unique": true
-              },
-              "description": "Kliknite Upload da otpremite dokument ili Select da izaberete postojeći. Upload ostaje dostupan i kada je fajl već dodat."
-            },
-            {
-              "name": "id",
-              "label": "Trajna oznaka bibliografske jedinice",
-              "type": "uuid",
               "hidden": true,
-              "options": {
-                "editable": false,
-                "generate": false
-              }
+              "readonly": true
             }
           ]
         }
@@ -1444,8 +856,127 @@
       }
     },
     {
+      "name": "bibliography_entries",
+      "label": "Bibliography — unosi",
+      "type": "collection",
+      "path": "content/cms/bibliography_entries",
+      "format": "json",
+      "filename": "{id}.json",
+      "fields": [
+        {
+          "name": "category",
+          "label": "Category",
+          "type": "select",
+          "required": true,
+          "default": "Publications",
+          "options": {
+            "values": [
+              "Publications",
+              "Articles",
+              "Conferences",
+              "Invited lectures"
+            ]
+          }
+        },
+        {
+          "name": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "year",
+          "label": "Year",
+          "type": "string",
+          "description": "Godina ili izvorni raspon godina, npr. 2026, 1993/94 ili 1990-1991."
+        },
+        {
+          "name": "url",
+          "label": "URL",
+          "type": "string",
+          "description": "Puna HTTP/HTTPS adresa. Ostavite prazno ako nema onlajn izvora."
+        },
+        {
+          "name": "reference",
+          "label": "Reference",
+          "type": "text",
+          "description": "Integralna referenca iz izvornog dokumenta. Sačuvajte je u celosti."
+        },
+        {
+          "name": "authors",
+          "label": "Authors",
+          "type": "text"
+        },
+        {
+          "name": "venue",
+          "label": "Journal/Conference name",
+          "type": "string"
+        },
+        {
+          "name": "volume_issue_pages",
+          "label": "Volume, Issue, Pages",
+          "type": "string"
+        },
+        {
+          "name": "publisher",
+          "label": "Publisher",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "Description",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        },
+        {
+          "name": "files",
+          "label": "Add file",
+          "type": "file",
+          "options": {
+            "media": "documents",
+            "multiple": true,
+            "unique": true
+          },
+          "description": "Kliknite Upload da otpremite dokument ili Select da izaberete postojeći. Upload ostaje dostupan i kada je fajl već dodat."
+        },
+        {
+          "name": "id",
+          "label": "Trajna oznaka bibliografske jedinice",
+          "type": "uuid",
+          "hidden": true,
+          "options": {
+            "editable": false,
+            "generate": false
+          }
+        }
+      ],
+      "view": {
+        "primary": "title",
+        "fields": [
+          "title",
+          "year"
+        ],
+        "search": [
+          "title",
+          "authors",
+          "year"
+        ],
+        "sort": [
+          "title",
+          "year"
+        ],
+        "default": {
+          "sort": "year",
+          "order": "desc"
+        }
+      }
+    },
+    {
       "name": "gallery",
-      "label": "Galerija",
+      "label": "Galerije — stranica i redosled",
       "type": "file",
       "path": "content/cms/gallery.json",
       "format": "json",
@@ -1466,8 +997,98 @@
           "type": "text"
         },
         {
-          "name": "albums",
-          "label": "Galerije",
+          "name": "entry_order",
+          "label": "Redosled unosa",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{index}. {title}"
+            }
+          },
+          "description": "Prevucite stavke da promenite redosled. Video i Galerije se sortiraju po datumu, Bibliography po godini; ovaj redosled važi za iste datume/godine. Sadržaj uređujte u odeljku Galerije — unosi.",
+          "fields": [
+            {
+              "name": "item",
+              "label": "Unos",
+              "type": "reference",
+              "options": {
+                "collection": "gallery_entries",
+                "value": "{fields.path}",
+                "label": "{fields.title}",
+                "search": "title",
+                "multiple": false
+              }
+            },
+            {
+              "name": "title",
+              "type": "string",
+              "hidden": true,
+              "readonly": true
+            }
+          ]
+        }
+      ],
+      "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "gallery_entries",
+      "label": "Galerije — unosi",
+      "type": "collection",
+      "path": "content/cms/gallery_entries",
+      "format": "json",
+      "filename": "{title}.json",
+      "fields": [
+        {
+          "name": "path",
+          "label": "Adresa galerije: /gallery/naziv-galerije",
+          "type": "string",
+          "required": true,
+          "pattern": {
+            "regex": "^/gallery/[A-Za-z0-9_-]+$",
+            "message": "Primer: /gallery/moj-album. Sačuvajte istu adresu pri kasnijim izmenama."
+          }
+        },
+        {
+          "name": "title",
+          "label": "Naslov galerije",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "date",
+          "label": "Datum galerije",
+          "type": "date",
+          "required": true,
+          "options": {
+            "format": "yyyy-MM-dd"
+          }
+        },
+        {
+          "name": "topic",
+          "label": "Oblast",
+          "type": "select",
+          "options": {
+            "values": [
+              "Leadership and Governance",
+              "Project and Programme Management",
+              "Blue Economy and Skills Development",
+              "Environmental Research and Policy",
+              "Climate and Energy Planning"
+            ]
+          }
+        },
+        {
+          "name": "summary",
+          "label": "Kratak opis za Insights",
+          "type": "text"
+        },
+        {
+          "name": "photos",
+          "label": "Fotografije",
           "type": "object",
           "list": {
             "collapsible": {
@@ -1477,97 +1098,55 @@
           },
           "fields": [
             {
-              "name": "path",
-              "label": "Adresa galerije: /gallery/naziv-galerije",
-              "type": "string",
-              "required": true,
-              "pattern": {
-                "regex": "^/gallery/[A-Za-z0-9_-]+$",
-                "message": "Primer: /gallery/moj-album. Sačuvajte istu adresu pri kasnijim izmenama."
-              }
-            },
-            {
               "name": "title",
-              "label": "Naslov galerije",
+              "label": "Naslov fotografije",
               "type": "string",
               "required": true
             },
             {
-              "name": "date",
-              "label": "Datum galerije",
-              "type": "date",
-              "required": true,
+              "name": "image",
+              "label": "Fotografija",
+              "description": "Unesite jednu fotografiju, preporučeno do 1920 px po dužoj strani. Pri objavljivanju se automatski prave manje verzije za mrežu i veća za uvećanje; original ostaje sačuvan.",
+              "type": "image",
               "options": {
-                "format": "yyyy-MM-dd"
-              }
-            },
-            {
-              "name": "topic",
-              "label": "Oblast",
-              "type": "select",
-              "options": {
-                "values": [
-                  "Leadership and Governance",
-                  "Project and Programme Management",
-                  "Blue Economy and Skills Development",
-                  "Environmental Research and Policy",
-                  "Climate and Energy Planning"
-                ]
-              }
-            },
-            {
-              "name": "summary",
-              "label": "Kratak opis za Insights",
-              "type": "text"
-            },
-            {
-              "name": "photos",
-              "label": "Fotografije",
-              "type": "object",
-              "list": {
-                "collapsible": {
-                  "collapsed": true,
-                  "summary": "{title}"
-                }
-              },
-              "fields": [
-                {
-                  "name": "title",
-                  "label": "Naslov fotografije",
-                  "type": "string",
-                  "required": true
-                },
-                {
-                  "name": "image",
-                  "label": "Fotografija",
-                  "description": "Unesite jednu fotografiju, preporučeno do 1920 px po dužoj strani. Pri objavljivanju se automatski prave manje verzije za mrežu i veća za uvećanje; original ostaje sačuvan.",
-                  "type": "image",
-                  "options": {
-                    "media": "images"
-                  }
-                },
-                {
-                  "name": "caption",
-                  "label": "Opis fotografije",
-                  "type": "text"
-                }
-              ]
-            },
-            {
-              "name": "body",
-              "label": "Tekst galerije",
-              "type": "rich-text",
-              "options": {
-                "format": "html",
                 "media": "images"
               }
+            },
+            {
+              "name": "caption",
+              "label": "Opis fotografije",
+              "type": "text"
             }
           ]
+        },
+        {
+          "name": "body",
+          "label": "Tekst galerije",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
         }
       ],
-      "operations": {
-        "delete": false,
-        "rename": false
+      "view": {
+        "primary": "title",
+        "fields": [
+          "title",
+          "date"
+        ],
+        "search": [
+          "title",
+          "topic"
+        ],
+        "sort": [
+          "title",
+          "date"
+        ],
+        "default": {
+          "sort": "date",
+          "order": "desc"
+        }
       }
     },
     {
@@ -1699,7 +1278,7 @@
     },
     {
       "name": "videos",
-      "label": "Video",
+      "label": "Video — stranica i redosled",
       "type": "file",
       "path": "content/cms/videos.json",
       "format": "json",
@@ -1720,86 +1299,133 @@
           "type": "text"
         },
         {
-          "name": "items",
-          "label": "Video arhiva",
+          "name": "entry_order",
+          "label": "Redosled unosa",
           "type": "object",
           "list": {
             "collapsible": {
               "collapsed": true,
-              "summary": "{title}"
+              "summary": "{index}. {title}"
             }
           },
+          "description": "Prevucite stavke da promenite redosled. Video i Galerije se sortiraju po datumu, Bibliography po godini; ovaj redosled važi za iste datume/godine. Sadržaj uređujte u odeljku Video — unosi.",
           "fields": [
             {
-              "name": "cover",
-              "label": "Cover photo",
-              "type": "image",
+              "name": "item",
+              "label": "Unos",
+              "type": "reference",
               "options": {
-                "media": "images"
-              },
-              "description": "Izaberite postojeću fotografiju ili otpremite svoju. Ako je polje prazno, prikazuje se podrazumevana naslovna fotografija sajta."
-            },
-            {
-              "name": "date",
-              "label": "Datum",
-              "type": "date",
-              "required": true,
-              "options": {
-                "format": "yyyy-MM-dd"
+                "collection": "video_entries",
+                "value": "{fields.link}",
+                "label": "{fields.title}",
+                "search": "title",
+                "multiple": false
               }
             },
             {
               "name": "title",
-              "label": "Naslov",
               "type": "string",
-              "required": true
-            },
-            {
-              "name": "topic",
-              "label": "Oblast",
-              "type": "select",
-              "options": {
-                "values": [
-                  "Leadership and Governance",
-                  "Project and Programme Management",
-                  "Blue Economy and Skills Development",
-                  "Environmental Research and Policy",
-                  "Climate and Energy Planning"
-                ]
-              }
-            },
-            {
-              "name": "excerpt",
-              "label": "Kratak sadržaj za naslovnu stranu",
-              "type": "text",
-              "required": true
-            },
-            {
-              "name": "body",
-              "label": "Detaljan sadržaj",
-              "type": "rich-text",
-              "options": {
-                "format": "html",
-                "media": "images"
-              }
-            },
-            {
-              "name": "link",
-              "label": "Link",
-              "type": "string",
-              "required": true,
-              "pattern": {
-                "regex": "^https://[^\\s]+$",
-                "message": "Unesite punu HTTPS adresu videa (YouTube, Vimeo ili drugi servis)."
-              }
+              "hidden": true,
+              "readonly": true
             }
-          ],
-          "description": "Video zapisi se na sajtu automatski prikazuju prema polju Datum, od najnovijeg ka najstarijem. Za isti datum važi redosled ove liste. Posle izmena kliknite Save."
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
+      }
+    },
+    {
+      "name": "video_entries",
+      "label": "Video — unosi",
+      "type": "collection",
+      "path": "content/cms/video_entries",
+      "format": "json",
+      "filename": "{title}.json",
+      "fields": [
+        {
+          "name": "cover",
+          "label": "Cover photo",
+          "type": "image",
+          "options": {
+            "media": "images"
+          },
+          "description": "Izaberite postojeću fotografiju ili otpremite svoju. Ako je polje prazno, prikazuje se podrazumevana naslovna fotografija sajta."
+        },
+        {
+          "name": "date",
+          "label": "Datum",
+          "type": "date",
+          "required": true,
+          "options": {
+            "format": "yyyy-MM-dd"
+          }
+        },
+        {
+          "name": "title",
+          "label": "Naslov",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "topic",
+          "label": "Oblast",
+          "type": "select",
+          "options": {
+            "values": [
+              "Leadership and Governance",
+              "Project and Programme Management",
+              "Blue Economy and Skills Development",
+              "Environmental Research and Policy",
+              "Climate and Energy Planning"
+            ]
+          }
+        },
+        {
+          "name": "excerpt",
+          "label": "Kratak sadržaj za naslovnu stranu",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "body",
+          "label": "Detaljan sadržaj",
+          "type": "rich-text",
+          "options": {
+            "format": "html",
+            "media": "images"
+          }
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "type": "string",
+          "required": true,
+          "pattern": {
+            "regex": "^https://[^\\s]+$",
+            "message": "Unesite punu HTTPS adresu videa (YouTube, Vimeo ili drugi servis)."
+          }
+        }
+      ],
+      "view": {
+        "primary": "title",
+        "fields": [
+          "title",
+          "date"
+        ],
+        "search": [
+          "title",
+          "topic"
+        ],
+        "sort": [
+          "title",
+          "date"
+        ],
+        "default": {
+          "sort": "date",
+          "order": "desc"
+        }
       }
     }
   ]

@@ -7,7 +7,7 @@ def sync():
  values=list(dict.fromkeys(item['title'].strip() for item in about.get('services',[]) if item.get('title','').strip()))
  path=ROOT/'.pages.yml';config=json.loads(path.read_text())
  schemas={item['name']:item for item in config['content']}
- for name,list_name in [('projects','items'),('videos','items'),('gallery','albums'),('posts',None)]:
+ for name,list_name in [('projects','items'),('video_entries',None),('gallery_entries',None),('posts',None)]:
   fields=schemas[name]['fields']
   if list_name:fields=next(field for field in fields if field['name']==list_name)['fields']
   next(field for field in fields if field['name']=='topic')['options']['values']=values

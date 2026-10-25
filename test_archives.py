@@ -1,14 +1,17 @@
 """Gallery migration, shared previews, CMS topic synchronization and combined filters."""
 import copy,html,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
+from content_archives import ARCHIVES,read_archive,write_archive
 from html.parser import HTMLParser
 ROOT=Path(__file__).resolve().parent
 class Archives(unittest.TestCase):
  def test_gallery_roundtrip_and_topics(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
-   def read(p):return json.loads((root/p).read_text())
-   def save(p,d):(root/p).write_text(json.dumps(d))
+   def read(p):return read_archive(root,Path(p).stem) if Path(p).stem in ARCHIVES else json.loads((root/p).read_text())
+   def save(p,d):
+    if Path(p).stem in ARCHIVES:write_archive(root,Path(p).stem,d)
+    else:(root/p).write_text(json.dumps(d))
    data=read('content/cms/gallery.json');original=copy.deepcopy(data['albums'][0]);data['albums']=[original];data.update(label='Archive CMS label',heading='Archive CMS heading',lead='Archive CMS introduction')
    for index,date in enumerate(['2026-01-01','2026-03-01','2026-02-01']):
     album=copy.deepcopy(original);album.update(path=f'/gallery/roundtrip-{index}',title=f'Gallery {index}',date=date,topic='Shared topic',summary=f'Preview {index}',body=f'<p>Full gallery {index} hiddenneedle</p>');data['albums'].append(album)
@@ -18,7 +21,7 @@ class Archives(unittest.TestCase):
    videos=read('content/cms/videos.json');videos['items'][0]['topic']='Shared topic';save('content/cms/videos.json',videos)
    subprocess.run([sys.executable,'scripts/sync_expertise.py'],cwd=root,check=True,capture_output=True)
    schema=read('.pages.yml');by={x['name']:x for x in schema['content']}
-   for name,list_name in [('projects','items'),('posts',None),('videos','items'),('gallery','albums')]:
+   for name,list_name in [('projects','items'),('posts',None),('video_entries',None),('gallery_entries',None)]:
     fields=by[name]['fields']
     if list_name:fields=next(x for x in fields if x['name']==list_name)['fields']
     self.assertIn('Shared topic',next(x for x in fields if x['name']=='topic')['options']['values'])

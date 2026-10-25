@@ -1,13 +1,16 @@
 """Check shared CMS sources, archive routes, search and removable video content."""
 import json,re,hashlib,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
+from content_archives import ARCHIVES,read_archive,write_archive
 ROOT=Path(__file__).resolve().parent
 class VideoCMS(unittest.TestCase):
  def test_shared_sources_and_video_routes(self):
   with tempfile.TemporaryDirectory() as directory:
    root=Path(directory)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
-   def read(name):return json.loads((root/'content/cms'/name).read_text())
-   def save(name,data):(root/'content/cms'/name).write_text(json.dumps(data))
+   def read(name):return read_archive(root,Path(name).stem) if Path(name).stem in ARCHIVES else json.loads((root/'content/cms'/name).read_text())
+   def save(name,data):
+    if Path(name).stem in ARCHIVES:write_archive(root,Path(name).stem,data)
+    else:(root/'content/cms'/name).write_text(json.dumps(data))
    def build(ok=True):
     result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
     self.assertEqual(result.returncode==0,ok,result.stderr)
