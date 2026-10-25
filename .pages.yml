@@ -569,94 +569,20 @@
               "name": "related_content",
               "label": "Related contents",
               "type": "object",
-              "description": "Izaberite povezane sadržaje. Journal i Blog objave su ista kolekcija. Moguć je izbor više stavki u svakoj listi. Liste se osvežavaju automatski nakon čuvanja sadržaja; ponovo učitajte CMS za nove opcije. Povezane galerije automatski dobijaju link ka projektu.",
+              "description": "Izaberite povezane sadržaje. Journal / Blog objave se biraju direktno iz kolekcije, uz pretragu po naslovu, kratkom opisu i oblasti. Za ostale liste nove opcije stižu automatski nakon čuvanja sadržaja; ponovo učitajte CMS. Povezane galerije automatski dobijaju link ka projektu.",
               "fields": [
                 {
                   "name": "journal",
                   "label": "Journal / Blog objave",
-                  "type": "select",
+                  "type": "reference",
                   "options": {
+                    "collection": "posts",
                     "multiple": true,
-                    "values": [
-                      {
-                        "name": "/post/2018/04/14/small-danube",
-                        "label": "Small Danube"
-                      },
-                      {
-                        "name": "/post/2019/04/07/hidden-beauty-of-the-sea",
-                        "label": "Hidden Beauty of the Sea"
-                      },
-                      {
-                        "name": "/post/2019/04/08/the-next-step-in-the-adriatic-biodiversity-conservation",
-                        "label": "The Next Step in the Adriatic Biodiversity Conservation"
-                      },
-                      {
-                        "name": "/post/2019/04/11/adribiopro2019",
-                        "label": "AdriBioPro2019"
-                      },
-                      {
-                        "name": "/post/2019/10/18/fighting-invasive-alien-species-in-sava-river-basin",
-                        "label": "Fighting Invasive Alien Species in Sava River Basin"
-                      },
-                      {
-                        "name": "/post/2019/10/18/project-impact-planning",
-                        "label": "Project Impact Planning"
-                      },
-                      {
-                        "name": "/post/monteaqua-project-extended",
-                        "label": "MonteAqua project extended"
-                      },
-                      {
-                        "name": "/post/european-eel",
-                        "label": "European Eel suggested as a flagship species of the Skadar lake"
-                      },
-                      {
-                        "name": "/post/cooperation-with-sarajevo-protected-areas",
-                        "label": "Cooperation with Sarajevo protected areas"
-                      },
-                      {
-                        "name": "/post/coordinating-exchange-project-team",
-                        "label": "Coordinating EXChAngE project team"
-                      },
-                      {
-                        "name": "/post/capitalization-project-italy-albania-montenegro",
-                        "label": "Capitalization project Italy-Albania-Montenegro"
-                      },
-                      {
-                        "name": "/post/blue-growth-digital-collab-platform",
-                        "label": "Blue Growth Digital Collaboration Platform"
-                      },
-                      {
-                        "name": "/post/BLUECONNECT-Final-Conference",
-                        "label": "BLUECONNECT Final Conference"
-                      },
-                      {
-                        "name": "/post/SKILLS-AdriBioPro2026",
-                        "label": "Connecting Skills, Learning and Blue Growth"
-                      },
-                      {
-                        "name": "/post/Eastern-Adriatic-Fishery",
-                        "label": "Eastern Adriatic Fishery"
-                      },
-                      {
-                        "name": "/post/50th-YRS",
-                        "label": "Fifty Years of Young Researchers of Serbia: Connecting Generations"
-                      },
-                      {
-                        "name": "/post/20260923HLP",
-                        "label": "From skills gaps to blue growth"
-                      },
-                      {
-                        "name": "/post/HELM-Kotor-Summer-School",
-                        "label": "HELM Kotor Summer School"
-                      },
-                      {
-                        "name": "/post/Sustainable-Future-of-Adriatic-Fisheries",
-                        "label": "Sustainable Future of Adriatic Fisheries"
-                      }
-                    ],
-                    "placeholder": "Izaberite povezane sadržaje"
-                  }
+                    "search": "title,excerpt,topic",
+                    "value": "{fields.path}",
+                    "label": "{fields.title}"
+                  },
+                  "description": "Pretražite i izaberite jednu ili više stavki direktno iz Blog objava. Naslovi se preuzimaju iz kolekcije, bez statičke liste. Veza na sajtu prikazuje se kada je izabrana objava objavljena."
                 },
                 {
                   "name": "videos",

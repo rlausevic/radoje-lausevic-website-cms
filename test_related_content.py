@@ -14,6 +14,25 @@ class RelatedContent(unittest.TestCase):
   related={'related_content':{'journal':['/post/valid','/post/missing','/post/valid']}}
   self.assertEqual(selected_content(related,catalog),[('journal','Journal',[catalog['journal']['/post/valid']])])
   self.assertEqual(selected_content({},catalog),[])
+ def test_new_journal_entries_need_no_static_choice_sync(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
+   config=root/'.pages.yml';schema=json.loads(config.read_text())
+   fields=next(item for item in schema['content'] if item['name']=='projects')['fields'][0]['fields'][-1]['fields']
+   journal=next(item for item in fields if item['name']=='journal');bibliography=copy.deepcopy(next(item for item in fields if item['name']=='bibliography'))
+   self.assertEqual(journal['type'],'reference');self.assertTrue(journal['options']['multiple'])
+   post={'title':'New CMS journal entry','path':'/post/new-cms-entry','published':True,'date':'2026-10-25','excerpt':'New preview','body':'<p>New body</p>'}
+   source=root/'content/cms/posts/new-cms-entry.json';source.write_text(json.dumps(post))
+   project={'related_content':{'journal':[post['path']]}}
+   self.assertEqual(selected_content(project,load_catalog(root))[0][2][0]['title'],post['title'])
+   post['title']='Updated CMS entry title';source.write_text(json.dumps(post))
+   self.assertEqual(selected_content(project,load_catalog(root))[0][2][0]['title'],post['title'])
+   subprocess.run([sys.executable,'scripts/sync_related_content.py'],cwd=root,check=True,capture_output=True)
+   fields=next(item for item in json.loads(config.read_text())['content'] if item['name']=='projects')['fields'][0]['fields'][-1]['fields']
+   self.assertEqual(next(item for item in fields if item['name']=='journal'),journal)
+   self.assertEqual(next(item for item in fields if item['name']=='bibliography'),bibliography)
+   post['published']=False;source.write_text(json.dumps(post))
+   self.assertEqual(selected_content(project,load_catalog(root)),[])
  def test_cms_roundtrip_and_generated_links(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
@@ -34,7 +53,11 @@ class RelatedContent(unittest.TestCase):
    catalog=load_catalog(root)
    for field in schema[-1]['fields']:
     self.assertTrue(field['options']['multiple'])
-    self.assertEqual({x['name'] for x in field['options']['values']},set(catalog[field['name']]))
+    if field['name']=='journal':
+     self.assertEqual(field['type'],'reference');self.assertEqual(field['options']['collection'],'posts')
+     self.assertEqual(field['options']['value'],'{fields.path}');self.assertEqual(field['options']['label'],'{fields.title}')
+     self.assertNotIn('values',field['options'])
+    else:self.assertEqual({x['name'] for x in field['options']['values']},set(catalog[field['name']]))
    def build():subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    build();detail=(root/'dist'/project['path'].strip('/')/'index.html').read_text()
    self.assertIn('<h2>Related content:</h2>',detail)

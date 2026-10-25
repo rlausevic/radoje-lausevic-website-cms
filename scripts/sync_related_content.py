@@ -15,6 +15,8 @@ def sync(root=ROOT):
  fields=next(item for item in projects['fields'][0]['fields'] if item['name']=='related_content')['fields']
  for key,_ in GROUPS:
   field=next(item for item in fields if item['name']==key)
+  # Native references query their collection directly; never overwrite them with static choices.
+  if field['type']!='select':continue
   field['options']['values']=[{'name':value,'label':item['title']} for value,item in catalog[key].items()]
  text=json.dumps(config,ensure_ascii=False,indent=2)+'\n'
  if path.read_text()!=text:path.write_text(text)
