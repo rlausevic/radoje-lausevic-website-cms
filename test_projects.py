@@ -1,7 +1,7 @@
 """Project archive, details, CMS topic synchronization and shared search."""
 import json,re,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
-from cms_data import project_sort_date
+from cms_data import project_sort_date,project_sort_key
 ROOT=Path(__file__).resolve().parent
 class ProjectArchive(unittest.TestCase):
  def test_assignment_dates_and_detail_sections(self):
@@ -42,7 +42,8 @@ class ProjectArchive(unittest.TestCase):
    data['items'][0].update(assignment_start='2027-01-01',assignment_end='2099-01-01',assignment_ongoing=True)
    data['items'][1].update(assignment_end='2029-01-01')
    data['items'][2].update(assignment_end='2027-01-01')
-   expected=[data['items'][i]['path'] for i in [1,0,2]+list(range(3,len(data['items'])))]
+   data['items'][3].update(assignment_ongoing=True,assignment_end='2099-01-01')
+   expected=[data['items'][i]['path'] for i in [0,3,1,2]+list(range(4,len(data['items'])))]
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text();home=(root/'dist/index.html').read_text()
    self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),expected)
@@ -101,7 +102,7 @@ class ProjectArchive(unittest.TestCase):
    data['items'].reverse();source.write_text(json.dumps(data))
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text()
-   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in sorted(data['items'],key=project_sort_date,reverse=True)])
+   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in sorted(data['items'],key=project_sort_key,reverse=True)])
    for p in data['items']:
     detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
     self.assertIn(p['title'],detail)

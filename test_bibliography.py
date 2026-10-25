@@ -1,4 +1,4 @@
-from cms_data import project_sort_date
+from cms_data import project_sort_key
 """Verify bibliography fields, grouped ordering, attachments and shared archive search."""
 import json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
@@ -28,9 +28,9 @@ class BibliographyCMS(unittest.TestCase):
    for name,modelname in [('experience.json','experience_entries'),('projects.json','project_entries')]:
     code="import json;from pathlib import Path;from cms_data import load_cms;m=load_cms(Path('.'),json.loads(Path('content/site.json').read_text()));print(json.dumps([(p['title'],p['order']) for p in m['"+modelname+"']]))"
     data=json.loads(subprocess.check_output([sys.executable,'-c',code],cwd=root,text=True));expected=read(name)['items']
-    if name=='projects.json':expected=sorted(expected,key=project_sort_date,reverse=True)
+    if name=='projects.json':expected=sorted(expected,key=project_sort_key,reverse=True)
     self.assertEqual([p[0] for p in data],[p['title'] for p in expected]);self.assertEqual(sorted(p[1] for p in data),list(range(1,len(expected)+1)))
-   home=(root/'dist/index.html').read_text();selected=sorted(projects['items'],key=project_sort_date,reverse=True)[:2];self.assertLess(home.index(selected[0]['title']),home.index(selected[1]['title']))
+   home=(root/'dist/index.html').read_text();selected=sorted(projects['items'],key=project_sort_key,reverse=True)[:2];self.assertLess(home.index(selected[0]['title']),home.index(selected[1]['title']))
    # Shuffled years, equal-year ties, ranges and undated entries must work in every category.
    cases=[('Undated', ''),('Older', '1990-1991'),('Newest A', '2026'),('Range', '1993/94'),('Newest B', 2026),('Recent', '2022'),('Unknown', 'n.d.')]
    categories=['Publications','Articles','Conferences','Invited lectures']

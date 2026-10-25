@@ -541,7 +541,7 @@
               "summary": "{index}. {title}"
             }
           },
-          "description": "CMS i sajt automatski sortiraju projekte od najnovijeg ka najstarijem: po Završetku angažmana, a kada je Angažman u toku uključen, po Početku angažmana. Za jednake datume ostaje postojeći redosled; unosi bez odgovarajućeg datuma su na kraju. Posle Save sačekajte automatsku obradu i ponovo učitajte CMS.",
+          "description": "CMS i sajt prvo prikazuju projekte sa uključenim Angažman u toku, sortirane po Početku angažmana od najnovijeg ka najstarijem. Zatim slede završeni angažmani, sortirani po Završetku angažmana od najnovijeg ka najstarijem. Za jednake datume ostaje postojeći redosled; unosi bez odgovarajućeg datuma su na kraju svoje grupe. Posle Save sačekajte automatsku obradu i ponovo učitajte CMS.",
           "fields": [
             {
               "name": "title",
@@ -623,7 +623,7 @@
               "label": "Angažman u toku",
               "type": "boolean",
               "default": false,
-              "description": "Na sajtu se prikazuje present. Odnosi se na Vaš angažman, a ne na trajanje projekta."
+              "description": "Uključeni angažmani imaju prednost na svim listama i sortiraju se po Početku angažmana. Na sajtu se prikazuje present. Odnosi se na Vaš angažman, a ne na trajanje projekta."
             },
             {
               "name": "project_start",

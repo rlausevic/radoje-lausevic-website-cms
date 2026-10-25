@@ -62,6 +62,9 @@ def project_sort_date(project):
  field='assignment_start' if project.get('assignment_ongoing') is True else 'assignment_end'
  try:return datetime.date.fromisoformat(project.get(field) or '')
  except (ValueError,TypeError):return datetime.date.min
+def project_sort_key(project):
+ """Ongoing assignments first, then newest relevant date within each group."""
+ return (project.get('assignment_ongoing') is True,project_sort_date(project))
 def load_cms(root,original):
  base=root/'content/cms'
  if not base.exists():return original
@@ -80,7 +83,7 @@ def load_cms(root,original):
   project['period']=project_period(project)
   project['project_duration']=project_period(project,'project')
  # Stable sorting preserves CMS order for equal or missing effective dates.
- model['project_entries'].sort(key=project_sort_date,reverse=True)
+ model['project_entries'].sort(key=project_sort_key,reverse=True)
  network=read('network.json');blocks=[]
  for p in model['experience_entries']:
   blocks +=[text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]
