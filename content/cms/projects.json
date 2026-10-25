@@ -38,6 +38,10 @@
       "related_content": {
         "galleries": [
           "/gallery/blueconnect"
+        ],
+        "bibliography": [
+          "a453341d-d00a-5920-a6a3-962810ec0663",
+          "446999f5-f8af-568c-8655-c30456dc8a00"
         ]
       }
     },
@@ -148,12 +152,12 @@
       "contribution": "<p><strong>Contracted by</strong>: <a href=\"https://www.ucg.ac.me/ibm\">Institute of Marine Biology</a>, University of Montenegro<br><strong>Geographical coverage</strong>: Croatia, Bosnia and Herzegovina, Montenegro</p><p>Provided project management services within <a href=\"https://aquariumboka.ucg.ac.me/en/exchange/\">EXChAngE</a>, an EU co-funded project focused on exploring cross-border aquatic biodiversity in Croatia, Bosnia and Herzegovina, and Montenegro.</p><p>My responsibilities included:</p><ul><li><p>Project management: Managing project implementation in accordance with the Project Subsidy Contract and Partnership Agreement, ensuring alignment with contractual obligations and agreed implementation arrangements.</p></li><li><p>Procurement support: Preparing technical requirements and specifications for procurement documentation and tender dossiers supporting project activities.</p></li><li><p>Project reporting: Preparing project reports documenting implementation progress and activities in line with contractual reporting requirements.</p></li></ul><p></p>",
       "results": "<ul><li><p><a href=\"https://www.radojelausevic.com/assets/Blue-Pass-EXChAngE-Publication-WEB_resampled.pdf\"><strong>Blue Pass tourism product</strong></a><strong>:</strong> Connected four thematic routes—Dubrovnik and its Aquarium, Kotor and Aquarium Boka, Hutovo Blato Aqua Path, and Mostar Aqua Path—through a joint discount voucher available at project partners’ sales points.</p></li><li><p><strong>Digital visitor services:</strong> Delivered the Blue Pass–EXChAngE mobile guide for <a href=\"https://play.google.com/store/apps/details?id=com.bildstudio.exchange&amp;hl=en\">Android </a>and iOS, covering natural and cultural heritage, thematic routes and transport information, complemented by audio guides and interactive kiosk video content.</p></li><li><p><a href=\"https://aquariumboka.ucg.ac.me/\"><strong>Aquarium Boka</strong></a><strong> improvements:</strong> Renovated the interior, installed two new aquarium tanks and improved water conditioning and conditions for marine organisms. Added an open-air exhibition with two exhibition booths and two LED information totems.</p></li><li><p><a href=\"https://imp-du.com/akvarij/\"><strong>Dubrovnik Aquarium</strong></a><strong> modernisation:</strong> Replaced three large floor tanks with modern upright acrylic tanks, improving the visitor attraction.</p></li><li><p><strong>Hutovo Blato Aqua Path:</strong> Established the visitor route through vegetation clearance and waterway deepening, enabling tours during seasonal low-water conditions.</p></li><li><p><strong>Mostar cultural heritage:</strong> Completed the renovation and adaptation of the City Bath “Banja” and opened the building to visitors.</p></li><li><p><strong>Tourism and heritage skills:</strong> Trained more than 100 certified tourist guides through a programme addressing Adriatic Sea, Hutovo Blato and Neretva River biodiversity, alongside English-language tour presentation and project webmaster training.</p></li><li><p><strong>Branding and promotional materials:</strong> Developed the Blue Pass visual identity and graphic standards, and produced promotional packs comprising eco bags, notebooks, eco pens and bookmarks.</p></li><li><p><strong>Communication and outreach:</strong> Delivered dedicated project webpages, social media campaigns, a project publication, promotional videos, and opening and closing events to promote aquatic biodiversity and the cross-border tourism offer.</p></li><li><p><strong>Long-term sustainability planning:</strong> Prepared the EXChAngE Action Plan for 2023–2027, defining actions, resources and implementation timelines to sustain the Blue Pass beyond project completion.</p></li></ul><p></p>",
       "related_content": {
+        "journal": [
+          "/post/coordinating-exchange-project-team"
+        ],
         "videos": [
           "/video/467bbd4bd7040e95",
           "/video/a4b2612e5fc41823"
-        ],
-        "journal": [
-          "/post/coordinating-exchange-project-team"
         ]
       }
     },
@@ -241,13 +245,13 @@
       "contribution": "<p><strong>Organization:</strong> Regional Environmental Center for Central and Eastern Europe (REC)<br><strong>Geographical coverage:</strong> Middle East and North Africa — Tunisia, Egypt and Jordan</p><p>As Project Director, I provided overall quality control across WATER SUM’s water resources management and local water security components. Supervised project management and team members, monitored implementation against project objectives and planned activities, and coordinated information flow between the project team, beneficiaries and donor. Served as REC’s designated contact for Sida under Grant Agreement Contribution ID 52030234, supporting communication concerning project implementation and the donor relationship.</p>",
       "results": "<ul><li><p>Provided overall quality control across the WATER POrT and WaSe components, supporting coordinated implementation of regional water management and local water security activities.</p></li><li><p>Supervised project management and team members and monitored progress against project objectives and planned activities.</p></li><li><p>Coordinated information exchange between the project team and beneficiaries, supporting cooperation across Tunisia, Egypt and Jordan.</p></li><li><p>Prepared Background document for the REC’s World Café 2016 at WWW2016 (R. Laušević, V. Vassilev, A. Kis, F. Abdulla and S. Milutinović (2016): Water, Growth and Stability. Regional Environmental Center, Szentendre, Hungary).</p></li><li><p>Prepared Local Water Security Action Planning Manual (R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović (2016): Local Water Security Action Planning Manual. ISBN 978-963-9638-69-3. Regional Environmental Center, Szentendre, Hungary).</p></li><li><p>Served as REC’s designated contact for Sida under Grant Agreement Contribution ID 52030234, maintaining management-level communication between the implementing organisation and donor.</p></li></ul><p></p>",
       "related_content": {
-        "galleries": [
-          "/gallery/water-sum"
-        ],
         "videos": [
           "/video/6ef4a26fa47a6dc4",
           "/video/c5e88600e99dea71",
           "/video/3dd96e353e856fae"
+        ],
+        "galleries": [
+          "/gallery/water-sum"
         ]
       }
     },
