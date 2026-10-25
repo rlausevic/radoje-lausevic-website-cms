@@ -541,7 +541,7 @@
               "summary": "{index}. {title}"
             }
           },
-          "description": "Na sajtu se projekti prikazuju prema polju Završetak angažmana, od najnovijeg ka najstarijem. Za jednake datume važi redosled ove liste; projekti bez datuma su na kraju. Posle izmena kliknite Save.",
+          "description": "CMS i sajt automatski sortiraju projekte od najnovijeg ka najstarijem: po Završetku angažmana, a kada je Angažman u toku uključen, po Početku angažmana. Za jednake datume ostaje postojeći redosled; unosi bez odgovarajućeg datuma su na kraju. Posle Save sačekajte automatsku obradu i ponovo učitajte CMS.",
           "fields": [
             {
               "name": "title",
@@ -606,7 +606,8 @@
               "type": "date",
               "options": {
                 "format": "yyyy-MM-dd"
-              }
+              },
+              "description": "Za tekući angažman ovo je datum za sortiranje u CMS-u, na Projects i u Selected work."
             },
             {
               "name": "assignment_end",
@@ -615,7 +616,7 @@
               "options": {
                 "format": "yyyy-MM-dd"
               },
-              "description": "Određuje redosled projekata na sajtu i u Selected work, od najnovijeg ka najstarijem. Ako je Angažman u toku uključen, umesto datuma u tekstu se prikazuje present, ali se datum i dalje koristi za sortiranje."
+              "description": "Za završen angažman određuje redosled u CMS-u, na Projects i u Selected work. Za tekući angažman ovaj datum se ne koristi za sortiranje."
             },
             {
               "name": "assignment_ongoing",

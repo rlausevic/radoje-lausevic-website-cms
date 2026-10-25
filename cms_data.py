@@ -58,8 +58,9 @@ def project_period(project,prefix='assignment'):
  if prefix=='assignment' and not any(k in project for k in ['assignment_start','assignment_end','assignment_ongoing']):return project.get('period') or ''
  return ''
 def project_sort_date(project):
- """Sort by the stored assignment end, including ongoing assignments."""
- try:return datetime.date.fromisoformat(project.get('assignment_end') or '')
+ """Use assignment start for ongoing work, otherwise assignment end."""
+ field='assignment_start' if project.get('assignment_ongoing') is True else 'assignment_end'
+ try:return datetime.date.fromisoformat(project.get(field) or '')
  except (ValueError,TypeError):return datetime.date.min
 def load_cms(root,original):
  base=root/'content/cms'
@@ -78,7 +79,7 @@ def load_cms(root,original):
  for project in model['project_entries']:
   project['period']=project_period(project)
   project['project_duration']=project_period(project,'project')
- # Stable sorting preserves CMS order for equal or missing end dates.
+ # Stable sorting preserves CMS order for equal or missing effective dates.
  model['project_entries'].sort(key=project_sort_date,reverse=True)
  network=read('network.json');blocks=[]
  for p in model['experience_entries']:

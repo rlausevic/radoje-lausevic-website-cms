@@ -2,7 +2,7 @@ name: Sync CMS content choices
 on:
   push:
     branches: [main]
-    paths: ['content/cms/**', .pages.yml, scripts/sync_expertise.py, scripts/sync_related_content.py, related_content.py, content_archives.py, content_paths.py]
+    paths: ['content/cms/**', .pages.yml, scripts/sync_expertise.py, scripts/sync_related_content.py, related_content.py, content_archives.py, content_paths.py, cms_data.py, scripts/sync_projects.py]
   workflow_dispatch:
 permissions:
   contents: write
@@ -21,12 +21,13 @@ jobs:
           python-version: '3.x'
       - run: python scripts/sync_expertise.py
       - run: python scripts/sync_related_content.py
+      - run: python scripts/sync_projects.py
       - name: Save updated dropdown choices
         run: |
           if ! git diff --quiet -- .pages.yml content/cms; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add .pages.yml content/cms
-            git commit -m 'Sync CMS choices and stable bibliography identifiers'
+            git commit -m 'Sync CMS choices, stable identifiers and project order'
             git push origin HEAD:main
           fi
