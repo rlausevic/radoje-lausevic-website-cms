@@ -2,7 +2,8 @@
 """Build the portable static website, including optimized gallery images."""
 from pathlib import Path
 from html.parser import HTMLParser
-import json,html,re,urllib.parse,datetime,hashlib,shutil
+import json,html,re,urllib.parse,datetime,hashlib,shutil,time
+BUILD_STARTED=time.perf_counter()
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms
 from content_archives import read_archive
@@ -157,6 +158,7 @@ for item in gallery_archive.get('albums') or []:
  album['content']=__import__('cms_data').body(album.get('body') or '')
  galleries.append(album)
 galleries.sort(key=lambda album:(album['date_iso'],album['title']),reverse=True)
+gallery_images.prepare_many(photo['image'] for album in galleries for photo in album['photos'])
 if (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
 def gallery_card(album,heading='h3'):
  cover=album['photos'][0]['image'] if album['photos'] else S['landscape']
@@ -460,3 +462,5 @@ for original,localpath in json.loads((ROOT/'content/asset-map.json').read_text()
 (DIST/'_redirects').write_text('\n'.join(dict.fromkeys(redirects))+'\n')
 (DIST/'assets/favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#193d3b"/><text x="32" y="44" text-anchor="middle" fill="#f7f6ef" font-family="Georgia,serif" font-size="32">RL</text></svg>')
 print(f'Built {len(written)-1} pages, {len(M["posts"])} blog articles and custom 404.')
+
+print(gallery_images.summary()+f' Build time: {time.perf_counter()-BUILD_STARTED:.2f}s.')

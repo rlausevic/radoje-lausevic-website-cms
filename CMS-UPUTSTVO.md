@@ -90,7 +90,13 @@ U **Galerije** svaki album je zaseban unos, automatski sortiran po datumu od naj
 
 U CMS unesite jednu fotografiju (JPEG, PNG ili WebP), uz očuvan odnos stranica. Preporuka je duža stranica 1920 px, npr. 1920 × 1440 px ili 1440 × 1920 px. Pri svakom objavljivanju sajt automatski pravi WebP verzije do 480 i 960 px za kartice i mrežu, i do 1920 px za uvećanje. Manje originale ne uvećava. Fotografije sa telefona pravilno se okreću prema EXIF orijentaciji. Velika verzija se učitava tek kada posetilac klikne fotografiju.
 
-Original ostaje u CMS-u. Automatske verzije su u zasebnom izlaznom direktorijumu `dist/media/gallery`, ne uređuju se ručno i ne pojavljuju se među CMS originalima. Zamena fotografije automatski daje novu adresu obrađenim verzijama. Obrada se obavlja nakon uspešnog uploada i ne menja ograničenje veličine uploada u Pages CMS-u.
+Original ostaje u CMS-u. Obrađene verzije se trajno čuvaju u `media/gallery-cache` u repozitorijumu, odvojeno od CMS originala. CMS automatizacija dopunjava keš samo za nove ili promenjene fotografije. Svaki novi Cloudflare checkout dobija gotove verzije; Python/Pillow nije potreban za njihovo ponovno korišćenje. Izlaz za objavljivanje ostaje `dist/media/gallery` i sadrži samo fotografije koje se trenutno koriste.
+
+Keš koristi sadržaj originala i verziju recepta/enkodera kao identifikator, proverava SHA-256 svih sačuvanih verzija i automatski obnavlja nedostajuću ili oštećenu verziju. Promena originala ili recepta daje novu adresu, dok postojeće fotografije zadržavaju svoje URL-ove i kvalitet. Automatski se uklanjaju samo zastarele verzije u kešu, nikada originalne fotografije. `media/gallery-cache` ne uređujte ručno i nemojte ga stavljati u `.gitignore`.
+
+Ako nedostaje keš, običan build ga automatski popunjava; objavljivanje zato ne zavisi od uspeha pomoćnog workflow-a. Za ručno održavanje pokrenite `python3 scripts/prepare_gallery_cache.py`. Svaki build ispisuje broj ponovo upotrebljenih i novoobrađenih slika i ukupno vreme. Workflow čuva keš u Git-u; commit koji menja samo keš koristi `[CF-Pages-Skip]` da ne bi pokrenuo još jednu Pages izgradnju. CMS izmene i dalje normalno pokreću objavljivanje. Paralelne CMS izmene se čuvaju: workflow pri konfliktu ponavlja pripremu nad najnovijim stanjem grane main.
+
+Obrada se obavlja nakon uspešnog uploada i ne menja ograničenje veličine uploada u Pages CMS-u. Veći broj upload-a i dalje može pokrenuti više Cloudflare izgradnji; ova dorada ubrzava njihov rad, ali ne menja Cloudflare red čekanja ili tarifni plan.
 
 ## Direktan izbor povezanih sadržaja
 
