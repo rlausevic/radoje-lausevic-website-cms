@@ -63,6 +63,6 @@ function test(prefix,selector,singular,plural,category=false){
  input.value='missing';events.search();assert.equal(empty.hidden,false);
  input.value='';if(category)select.value='';events.search();assert.equal(count.textContent,'2 '+plural);assert.equal(empty.hidden,true);
 }
-test('post','[data-post]','article','articles',true);test('video','[data-video]','video','videos');test('bibliography','[data-bibliography]','bibliography item','bibliography items',true);
+test('video','[data-video]','video','videos');test('bibliography','[data-bibliography]','bibliography item','bibliography items',true);
 """],cwd=ROOT,check=True)
 if __name__=='__main__':unittest.main()

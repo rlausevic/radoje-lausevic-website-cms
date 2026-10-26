@@ -83,13 +83,13 @@ def page(path,title,body,desc=None):
    return 'href="/blog"'
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
- insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/blog/page/','/video/','/gallery/'))
+ insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/blog/page/','/galleries/page/','/video/','/gallery/'))
  active='/insights' if insights_paths else '/projects' if path.startswith('/project/') else '/about' if path in {'/resume','/work-experience'} else path
  nav=''
  for url,label in NAV:
   current=(' aria-current="page"' if path==url else ' aria-current="true"') if active==url else ''
   if url=='/insights':
-   sub=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==href else ' aria-current="true"' if (href=='/blog' and path.startswith(('/post/','/blog/page/'))) or (href=='/video' and path.startswith('/video/')) or (href=='/galleries' and path.startswith('/gallery/')) else '')+f'>{name}</a>' for href,name in [('/blog','Journal'),('/video','Video'),('/galleries','Galleries')])
+   sub=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==href else ' aria-current="true"' if (href=='/blog' and path.startswith(('/post/','/blog/page/'))) or (href=='/video' and path.startswith('/video/')) or (href=='/galleries' and path.startswith(('/gallery/','/galleries/page/'))) else '')+f'>{name}</a>' for href,name in [('/blog','Journal'),('/video','Video'),('/galleries','Galleries')])
    nav+=f'<div class="nav-insights"><div class="insights-controls"><a href="{url}"{current}>{label}</a><button class="insights-toggle" type="button" aria-label="Open Insights submenu" aria-expanded="false" aria-controls="insights-menu"><span aria-hidden="true">⌄</span></button></div><div class="insights-menu" id="insights-menu" hidden>{sub}</div></div>'
   else:nav+=f'<a href="{url}"{current}>{label}</a>'
  nav+=cv_download('button nav-download')
@@ -100,7 +100,7 @@ def page(path,title,body,desc=None):
   except ValueError:pass
  resume_styles='<style>.resume-education p,.resume-education li{line-height:1.4}.resume-education p{margin:0 0 6px}.resume-education h3{font-size:22px;line-height:1.3;margin:18px 0 6px}.resume-education h3:first-child{margin-top:0}</style>' if path=='/resume' else ''
  contact_script=f'<script src="/assets/contact.js?v={ASSET_VERSION["contact.js"]}" defer></script>' if path=='/contact' else ''
- journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path=='/blog' or path.startswith(('/blog/page/','/post/')) else ''
+ journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path in {'/blog','/video','/galleries'} or path.startswith(('/blog/page/','/galleries/page/','/post/','/video/','/gallery/')) else ''
  fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
  contact_cta='<section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section>' if path!='/contact' else ''
  data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}<script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
@@ -146,9 +146,12 @@ for item in video_archive.get('items') or []:
 videos.sort(key=lambda video:video['date_iso'],reverse=True)
 # Rebuild detail routes so removed videos do not leave stale pages behind.
 if (DIST/'video').exists():shutil.rmtree(DIST/'video')
-def video_card(video,heading='h3'):
- search=' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video.get('topic') or '',video['content']['text']]).lower()
- return f'<article class="post-card video-card" data-video data-categories="{E(video.get("topic") or "")}" data-search="{E(search)}"><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span><{heading}>{E(video["title"])}</{heading}><p>{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
+def video_search(video):
+ return ' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video.get('topic') or '',video['content']['text']]).lower()
+def video_card(video,heading='h3',include_search=True):
+ search=f' data-search="{E(video_search(video))}"' if include_search else ''
+ topic=video.get('topic') or '';badge=f'<span class="post-topic">{E(topic)}</span>' if topic else ''
+ return f'<article class="post-card video-card archive-card" data-video data-categories="{E(topic)}"{search}><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span>{badge}<{heading}>{E(video["title"])}</{heading}><p class="post-excerpt">{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 # Multiple albums share one CMS source across Home, Insights and the archive.
 gallery_archive=read_archive(ROOT,'gallery')
 galleries=[];gallery_paths=set()
@@ -165,10 +168,13 @@ for item in gallery_archive.get('albums') or []:
 galleries.sort(key=lambda album:(album['date_iso'],album['title']),reverse=True)
 gallery_images.prepare_many(photo['image'] for album in galleries for photo in album['photos'])
 if (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
-def gallery_card(album,heading='h3'):
+def gallery_search(album):
+ return ' '.join([album['title'],album['date_iso'],album['date_display'],album.get('topic') or '',album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']]).lower()
+def gallery_card(album,heading='h3',include_search=True):
  cover=album['photos'][0]['image'] if album['photos'] else S['landscape']
- search=' '.join([album['title'],album['date_iso'],album['date_display'],album.get('topic') or '',album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']])
- return f'<article class="post-card gallery-card" data-album data-categories="{E(album.get("topic") or "")}" data-search="{E(search)}"><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span><{heading}>{E(album["title"])}</{heading}><p>{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
+ search=f' data-search="{E(gallery_search(album))}"' if include_search else ''
+ topic=album.get('topic') or '';badge=f'<span class="post-topic">{E(topic)}</span>' if topic else ''
+ return f'<article class="post-card gallery-card archive-card" data-album data-categories="{E(topic)}"{search}><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span>{badge}<{heading}>{E(album["title"])}</{heading}><p class="post-excerpt">{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
 def gallery_description(album):
  content=album['content'];words=content['text'].split()
  if not words:return ''
@@ -277,12 +283,48 @@ if videos:
 if galleries:
  body+='<section class="section"><div class="wrap"><div class="section-head"><h2>Galleries</h2><a class="textlink" href="/galleries">View all galleries →</a></div><div class="journal-grid">'+''.join(gallery_card(album) for album in galleries[:3])+'</div></div></section>'
 page('/insights','Insights',body)
-# Video archive shares Journal typography, card layout and search behavior.
-body=intro(video_archive.get('label','Video archive'),video_archive.get('heading','Conversation on sustainability'),video_archive.get('lead','Project updates, environmental insights and personal observations'))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="video-search">Search video archive<input type="search" id="video-search" placeholder="Search video archive…" aria-controls="video-results"></label>'+topic_select('video-category')+'</div>'
-body+=f'<p class="result-count" id="video-result-count" role="status" aria-live="polite">{len(videos)} {"video" if len(videos)==1 else "videos"}</p><div class="journal-grid" id="video-results">'+''.join(video_card(video,'h2') for video in videos)+'</div><p class="empty" id="no-videos"'+(' hidden' if videos else '')+'>No videos found. Try another search.</p></div></section>'
-page('/video','Video',body,video_archive.get('lead'))
+# Shared static pagination and archive-wide search for Journal, Video and Galleries.
+def render_archive(base,prefix,singular,plural,title,label,heading,lead,entries,card,search,detail_prefix):
+ size=12;total=max(1,(len(entries)+size-1)//size)
+ directory=DIST/base.lstrip('/');directory.mkdir(exist_ok=True)
+ if (directory/'page').exists():shutil.rmtree(directory/'page')
+ index=[{'year':item['date_iso'][:4],'topic':item.get('topic') or '', 'search':search(item),'html':card(item,'h2',False)} for item in entries]
+ payload=json.dumps(index,ensure_ascii=False,separators=(',',':'))
+ (directory/'archive-index.json').write_text(payload)
+ version=hashlib.sha256(payload.encode()).hexdigest()[:12]
+ years=sorted({item['date_iso'][:4] for item in entries},reverse=True)
+ def address(number):return base+'/' if number==1 else f'{base}/page/{number}/'
+ def pagination(current):
+  if total<=1:return ''
+  def link(number,text):
+   extra=(' aria-label="Page '+str(number)+'"'+(' aria-current="page"' if number==current else '')) if text.isdigit() else ''
+   return f'<a href="{address(number)}" data-journal-page="{number}"{extra}>{text}</a>'
+  parts=[link(current-1,'Previous') if current>1 else '<span aria-disabled="true">Previous</span>']
+  numbers=sorted({1,total,*range(max(1,current-1),min(total,current+1)+1)}) if total>7 else list(range(1,total+1))
+  previous=0
+  for number in numbers:
+   if previous and number>previous+1:parts.append('<span class="pagination-gap" aria-hidden="true">…</span>')
+   parts.append(link(number,str(number)));previous=number
+  parts.append(link(current+1,'Next') if current<total else '<span aria-disabled="true">Next</span>')
+  return ''.join(parts)
+ search_label={'post':'Search the journal','video':'Search video archive','gallery':'Search the gallery'}[prefix]
+ root_id='journal-archive' if prefix=='post' else prefix+'-archive'
+ count_id='result-count' if prefix=='post' else prefix+'-result-count'
+ empty_id={'post':'no-results','video':'no-videos','gallery':'no-galleries'}[prefix]
+ nav_id='journal-pagination' if prefix=='post' else prefix+'-pagination'
+ error_id='journal-error' if prefix=='post' else prefix+'-error'
+ for current in range(1,total+1):
+  start=(current-1)*size;subset=entries[start:start+size]
+  unit=singular if len(entries)==1 else plural
+  counter=f'Showing {start+1}–{start+len(subset)} of {len(entries)} {unit}' if subset else '0 '+plural
+  body=intro(label,heading,lead)
+  body+=f'<section class="section journal-archive" id="{root_id}" data-paginated-archive data-base="{base}/" data-prefix="{prefix}" data-detail-prefix="{detail_prefix}" data-singular="{singular}" data-plural="{plural}" data-page="{current}" data-total="{len(entries)}" data-page-size="{size}" data-index="{base}/archive-index.json?v={version}" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="{prefix}-search">{search_label}<input type="search" id="{prefix}-search" name="search" placeholder="{search_label}…" aria-controls="{prefix}-results"></label>'+topic_select(prefix+'-category')+f'<label for="{prefix}-year">Year<select id="{prefix}-year" aria-controls="{prefix}-results"><option value="">All years</option>'+''.join(f'<option value="{year}">{year}</option>' for year in years)+'</select></label></div>'
+  body+=f'<p class="result-count" id="{count_id}" data-archive-count role="status" aria-live="polite" tabindex="-1">{counter}</p><div class="journal-grid" id="{prefix}-results" data-archive-results>'+''.join(card(item,'h2') for item in subset)+f'</div><p class="empty" id="{empty_id}" data-archive-empty'+(' hidden' if subset else '')+f'>No {plural} found. Try another search, topic or year.</p><div class="journal-error" id="{error_id}" data-archive-error role="alert" hidden><p>Could not update the archive. Previous results are still shown.</p><button type="button" class="textlink" data-archive-retry>Try again</button></div>'
+  body+=f'<nav class="journal-pagination" id="{nav_id}" data-archive-pagination aria-label="{title} pages">'+pagination(current)+'</nav><noscript><p>Use the numbered pages to browse all entries. Enable JavaScript to search or filter the archive.</p></noscript></div></section>'
+  page(base if current==1 else f'{base}/page/{current}',title if current==1 else f'{title} — Page {current}',body,lead)
+render_archive('/video','video','video','videos','Video',video_archive.get('label','Video archive'),video_archive.get('heading','Conversation on sustainability'),video_archive.get('lead',''),videos,video_card,video_search,'/video/')
 for video in videos:
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</p></header><div class="prose">'
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/video/" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</p></header><div class="prose">'
  body+=image(video['cover'],video['title'])+(render(video['content']) if video['content']['text'] else f'<p>{E(video["excerpt"])}</p>')+f'<p><a class="button" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></p>'
  body+='</div></div></article>';page(video['path'],video['title'],body,video['excerpt'])
 # Work experience.
@@ -357,6 +399,17 @@ def bibliography_year(item):
  # Use the first year for ranges such as 1993/94 and 1990-1991; undated entries go last.
  match=re.search(r'(?<!\d)(\d{4})(?!\d)',str(item.get('year') or ''))
  return int(match.group(1)) if match else -1
+def bibliography_filter_years(item):
+ value=str(item.get('year') or '')
+ years=set()
+ for match in re.finditer(r'(?<!\d)(\d{4})(?:\s*[-–—/]\s*(\d{4}|\d{2})(?!\d))?',value):
+  first=int(match.group(1));last=match.group(2)
+  if last:
+   end=int(last) if len(last)==4 else first//100*100+int(last)
+   if len(last)==2 and end<first:end+=100
+   years.update(range(first,end+1) if first<=end<=first+100 else [first,end])
+  else:years.add(first)
+ return [str(year) for year in sorted(years)] or ['undated']
 bibliography_items=sorted(bibliography.get('items') or [],key=bibliography_year,reverse=True)
 category_descriptions={item['name']:item.get('description') or '' for item in bibliography.get('categories') or []}
 for item in bibliography_items:
@@ -381,7 +434,10 @@ def bibliography_citation(item):
  url=str(item.get('url') or '').strip()
  if url:citation+=f' <a href="{E(url)}">{E(url)}</a>.'
  return citation
-body=intro(bibliography.get('label','Bibliography'),bibliography.get('heading','Research, knowledge and dialogue.'),bibliography.get('lead',''))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="bibliography-search">Search Bibliography<input type="search" id="bibliography-search" placeholder="Search Bibliography…" aria-controls="bibliography-results"></label><label for="bibliography-category">Category<select id="bibliography-category"><option value="">All categories</option>'+''.join(f'<option value="{E(category)}">{E(category)}</option>' for category in bibliography_categories)+'</select></label></div>'
+bibliography_years=sorted({year for item in bibliography_items for year in bibliography_filter_years(item)}-{'undated'},reverse=True)
+bibliography_year_options=''.join(f'<option value="{year}">{year}</option>' for year in bibliography_years)
+if any(bibliography_filter_years(item)==['undated'] for item in bibliography_items):bibliography_year_options+='<option value="undated">Undated</option>'
+body=intro(bibliography.get('label','Bibliography'),bibliography.get('heading','Research, knowledge and dialogue.'),bibliography.get('lead',''))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="bibliography-search">Search Bibliography<input type="search" id="bibliography-search" placeholder="Search Bibliography…" aria-controls="bibliography-results"></label><label for="bibliography-category">Category<select id="bibliography-category"><option value="">All categories</option>'+''.join(f'<option value="{E(category)}">{E(category)}</option>' for category in bibliography_categories)+'</select></label><label for="bibliography-year">Year<select id="bibliography-year" aria-controls="bibliography-results"><option value="">All years</option>'+bibliography_year_options+'</select></label></div>'
 body+=f'<p class="result-count" id="bibliography-result-count" role="status" aria-live="polite">{len(bibliography_items)} bibliography {"item" if len(bibliography_items)==1 else "items"}</p><div id="bibliography-results">'
 for category in bibliography_categories:
  items=[item for item in bibliography_items if item['category']==category]
@@ -390,7 +446,7 @@ for category in bibliography_categories:
  for item in items:
   description=__import__('cms_data').body(item.get('description') or '')
   searchable=' '.join(str(item.get(field) or '') for field in ['category','title','year','url','reference','authors','venue','volume_issue_pages','publisher'])+' '+description['text']
-  body+=f'<li class="bibliography-item" id="bibliography-{E(bibliography_id(item))}" data-bibliography data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
+  body+=f'<li class="bibliography-item" id="bibliography-{E(bibliography_id(item))}" data-bibliography data-years="{E("|".join(bibliography_filter_years(item)))}" data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
@@ -423,11 +479,9 @@ for category in bibliography_categories:
  body+='</section>'
 body+='<p><a class="textlink" href="/bibliography">View full Bibliography →</a></p></div></div></section>';page('/resume','Resume',body)
 # Gallery archive and stable individual album routes.
-body=intro(gallery_archive.get('label') or 'Photo galleries',gallery_archive.get('heading') or 'My favourite photos.',gallery_archive.get('lead') or '')+'<section class="section"><div class="wrap"><div class="filters"><label for="gallery-search">Search the gallery<input type="search" id="gallery-search" placeholder="Search the gallery…" aria-controls="gallery-results"></label>'+topic_select('gallery-category')+'</div>'
-body+=f'<p class="result-count" id="gallery-result-count" role="status" aria-live="polite">{len(galleries)} '+('gallery' if len(galleries)==1 else 'galleries')+'</p><div class="journal-grid" id="gallery-results">'+''.join(gallery_card(album,'h2') for album in galleries)+'</div><p class="empty" id="no-galleries"'+(' hidden' if galleries else '')+'>No galleries found. Try another search or select all topics.</p></div></section>'
-page('/galleries','Galleries',body)
+render_archive('/galleries','gallery','gallery','galleries','Galleries',gallery_archive.get('label') or 'Photo galleries',gallery_archive.get('heading') or 'My favourite photos.',gallery_archive.get('lead') or '',galleries,gallery_card,gallery_search,'/gallery/')
 for album in galleries:
- body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'
+ body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/galleries/" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'
  related_projects=[project for project in project_entries if any(key=='galleries' and any(item['href']==album['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
  if related_projects:body+='<div class="gallery-projects prose"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'
  body+=gallery_description(album)+'<div class="gallery-grid">'
@@ -440,42 +494,9 @@ for album in galleries:
  page(album['path'],album['title'],body,album.get('summary'))
 # Render genuine archive pages; fetch the compact global index only for filtering/navigation.
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
-JOURNAL_PAGE_SIZE=12
-journal_pages=max(1,(len(M['posts'])+JOURNAL_PAGE_SIZE-1)//JOURNAL_PAGE_SIZE)
-journal_index=[{'year':p['date_iso'][:4],'topic':p.get('topic') or '', 'search':post_search(p),'html':post_card(p,'h2',False)} for p in M['posts']]
-journal_json=json.dumps(journal_index,ensure_ascii=False,separators=(',',':'))
-journal_version=hashlib.sha256(journal_json.encode()).hexdigest()[:12]
-(DIST/'blog').mkdir(exist_ok=True)
-(DIST/'blog/archive-index.json').write_text(journal_json)
-# Remove obsolete numbered pages if entries were removed or unpublished.
-if (DIST/'blog/page').exists():shutil.rmtree(DIST/'blog/page')
-def journal_page_url(number):return '/blog/' if number==1 else f'/blog/page/{number}/'
-def journal_page_numbers(current,total):
- return sorted({1,total,*range(max(1,current-1),min(total,current+1)+1)}) if total>7 else list(range(1,total+1))
-def journal_pagination(current,total):
- if total<=1:return ''
- parts=[]
- def link(number,label,extra=''):
-  return f'<a href="{journal_page_url(number)}" data-journal-page="{number}"{extra}>{label}</a>'
- parts.append(link(current-1,'Previous') if current>1 else '<span aria-disabled="true">Previous</span>')
- previous=0
- for number in journal_page_numbers(current,total):
-  if previous and number>previous+1:parts.append('<span class="pagination-gap" aria-hidden="true">…</span>')
-  parts.append(link(number,str(number),' aria-current="page" aria-label="Page '+str(number)+'"' if number==current else ' aria-label="Page '+str(number)+'"'))
-  previous=number
- parts.append(link(current+1,'Next') if current<total else '<span aria-disabled="true">Next</span>')
- return ''.join(parts)
-years=sorted({p['date_iso'][:4] for p in M['posts']},reverse=True)
-for current in range(1,journal_pages+1):
- start=(current-1)*JOURNAL_PAGE_SIZE;subset=M['posts'][start:start+JOURNAL_PAGE_SIZE]
- counter=f'Showing {start+1}–{start+len(subset)} of {len(M["posts"])} articles' if subset else '0 articles'
- body=intro(journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '')
- body+=f'<section class="section journal-archive" id="journal-archive" data-page="{current}" data-total="{len(M["posts"])}" data-page-size="{JOURNAL_PAGE_SIZE}" data-index="/blog/archive-index.json?v={journal_version}" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="post-search">Search the journal<input type="search" id="post-search" name="search" placeholder="Search articles…" aria-controls="post-results"></label>'+topic_select('post-category')+'<label for="post-year">Year<select id="post-year" aria-controls="post-results"><option value="">All years</option>'+''.join(f'<option value="{year}">{year}</option>' for year in years)+'</select></label></div>'
- body+=f'<p class="result-count" id="result-count" role="status" aria-live="polite" tabindex="-1">{counter}</p><div class="journal-grid" id="post-results">'+''.join(post_card(p,'h2') for p in subset)+'</div><p class="empty" id="no-results"'+(' hidden' if subset else '')+'>No articles found. Try another search, topic or year.</p><div class="journal-error" id="journal-error" role="alert" hidden><p>Could not update the archive. Previous results are still shown.</p><button type="button" class="textlink" id="journal-retry">Try again</button></div>'
- body+='<nav class="journal-pagination" id="journal-pagination" aria-label="Journal pages">'+journal_pagination(current,journal_pages)+'</nav><noscript><p>Use the numbered pages to browse all articles. Enable JavaScript to search or filter the archive.</p></noscript></div></section>'
- page('/blog' if current==1 else f'/blog/page/{current}','Journal' if current==1 else f'Journal — Page {current}',body)
+render_archive('/blog','post','article','articles','Journal',journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '',M['posts'],post_card,post_search,'/post/')
 for i,p in enumerate(M['posts']):
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back data-archive-back="/blog/" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
  if p['cover'] and p['cover'] not in p.get('body',''):body+=image(p['cover'],p['title'])
  body+='<div class="article-nav">'
  if i>0:body+=f'<a href="{M["posts"][i-1]["path"]}">← Newer article</a>'

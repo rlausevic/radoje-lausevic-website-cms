@@ -1,4 +1,4 @@
-/* Journal pagination and global search; no changes to CMS records or article URLs. */
+/* Shared Journal, Video and Galleries pagination; CMS records and detail URLs stay intact. */
 (() => {
  const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/gi, 'd').toLowerCase();
  const pageNumbers = (current, total) => total <= 7 ? Array.from({length: total}, (_, i) => i + 1) : [...new Set([1, total, current - 1, current, current + 1].filter(n => n >= 1 && n <= total))].sort((a,b) => a-b);
@@ -10,36 +10,39 @@
   const page = Math.min(pages, Number.isSafeInteger(parsed) && parsed > 0 ? parsed : 1);
   return {items: matching.slice((page-1)*size, page*size), total: matching.length, page, pages};
  }
- const stateURL = state => {
+ const stateURL = (state, base = '/blog/') => {
   const params = new URLSearchParams();
   if (state.search) params.set('search', state.search);
   if (state.category) params.set('category', state.category);
   if (state.year) params.set('year', state.year);
   if (state.page > 1) params.set('page', state.page);
-  return '/blog/' + (params.size ? '?' + params : '');
+  return base + (params.size ? '?' + params : '');
  };
  if (typeof module !== 'undefined') module.exports = {normalize, selectEntries, pageNumbers, stateURL};
  if (typeof document === 'undefined') return;
  const stored = key => {try { return sessionStorage.getItem(key); } catch { return null; }};
  const save = (key, value) => {try { sessionStorage.setItem(key, value); } catch { /* Storage may be disabled. */ }};
- const safeReturn = () => {
+ const isArchivePath = (path, base) => path === base || path === base.slice(0,-1) || (path.startsWith(base+'page/') && /^\d+\/?$/.test(path.slice((base+'page/').length)));
+ const safeReturn = base => {
   try {
-   const url = new URL(stored('journal-return') || '', location.origin);
-   return url.origin === location.origin && /^\/blog(?:\/page\/\d+)?\/?$/.test(url.pathname) ? url.pathname + url.search : null;
+   const url = new URL(stored('archive-return:'+base) || (base==='/blog/' ? stored('journal-return') : '') || '', location.origin);
+   return url.origin === location.origin && isArchivePath(url.pathname,base) ? url.pathname + url.search : null;
   } catch { return null; }
  };
- document.querySelectorAll('[data-journal-back]').forEach(link => {
-  const back = safeReturn(); if (back) link.href = back;
+ document.querySelectorAll('[data-archive-back]').forEach(link => {
+  const back = safeReturn(link.dataset.archiveBack); if (back) link.href = back;
  });
- const root = document.querySelector('#journal-archive');
+ const root = document.querySelector('[data-paginated-archive]');
  if (!root) return;
- const input = document.querySelector('#post-search'), topic = document.querySelector('#post-category'), year = document.querySelector('#post-year');
- const grid = document.querySelector('#post-results'), count = document.querySelector('#result-count'), empty = document.querySelector('#no-results');
- const nav = document.querySelector('#journal-pagination'), error = document.querySelector('#journal-error');
+ const base=root.dataset.base, prefix=root.dataset.prefix;
+ const singular=root.dataset.singular, plural=root.dataset.plural;
+ const input = document.querySelector('#'+prefix+'-search'), topic = document.querySelector('#'+prefix+'-category'), year = document.querySelector('#'+prefix+'-year');
+ const grid = root.querySelector('[data-archive-results]'), count = root.querySelector('[data-archive-count]'), empty = root.querySelector('[data-archive-empty]');
+ const nav = root.querySelector('[data-archive-pagination]'), error = root.querySelector('[data-archive-error]');
  const size = Number(root.dataset.pageSize), total = Number(root.dataset.total), initialPage = Number(root.dataset.page);
  const validOption = (select, value) => [...select.options].some(option => option.value === value) ? value : '';
  const readURL = () => {
-  const params = new URLSearchParams(location.search), pathPage = location.pathname.match(/^\/blog\/page\/(\d+)\/?$/);
+  const params = new URLSearchParams(location.search), pathPage = location.pathname.startsWith(base+'page/') ? location.pathname.slice((base+'page/').length).match(/^(\d+)\/?$/) : null;
   return {search: params.get('search') || '', category: validOption(topic, params.get('category') || ''), year: validOption(year, params.get('year') || ''), page: Number(params.get('page') || pathPage?.[1] || 1)};
  };
  const readControls = page => ({search: input.value.trim(), category: topic.value, year: year.value, page});
@@ -62,7 +65,7 @@
    const node = document.createElement(disabled ? 'span' : 'a'); node.textContent = label;
    if (disabled) node.setAttribute('aria-disabled','true');
    else {
-    node.href = stateURL({...state, page}); node.dataset.journalPage = String(page);
+    node.href = stateURL({...state, page},base); node.dataset.journalPage = String(page);
     if (/^\d+$/.test(label)) {
      node.setAttribute('aria-label','Page '+page);
      if (page === state.page) node.setAttribute('aria-current','page');
@@ -80,15 +83,15 @@
  }
  function updateURL(state, mode) {
   if (!mode) return;
-  const url = stateURL(state);
+  const url = stateURL(state,base);
   if (location.pathname + location.search !== url) history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
  }
  function restoreScroll() {
   const back = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
   let fromArticle = false;
-  try { fromArticle = new URL(document.referrer).pathname.startsWith('/post/'); } catch { /* Direct visit. */ }
+  try { const path=new URL(document.referrer).pathname; fromArticle=path.startsWith(root.dataset.detailPrefix)&&!isArchivePath(path,base); } catch { /* Direct visit. */ }
   if (!back && !fromArticle) return;
-  const value = Number(stored('journal-scroll:' + location.pathname + location.search));
+  const value = Number(stored('archive-scroll:'+base+location.pathname+location.search));
   if (Number.isFinite(value) && value >= 0) requestAnimationFrame(() => window.scrollTo({top:value, behavior:'instant'}));
  }
  async function apply(state, mode, scroll = false, restore = false) {
@@ -106,7 +109,7 @@
    }
    grid.replaceChildren(fragment);
    const start = (result.page-1)*size+1, end = start+result.items.length-1;
-   count.textContent = result.total ? `Showing ${start}–${end} of ${result.total} ${result.total===1?'article':'articles'}` : '0 articles';
+   count.textContent = result.total ? `Showing ${start}–${end} of ${result.total} ${result.total===1?singular:plural}` : '0 '+plural;
    empty.hidden = result.total > 0;
    navigation(state,result.pages); updateURL(state,mode);
    if (scroll) {
@@ -127,13 +130,14 @@
   event.preventDefault(); clearTimeout(debounce);
   apply(readControls(Number(link.dataset.journalPage)),'push',true);
  });
- document.querySelector('#journal-retry').addEventListener('click', () => {if (pending) apply(pending.state,pending.mode,pending.scroll,pending.restore);});
+ root.querySelector('[data-archive-retry]').addEventListener('click', () => {if (pending) apply(pending.state,pending.mode,pending.scroll,pending.restore);});
  grid.addEventListener('click', event => {
-  if (!event.target.closest('[data-post]')) return;
-  save('journal-return',location.pathname+location.search);
-  save('journal-scroll:'+location.pathname+location.search,String(scrollY));
+  const link=event.target.closest('a');
+  if (!link || !link.getAttribute('href')?.startsWith(root.dataset.detailPrefix)) return;
+  save('archive-return:'+base,location.pathname+location.search);
+  save('archive-scroll:'+base+location.pathname+location.search,String(scrollY));
  });
- window.addEventListener('pagehide', () => save('journal-scroll:'+location.pathname+location.search,String(scrollY)));
+ window.addEventListener('pagehide', () => save('archive-scroll:'+base+location.pathname+location.search,String(scrollY)));
  window.addEventListener('popstate', () => {clearTimeout(debounce); const state=readURL(); setControls(state); apply(state,null,false,true);});
  window.addEventListener('pageshow', event => {if (event.persisted) restoreScroll();});
  const initial = readURL(); setControls(initial);

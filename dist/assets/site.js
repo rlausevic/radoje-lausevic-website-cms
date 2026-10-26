@@ -70,36 +70,43 @@ if(dialog){
  stage.addEventListener('pointercancel',()=>{swipe=null;});
  dialog.addEventListener('close',()=>{swipe=null;});
 }
-// One search engine for Journal, Video and Bibliography.
-function setupArchiveSearch({input,category,cards,count,empty,singular,plural,groups}){
- const search=document.querySelector(input);if(!search)return;
+// In-place Bibliography/Projects search, with legacy card-archive fallback.
+function setupArchiveSearch({input,category,year,cards,count,empty,singular,plural,groups}){
+ const search=document.querySelector(input);if(!search||search.closest?.('[data-paginated-archive]'))return;
  const categorySelect=category?document.querySelector(category):null;
+ const yearSelect=year?document.querySelector(year):null;
  const entries=[...document.querySelectorAll(cards)];
  const resultCount=document.querySelector(count),noResults=document.querySelector(empty);
  const normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'d').toLowerCase();
  const index=entries.map(card=>({card,text:normalize(card.dataset.search)}));
  const filter=()=>{
-  const terms=normalize(search.value.trim()).split(/\s+/).filter(Boolean),selected=categorySelect?categorySelect.value:'';
+  const terms=normalize(search.value.trim()).split(/\s+/).filter(Boolean),selected=categorySelect?categorySelect.value:'',selectedYear=yearSelect?yearSelect.value:'';
   let matched=0;
   index.forEach(({card,text})=>{
-   const visible=terms.every(term=>text.includes(term))&&(!selected||(card.dataset.categories||'').split('|').includes(selected));
+   const visible=terms.every(term=>text.includes(term))&&(!selected||(card.dataset.categories||'').split('|').includes(selected))&&(!selectedYear||(card.dataset.years||'undated').split('|').includes(selectedYear));
    card.hidden=!visible;if(visible)matched++;
   });
+  if(yearSelect&&typeof history!=='undefined'){
+   const params=new URLSearchParams(location.search);
+   for(const [key,value] of [['search',search.value.trim()],['category',selected],['year',selectedYear]]){if(value)params.set(key,value);else params.delete(key);}
+   const query=params.toString();history.replaceState(null,'',location.pathname+(query?'?'+query:'')+(location.hash||''));
+  }
   resultCount.textContent=matched+' '+(matched===1?singular:plural);noResults.hidden=matched>0;
   if(groups)document.querySelectorAll(groups).forEach(group=>{
-   group.hidden=(terms.length>0||!!selected)&&![...group.querySelectorAll(cards)].some(card=>!card.hidden);
+   group.hidden=(terms.length>0||!!selected||!!selectedYear)&&![...group.querySelectorAll(cards)].some(card=>!card.hidden);
   });
  };
  const params=new URLSearchParams(location.search),query=params.get('search'),selected=params.get('category');
  if(query)search.value=query;
  if(categorySelect&&selected&&[...categorySelect.options].some(option=>option.value===selected))categorySelect.value=selected;
+ if(yearSelect){const selectedYear=params.get('year');if(selectedYear&&[...yearSelect.options].some(option=>option.value===selectedYear))yearSelect.value=selectedYear;yearSelect.addEventListener('change',filter);}
  search.addEventListener('input',filter);search.addEventListener('search',filter);
  if(categorySelect)categorySelect.addEventListener('change',filter);
  filter();
 }
-// Journal has paginated, archive-wide search in journal.js.
+// Card archives have paginated, archive-wide search in journal.js.
 setupArchiveSearch({input:'#video-search',category:'#video-category',cards:'[data-video]',count:'#video-result-count',empty:'#no-videos',singular:'video',plural:'videos'});
-setupArchiveSearch({input:'#bibliography-search',category:'#bibliography-category',cards:'[data-bibliography]',count:'#bibliography-result-count',empty:'#no-bibliography',singular:'bibliography item',plural:'bibliography items',groups:'[data-archive-group]'});
+setupArchiveSearch({input:'#bibliography-search',category:'#bibliography-category',year:'#bibliography-year',cards:'[data-bibliography]',count:'#bibliography-result-count',empty:'#no-bibliography',singular:'bibliography item',plural:'bibliography items',groups:'[data-archive-group]'});
 setupArchiveSearch({input:'#project-search',category:'#project-category',cards:'[data-project]',count:'#project-result-count',empty:'#no-projects',singular:'project',plural:'projects'});
 
 // Deep links from Home and the former About sections reveal the full service.

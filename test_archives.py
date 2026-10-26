@@ -54,13 +54,14 @@ class Archives(unittest.TestCase):
     page=(root/'dist'/route).read_text();self.assertIn('/media/gallery/',page);self.assertIn('srcset=',page)
    self.assertEqual(album.count('data-gallery '),len(original['photos']))
    for route,selector in [('blog','post-category'),('video','video-category'),('galleries','gallery-category')]:
-    page=(root/'dist'/route/'index.html').read_text();self.assertIn(f'id="{selector}"',page);self.assertIn('data-categories="Shared topic"',page)
+    page=(root/'dist'/route/'index.html').read_text();self.assertIn(f'id="{selector}"',page)
+    index=json.loads((root/'dist'/route/'archive-index.json').read_text());self.assertIn('data-categories="Shared topic"',''.join(item['html'] for item in index))
    data['albums']=[original];save('content/cms/gallery.json',data);build();self.assertFalse((root/'dist/gallery/roundtrip-0').exists())
    data['albums']=[];save('content/cms/gallery.json',data);build();self.assertIn('0 galleries',(root/'dist/galleries/index.html').read_text())
  def test_combined_search_for_all_archives(self):
   subprocess.run(['node','-e',r"""
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-for(const [prefix,attr,count,empty] of [['post','post','#result-count','#no-results'],['video','video','#video-result-count','#no-videos'],['gallery','album','#gallery-result-count','#no-galleries']]){
+for(const [prefix,attr,count,empty] of [['video','video','#video-result-count','#no-videos'],['gallery','album','#gallery-result-count','#no-galleries']]){
  const input={value:'',addEventListener:(event,fn)=>input.run=fn};
  const category={value:'',options:[{value:''},{value:'Blue economy'}],addEventListener:(event,fn)=>category.run=fn};
  const nodes={[`#${prefix}-search`]:input,[`#${prefix}-category`]:category,[count]:{},[empty]:{}};

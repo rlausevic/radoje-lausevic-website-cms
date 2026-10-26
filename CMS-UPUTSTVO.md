@@ -137,3 +137,11 @@ Generator pravi zasebne HTML stranice `/blog/`, `/blog/page/2/`, itd. Numerisane
 URL može da čuva `search`, `category`, `year` i `page`. Pretraga koristi naslov, kratak opis, tekst i oblast celog arhiva pre podele na stranice. Promena pretrage ili filtera vraća prikaz na prvu stranicu rezultata. Povratak iz objave čuva prethodni izbor i poziciju u okviru istog taba, kada je sessionStorage dostupan. Bez čuvanja podataka u pregledaču Back i URL i dalje ostaju funkcionalni.
 
 Novi unosi, promene datuma i uklanjanje objava automatski ažuriraju indeks i broj stranica pri sledećem uspešnom objavljivanju; CMS forma nije menjana. Za JavaScript provere: `node tests/journal-pagination.cjs dist/blog/archive-index.json`.
+
+### Video, Galleries i bibliografske godine
+
+Video i Galleries sada koriste isti generator i JavaScript kontroler kao Journal: 12 kartica po stranici, numerisane stranice, globalnu pretragu, Topic i Year. Indeksi su `/video/archive-index.json` i `/galleries/archive-index.json`; zasebne stranice su `/video/page/2/` i `/galleries/page/2/` kada postoji više od 12 unosa. Ako sve stane na jednu stranicu, numerisana navigacija se ne prikazuje. Pretraga uvek obuhvata celu kolekciju, uključujući detaljne tekstove, a kod galerija i naslove/opise fotografija.
+
+Izbor pretrage, oblasti, godine, stranice i položaj pri povratku iz videa/galerije čuvaju se zasebno za svaku arhivu. Veze ka pojedinačnim videima i galerijama nisu promenjene. Home i Insights i dalje automatski izdvajaju svoje postojeće brojeve najnovijih sadržaja.
+
+Bibliography zadržava postojeću listu po kategorijama. Novi filter Year kombinuje se sa pretragom i Category. Raspon `1993/94` pripada i 1993. i 1994, a `1990–1992` pripada svim trima godinama; `Undated` izdvaja zapise bez prepoznatljive godine. Originalno polje Year i prikaz reference nisu menjani. Sortiranje bibliografije i dalje koristi prvu godinu raspona. Filteri se mogu deliti preko URL parametara `search`, `category` i `year`, uz očuvane oznake pojedinačnih bibliografskih jedinica.

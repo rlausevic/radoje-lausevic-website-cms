@@ -21,6 +21,9 @@ const parsed=new URL(url,'https://example.org');
 assert.equal(parsed.searchParams.get('search'),'Blue Pass & skills');
 assert.equal(parsed.searchParams.get('page'),'2');
 assert.equal(stateURL(state),'/blog/');
+for(const base of ['/video/','/galleries/']) {
+ const url=stateURL({...state,year:'2026',page:2},base);assert.ok(url.startsWith(base+'?'));assert.ok(url.includes('page=2'));
+}
 // Exercise the real generated global index as well as synthetic records.
 if (process.argv[2]) {
  const real=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
