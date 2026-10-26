@@ -17,7 +17,7 @@ if isinstance(brief_files,str):brief_files=[brief_files]
 brief_cv_url=next((url for url in brief_files if urllib.parse.urlsplit(url).path.lower().endswith('.pdf')),brief_files[0] if brief_files else '')
 E=lambda s:html.escape(str(s),quote=True)
 related_catalog=load_catalog(ROOT)
-ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js']}
+ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js','journal.js']}
 NAV=[('/about','About'),('/expertise','Expertise'),('/projects','Projects'),('/bibliography','Bibliography'),('/insights','Insights'),('/contact','Contact')]
 def cv_download(cls='button'):
  return f'<a class="{E(cls)}" href="{E(brief_cv_url)}" download aria-label="Download CV — Europass Brief CV">Download CV</a>' if brief_cv_url else ''
@@ -83,13 +83,13 @@ def page(path,title,body,desc=None):
    return 'href="/blog"'
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
- insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/video/','/gallery/'))
+ insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/blog/page/','/video/','/gallery/'))
  active='/insights' if insights_paths else '/projects' if path.startswith('/project/') else '/about' if path in {'/resume','/work-experience'} else path
  nav=''
  for url,label in NAV:
   current=(' aria-current="page"' if path==url else ' aria-current="true"') if active==url else ''
   if url=='/insights':
-   sub=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==href else ' aria-current="true"' if (href=='/blog' and path.startswith('/post/')) or (href=='/video' and path.startswith('/video/')) or (href=='/galleries' and path.startswith('/gallery/')) else '')+f'>{name}</a>' for href,name in [('/blog','Journal'),('/video','Video'),('/galleries','Galleries')])
+   sub=''.join(f'<a href="{href}"'+(' aria-current="page"' if path==href else ' aria-current="true"' if (href=='/blog' and path.startswith(('/post/','/blog/page/'))) or (href=='/video' and path.startswith('/video/')) or (href=='/galleries' and path.startswith('/gallery/')) else '')+f'>{name}</a>' for href,name in [('/blog','Journal'),('/video','Video'),('/galleries','Galleries')])
    nav+=f'<div class="nav-insights"><div class="insights-controls"><a href="{url}"{current}>{label}</a><button class="insights-toggle" type="button" aria-label="Open Insights submenu" aria-expanded="false" aria-controls="insights-menu"><span aria-hidden="true">⌄</span></button></div><div class="insights-menu" id="insights-menu" hidden>{sub}</div></div>'
   else:nav+=f'<a href="{url}"{current}>{label}</a>'
  nav+=cv_download('button nav-download')
@@ -100,9 +100,10 @@ def page(path,title,body,desc=None):
   except ValueError:pass
  resume_styles='<style>.resume-education p,.resume-education li{line-height:1.4}.resume-education p{margin:0 0 6px}.resume-education h3{font-size:22px;line-height:1.3;margin:18px 0 6px}.resume-education h3:first-child{margin-top:0}</style>' if path=='/resume' else ''
  contact_script=f'<script src="/assets/contact.js?v={ASSET_VERSION["contact.js"]}" defer></script>' if path=='/contact' else ''
+ journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path=='/blog' or path.startswith(('/blog/page/','/post/')) else ''
  fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
  contact_cta='<section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section>' if path!='/contact' else ''
- data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}<script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
+ data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}<script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
  data=apply_link_targets(data)
  f=DIST/('index.html' if path=='/' else path.strip('/')+'/index.html');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(data);written.append(path)
 def intro(label,title,text=''):
@@ -115,9 +116,13 @@ def sections(path):
    cur={'title':b['text'],'blocks':[],'image':lastimg};out.append(cur);lastimg=None
   elif cur:cur['blocks'].append(b)
  return out
-def post_card(p,heading='h3'):
+def post_search(p):
+ return (p['title']+' '+p['excerpt']+' '+(p.get('topic') or '')+' '+' '.join(b.get('text','') for b in p['blocks'])).lower()
+def post_card(p,heading='h3',include_search=True):
  topic=p.get('topic') or ''
- return f'<a class="post-card" data-post data-categories="{E(topic)}" data-search="{E((p["title"]+" "+p["excerpt"]+" "+topic+" "+" ".join(b.get("text","") for b in p["blocks"])).lower())}" href="{p["path"]}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date">{E(p["date"])} · JOURNAL</span><{heading}>{E(p["title"])}</{heading}><p>{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
+ search=f' data-search="{E(post_search(p))}"' if include_search else ''
+ badge=f'<span class="post-topic">{E(topic)}</span>' if topic else ''
+ return f'<a class="post-card journal-card" data-post data-categories="{E(topic)}"{search} href="{E(p["path"])}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date"><time datetime="{E(p["date_iso"])}">{E(p["date"])}</time> · JOURNAL</span>{badge}<{heading}>{E(p["title"])}</{heading}><p class="post-excerpt">{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
@@ -433,11 +438,44 @@ for album in galleries:
   body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(enlarged)}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{gallery_image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
  body+='</div></div></article><dialog class="gallery-dialog" id="gallery-dialog" aria-label="Photo viewer" aria-describedby="gallery-caption"><div class="gallery-toolbar"><span class="gallery-counter" data-gallery-counter role="status" aria-live="polite" aria-atomic="true"></span><button type="button" data-gallery-close autofocus aria-label="Close photo viewer">Close ×</button></div><div class="gallery-stage"><img alt="" draggable="false"></div><p id="gallery-caption"></p><div class="gallery-controls"><button type="button" data-gallery-previous aria-label="Previous photo">← Previous</button><button type="button" data-gallery-next aria-label="Next photo">Next →</button></div></dialog>'
  page(album['path'],album['title'],body,album.get('summary'))
-# Blog uses the same full-text search and expertise filter as Projects.
+# Render genuine archive pages; fetch the compact global index only for filtering/navigation.
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
-body=intro(journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '')+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="post-search">Search the journal<input type="search" id="post-search" placeholder="Search articles…" aria-controls="post-results"></label>'+topic_select('post-category')+'</div>'+f'<p class="result-count" id="result-count" role="status" aria-live="polite">{len(M["posts"])} articles</p><div class="journal-grid" id="post-results">'+''.join(post_card(p,'h2') for p in M['posts'])+'</div><p class="empty" id="no-results" hidden>No articles found. Try another search or select all topics.</p></div></section>';page('/blog','Journal',body)
+JOURNAL_PAGE_SIZE=12
+journal_pages=max(1,(len(M['posts'])+JOURNAL_PAGE_SIZE-1)//JOURNAL_PAGE_SIZE)
+journal_index=[{'year':p['date_iso'][:4],'topic':p.get('topic') or '', 'search':post_search(p),'html':post_card(p,'h2',False)} for p in M['posts']]
+journal_json=json.dumps(journal_index,ensure_ascii=False,separators=(',',':'))
+journal_version=hashlib.sha256(journal_json.encode()).hexdigest()[:12]
+(DIST/'blog').mkdir(exist_ok=True)
+(DIST/'blog/archive-index.json').write_text(journal_json)
+# Remove obsolete numbered pages if entries were removed or unpublished.
+if (DIST/'blog/page').exists():shutil.rmtree(DIST/'blog/page')
+def journal_page_url(number):return '/blog/' if number==1 else f'/blog/page/{number}/'
+def journal_page_numbers(current,total):
+ return sorted({1,total,*range(max(1,current-1),min(total,current+1)+1)}) if total>7 else list(range(1,total+1))
+def journal_pagination(current,total):
+ if total<=1:return ''
+ parts=[]
+ def link(number,label,extra=''):
+  return f'<a href="{journal_page_url(number)}" data-journal-page="{number}"{extra}>{label}</a>'
+ parts.append(link(current-1,'Previous') if current>1 else '<span aria-disabled="true">Previous</span>')
+ previous=0
+ for number in journal_page_numbers(current,total):
+  if previous and number>previous+1:parts.append('<span class="pagination-gap" aria-hidden="true">…</span>')
+  parts.append(link(number,str(number),' aria-current="page" aria-label="Page '+str(number)+'"' if number==current else ' aria-label="Page '+str(number)+'"'))
+  previous=number
+ parts.append(link(current+1,'Next') if current<total else '<span aria-disabled="true">Next</span>')
+ return ''.join(parts)
+years=sorted({p['date_iso'][:4] for p in M['posts']},reverse=True)
+for current in range(1,journal_pages+1):
+ start=(current-1)*JOURNAL_PAGE_SIZE;subset=M['posts'][start:start+JOURNAL_PAGE_SIZE]
+ counter=f'Showing {start+1}–{start+len(subset)} of {len(M["posts"])} articles' if subset else '0 articles'
+ body=intro(journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '')
+ body+=f'<section class="section journal-archive" id="journal-archive" data-page="{current}" data-total="{len(M["posts"])}" data-page-size="{JOURNAL_PAGE_SIZE}" data-index="/blog/archive-index.json?v={journal_version}" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="post-search">Search the journal<input type="search" id="post-search" name="search" placeholder="Search articles…" aria-controls="post-results"></label>'+topic_select('post-category')+'<label for="post-year">Year<select id="post-year" aria-controls="post-results"><option value="">All years</option>'+''.join(f'<option value="{year}">{year}</option>' for year in years)+'</select></label></div>'
+ body+=f'<p class="result-count" id="result-count" role="status" aria-live="polite" tabindex="-1">{counter}</p><div class="journal-grid" id="post-results">'+''.join(post_card(p,'h2') for p in subset)+'</div><p class="empty" id="no-results"'+(' hidden' if subset else '')+'>No articles found. Try another search, topic or year.</p><div class="journal-error" id="journal-error" role="alert" hidden><p>Could not update the archive. Previous results are still shown.</p><button type="button" class="textlink" id="journal-retry">Try again</button></div>'
+ body+='<nav class="journal-pagination" id="journal-pagination" aria-label="Journal pages">'+journal_pagination(current,journal_pages)+'</nav><noscript><p>Use the numbered pages to browse all articles. Enable JavaScript to search or filter the archive.</p></noscript></div></section>'
+ page('/blog' if current==1 else f'/blog/page/{current}','Journal' if current==1 else f'Journal — Page {current}',body)
 for i,p in enumerate(M['posts']):
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
  if p['cover'] and p['cover'] not in p.get('body',''):body+=image(p['cover'],p['title'])
  body+='<div class="article-nav">'
  if i>0:body+=f'<a href="{M["posts"][i-1]["path"]}">← Newer article</a>'

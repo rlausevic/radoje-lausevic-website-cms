@@ -127,3 +127,13 @@ Video, galerije i bibliografske jedinice čuvaju se pojedinačno u odgovarajući
 kolekcijama. Stari zajednički JSON fajlovi čuvaju samo interni redosled za
 izjednačene godine/datume, bez druge kopije sadržaja. Ranije javne adrese i
 prilozi su sačuvani.
+
+### Journal: stranice, pretraga i filter godine
+
+Journal prikazuje 12 objava po stranici, od najnovije ka najstarijoj. Kartice imaju datum, oblast i kratak opis ograničen na tri reda; puni tekst i opis u CMS-u ostaju sačuvani. Godine u filteru Year automatski se preuzimaju iz datuma objavljenih unosa.
+
+Generator pravi zasebne HTML stranice `/blog/`, `/blog/page/2/`, itd. Numerisane stranice rade i bez JavaScript-a. Za pretragu svih objava i kombinovanje Topic + Year postoji generisani `dist/blog/archive-index.json`, koji se preuzima tek kada je potreban. Nije dovoljno samo sakriti dodatne kartice: svaka statička stranica zaista sadrži najviše 12 unosa.
+
+URL može da čuva `search`, `category`, `year` i `page`. Pretraga koristi naslov, kratak opis, tekst i oblast celog arhiva pre podele na stranice. Promena pretrage ili filtera vraća prikaz na prvu stranicu rezultata. Povratak iz objave čuva prethodni izbor i poziciju u okviru istog taba, kada je sessionStorage dostupan. Bez čuvanja podataka u pregledaču Back i URL i dalje ostaju funkcionalni.
+
+Novi unosi, promene datuma i uklanjanje objava automatski ažuriraju indeks i broj stranica pri sledećem uspešnom objavljivanju; CMS forma nije menjana. Za JavaScript provere: `node tests/journal-pagination.cjs dist/blog/archive-index.json`.
