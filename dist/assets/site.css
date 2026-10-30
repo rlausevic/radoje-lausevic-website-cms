@@ -87,3 +87,7 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 @media(max-width:850px){.filters.journal-filters{grid-template-columns:minmax(0,2fr) minmax(100px,1fr)}.journal-filters label:first-child{grid-column:1/-1}.journal-pagination{display:flex;position:static;inset:auto;padding:0;gap:6px}.journal-pagination a,.journal-pagination>span{padding:7px 10px}}
 /* Video/Galleries use the same compact cards and controls as Journal. */
 .archive-card{display:flex;flex-direction:column;min-width:0;height:100%}.archive-card .image-wrap{aspect-ratio:16/9;overflow:hidden;flex-shrink:0}.archive-card .image-wrap img{width:100%;height:100%;object-fit:cover}.archive-card h2,.archive-card h3{line-height:1.25;overflow-wrap:anywhere}.archive-card .post-topic{font-size:12px;line-height:1.35;color:var(--accent);margin:0 0 2px}.archive-card .post-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;line-height:1.5}.gallery-card.archive-card .read{margin-top:auto;padding-top:6px}.video-card.archive-card .video-detail-link{display:flex;flex-direction:column;flex:1}.video-card.archive-card .video-actions{margin-top:auto}
+
+/* Compact public counters, revealed only after a successful metrics response. */
+.view-counter:not([hidden]){display:inline-block;white-space:nowrap}
+.view-counter::before{content:" · ";white-space:pre}

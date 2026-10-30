@@ -9,6 +9,8 @@ from cms_data import load_cms
 from content_archives import read_archive
 from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
+from metrics import Metrics
+metrics=Metrics(ROOT)
 gallery_images=GalleryImages(DIST)
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
 resume=json.loads((ROOT/'content/cms/resume.json').read_text())
@@ -17,10 +19,10 @@ if isinstance(brief_files,str):brief_files=[brief_files]
 brief_cv_url=next((url for url in brief_files if urllib.parse.urlsplit(url).path.lower().endswith('.pdf')),brief_files[0] if brief_files else '')
 E=lambda s:html.escape(str(s),quote=True)
 related_catalog=load_catalog(ROOT)
-ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js','journal.js']}
+ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js','journal.js','metrics.js']}
 NAV=[('/about','About'),('/expertise','Expertise'),('/projects','Projects'),('/bibliography','Bibliography'),('/insights','Insights'),('/contact','Contact')]
 def cv_download(cls='button'):
- return f'<a class="{E(cls)}" href="{E(brief_cv_url)}" download aria-label="Download CV — Europass Brief CV">Download CV</a>' if brief_cv_url else ''
+ return f'<a class="{E(cls)}" href="{E(brief_cv_url)}" download data-metric-download="{metrics.register("cv","brief","Europass Brief CV",brief_cv_url)}" aria-label="Download CV — Europass Brief CV">Download CV</a>' if brief_cv_url else ''
 def image(src,alt='',cls='',eager=False):
  return f'<img src="{E(src)}" alt="{E(alt)}" class="{E(cls)}" loading="{"eager" if eager else "lazy"}" decoding="async">' if src else ''
 def gallery_image(src,alt='',card=False):
@@ -73,6 +75,15 @@ def apply_link_targets(document):
  return document
 
 def page(path,title,body,desc=None):
+ metric_key=metrics.page(path,title)
+ if metric_key:
+  if path.startswith('/project/'):
+   body+=f'<span hidden data-metric-view="{metric_key}"></span>'
+  else:
+   label='page' if path.startswith('/video/') else 'view'
+   counter=f'<span class="view-counter" data-metric-view="{metric_key}" data-metric-public data-metric-label="{label}" hidden></span>'
+   body=re.sub(r'(<p class="article-meta">.*?)(</p>)',lambda m:m[1]+counter+m[2],body,count=1,flags=re.S)
+
  def fixlink(match):
   value=html.unescape(match.group(1))
   if value.startswith('/about#expertise-') or value=='/about#my-services':
@@ -103,7 +114,7 @@ def page(path,title,body,desc=None):
  journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path in {'/blog','/video','/galleries'} or path.startswith(('/blog/page/','/galleries/page/','/post/','/video/','/gallery/')) else ''
  fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
  contact_cta='<section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section>' if path!='/contact' else ''
- data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}<script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
+ data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}<script src="/assets/metrics.js?v={ASSET_VERSION["metrics.js"]}" defer></script><script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
  data=apply_link_targets(data)
  f=DIST/('index.html' if path=='/' else path.strip('/')+'/index.html');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(data);written.append(path)
 def intro(label,title,text=''):
@@ -450,7 +461,7 @@ for category in bibliography_categories:
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
-   body+=f' <a class="bibliography-download" href="{E(url)}" download aria-label="Download: {E(item["title"])} ({index})">Download</a>'
+   body+=f' <a class="bibliography-download" href="{E(url)}" download data-metric-download="{metrics.register("bibliography",bibliography_id(item),item["title"],"/bibliography#bibliography-"+bibliography_id(item))}" aria-label="Download: {E(item["title"])} ({index})">Download</a>'
   body+='</li>'
  if items:body+='</ul>'
  if not items:body+='<p class="category-empty">No entries in this category yet.</p>'
@@ -472,7 +483,7 @@ for category in bibliography_categories:
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
-   body+=f' <a class="bibliography-download" href="{E(url)}" download aria-label="Download: {E(item["title"])} ({index})">Download</a>'
+   body+=f' <a class="bibliography-download" href="{E(url)}" download data-metric-download="{metrics.register("bibliography",bibliography_id(item),item["title"],"/bibliography#bibliography-"+bibliography_id(item))}" aria-label="Download: {E(item["title"])} ({index})">Download</a>'
   body+='</li>'
  if items:body+='</ul>'
  else:body+='<p class="category-empty">No entries in this category yet.</p>'
@@ -523,3 +534,5 @@ for original,localpath in json.loads((ROOT/'content/asset-map.json').read_text()
 print(f'Built {len(written)-1} pages, {len(M["posts"])} blog articles and custom 404.')
 
 print(gallery_images.summary()+f' Build time: {time.perf_counter()-BUILD_STARTED:.2f}s.')
+
+metrics.write(DIST)
