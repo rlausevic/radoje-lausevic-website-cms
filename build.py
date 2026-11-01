@@ -495,13 +495,16 @@ for album in galleries:
  body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/galleries/" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'
  related_projects=[project for project in project_entries if any(key=='galleries' and any(item['href']==album['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
  if related_projects:body+='<div class="gallery-projects prose"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'
- body+=gallery_description(album)+'<div class="gallery-grid">'
+ body+=gallery_description(album)+'<div class="gallery-grid" id="gallery-photos">'
  for photo in album['photos']:
   caption=photo.get('caption') or photo.get('title') or album['title']
   variants=gallery_images.prepare(photo['image'])
   enlarged=variants['large']['url'] if variants else photo['image']
   body+=f'<button class="gallery-button" type="button" data-gallery data-src="{E(enlarged)}" data-caption="{E(caption)}" aria-label="Enlarge {E(photo.get("title") or album["title"])}">{gallery_image(photo["image"],caption)}<span>{E(photo.get("title") or "View photo")} ↗</span></button>'
- body+='</div></div></article><dialog class="gallery-dialog" id="gallery-dialog" aria-label="Photo viewer" aria-describedby="gallery-caption"><div class="gallery-toolbar"><span class="gallery-counter" data-gallery-counter role="status" aria-live="polite" aria-atomic="true"></span><button type="button" data-gallery-close autofocus aria-label="Close photo viewer">Close ×</button></div><div class="gallery-stage"><img alt="" draggable="false"></div><p id="gallery-caption"></p><div class="gallery-controls"><button type="button" data-gallery-previous aria-label="Previous photo">← Previous</button><button type="button" data-gallery-next aria-label="Next photo">Next →</button></div></dialog>'
+ body+='</div>'
+ if len(album['photos'])>12:
+  body+='<div class="gallery-reveal" data-gallery-reveal hidden><p class="result-count" data-gallery-visible-count role="status" aria-live="polite" aria-atomic="true"></p><button class="button" type="button" data-gallery-more aria-controls="gallery-photos">Show more photos</button></div>'
+ body+='</div></article><dialog class="gallery-dialog" id="gallery-dialog" aria-label="Photo viewer" aria-describedby="gallery-caption"><div class="gallery-toolbar"><span class="gallery-counter" data-gallery-counter role="status" aria-live="polite" aria-atomic="true"></span><button type="button" data-gallery-close autofocus aria-label="Close photo viewer">Close ×</button></div><div class="gallery-stage"><img alt="" draggable="false"></div><p id="gallery-caption"></p><div class="gallery-controls"><button type="button" data-gallery-previous aria-label="Previous photo">← Previous</button><button type="button" data-gallery-next aria-label="Next photo">Next →</button></div></dialog>'
  page(album['path'],album['title'],body,album.get('summary'))
 # Render genuine archive pages; fetch the compact global index only for filtering/navigation.
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())

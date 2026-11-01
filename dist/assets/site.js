@@ -37,7 +37,26 @@ if(dialog){
  const counter=dialog.querySelector('[data-gallery-counter]');
  const previous=dialog.querySelector('[data-gallery-previous]'),next=dialog.querySelector('[data-gallery-next]');
  const stage=dialog.querySelector('.gallery-stage');
- let current=0,swipe=null;
+ // Progressive enhancement: all images remain available without JavaScript.
+ // The viewer always retains the complete list, including unrevealed thumbnails.
+ const reveal=document.querySelector('[data-gallery-reveal]');
+ const more=reveal?.querySelector('[data-gallery-more]');
+ const visibleCount=reveal?.querySelector('[data-gallery-visible-count]');
+ let visible=12;
+ const updateGrid=()=>{
+  photos.forEach((photo,index)=>{photo.hidden=index>=visible;});
+  visibleCount.textContent=`Showing ${Math.min(visible,photos.length)} of ${photos.length} photos`;
+  more.hidden=visible>=photos.length;
+ };
+ if(reveal&&more&&visibleCount&&photos.length>12){
+  updateGrid();reveal.hidden=false;
+  more.addEventListener('click',()=>{
+   const firstNew=visible;visible+=12;updateGrid();
+   // Keyboard users continue at the first newly revealed photo.
+   photos[firstNew]?.focus({preventScroll:true});
+  });
+ }
+ let current=0,swipe=null,opener=null,returnPosition=null;
  const showPhoto=index=>{
   if(!photos.length)return;
   current=(index+photos.length)%photos.length;
@@ -46,7 +65,10 @@ if(dialog){
   caption.textContent=photo.dataset.caption||'';counter.textContent=`${current+1} / ${photos.length}`;
   previous.disabled=next.disabled=photos.length<2;
  };
- photos.forEach((photo,index)=>photo.addEventListener('click',()=>{showPhoto(index);dialog.showModal();}));
+ photos.forEach((photo,index)=>photo.addEventListener('click',()=>{
+  opener=photo;returnPosition={left:window.scrollX,top:window.scrollY};
+  showPhoto(index);dialog.showModal();
+ }));
  previous.addEventListener('click',()=>showPhoto(current-1));
  next.addEventListener('click',()=>showPhoto(current+1));
  dialog.querySelector('[data-gallery-close]').addEventListener('click',()=>dialog.close());
@@ -68,7 +90,10 @@ if(dialog){
   if(Math.abs(dx)>=48&&Math.abs(dx)>Math.abs(dy)*1.25)showPhoto(current+(dx<0?1:-1));
  });
  stage.addEventListener('pointercancel',()=>{swipe=null;});
- dialog.addEventListener('close',()=>{swipe=null;});
+ dialog.addEventListener('close',()=>{
+  swipe=null;opener?.focus({preventScroll:true});
+  if(returnPosition)window.scrollTo({...returnPosition,behavior:'instant'});
+ });
 }
 // In-place Bibliography/Projects search, with legacy card-archive fallback.
 function setupArchiveSearch({input,category,year,cards,count,empty,singular,plural,groups}){

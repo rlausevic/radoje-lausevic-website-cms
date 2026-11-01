@@ -91,3 +91,8 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 /* Compact public counters, revealed only after a successful metrics response. */
 .view-counter:not([hidden]){display:inline-block;white-space:nowrap}
 .view-counter::before{content:" · ";white-space:pre}
+
+/* Reveal long gallery grids in groups while retaining the full photo viewer. */
+.gallery-reveal{margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.page-inner .gallery-reveal .result-count{margin:0}
+.gallery-reveal .button:focus-visible,.gallery-button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
