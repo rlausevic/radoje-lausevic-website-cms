@@ -516,6 +516,8 @@ render_archive('/blog','post','article','articles','Journal',journal_archive.get
 for i,p in enumerate(M['posts']):
  body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back data-archive-back="/blog/" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
  if p['cover'] and p['cover'] not in p.get('body',''):body+=image(p['cover'],p['title'])
+ related_projects=[project for project in project_entries if any(key=='journal' and any(item['href']==p['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
+ if related_projects:body+='<div class="gallery-projects"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'
  body+='<div class="article-nav">'
  if i>0:body+=f'<a href="{M["posts"][i-1]["path"]}">← Newer article</a>'
  if i+1<len(M['posts']):body+=f'<a href="{M["posts"][i+1]["path"]}">Older article →</a>'
