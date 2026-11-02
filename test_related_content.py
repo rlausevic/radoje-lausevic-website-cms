@@ -1,4 +1,4 @@
-"""CMS relationship choices, stable bibliography targets and reciprocal gallery links."""
+"""CMS relationship choices, stable bibliography targets and reciprocal gallery and video links."""
 import copy,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
 from content_archives import ARCHIVES,read_archive,write_archive
@@ -67,14 +67,32 @@ class RelatedContent(unittest.TestCase):
    self.assertLess(detail.index('Selected results:'),detail.index('Related content:'))
    album=(root/'dist'/selected['galleries'][0].strip('/')/'index.html').read_text()
    self.assertIn('Related project',album);self.assertIn('href="'+project['path']+'"',album)
+   video_path=catalog['videos'][selected['videos'][0]]['href']
+   video_file=root/'dist'/video_path.strip('/')/'index.html'
+   video=video_file.read_text()
+   self.assertIn('Related project:</strong>',video)
+   self.assertIn('href="'+project['path']+'"',video)
+   self.assertLess(video.index('Watch video'),video.index('Related project:'))
+   for entry in catalog['videos'].values():
+    if entry['href']!=video_path:
+     self.assertNotIn('Related project', (root/'dist'/entry['href'].strip('/')/'index.html').read_text())
    bibliography=(root/'dist/bibliography/index.html').read_text()
    for item in bib['items']:self.assertIn('id="bibliography-'+bibliography_id(item)+'"',bibliography)
    self.assertEqual({x['id'] for x in saved['items']},{x['id'] for x in read('bibliography.json')['items']})
    unrelated=projects['items'][1]
    self.assertNotIn('Related content:',(root/'dist'/unrelated['path'].strip('/')/'index.html').read_text())
+   # Multiple projects, duplicate references and legacy public-path selections.
+   unrelated['related_content']={'videos':[video_path,video_path]}
+   save('projects.json',projects);build()
+   video=video_file.read_text()
+   self.assertIn('Related projects:</strong>',video)
+   self.assertEqual(video.count('href="'+unrelated['path']+'"'),1)
+   self.assertEqual(video.count('href="'+project['path']+'"'),1)
+   unrelated.pop('related_content')
    # Stale selections never generate broken links or empty sections after content removal.
    project['related_content']={key:['removed'] for key in selected};save('projects.json',projects);build()
    detail=(root/'dist'/project['path'].strip('/')/'index.html').read_text()
    self.assertNotIn('Related content:',detail)
+   self.assertNotIn('Related project',video_file.read_text())
    album=(root/'dist'/selected['galleries'][0].strip('/')/'index.html').read_text();self.assertNotIn('Related project',album)
 if __name__=='__main__':unittest.main()

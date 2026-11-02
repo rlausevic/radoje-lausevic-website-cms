@@ -337,7 +337,11 @@ render_archive('/video','video','video','videos','Video',video_archive.get('labe
 for video in videos:
  body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/video/" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</p></header><div class="prose">'
  body+=image(video['cover'],video['title'])+(render(video['content']) if video['content']['text'] else f'<p>{E(video["excerpt"])}</p>')+f'<p><a class="button" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></p>'
- body+='</div></div></article>';page(video['path'],video['title'],body,video['excerpt'])
+ body+='</div>'
+ # Reuse project selections, including legacy references by public Video path.
+ related_projects=[project for project in M['project_entries'] if any(key=='videos' and any(item['href']==video['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
+ if related_projects:body+='<div class="gallery-projects prose"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'
+ body+='</div></article>';page(video['path'],video['title'],body,video['excerpt'])
 # Work experience.
 body=intro('Professional journey','Work experience.','Leadership, research and project management across universities, international organisations and consultancy.')+'<section class="section"><div class="wrap">'
 for sec in sections('/work-experience'):
