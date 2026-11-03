@@ -115,3 +115,5 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 [data-section-archive] .journal-pagination{margin:12px 0 20px}
 [data-section-archive] .result-count{margin:12px 0}
 @media(max-width:700px){.about-archive-grid{grid-template-columns:1fr;gap:14px}.about-archive-card{padding:14px}.about-archive-card summary h3{font-size:22px}}
+
+.page-about #recommendations>.wrap>h2{font:32px/1.25 var(--serif);margin:0 0 14px}

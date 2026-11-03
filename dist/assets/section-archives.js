@@ -56,10 +56,11 @@
     g.entries.forEach(e=>{e.card.hidden=!shown.has(e);});
     g.node.hidden=!!(state.search||state.year||state.category)&&result.total===0;
     const start=(result.page-1)*size+1,end=start+result.items.length-1;
-    g.count.textContent=result.total?`Showing ${start}–${end} of ${result.total} ${g.node.dataset.label||label}`:'0 '+(g.node.dataset.label||label);
+    const unit=(g.node.dataset.label||label).replace(/s$/,result.total===1?'':'s');
+    g.count.textContent=result.total?`Showing ${start}–${end} of ${result.total} ${unit}`:'0 '+(g.node.dataset.label||label);
     navigate(g,result);
    });
-   if(total)total.textContent=`Showing ${visible} of ${matched} ${label}`;
+   if(total)total.textContent=`Showing ${visible} of ${matched} ${label.replace(/s$/,matched===1?'':'s')}`;
    empty.hidden=matched>0;
    if(mode){const url=urlFor(null,1);if(url!==location.pathname+location.search+location.hash)history[mode==='push'?'pushState':'replaceState'](null,'',url);}
    if(focusGroup){focusGroup.count.focus({preventScroll:true});focusGroup.node.scrollIntoView({block:'start',behavior:'instant'});}

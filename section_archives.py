@@ -16,6 +16,7 @@ def controls(prefix,label,years,categories=()):
 
 def paging(prefix,group,label,total,size):
  end=min(size,total)
+ if total==1:label=label.removesuffix('s')
  text=f'Showing 1–{end} of {total} {label}' if total else f'0 {label}'
  return f'<p class="result-count" data-section-count role="status" aria-live="polite" tabindex="-1">{text}</p><nav class="journal-pagination" data-section-pagination aria-label="{E(group if prefix=='bibliography' else label)} pages" hidden></nav>'
 
