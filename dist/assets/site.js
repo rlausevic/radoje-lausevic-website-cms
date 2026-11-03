@@ -97,7 +97,7 @@ if(dialog){
 }
 // In-place Bibliography/Projects search, with legacy card-archive fallback.
 function setupArchiveSearch({input,category,year,cards,count,empty,singular,plural,groups}){
- const search=document.querySelector(input);if(!search||search.closest?.('[data-paginated-archive]'))return;
+ const search=document.querySelector(input);if(!search||search.closest?.('[data-paginated-archive], [data-section-archive]'))return;
  const categorySelect=category?document.querySelector(category):null;
  const yearSelect=year?document.querySelector(year):null;
  const entries=[...document.querySelectorAll(cards)];

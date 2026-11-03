@@ -339,6 +339,14 @@
               "required": true
             },
             {
+              "name": "date",
+              "label": "Datum preporuke",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              }
+            },
+            {
               "name": "summary",
               "label": "Kratak tekst preporuke za prvu stranu",
               "type": "text",
@@ -352,9 +360,22 @@
                 "format": "html",
                 "media": "images"
               }
+            },
+            {
+              "name": "related_contents",
+              "label": "Related contents",
+              "type": "reference",
+              "options": {
+                "collection": "network_references",
+                "multiple": true,
+                "search": "name",
+                "value": "{fields.id}",
+                "label": "{fields.name}"
+              },
+              "description": "Izaberite saradnike ili organizacije iz automatske liste. Izvor se uređuje u Saradnici i organizacije; nakon njegovog čuvanja i obrade osvežite ovu formu."
             }
           ],
-          "description": "Redosled liste određuje prikaz. Prevucite stavke da promenite redosled."
+          "description": "Preporuke se prikazuju po datumu od najnovije, četiri po stranici na About. Početna strana preuzima prve dve. Unosi bez datuma su na kraju, uz očuvan redosled liste."
         },
         {
           "name": "network_note",
@@ -496,19 +517,68 @@
     },
     {
       "name": "network",
-      "label": "Profesionalna mreža",
+      "label": "Saradnici i organizacije",
       "type": "file",
       "path": "content/cms/network.json",
       "format": "json",
       "fields": [
         {
           "name": "body",
-          "label": "Saradnici i organizacije",
+          "label": "Opis",
           "type": "rich-text",
           "options": {
             "format": "html",
             "media": "images"
           }
+        },
+        {
+          "name": "items",
+          "label": "Saradnici i organizacije",
+          "type": "object",
+          "list": {
+            "collapsible": {
+              "collapsed": true,
+              "summary": "{name}"
+            }
+          },
+          "description": "Prikaz na About: po datumu od najnovijeg, četiri unosa po stranici. Unosi bez datuma su na kraju. Posle Save automatska lista za povezivanje preporuka se osvežava; ponovo otvorite Biografija da učitate izbor.",
+          "fields": [
+            {
+              "name": "id",
+              "label": "Trajni identifikator",
+              "type": "uuid",
+              "hidden": true
+            },
+            {
+              "name": "name",
+              "label": "Naziv saradnika ili organizacije",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "date",
+              "label": "Datum uspostavljanja saradnje",
+              "type": "date",
+              "options": {
+                "format": "yyyy-MM-dd"
+              }
+            },
+            {
+              "name": "link",
+              "label": "Link (web sajt ili email)",
+              "type": "string",
+              "description": "Unesite https:// adresu ili email adresu."
+            },
+            {
+              "name": "body",
+              "label": "Opis saradnje",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            }
+          ]
         },
         {
           "name": "document",
@@ -520,6 +590,42 @@
         }
       ],
       "operations": {
+        "delete": false,
+        "rename": false
+      }
+    },
+    {
+      "name": "network_references",
+      "label": "Saradnici — automatski izbor (samo čitanje)",
+      "type": "collection",
+      "path": "content/cms/network_references",
+      "format": "json",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Naziv saradnika ili organizacije",
+          "type": "string",
+          "readonly": true,
+          "description": "Ovaj izbor se automatski generiše. Unos uređujte u Saradnici i organizacije."
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "hidden": true,
+          "readonly": true
+        }
+      ],
+      "view": {
+        "primary": "name",
+        "fields": [
+          "name"
+        ],
+        "search": [
+          "name"
+        ]
+      },
+      "operations": {
+        "create": false,
         "delete": false,
         "rename": false
       }

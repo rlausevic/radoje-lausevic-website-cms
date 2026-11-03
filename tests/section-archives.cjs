@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict');
+const {paginate,normalize,pageNumbers}=require('../dist/assets/section-archives.js');
+const entries=Array.from({length:22},(_,i)=>({search:`Laušević detail needle-${i}`,category:i%2?'Articles':'Publications',years:i===0?['1993','1994']:['2026']}));
+const state={search:'',year:'',category:''};
+assert.equal(paginate(entries,state,4).items.length,4);
+assert.equal(paginate(entries,state,4,6).items.length,2);
+assert.equal(paginate(entries,state,4,900).page,6);
+for(const page of [0,-1,NaN,Infinity,1.5])assert.equal(paginate(entries,state,4,page).page,1);
+assert.deepEqual(paginate(entries,{...state,search:'needle-21 lausevic'},4).items,[entries[21]]);
+assert.deepEqual(paginate(entries,{...state,year:'1994'},3).items,[entries[0]]);
+assert.equal(paginate(entries,{...state,category:'Articles',year:'2026'},3).total,11);
+assert.equal(paginate(entries,{...state,search:'missing'},3).total,0);
+assert.equal(paginate([],state,3).pages,1);
+assert.equal(normalize('Đurović LAUŠEVIĆ'),'durovic lausevic');
+assert.deepEqual(pageNumbers(50,100),[1,49,50,51,100]);
+console.log('Section archive search, paging, year ranges and diacritics passed.');

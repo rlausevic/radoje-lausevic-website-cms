@@ -5,9 +5,11 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from content_archives import bibliography_id
 from content_paths import collection_records
+from network_data import sync_network_index
 
 def sync(root=ROOT):
  root=Path(root);base=root/'content/cms'
+ sync_network_index(root)
  for source in (base/'bibliography_entries').glob('*.json'):
   item=json.loads(source.read_text())
   if not item.get('id'):

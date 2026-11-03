@@ -46,7 +46,7 @@ class ProjectArchive(unittest.TestCase):
    expected=[data['items'][i]['path'] for i in [0,3,1,2]+list(range(4,len(data['items'])))]
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text();home=(root/'dist/index.html').read_text()
-   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),expected)
+   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),expected[:12])
    self.assertEqual(re.findall(r'<a class="project-card" href="([^\"]+)"',home),expected[:2])
    self.assertEqual(json.loads(source.read_text()),data)
    subprocess.run([sys.executable,'scripts/sync_projects.py'],cwd=root,check=True)
@@ -74,14 +74,14 @@ class ProjectArchive(unittest.TestCase):
    p=root/'content/cms/projects.json';data=json.loads(p.read_text());data['items'][0]['topic']='Test expertise';data['items'][0]['body']='<p>Searchable detailed project content</p>';p.write_text(json.dumps(data))
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text()
-   self.assertIn('Search projects',archive);self.assertIn('Topic of expertise',archive);self.assertIn('value="Test expertise"',archive)
+   self.assertIn('Search projects',archive);self.assertIn('Topic',archive);self.assertIn('value="Test expertise"',archive)
    self.assertIn('data-categories="Test expertise"',archive);self.assertIn('searchable detailed project content',archive)
-   links=re.findall(r'href="(/project/[A-Za-z0-9_-]+)">View all details',archive);self.assertEqual(len(links),len(data['items']))
+   links=re.findall(r'href="(/project/[A-Za-z0-9_-]+)">View all details',archive);self.assertEqual(len(links),min(12,len(data['items'])))
    edited_path=data['items'][0]['path'];first=(root/'dist'/edited_path.strip('/')/'index.html').read_text();self.assertIn('<p>Searchable detailed project content</p>',first)
    self.assertIn('href="/projects" aria-current="true"',first)
    brief=json.loads((root/'content/cms/resume.json').read_text())['brief_cv'];brief=brief[0] if isinstance(brief,list) else brief
    for page in ['index.html','resume/index.html','projects/index.html']:
-    html=(root/'dist'/page).read_text();self.assertIn('href="'+brief+'" download aria-label="Download CV — Europass Brief CV">Download CV',html)
+    html=(root/'dist'/page).read_text();self.assertRegex(html,'href="'+re.escape(brief)+'" download[^>]*aria-label="Download CV — Europass Brief CV">Download CV')
    self.assertIn('Selected Bibliography',(root/'dist/resume/index.html').read_text())
    self.assertNotIn('Selected Bibliogrpahy',(root/'dist/resume/index.html').read_text())
    data['items'].reverse();data['items'].pop();p.write_text(json.dumps(data))
@@ -102,7 +102,7 @@ class ProjectArchive(unittest.TestCase):
    data['items'].reverse();source.write_text(json.dumps(data))
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    archive=(root/'dist/projects/index.html').read_text()
-   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in sorted(data['items'],key=project_sort_key,reverse=True)])
+   self.assertEqual(re.findall(r'href="(/project/[^\"]+)">View all details',archive),[p['path'] for p in sorted(data['items'],key=project_sort_key,reverse=True)[:12]])
    for p in data['items']:
     detail=(root/'dist'/p['path'].strip('/')/'index.html').read_text()
     self.assertIn(p['title'],detail)

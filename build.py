@@ -10,6 +10,8 @@ from content_archives import read_archive
 from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
 from metrics import Metrics
+from network_data import network_records,dated,safe_network_link
+from section_archives import controls as section_controls,paging as section_paging,fallback as section_fallback,date_label
 metrics=Metrics(ROOT)
 gallery_images=GalleryImages(DIST)
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
@@ -19,7 +21,7 @@ if isinstance(brief_files,str):brief_files=[brief_files]
 brief_cv_url=next((url for url in brief_files if urllib.parse.urlsplit(url).path.lower().endswith('.pdf')),brief_files[0] if brief_files else '')
 E=lambda s:html.escape(str(s),quote=True)
 related_catalog=load_catalog(ROOT)
-ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js','journal.js','metrics.js']}
+ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest()[:12] for name in ['site.css','site.js','contact.js','journal.js','metrics.js','section-archives.js']}
 NAV=[('/about','About'),('/expertise','Expertise'),('/projects','Projects'),('/bibliography','Bibliography'),('/insights','Insights'),('/contact','Contact')]
 def cv_download(cls='button'):
  return f'<a class="{E(cls)}" href="{E(brief_cv_url)}" download data-metric-download="{metrics.register("cv","brief","Europass Brief CV",brief_cv_url)}" aria-label="Download CV — Europass Brief CV">Download CV</a>' if brief_cv_url else ''
@@ -95,7 +97,7 @@ def page(path,title,body,desc=None):
   return match.group(0)
  body=re.sub(r'href="([^"]+)"',fixlink,body)
  insights_paths=path in {'/insights','/blog','/video','/galleries'} or path.startswith(('/post/','/blog/page/','/galleries/page/','/video/','/gallery/'))
- active='/insights' if insights_paths else '/projects' if path.startswith('/project/') else '/about' if path in {'/resume','/work-experience'} else path
+ active='/insights' if insights_paths else '/projects' if path.startswith(('/project/','/projects/page/')) else '/about' if path in {'/resume','/work-experience'} else path
  nav=''
  for url,label in NAV:
   current=(' aria-current="page"' if path==url else ' aria-current="true"') if active==url else ''
@@ -111,10 +113,11 @@ def page(path,title,body,desc=None):
   except ValueError:pass
  resume_styles='<style>.resume-education p,.resume-education li{line-height:1.4}.resume-education p{margin:0 0 6px}.resume-education h3{font-size:22px;line-height:1.3;margin:18px 0 6px}.resume-education h3:first-child{margin-top:0}</style>' if path=='/resume' else ''
  contact_script=f'<script src="/assets/contact.js?v={ASSET_VERSION["contact.js"]}" defer></script>' if path=='/contact' else ''
- journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path in {'/blog','/video','/galleries'} or path.startswith(('/blog/page/','/galleries/page/','/post/','/video/','/gallery/')) else ''
+ journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path in {'/blog','/video','/galleries','/projects'} or path.startswith(('/blog/page/','/galleries/page/','/post/','/video/','/gallery/','/projects/page/','/project/')) else ''
  fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
  contact_cta='<section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section>' if path!='/contact' else ''
- data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}<script src="/assets/metrics.js?v={ASSET_VERSION["metrics.js"]}" defer></script><script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
+ section_script=f'<script src="/assets/section-archives.js?v={ASSET_VERSION["section-archives.js"]}" defer></script>' if path in {'/about','/bibliography'} else ''
+ data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}{section_script}<script src="/assets/metrics.js?v={ASSET_VERSION["metrics.js"]}" defer></script><script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
  data=apply_link_targets(data)
  f=DIST/('index.html' if path=='/' else path.strip('/')+'/index.html');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(data);written.append(path)
 def intro(label,title,text=''):
@@ -137,7 +140,8 @@ def post_card(p,heading='h3',include_search=True):
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
-recommendations=M['about'].get('recommendations') or []
+recommendations=dated(M['about'].get('recommendations') or [])
+network_entries=network_records(ROOT)
 video_archive=read_archive(ROOT,'videos')
 videos=[];video_paths=set()
 for item in video_archive.get('items') or []:
@@ -260,18 +264,43 @@ if career:
   body+=f'<details class="career-card"><summary><h3>{E(item["title"])}</h3><span class="date">{E(item["period"])}</span><span class="textlink career-expand">View details →</span><span class="textlink career-collapse">Hide details ↑</span></summary><div class="career-content">'+render(__import__('cms_data').body(item.get('body') or ''))+'</div></details>'
  body+='</div>'
  body+='<p><a class="textlink" href="/work-experience">View full career history →</a></p></div></section>'
-body+='<section class="section" id="professional-network"><div class="wrap prose"><h2>Professional network</h2>'+render(__import__('cms_data').body(network_data.get('body') or ''))
+body+='<section class="section" id="professional-network"><div class="wrap"><div class="prose"><h2>Professional network</h2>'+render(__import__('cms_data').body(network_data.get('body') or ''))+'</div>'
 network_documents=network_data.get('document') or []
 if isinstance(network_documents,str):network_documents=[network_documents]
 for url in network_documents:body+=f'<p><a class="textlink" href="{E(url)}" download>Download the full network list ↓</a></p>'
+def about_archive(prefix,entries):
+ is_network=prefix=='network';label='collaborations' if is_network else 'recommendations'
+ years=[str(item.get('date') or '')[:4] or 'undated' for item in entries]
+ out=f'<div id="{prefix}-archive" data-section-archive data-prefix="{prefix}" data-page-size="4" data-label="{label}">'
+ out+=section_controls(prefix,'Search professional network' if is_network else 'Search recommendations',years)
+ out+=f'<div data-section-group data-group="all">'+section_paging(prefix,'all',label,len(entries),4)+f'<div class="journal-grid about-archive-grid" id="{prefix}-results">'
+ lookup={item['id']:item for item in network_entries}
+ for index,item in enumerate(entries):
+  content=__import__('cms_data').body(item.get('body') or '');date=str(item.get('date') or '');date_text=date_label(date)
+  title=item.get('name') if is_network else item['author']
+  selected=item.get('related_contents') or []
+  if isinstance(selected,str):selected=[selected]
+  related=[lookup[key] for key in dict.fromkeys(selected) if key in lookup]
+  search=' '.join([title,item.get('summary') or '',date,content['text']]+[x['name'] for x in related])
+  identifier='network-'+item['id'] if is_network else 'recommendation-'+str(index+1)
+  attrs=f' id="{E(identifier)}" data-section-entry data-years="{E(date[:4] or "undated")}" data-search="{E(search)}"'+(' hidden' if index>=4 else '')
+  out+=f'<details class="post-card about-archive-card"{attrs}><summary>'
+  if date_text:out+=f'<span class="date"><time datetime="{E(date)}">{E(date_text)}</time></span>'
+  out+=f'<h3>{E(title)}</h3>'
+  if not is_network:out+='<span class="recommendation-summary">'+E(item.get('summary') or '')+'</span>'
+  out+='<span class="textlink archive-expand">'+('View details →' if is_network else 'View full recommendation →')+'</span><span class="textlink archive-collapse">Hide details ↑</span></summary><div class="prose about-archive-content">'+render(content)
+  if is_network:
+   url=safe_network_link(item.get('link'))
+   if url:out+='<p><a class="textlink" href="'+E(url)+'">'+('Send email ↗' if url.startswith('mailto:') else 'Visit website ↗')+'</a></p>'
+  elif related:out+='<p><strong>Related collaborations:</strong></p><ul class="related-list">'+''.join('<li><a href="/about/#network-'+E(x['id'])+'">'+E(x['name'])+'</a></li>' for x in related)+'</ul>'
+  out+='</div></details>'
+ out+='</div></div><p class="empty" data-section-empty'+(' hidden' if entries else '')+'>No '+label+' found.</p>'+section_fallback(prefix)+'</div>'
+ return out
+# Existing prose is retained; new structured records are added only by the editor.
+if network_entries:body+=about_archive('network',network_entries)
 body+='</div></section>'
 if recommendations:
- body+='<section class="section testimonials" id="recommendations"><div class="wrap prose"><span class="eyebrow">Professional recommendations</span><h2>Recommendations</h2>'
- body+='<div class="recommendation-cards">'
- for item in recommendations:
-  body+=f'<details class="recommendation-card"><summary><h3>{E(item["author"])}</h3><span class="recommendation-summary">{E(item.get("summary") or "")}</span><span class="textlink recommendation-expand">View full recommendation →</span><span class="textlink recommendation-collapse">Hide full recommendation ↑</span></summary><blockquote class="recommendation-content">'+render(__import__('cms_data').body(item.get('body') or ''))+'</blockquote></details>'
- body+='</div>'
- body+='</div></section>'
+ body+='<section class="section testimonials" id="recommendations"><div class="wrap"><span class="eyebrow">Professional recommendations</span><h2>Recommendations</h2>'+about_archive('recommendations',recommendations)+'</div></section>'
 body+='<section class="section" id="cv-documents"><div class="wrap prose"><h2>CV &amp; documents</h2><div class="actions">'+cv_download()+'<a class="textlink" href="/resume">View full CV &amp; documents →</a></div></div></section>';page('/about','About',body)
 # Expertise is the sole service source for this page, Home and project topics.
 body=intro(expertise_page.get('label','Expertise'),expertise_page.get('heading','Expertise.'),expertise_page.get('lead',''))+'<section class="section" id="my-services"><div class="wrap journal-grid expertise-grid">'
@@ -294,16 +323,17 @@ if videos:
 if galleries:
  body+='<section class="section"><div class="wrap"><div class="section-head"><h2>Galleries</h2><a class="textlink" href="/galleries">View all galleries →</a></div><div class="journal-grid">'+''.join(gallery_card(album) for album in galleries[:3])+'</div></div></section>'
 page('/insights','Insights',body)
-# Shared static pagination and archive-wide search for Journal, Video and Galleries.
+# Shared static pagination and archive-wide search for Journal, media and Projects.
 def render_archive(base,prefix,singular,plural,title,label,heading,lead,entries,card,search,detail_prefix):
  size=12;total=max(1,(len(entries)+size-1)//size)
  directory=DIST/base.lstrip('/');directory.mkdir(exist_ok=True)
  if (directory/'page').exists():shutil.rmtree(directory/'page')
- index=[{'year':item['date_iso'][:4],'topic':item.get('topic') or '', 'search':search(item),'html':card(item,'h2',False)} for item in entries]
+ index=[{'year':item['date_iso'][:4] or 'undated','topic':item.get('topic') or '', 'search':search(item),'html':card(item,'h2',False)} for item in entries]
  payload=json.dumps(index,ensure_ascii=False,separators=(',',':'))
  (directory/'archive-index.json').write_text(payload)
  version=hashlib.sha256(payload.encode()).hexdigest()[:12]
- years=sorted({item['date_iso'][:4] for item in entries},reverse=True)
+ years=sorted({item['date_iso'][:4] for item in entries}-{''},reverse=True)
+ if any(not item['date_iso'] for item in entries):years.append('undated')
  def address(number):return base+'/' if number==1 else f'{base}/page/{number}/'
  def pagination(current):
   if total<=1:return ''
@@ -318,10 +348,10 @@ def render_archive(base,prefix,singular,plural,title,label,heading,lead,entries,
    parts.append(link(number,str(number)));previous=number
   parts.append(link(current+1,'Next') if current<total else '<span aria-disabled="true">Next</span>')
   return ''.join(parts)
- search_label={'post':'Search the journal','video':'Search video archive','gallery':'Search the gallery'}[prefix]
+ search_label={'post':'Search the journal','video':'Search video archive','gallery':'Search the gallery','project':'Search projects'}[prefix]
  root_id='journal-archive' if prefix=='post' else prefix+'-archive'
  count_id='result-count' if prefix=='post' else prefix+'-result-count'
- empty_id={'post':'no-results','video':'no-videos','gallery':'no-galleries'}[prefix]
+ empty_id={'post':'no-results','video':'no-videos','gallery':'no-galleries','project':'no-projects'}[prefix]
  nav_id='journal-pagination' if prefix=='post' else prefix+'-pagination'
  error_id='journal-error' if prefix=='post' else prefix+'-error'
  for current in range(1,total+1):
@@ -329,7 +359,7 @@ def render_archive(base,prefix,singular,plural,title,label,heading,lead,entries,
   unit=singular if len(entries)==1 else plural
   counter=f'Showing {start+1}–{start+len(subset)} of {len(entries)} {unit}' if subset else '0 '+plural
   body=intro(label,heading,lead)
-  body+=f'<section class="section journal-archive" id="{root_id}" data-paginated-archive data-base="{base}/" data-prefix="{prefix}" data-detail-prefix="{detail_prefix}" data-singular="{singular}" data-plural="{plural}" data-page="{current}" data-total="{len(entries)}" data-page-size="{size}" data-index="{base}/archive-index.json?v={version}" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="{prefix}-search">{search_label}<input type="search" id="{prefix}-search" name="search" placeholder="{search_label}…" aria-controls="{prefix}-results"></label>'+topic_select(prefix+'-category')+f'<label for="{prefix}-year">Year<select id="{prefix}-year" aria-controls="{prefix}-results"><option value="">All years</option>'+''.join(f'<option value="{year}">{year}</option>' for year in years)+'</select></label></div>'
+  body+=f'<section class="section journal-archive" id="{root_id}" data-paginated-archive data-base="{base}/" data-prefix="{prefix}" data-detail-prefix="{detail_prefix}" data-singular="{singular}" data-plural="{plural}" data-page="{current}" data-total="{len(entries)}" data-page-size="{size}" data-index="{base}/archive-index.json?v={version}" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="{prefix}-search">{search_label}<input type="search" id="{prefix}-search" name="search" placeholder="{search_label}…" aria-controls="{prefix}-results"></label>'+topic_select(prefix+'-category')+f'<label for="{prefix}-year">Year<select id="{prefix}-year" aria-controls="{prefix}-results"><option value="">All years</option>'+''.join(f'<option value="{year}">{"Undated" if year=="undated" else year}</option>' for year in years)+'</select></label></div>'
   body+=f'<p class="result-count" id="{count_id}" data-archive-count role="status" aria-live="polite" tabindex="-1">{counter}</p><div class="journal-grid" id="{prefix}-results" data-archive-results>'+''.join(card(item,'h2') for item in subset)+f'</div><p class="empty" id="{empty_id}" data-archive-empty'+(' hidden' if subset else '')+f'>No {plural} found. Try another search, topic or year.</p><div class="journal-error" id="{error_id}" data-archive-error role="alert" hidden><p>Could not update the archive. Previous results are still shown.</p><button type="button" class="textlink" data-archive-retry>Try again</button></div>'
   body+=f'<nav class="journal-pagination" id="{nav_id}" data-archive-pagination aria-label="{title} pages">'+pagination(current)+'</nav><noscript><p>Use the numbered pages to browse all entries. Enable JavaScript to search or filter the archive.</p></noscript></div></section>'
   page(base if current==1 else f'{base}/page/{current}',title if current==1 else f'{title} — Page {current}',body,lead)
@@ -354,26 +384,23 @@ links=M['pages']['/work-experience']['links'];full=next((a['href'] for a in link
 body+=f'<p><a class="button" href="{E(full)}" download>Download the full network list ↓</a></p></div></section>';page('/work-experience','Work experience',body)
 # Projects archive uses Journal cards and the shared search engine.
 if (DIST/'project').exists():shutil.rmtree(DIST/'project')
-body=intro('Selected portfolio','Projects.','A selection from more than 100 projects managed or supervised, with a total portfolio exceeding €50 million.')+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters"><label for="project-search">Search projects<input type="search" id="project-search" placeholder="Search projects…" aria-controls="project-results"></label><label for="project-category">Topic of expertise<select id="project-category"><option value="">All topics</option>'+''.join(f'<option value="{E(topic)}">{E(topic)}</option>' for topic in expertise_topics)+'</select></label></div>'
-body+=f'<p class="result-count" id="project-result-count" role="status" aria-live="polite">{len(project_entries)} projects</p><div class="journal-grid" id="project-results">'
-project_paths=set()
-for i,project in enumerate(project_entries):
- path=project_path(project)
- if path in project_paths:raise ValueError('Duplicate project address: '+path)
- project_paths.add(path)
+def project_search(project):
  detail=__import__('cms_data').body(project.get('body') or '')
- topic=project.get('topic') or ''
- search=' '.join([project['title'],project.get('full_name') or '',project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '',topic,detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
+ return ' '.join([project['title'],project.get('full_name') or '',project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '',project.get('topic') or '',detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
+def project_card(project,heading='h2',include_search=True):
+ topic=project.get('topic') or '';path=project_path(project)
+ search=f' data-search="{E(project_search(project))}"' if include_search else ''
  assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(project["period"])}</p>' if project['period'] else ''
- body+=f'<article class="post-card project-archive-card" id="project-{i+1}" data-project data-categories="{E(topic)}" data-search="{E(search)}"><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><h2>{E(project["title"])}</h2>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
-body+='</div><p class="empty" id="no-projects" hidden>No projects found. Try another search or select all topics.</p></div></section>';page('/projects','Projects',body)
+ return f'<article class="post-card project-archive-card" data-project data-categories="{E(topic)}"{search}><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><{heading}>{E(project["title"])}</{heading}>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
+for project in project_entries:project['date_iso']=project.get('assignment_start' if project.get('assignment_ongoing') else 'assignment_end') or ''
+render_archive('/projects','project','project','projects','Projects','Selected portfolio','Projects.','A selection from more than 100 projects managed or supervised, with a total portfolio exceeding €50 million.',project_entries,project_card,project_search,'/project/')
 def related_links(project):
  groups=selected_content(project,related_catalog)
  if not groups:return ''
  links=''.join('<li><span class="related-type">'+E(label)+' · </span><a href="'+E(item['href'])+'">'+E(item['title'])+'</a></li>' for _,label,items in groups for item in items)
  return '<section class="project-section related-content"><h2>Related content:</h2><ul class="related-list">'+links+'</ul></section>'
 for project in project_entries:
- body=f'<article class="article project-page"><div class="wrap"><header class="article-head"><a class="textlink" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
+ body=f'<article class="article project-page"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/projects/" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
  body+='<div class="project-facts">'
  for label,value in [('Full project name:',project.get('full_name') or ''),('Project duration:',project.get('project_duration') or ''),('My role:',project.get('role') or ''),('My assignment:',project['period'])]:
   if value:body+='<p><strong>'+label+'</strong> '+E(value)+'</p>'
@@ -452,16 +479,17 @@ def bibliography_citation(item):
 bibliography_years=sorted({year for item in bibliography_items for year in bibliography_filter_years(item)}-{'undated'},reverse=True)
 bibliography_year_options=''.join(f'<option value="{year}">{year}</option>' for year in bibliography_years)
 if any(bibliography_filter_years(item)==['undated'] for item in bibliography_items):bibliography_year_options+='<option value="undated">Undated</option>'
-body=intro(bibliography.get('label','Bibliography'),bibliography.get('heading','Research, knowledge and dialogue.'),bibliography.get('lead',''))+'<section class="section" style="padding-top:0"><div class="wrap"><div class="filters journal-filters"><label for="bibliography-search">Search Bibliography<input type="search" id="bibliography-search" placeholder="Search Bibliography…" aria-controls="bibliography-results"></label><label for="bibliography-category">Category<select id="bibliography-category"><option value="">All categories</option>'+''.join(f'<option value="{E(category)}">{E(category)}</option>' for category in bibliography_categories)+'</select></label><label for="bibliography-year">Year<select id="bibliography-year" aria-controls="bibliography-results"><option value="">All years</option>'+bibliography_year_options+'</select></label></div>'
-body+=f'<p class="result-count" id="bibliography-result-count" role="status" aria-live="polite">{len(bibliography_items)} bibliography {"item" if len(bibliography_items)==1 else "items"}</p><div id="bibliography-results">'
+body=intro(bibliography.get('label','Bibliography'),bibliography.get('heading','Research, knowledge and dialogue.'),bibliography.get('lead',''))+'<section class="section" style="padding-top:0"><div class="wrap" id="bibliography-archive" data-section-archive data-prefix="bibliography" data-page-size="3" data-label="bibliography items"><div class="filters journal-filters" data-section-controls><label for="bibliography-search">Search Bibliography<input type="search" id="bibliography-search" data-section-search placeholder="Search Bibliography…" aria-controls="bibliography-results"></label><label for="bibliography-category">Category<select id="bibliography-category" data-section-category><option value="">All categories</option>'+''.join(f'<option value="{E(category)}">{E(category)}</option>' for category in bibliography_categories)+'</select></label><label for="bibliography-year">Year<select id="bibliography-year" data-section-year aria-controls="bibliography-results"><option value="">All years</option>'+bibliography_year_options+'</select></label></div>'
+body+=f'<p class="result-count" id="bibliography-result-count" data-section-total role="status" aria-live="polite">Showing {sum(min(3,sum(item['category']==c for item in bibliography_items)) for c in bibliography_categories)} of {len(bibliography_items)} bibliography items</p><div id="bibliography-results">'
 for category in bibliography_categories:
  items=[item for item in bibliography_items if item['category']==category]
- body+=f'<section class="bibliography-group" data-archive-group><h2>{E(category)}</h2><p class="category-description">{E(category_descriptions.get(category,""))}</p>'
+ body+=f'<section class="bibliography-group" data-archive-group data-section-group data-group="{category.lower().replace(" ","-")}" data-label="items"><h2>{E(category)}</h2><p class="category-description">{E(category_descriptions.get(category,""))}</p>'
+ body+=section_paging('bibliography',category,'items',len(items),3)
  if items:body+='<ul class="bibliography-list">'
- for item in items:
+ for item_index,item in enumerate(items):
   description=__import__('cms_data').body(item.get('description') or '')
   searchable=' '.join(str(item.get(field) or '') for field in ['category','title','year','url','reference','authors','venue','volume_issue_pages','publisher'])+' '+description['text']
-  body+=f'<li class="bibliography-item" id="bibliography-{E(bibliography_id(item))}" data-bibliography data-years="{E("|".join(bibliography_filter_years(item)))}" data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
+  body+=f'<li class="bibliography-item" id="bibliography-{E(bibliography_id(item))}" data-bibliography data-section-entry{' hidden' if item_index>=3 else ''} data-years="{E("|".join(bibliography_filter_years(item)))}" data-categories="{E(category)}" data-search="{E(searchable.lower())}"><span class="bibliography-citation">{bibliography_citation(item)}</span>'
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
@@ -470,7 +498,8 @@ for category in bibliography_categories:
  if items:body+='</ul>'
  if not items:body+='<p class="category-empty">No entries in this category yet.</p>'
  body+='</section>'
-body+='</div><p class="empty" id="no-bibliography"'+(' hidden' if bibliography_items else '')+'>No bibliography items found. Try another search or select all categories.</p></div></section>'
+body+='</div><p class="empty" id="no-bibliography" data-section-empty'+(' hidden' if bibliography_items else '')+'>No bibliography items found. Try another search or select all categories.</p></div></section>'
+body+=section_fallback('bibliography')
 page('/bibliography','Bibliography',body,bibliography.get('lead'))
 body=intro(resume.get('label','Qualifications & publications'),resume.get('heading','Resume.'),resume.get('lead','Explore my academic background, download a CV and read selected publications.'))+'<section class="section"><div class="wrap"><div class="download-grid">'
 for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:

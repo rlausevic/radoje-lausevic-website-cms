@@ -96,3 +96,22 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 .gallery-reveal{margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:12px}
 .page-inner .gallery-reveal .result-count{margin:0}
 .gallery-reveal .button:focus-visible,.gallery-button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* Compact Journal-style archives within About. */
+.about-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:20px}
+.about-archive-card{display:block;height:auto;padding:18px;border:1px solid var(--line);background:var(--paper);overflow-wrap:anywhere}
+.about-archive-card summary{list-style:none;cursor:pointer}
+.about-archive-card summary::-webkit-details-marker{display:none}
+.about-archive-card summary h3{font-size:24px;line-height:1.25;margin:0 0 10px}
+.about-archive-card .date{display:block;margin:0 0 8px}
+.about-archive-card .recommendation-summary{display:block;font-size:14px;line-height:1.5;color:var(--muted);margin-bottom:12px}
+.about-archive-card .textlink{display:inline-block}
+.about-archive-card .archive-collapse,.about-archive-card[open] .archive-expand{display:none}
+.about-archive-card[open] .archive-collapse{display:inline-block}
+.about-archive-content{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}
+.page-about .about-archive-content p,.page-about .about-archive-content li{font-size:14px;line-height:1.5;margin-bottom:10px}
+.about-archive-content>:last-child{margin-bottom:0}
+[data-section-group],[data-section-entry]{scroll-margin-top:120px}
+[data-section-archive] .journal-pagination{margin:12px 0 20px}
+[data-section-archive] .result-count{margin:12px 0}
+@media(max-width:700px){.about-archive-grid{grid-template-columns:1fr;gap:14px}.about-archive-card{padding:14px}.about-archive-card summary h3{font-size:22px}}
