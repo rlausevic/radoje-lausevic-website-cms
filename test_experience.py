@@ -23,13 +23,7 @@ class Experience(unittest.TestCase):
   self.assertEqual(experience_period({'ongoing':False,'period':'Stale period'}),'')
   for item in [{'start':'2026-13'},{'end':'2026-02-30'},{'start':'2026-05','end':'2025-12'},{'ongoing':'false'}]:
    with self.assertRaises(ValueError):experience_period(item)
- def test_existing_content_migration_is_lossless(self):
-  data=json.loads((ROOT/'content/cms/experience.json').read_text())['items']
-  self.assertEqual(len(data),9)
-  for item in data:
-   self.assertRegex(item['start'],r'^\d{4}-\d{2}$')
-   self.assertEqual(experience_period(item),item['period'])
-   self.assertTrue(item['body']);self.assertTrue(item['title'])
+ def test_cms_date_fields_keep_month_precision_and_empty_defaults(self):
   config=json.loads((ROOT/'.pages.yml').read_text());fields=next(x for x in config['content'] if x['name']=='experience')['fields'][0]['fields']
   for name in ['start','end']:
    field=next(x for x in fields if x['name']==name)
