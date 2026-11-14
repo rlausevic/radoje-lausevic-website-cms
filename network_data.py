@@ -1,6 +1,12 @@
 """One editable network list, with a generated read-only Pages CMS reference index."""
 import datetime,json,re,uuid
+from urllib.parse import urlsplit
 from pathlib import Path
+
+def network_document(value):
+ """A newly appended PDF replaces the prior selection on both public pages."""
+ files=[value] if isinstance(value,str) else value or []
+ return next((url for url in reversed(files) if isinstance(url,str) and urlsplit(url).path.lower().endswith('.pdf')),'')
 
 def date_key(item):
  try:return datetime.date.fromisoformat(str(item.get('date') or '')[:10])

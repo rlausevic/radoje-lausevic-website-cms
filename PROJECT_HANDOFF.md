@@ -1,6 +1,6 @@
 # Radoje Laušević web site — handoff
 
-Datum provere: **3. novembar 2026.** Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
+Datum ciljane dopune: **14. novembar 2026.** (projekti i PDF mreže); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
 
 ## 1. Merodavni izvori i kontrolna tačka
 
@@ -28,9 +28,11 @@ Projekti u toku imaju prednost, zatim se sortiraju po početku angažmana opadaj
 
 Jedini izvor za zajednička Download CV dugmad je `content/cms/resume.json` → `brief_cv`. Trenutni dokument je `/assets/radojelauseviccveuropassshort20261019.pdf`, Europass Brief CV. Generator preferira PDF ako polje sadrži više fajlova. Zadržati ovu centralnu vezu u zaglavlju, About i podnožju; detaljni CV dokumenti ostaju posebni.
 
-Projekti koriste eksplicitni `path`, nezavisan od naslova. `content/project-redirects.json` čuva stare projektne adrese; generator emituje 301 pravila, uključujući varijante sa završnom kosom crtom. Journal i Galleries dobijaju `/post/slug` odnosno `/gallery/slug` samo kada `path` nedostaje; postojeći put ostaje sačuvan. Ručna promena adrese zahteva proveru referenci i preusmerenje: opšti automatski registar promena tih putanja nije implementiran.
+Projekti čuvaju trajni `path`, nezavisan od naknadnih izmena akronima. Prazna adresa dobija `/project/AKRONIM` uz očuvana velika i mala slova (npr. `/project/REDEEM`); sudari sa postojećim ili starim adresama dobijaju nastavak `-2`, `-3` itd. `scripts/sync_projects.py` upisuje generisanu adresu posle Save. Postojeće adrese se ne menjaju. Projekat može imati više oblasti (`topic` je lista); svaka učestvuje u Projects filteru, pretrazi i Selected projects na Expertise. `content/project-redirects.json` čuva stare projektne adrese; generator emituje 301 pravila, uključujući varijante sa završnom kosom crtom. Journal i Galleries dobijaju `/post/slug` odnosno `/gallery/slug` samo kada `path` nedostaje; postojeći put ostaje sačuvan. Ručna promena adrese zahteva proveru referenci i preusmerenje: opšti automatski registar promena tih putanja nije implementiran.
 
 Video detaljna adresa nastaje iz hash-a spoljnog `link` polja. Promena tog linka može promeniti javni URL i CMS reference. Bibliography koristi UUID i sidro `bibliography-UUID`. Projekti biraju povezane objave, videe, galerije i bibliografiju iz kolekcija; Journal, Video i Gallery detalji automatski prikazuju povratne veze ka projektima. Preporuke biraju saradnike preko njihovog UUID-a i izvedene liste `network_references`; originali ostaju samo u `network.json`.
+
+PDF mreže je centralno polje `network.json` → `document`. CMS omogućava Upload/Select i uz postojeći izbor, ograničen na PDF. Poslednji PDF iz izbora koristi se za jedno dugme Download the full network list na About i Career history; prethodni izbor se može ukloniti pomoću Remove pre Save. Oba dugmeta koriste zajednički stil `button`, kao Download CV. Prazan izbor uklanja oba dugmeta.
 
 ## 5. Fotografije
 

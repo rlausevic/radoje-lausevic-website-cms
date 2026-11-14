@@ -130,7 +130,7 @@ class ProjectArchive(unittest.TestCase):
    def fails(message):
     result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
     self.assertNotEqual(result.returncode,0);self.assertIn(message,result.stderr)
-   for invalid in [None,'/project/../../outside','/project/name?query=yes','/about','/project/with space']:
+   for invalid in ['/project/../../outside','/project/name?query=yes','/about','/project/with space']:
     data=json.loads(json.dumps(original));data['items'][0]['path']=invalid;source.write_text(json.dumps(data))
     fails('Invalid or missing permanent project address')
    data=json.loads(json.dumps(original));data['items'][0]['path']=data['items'][1]['path'];source.write_text(json.dumps(data));fails('Duplicate permanent project address')

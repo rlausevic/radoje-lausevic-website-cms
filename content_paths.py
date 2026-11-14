@@ -1,11 +1,26 @@
-"""Generate editable, persistent public addresses for new articles and galleries."""
+"""Generate persistent public addresses for new projects, articles and galleries."""
 import hashlib,json,re,unicodedata
 from pathlib import Path
 
-def slug(title):
+def slug(title,preserve_case=False):
  title=str(title).replace('Đ','D').replace('đ','d')
- title=unicodedata.normalize('NFKD',title).encode('ascii','ignore').decode().lower()
- return re.sub(r'[^a-z0-9]+','-',title).strip('-') or 'untitled'
+ title=unicodedata.normalize('NFKD',title).encode('ascii','ignore').decode()
+ if not preserve_case:title=title.lower()
+ return re.sub(r'[^A-Za-z0-9]+','-',title).strip('-') or 'untitled'
+
+def project_paths(root,items):
+ """Fill only blank project addresses, reserving existing and retired URLs."""
+ redirects=Path(root)/'content/project-redirects.json'
+ used=set(json.loads(redirects.read_text())) if redirects.exists() else set()
+ used.update(item['path'] for item in items if (item.get('path') or '').strip())
+ for item in items:
+  if (item.get('path') or '').strip():continue
+  base='/project/'+slug(item.get('title',''),preserve_case=True)
+  candidate=base;number=2
+  while candidate in used:
+   candidate=base+'-'+str(number);number+=1
+  item['path']=candidate;used.add(candidate)
+ return items
 
 def collection_records(root,folder,kind,persist=False):
  """Explicit addresses win. Only missing addresses are generated, including drafts.

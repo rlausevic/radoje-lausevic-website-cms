@@ -14,6 +14,12 @@ assert.equal(filtered.total,5); assert.equal(filtered.pages,1);
 assert.ok(filtered.items.every(x=>x.year==='2024'&&x.topic==='Blue'));
 assert.equal(selectEntries(entries,{...state,search:'missing'}).total,0);
 assert.equal(selectEntries([],state).pages,1);
+// Projects may belong to several topics; each must match independently.
+const projects=[{topic:['Blue','Climate'],year:'2026',search:'REDEEM nexus'},{topic:'Climate',year:'2026',search:'Legacy project'}];
+assert.equal(selectEntries(projects,{...state,category:'Blue'}).total,1);
+assert.equal(selectEntries(projects,{...state,category:'Climate'}).total,2);
+assert.equal(selectEntries(projects,{...state,category:'Climate',search:'nexus',year:'2026'}).items[0],projects[0]);
+assert.equal(selectEntries(projects,{...state,category:'Missing'}).total,0);
 assert.equal(normalize('Đurović LAUŠEVIĆ'),'durovic lausevic');
 assert.deepEqual(pageNumbers(50,100),[1,49,50,51,100]);
 const url=stateURL({...state,search:'Blue Pass & skills',category:'Blue',year:'2024',page:2});

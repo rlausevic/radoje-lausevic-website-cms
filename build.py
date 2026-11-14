@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil,time
 BUILD_STARTED=time.perf_counter()
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
-from cms_data import load_cms
+from cms_data import load_cms,project_topics
 from content_archives import read_archive
 from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
@@ -25,6 +25,9 @@ ASSET_VERSION={name:hashlib.sha256((DIST/'assets'/name).read_bytes()).hexdigest(
 NAV=[('/about','About'),('/expertise','Expertise'),('/projects','Projects'),('/bibliography','Bibliography'),('/insights','Insights'),('/contact','Contact')]
 def cv_download(cls='button'):
  return f'<a class="{E(cls)}" href="{E(brief_cv_url)}" download data-metric-download="{metrics.register("cv","brief","Europass Brief CV",brief_cv_url)}" aria-label="Download CV — Europass Brief CV">Download CV</a>' if brief_cv_url else ''
+def network_download():
+ url=M.get('network_document')
+ return f'<p><a class="button" href="{E(url)}" download>Download the full network list ↓</a></p>' if url else ''
 def image(src,alt='',cls='',eager=False):
  return f'<img src="{E(src)}" alt="{E(alt)}" class="{E(cls)}" loading="{"eager" if eager else "lazy"}" decoding="async">' if src else ''
 def gallery_image(src,alt='',card=False):
@@ -203,7 +206,6 @@ def topic_select(identifier):
 
 projects=sections('/projects')
 project_entries=M['project_entries']
-expertise_topics=list(dict.fromkeys([item['title'] for item in expertise]+[item['topic'] for item in project_entries if item.get('topic')]))
 def project_path(project):
  path=project.get('path')
  if not isinstance(path,str) or not re.fullmatch(r'/project/[A-Za-z0-9_-]+',path):
@@ -265,9 +267,7 @@ if career:
  body+='</div>'
  body+='<p><a class="textlink" href="/work-experience">View full career history →</a></p></div></section>'
 body+='<section class="section" id="professional-network"><div class="wrap"><div class="prose"><h2>Professional network</h2>'+render(__import__('cms_data').body(network_data.get('body') or ''))+'</div>'
-network_documents=network_data.get('document') or []
-if isinstance(network_documents,str):network_documents=[network_documents]
-for url in network_documents:body+=f'<p><a class="textlink" href="{E(url)}" download>Download the full network list ↓</a></p>'
+body+=network_download()
 def about_archive(prefix,entries):
  is_network=prefix=='network';label='collaborations' if is_network else 'recommendations'
  years=[str(item.get('date') or '')[:4] or 'undated' for item in entries]
@@ -310,7 +310,7 @@ for i,item in enumerate(expertise):
  if support['text']:body+='<h3>Services</h3>'+render(support)
  detail=__import__('cms_data').body(item.get('description') or '')
  if detail['text']:body+='<h3>Experience &amp; approach</h3>'+render(detail)
- related=[project for project in project_entries if project.get('topic')==item['title']]
+ related=[project for project in project_entries if item['title'] in project_topics(project)]
  if related:body+='<h3>Selected projects</h3><ul>'+''.join(f'<li><a href="{E(project_path(project))}">{E(project["title"])}</a></li>' for project in related)+'</ul>'
  body+='<p><a class="textlink" href="/contact">Discuss a collaboration →</a></p></div></details>'
 body+='</div></section>';page('/expertise','Expertise',body,expertise_page.get('lead'))
@@ -380,15 +380,14 @@ for sec in sections('/work-experience'):
  body+=f'<article class="timeline-row"><div class="date">{E(date)}</div><div><h2>{E(sec["title"])}</h2>'+render_all(b for b in blocks[1:] if b.get('text')!='On the Path to Success')+'</div></article>'
 body+='</div></section><section class="section testimonials"><div class="wrap prose"><span class="eyebrow">Collaboration</span><h2>My professional network</h2>'
 network=next(x for x in sections('/work-experience') if x['title']=='My Professional Network');body+=render_all(network['blocks'])
-links=M['pages']['/work-experience']['links'];full=next((a['href'] for a in links if a['text']=='Get full list'),'')
-body+=f'<p><a class="button" href="{E(full)}" download>Download the full network list ↓</a></p></div></section>';page('/work-experience','Work experience',body)
+body+=network_download()+'</div></section>';page('/work-experience','Work experience',body)
 # Projects archive uses Journal cards and the shared search engine.
 if (DIST/'project').exists():shutil.rmtree(DIST/'project')
 def project_search(project):
  detail=__import__('cms_data').body(project.get('body') or '')
- return ' '.join([project['title'],project.get('full_name') or '',project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '',project.get('topic') or '',detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
+ return ' '.join([project['title'],project.get('full_name') or '',project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '', ' '.join(project_topics(project)),detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
 def project_card(project,heading='h2',include_search=True):
- topic=project.get('topic') or '';path=project_path(project)
+ topic='|'.join(project_topics(project));path=project_path(project)
  search=f' data-search="{E(project_search(project))}"' if include_search else ''
  assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(project["period"])}</p>' if project['period'] else ''
  return f'<article class="post-card project-archive-card" data-project data-categories="{E(topic)}"{search}><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><{heading}>{E(project["title"])}</{heading}>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'

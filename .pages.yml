@@ -585,8 +585,14 @@
           "label": "PDF spisak organizacija",
           "type": "file",
           "options": {
-            "media": "documents"
-          }
+            "media": "documents",
+            "multiple": true,
+            "unique": true,
+            "extensions": [
+              "pdf"
+            ]
+          },
+          "description": "Kliknite Upload za novi PDF ili Select za postojeći. Upload je dostupan i uz već izabrani dokument. Poslednji PDF u izboru koristi se za oba dugmeta Download the full network list na About i Career history. Posle zamene uklonite prethodnu verziju iz izbora pomoću Remove i kliknite Save; javni linkovi se ažuriraju po objavljivanju."
         }
       ],
       "operations": {
@@ -664,8 +670,11 @@
               "name": "path",
               "label": "Trajna adresa projekta",
               "type": "string",
-              "required": true,
-              "description": "Jedinstvena putanja, npr. /project/naziv-projekta. Posle objavljivanja sačuvajte ovu adresu i pri promeni naziva ili redosleda projekta. Ako adresu ipak menjate, potrebno je dodati trajno preusmerenje sa stare adrese."
+              "description": "Ostavite prazno za automatsku adresu iz akronima, npr. REDEEM → /project/REDEEM. Posle Save i automatske obrade ponovo učitajte CMS da vidite sačuvanu adresu. Kod jednakih akronima dodaje se broj. Promena akronima ne menja postojeću adresu. Za ručnu promenu objavljene adrese potrebno je trajno preusmerenje.",
+              "pattern": {
+                "regex": "^$|^/project/[A-Za-z0-9_-]+$",
+                "message": "Koristite /project/AKRONIM ili ostavite prazno za automatsko generisanje."
+              }
             },
             {
               "name": "topic",
@@ -679,9 +688,10 @@
                   "Environmental Research and Policy",
                   "Climate and Energy Planning"
                 ],
-                "placeholder": "Izaberite oblast ekspertize"
+                "placeholder": "Izaberite jednu ili više oblasti ekspertize",
+                "multiple": true
               },
-              "description": "Lista se automatski usklađuje sa CMS stranicom Expertise nakon čuvanja izmena. Ponovo učitajte CMS da vidite ažurirane nazive."
+              "description": "Izaberite sve oblasti relevantne za projekat. Lista se automatski usklađuje sa CMS stranicom Expertise nakon čuvanja izmena. Ponovo učitajte CMS da vidite ažurirane nazive."
             },
             {
               "name": "image",

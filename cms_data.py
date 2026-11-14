@@ -2,7 +2,8 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import json,html,re,datetime,copy,shutil
-from content_paths import collection_records
+from content_paths import collection_records,project_paths
+from network_data import network_document
 class CleanHTML(HTMLParser):
  allowed={'p','h2','h3','h4','strong','b','em','i','u','s','ul','ol','li','blockquote','br','hr','a','img','figure','figcaption','table','thead','tbody','tr','th','td','pre','code','sub','sup'}
  void={'img','br','hr'}
@@ -65,6 +66,10 @@ def project_sort_date(project):
 def project_sort_key(project):
  """Ongoing assignments first, then newest relevant date within each group."""
  return (project.get('assignment_ongoing') is True,project_sort_date(project))
+def project_topics(project):
+ values=project.get('topic') or []
+ if isinstance(values,str):values=[values]
+ return list(dict.fromkeys(value.strip() for value in values if isinstance(value,str) and value.strip()))
 def load_cms(root,original):
  base=root/'content/cms'
  if not base.exists():return original
@@ -79,7 +84,8 @@ def load_cms(root,original):
   # Preserve CMS list order; ignore any legacy order value.
   return [dict(item,order=index) for index,item in enumerate(items,1)]
  model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
- for project in model['project_entries']:
+ for project in project_paths(root,model['project_entries']):
+  project['topic']=project_topics(project)
   project['period']=project_period(project)
   project['project_duration']=project_period(project,'project')
  # Stable sorting preserves CMS order for equal or missing effective dates.
@@ -88,7 +94,8 @@ def load_cms(root,original):
  for p in model['experience_entries']:
   blocks +=[text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]
  blocks +=[text('h2','My Professional Network'),body(network['body'])]
- model['pages']['/work-experience']={'blocks':blocks,'links':[{'text':'Get full list','href':network['document']}]}
+ model['network_document']=network_document(network.get('document'))
+ model['pages']['/work-experience']={'blocks':blocks,'links':[{'text':'Get full list','href':model['network_document']}] if model['network_document'] else []}
  blocks=[]
  for p in model['project_entries']:
   blocks +=[{'type':'image','src':p.get('image') or model['site']['landscape'],'alt':p.get('image_alt') or p['title']},text('h2',p['title']),text('p',p['period']),body(p.get('body') or '')]

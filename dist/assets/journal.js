@@ -4,7 +4,7 @@
  const pageNumbers = (current, total) => total <= 7 ? Array.from({length: total}, (_, i) => i + 1) : [...new Set([1, total, current - 1, current, current + 1].filter(n => n >= 1 && n <= total))].sort((a,b) => a-b);
  function selectEntries(entries, state, size = 12) {
   const terms = normalize(state.search).trim().split(/\s+/).filter(Boolean);
-  const matching = entries.filter(entry => (!state.category || entry.topic === state.category) && (!state.year || entry.year === state.year) && terms.every(term => normalize(entry.search).includes(term)));
+  const matching = entries.filter(entry => (!state.category || (Array.isArray(entry.topic) ? entry.topic : [entry.topic]).includes(state.category)) && (!state.year || entry.year === state.year) && terms.every(term => normalize(entry.search).includes(term)));
   const pages = Math.max(1, Math.ceil(matching.length / size));
   const parsed = Number(state.page);
   const page = Math.min(pages, Number.isSafeInteger(parsed) && parsed > 0 ? parsed : 1);

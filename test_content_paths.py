@@ -1,10 +1,20 @@
 """Generated addresses, persistent slugs and unified CMS configuration."""
 import json,re,tempfile,unittest
 from pathlib import Path
-from content_paths import collection_records
+from content_paths import collection_records,project_paths
 from content_archives import read_archive,write_archive
 ROOT=Path(__file__).resolve().parent
 class ContentPaths(unittest.TestCase):
+ def test_project_acronym_paths_reserve_existing_and_retired_urls(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);(root/'content').mkdir()
+   (root/'content/project-redirects.json').write_text(json.dumps({'/project/REDEEM-2':'/project/REDEEM'}))
+   items=[{'title':'REDEEM'},{'title':'REDEEM','path':''},{'title':'Unchanged','path':'/project/REDEEM'},{'title':'Laušević WATER SUM','path':None}]
+   project_paths(root,items)
+   self.assertEqual([p['path'] for p in items],['/project/REDEEM-3','/project/REDEEM-4','/project/REDEEM','/project/Lausevic-WATER-SUM'])
+   paths=[p['path'] for p in items]
+   for p in items:p['title']='Renamed'
+   self.assertEqual([p['path'] for p in project_paths(root,items)],paths)
  def test_generated_paths_are_unique_persistent_and_editable(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);folder=root/'content/cms/posts';folder.mkdir(parents=True)

@@ -1,6 +1,6 @@
 # CMS mapa — forme, izvori i prikaz
 
-Provereno prema `.pages.yml` i generatoru na commitu `ba06d42ccdf026b90317a5f7d107db27f44d7863`, 03.11.2026. Koristiti samo odeljak relevantan za zadatak. Pravila su u [AGENTS.md](../AGENTS.md), operativni sažetak u [PROJECT_HANDOFF.md](../PROJECT_HANDOFF.md).
+Provereno prema `.pages.yml` i generatoru na commitu `ba06d42ccdf026b90317a5f7d107db27f44d7863`, 03.11.2026. Koristiti samo odeljak relevantan za zadatak. Projekti (više oblasti, automatske adrese) i PDF mreže dopunjeni 14.11.2026. Pravila su u [AGENTS.md](../AGENTS.md), operativni sažetak u [PROJECT_HANDOFF.md](../PROJECT_HANDOFF.md).
 
 ## 1. Gde se šta uređuje
 
@@ -40,7 +40,7 @@ Insights nema posebnu ručnu listu. Contact nema posebnu CMS kolekciju: javni ko
 | Bibliography | Publications, Articles, Conferences, Invited lectures; unutar svake opadajući prvi četvorocifreni broj iz `year`. | 3 po kategoriji, ukupno do 12 vidljivih; zajednički tekst, Category, Year i zasebne stranice kategorija. |
 | Resume / Selected Bibliography | Isti redosled kao Bibliography. | Prve tri iz svake kategorije, bez paginacije; View full Bibliography. |
 | Experience | Redosled `items`; stari `order` se ignoriše. | Career highlights filtrira isti spisak prema izabranim nazivima. |
-| Expertise | Redosled `services`. | Pet oblasti; kartice sa nazivom, sažetkom i detaljima. Povezani projekti imaju isti `topic`. |
+| Expertise | Redosled `services`. | Pet oblasti; kartice sa nazivom, sažetkom i detaljima. Povezani projekti imaju naziv oblasti u svojoj `topic` listi. |
 
 Bibliografske godine mogu biti rasponi, npr. `1993/94`: sortiranje uzima 1993, a filter prepoznaje obe godine. Nedatirane jedinice su poslednje. CMS pregled sortira string polje Year; složeni rasponi nisu nužno poređani potpuno kao javni generator.
 
@@ -48,7 +48,7 @@ Bibliografske godine mogu biti rasponi, npr. `1993/94`: sortiranje uzima 1993, a
 
 ## 3. Polja i odnosi koji zahtevaju pažnju
 
-**Projekti:** `title` znači Akronim, `full_name` pun naziv. Ne mešati `assignment_start/end/ongoing` sa `project_start/end`. Na detaljima slede Back to projects, akronim, Full project name, Project duration, My role, My assignment, fotografija, Project overview, My contribution, Selected results i Related content. Prazni opcioni odeljci se izostavljaju.
+**Projekti:** `title` znači Akronim, `full_name` pun naziv. `topic` je višestruki izbor oblasti; postojeće pojedinačne vrednosti se pretvaraju u liste bez promene izbora. Projekat se prikazuje pod svakom izabranom oblasti na Expertise, a Projects pretraga i Topic filter obuhvataju sve izabrane oblasti. Ne mešati `assignment_start/end/ongoing` sa `project_start/end`. Na detaljima slede Back to projects, akronim, Full project name, Project duration, My role, My assignment, fotografija, Project overview, My contribution, Selected results i Related content. Prazni opcioni odeljci se izostavljaju.
 
 | Veza | Sačuvana vrednost | Kako se prikazuje |
 |---|---|---|
@@ -62,7 +62,9 @@ Reference projekata su višestruki izbor iz stvarnih CMS kolekcija. Reference pr
 
 Nazivi ekspertiza i izabranih Career highlights služe kao tekstualni ključevi. Pre njihovog preimenovanja proveriti postojeće `topic` vrednosti i izbor angažmana: osvežavanje padajuće liste nije migracija svih starih selekcija.
 
-**Adrese:** novi post/gallery unos bez `path` dobija slug naslova; postojeći `path` se ne menja promenom naslova. Projekat zahteva eksplicitni `/project/...`. Video koristi hash HTTPS linka. Ne preimenovati fizičke fajlove kolekcija samo radi urednosti: nazivi utiču na identitet brojača poseta. Promene adresa, UUID-a i linkova proveravati i kroz `related_content.py`, `content_paths.py`, `metrics.py` i projektna preusmerenja.
+**Adrese:** novi post/gallery unos bez `path` dobija slug naslova; postojeći `path` se ne menja promenom naslova. Projekat bez adrese dobija `/project/AKRONIM` (npr. `/project/REDEEM`, uz očuvanje velikih i malih slova). CMS polje je opciono, a `sync_projects.py` upisuje adresu posle Save. Postojeće adrese ostaju nepromenjene. Za sudare sa postojećim ili starim adresama dodaje se `-2`, `-3` itd. Video koristi hash HTTPS linka. Ne preimenovati fizičke fajlove kolekcija samo radi urednosti: nazivi utiču na identitet brojača poseta. Promene adresa, UUID-a i linkova proveravati i kroz `related_content.py`, `content_paths.py`, `metrics.py` i projektna preusmerenja.
+
+**PDF mreže:** `network.document` je izbor PDF fajlova sa Upload/Select dostupnim i uz postojeću verziju. Poslednji PDF iz liste je jedini aktivan link na About i Career history; oba dugmeta koriste stil Download CV. Posle otpremanja nove verzije prethodnu možete ukloniti iz izbora preko Remove pa Save. Bez izabranog PDF-a nema dugmeta; stara string vrednost ostaje podržana.
 
 **Rich text i dokumenti:** HTML prolazi kroz `cms_data.body`; slike u tekstu su podržane, proizvoljni skriptovi i iframe nisu. Bibliography čuva integralni `reference` odvojeno od strukturiranih polja. Vidljivi citat nastaje iz tih polja; Description se otvara na klik, a prilozi imaju oznaku Download bez naziva fajla.
 
@@ -70,12 +72,12 @@ Nazivi ekspertiza i izabranih Career highlights služe kao tekstualni ključevi.
 
 CMS mediji koriste `dist/assets` → `/assets`. Fotografije: JPG/JPEG/PNG/WebP; dokumenti: PDF/DOC/DOCX/ODT/RTF/PPTX. `gallery_images.py` upravlja izvedenim slikama i `media/gallery-cache`, bez menjanja originala. Detaljna galerija prikazuje tekst pre mreže, po 12 novih fotografija i pregledač cele liste. Ne mešati ovu funkciju sa paginacijom arhive galerija.
 
-`.github/workflows/sync-expertise.yml` pokreće redom `scripts/sync_expertise.py`, `scripts/sync_related_content.py`, `scripts/sync_projects.py` i `scripts/prepare_gallery_cache.py`. Time održava izbore oblasti i karijere, ID-jeve, prazne post/gallery putanje, indeks saradnika, sortiranje projekata i keš. Save može prethoditi dodatnom sync commitu i deploymentu. Pri problemu proveriti konkretan izvorni unos, sync, zatim najnoviji Pages deployment; ne praviti paralelnu listu sadržaja kao zaobilazno rešenje.
+`.github/workflows/sync-expertise.yml` pokreće redom `scripts/sync_expertise.py`, `scripts/sync_related_content.py`, `scripts/sync_projects.py` i `scripts/prepare_gallery_cache.py`. Time održava izbore oblasti i karijere, ID-jeve, prazne post/gallery putanje, indeks saradnika, sortiranje projekata, njihove prazne adrese iz akronima, liste oblasti i keš. Save može prethoditi dodatnom sync commitu i deploymentu. Pri problemu proveriti konkretan izvorni unos, sync, zatim najnoviji Pages deployment; ne praviti paralelnu listu sadržaja kao zaobilazno rešenje.
 
 | Promena | Relevantni testovi / dokumentacija |
 |---|---|
 | Mreža, preporuke, grupisana paginacija | `test_section_archives.py`, `tests/section-archives.cjs`, `section_archives.py` |
-| Projects, URL-ovi, reference | `test_projects.py`, `test_related_content.py`, `test_content_paths.py` |
+| Projects, URL-ovi, reference | `test_projects.py`, `test_related_content.py`, `test_content_paths.py`, `test_project_network_editing.py` |
 | Journal i arhive medija | `test_journal_pagination.py`, `test_media_pagination.py`, `tests/journal-pagination.cjs` |
 | Bibliography | `test_bibliography.py`, `test_section_archives.py` |
 | Fotografije i pregledač | `test_gallery_images.py`, `tests/gallery-viewer.cjs` |
