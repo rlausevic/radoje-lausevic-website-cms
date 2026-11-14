@@ -1,7 +1,9 @@
 {
   "title": "EXCHANGE – Adriatic Sea Biodiversity",
   "date": "2021-10-21",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "summary": "Connecting Adriatic marine biodiversity with visitor experiences and sustainable tourism.",
   "photos": [
     {

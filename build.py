@@ -180,6 +180,7 @@ for item in gallery_archive.get('albums') or []:
  gallery_paths.add(path)
  album['date_iso']=datetime.date.fromisoformat(album['date'][:10]).isoformat()
  album['date_display']=datetime.date.fromisoformat(album['date_iso']).strftime('%b %d, %Y')
+ album['topic']=content_topics(album)
  album['photos']=[photo for photo in album.get('photos') or [] if photo.get('image')]
  album['content']=__import__('cms_data').body(album.get('body') or '')
  galleries.append(album)
@@ -187,11 +188,12 @@ galleries.sort(key=lambda album:(album['date_iso'],album['title']),reverse=True)
 gallery_images.prepare_many(photo['image'] for album in galleries for photo in album['photos'])
 if (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
 def gallery_search(album):
- return ' '.join([album['title'],album['date_iso'],album['date_display'],album.get('topic') or '',album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']]).lower()
+ return ' '.join([album['title'],album['date_iso'],album['date_display'],' '.join(content_topics(album)),album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']]).lower()
 def gallery_card(album,heading='h3',include_search=True):
  cover=album['photos'][0]['image'] if album['photos'] else S['landscape']
  search=f' data-search="{E(gallery_search(album))}"' if include_search else ''
- topic=album.get('topic') or '';badge=f'<span class="post-topic">{E(topic)}</span>' if topic else ''
+ topics=content_topics(album);topic='|'.join(topics)
+ badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
  return f'<article class="post-card gallery-card archive-card" data-album data-categories="{E(topic)}"{search}><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span>{badge}<{heading}>{E(album["title"])}</{heading}><p class="post-excerpt">{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
 def gallery_description(album):
  content=album['content'];words=content['text'].split()
@@ -524,7 +526,7 @@ body+='<p><a class="textlink" href="/bibliography">View full Bibliography →</a
 # Gallery archive and stable individual album routes.
 render_archive('/galleries','gallery','gallery','galleries','Galleries',gallery_archive.get('label') or 'Photo galleries',gallery_archive.get('heading') or 'My favourite photos.',gallery_archive.get('lead') or '',galleries,gallery_card,gallery_search,'/gallery/')
 for album in galleries:
- body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/galleries/" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(album['topic']) if album.get('topic') else '')+'</p></header>'
+ body='<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/galleries/" href="/galleries">← Back to galleries</a><h1>'+E(album['title'])+'</h1><p class="article-meta">'+E(album['date_display'])+(' · '+E(' · '.join(content_topics(album))) if content_topics(album) else '')+'</p></header>'
  related_projects=[project for project in project_entries if any(key=='galleries' and any(item['href']==album['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
  if related_projects:body+='<div class="gallery-projects prose"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'
  body+=gallery_description(album)+'<div class="gallery-grid" id="gallery-photos">'

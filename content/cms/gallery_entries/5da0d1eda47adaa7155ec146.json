@@ -2,7 +2,9 @@
   "path": "/gallery/water-sum",
   "title": "WATER SUM – Conferences, Workshops and Fieldwork",
   "date": "2016-10-01",
-  "topic": "Environmental Research and Policy",
+  "topic": [
+    "Environmental Research and Policy"
+  ],
   "summary": "Conferences, workshops and fieldwork connecting regional cooperation, integrated water resources management and local water security planning through the WATER SUM project.",
   "photos": [
     {

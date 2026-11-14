@@ -2,7 +2,9 @@
   "path": "/gallery/flowers-of-my-mediterranean-garden",
   "title": "Flowers of My Mediterranean Garden",
   "date": "2017-06-05",
-  "topic": "Environmental Research and Policy",
+  "topic": [
+    "Environmental Research and Policy"
+  ],
   "summary": "Flowers from my Mediterranean garden in Montenegro — a personal connection with nature.",
   "photos": [
     {

@@ -1,7 +1,9 @@
 {
   "title": "EXCHANGE – Launching Webinar",
   "date": "2020-10-19",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "summary": "A hybrid launch connecting project partners and introducing the Blue Pass tourism offer.",
   "photos": [
     {

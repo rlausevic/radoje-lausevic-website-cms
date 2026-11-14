@@ -1,7 +1,9 @@
 {
   "title": "MonteAqua – AdriBioPro2019",
   "date": "2019-04-11",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "A window onto the Adriatic: connecting science, heritage and biodiversity conservation.",
   "photos": [
     {

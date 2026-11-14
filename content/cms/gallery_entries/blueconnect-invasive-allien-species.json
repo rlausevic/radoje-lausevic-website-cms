@@ -2,7 +2,9 @@
   "title": "BLUECONNECT Invasive Allien Species",
   "path": "/gallery/blueconnect-invasive-allien-species",
   "date": "2018-05-15",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "Presenting MonteAqua and the 9mCollab platform at a regional workshop on invasive alien species in Kotor, supporting knowledge exchange on biodiversity protection, monitoring and regulatory approaches.",
   "photos": [
     {

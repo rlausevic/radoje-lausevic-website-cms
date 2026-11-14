@@ -2,7 +2,9 @@
   "path": "/gallery/secap-fruska-gora",
   "title": "SECAP – Energy and Climate Planning Workshop, Fruška Gora",
   "date": "2023-12-05",
-  "topic": "Climate and Energy Planning",
+  "topic": [
+    "Climate and Energy Planning"
+  ],
   "summary": "Photographs from the SECAP workshop on Fruška Gora, Serbia, in December 2023, supporting knowledge exchange and local energy and climate action planning.",
   "photos": [
     {

@@ -2,7 +2,9 @@
   "path": "/gallery/REDEEM",
   "title": "REDEEM – Connecting Water, Energy, Food and Ecosystems",
   "date": "2026-09-28",
-  "topic": "Climate and Energy Planning",
+  "topic": [
+    "Climate and Energy Planning"
+  ],
   "summary": "Project activities and stakeholder cooperation in Montenegro exploring the connections between water, energy, food and ecosystems through REDEEM.",
   "photos": [
     {

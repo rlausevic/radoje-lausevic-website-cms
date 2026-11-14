@@ -1,7 +1,9 @@
 {
   "title": "MonteAqua – Closing Event and Presentation of Aquarium Boka",
   "date": "2020-12-17",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "Presenting MonteAqua’s results and Aquarium Boka, Montenegro’s first public aquarium.",
   "photos": [
     {

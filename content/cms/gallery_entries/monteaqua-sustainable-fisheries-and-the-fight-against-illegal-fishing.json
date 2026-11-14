@@ -1,7 +1,9 @@
 {
   "title": "MonteAqua – Sustainable Fisheries and the Fight Against Illegal Fishing",
   "date": "2018-06-12",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "Sharing Slovenian and Montenegrin experience in sustainable fisheries and IUU control.",
   "photos": [
     {

@@ -1,6 +1,6 @@
 # Radoje Laušević web site — handoff
 
-Datum ciljane dopune: **14. novembar 2026.** (projekti, Journal oblasti, PDF mreže i radno iskustvo); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
+Datum ciljane dopune: **14. novembar 2026.** (projekti, oblasti Journal objava i galerija, PDF mreže i radno iskustvo); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
 
 ## 1. Merodavni izvori i kontrolna tačka
 
@@ -33,6 +33,8 @@ Jedini izvor za zajednička Download CV dugmad je `content/cms/resume.json` → 
 Projekti čuvaju trajni `path`, nezavisan od naknadnih izmena akronima. Prazna adresa dobija `/project/AKRONIM` uz očuvana velika i mala slova (npr. `/project/REDEEM`); sudari sa postojećim ili starim adresama dobijaju nastavak `-2`, `-3` itd. `scripts/sync_projects.py` upisuje generisanu adresu posle Save. Postojeće adrese se ne menjaju. Projekat može imati više oblasti (`topic` je lista); svaka učestvuje u Projects filteru, pretrazi i Selected projects na Expertise. `content/project-redirects.json` čuva stare projektne adrese; generator emituje 301 pravila, uključujući varijante sa završnom kosom crtom. Journal i Galleries dobijaju `/post/slug` odnosno `/gallery/slug` samo kada `path` nedostaje; postojeći put ostaje sačuvan. Ručna promena adrese zahteva proveru referenci i preusmerenje: opšti automatski registar promena tih putanja nije implementiran.
 
 Journal objave takođe koriste višestruki `topic` izbor iz Expertise. Svaka oblast učestvuje u Topic filteru i pretrazi, prikazuje se na karticama Home/Insights/Journal i u zaglavlju detaljne objave. `scripts/sync_related_content.py` pretvara ranije pojedinačne oblasti u liste uz očuvane vrednosti i ostala polja. Generator prihvata oba formata; objave bez oblasti i nacrti ostaju podržani.
+
+Galerije koriste isti višestruki `topic` izbor: sve oblasti prikazuju se na Home, Insights, Galleries i u zaglavlju detalja. Svaka oblast radi u Topic filteru i tekstualnoj pretrazi. Sync pretvara ranije pojedinačne izbore u liste, bez promene fotografija, datuma, teksta, putanja i projektnih referenci. Prazno polje i stariji string format ostaju podržani u generatoru.
 
 Video detaljna adresa nastaje iz hash-a spoljnog `link` polja. Promena tog linka može promeniti javni URL i CMS reference. Bibliography koristi UUID i sidro `bibliography-UUID`. Projekti biraju povezane objave, videe, galerije i bibliografiju iz kolekcija; Journal, Video i Gallery detalji automatski prikazuju povratne veze ka projektima. Preporuke biraju saradnike preko njihovog UUID-a i izvedene liste `network_references`; originali ostaju samo u `network.json`.
 

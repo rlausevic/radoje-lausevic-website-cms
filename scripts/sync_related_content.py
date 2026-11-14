@@ -15,11 +15,11 @@ def sync(root=ROOT):
   item=json.loads(source.read_text())
   if not item.get('id'):
    item['id']=bibliography_id(item);source.write_text(json.dumps(item,ensure_ascii=False,indent=2)+'\n')
- collection_records(root,'posts','post',persist=True)
- for source in (base/'posts').glob('*.json'):
-  item=json.loads(source.read_text())
-  if 'topic' in item and item['topic']!=content_topics(item):
-   item['topic']=content_topics(item)
-   source.write_text(json.dumps(item,ensure_ascii=False,indent=2)+'\n')
- collection_records(root,'gallery_entries','gallery',persist=True)
+ for folder,kind in [('posts','post'),('gallery_entries','gallery')]:
+  collection_records(root,folder,kind,persist=True)
+  for source in (base/folder).glob('*.json'):
+   item=json.loads(source.read_text())
+   if 'topic' in item and item['topic']!=content_topics(item):
+    item['topic']=content_topics(item)
+    source.write_text(json.dumps(item,ensure_ascii=False,indent=2)+'\n')
 if __name__=='__main__':sync()

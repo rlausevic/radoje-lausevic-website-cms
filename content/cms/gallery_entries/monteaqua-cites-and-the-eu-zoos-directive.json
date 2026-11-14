@@ -1,7 +1,9 @@
 {
   "title": "MonteAqua – CITES and the EU Zoos Directive",
   "date": "2018-10-09",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "Exploring CITES, the EU Zoos Directive and the conservation role of aquariums.",
   "photos": [
     {

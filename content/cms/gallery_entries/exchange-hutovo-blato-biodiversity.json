@@ -1,7 +1,9 @@
 {
   "title": "EXCHANGE - Hutovo Blato Biodiversity",
   "date": "2022-03-08",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "summary": "Exploring Hutovo Blato’s biodiversity and connecting natural heritage with tourism.",
   "photos": [
     {

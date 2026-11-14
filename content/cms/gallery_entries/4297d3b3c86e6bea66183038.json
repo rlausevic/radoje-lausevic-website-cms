@@ -2,7 +2,9 @@
   "title": "BLUECONNECT – Connecting People for Blue Growth",
   "path": "/gallery/blueconnect",
   "date": "2026-10-23",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "Workshops, project meetings, a study visit and conferences connecting research, business and innovation across Croatia, Bosnia and Herzegovina, and Montenegro through BLUECONNECT.",
   "photos": [
     {

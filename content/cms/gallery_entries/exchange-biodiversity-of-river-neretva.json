@@ -1,7 +1,9 @@
 {
   "title": "EXCHANGE – Biodiversity of River Neretva",
   "date": "2021-06-30",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "summary": "Exploring the Neretva’s biodiversity and its potential for sustainable tourism.",
   "photos": [
     {

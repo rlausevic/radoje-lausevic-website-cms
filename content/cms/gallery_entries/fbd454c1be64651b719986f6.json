@@ -2,7 +2,9 @@
   "path": "/gallery/aza4ice",
   "title": "AZA4ICE – Stakeholder Engagement and Circular Aquaculture",
   "date": "2025-12-15",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "summary": "Stakeholder meetings, workshops and training activities supporting circular aquaculture and inclusive cooperation in Montenegro through the AZA4ICE project.",
   "photos": [
     {

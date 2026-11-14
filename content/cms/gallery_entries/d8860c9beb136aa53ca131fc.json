@@ -2,7 +2,9 @@
   "title": "TOUR – Conferences, Workshops and Fieldwork",
   "path": "/gallery/tour",
   "date": "2025-01-31",
-  "topic": "Environmental Research and Policy",
+  "topic": [
+    "Environmental Research and Policy"
+  ],
   "summary": "Conferences, workshops and fieldwork exploring ecotourism, nature conservation and cross-border cooperation in the South Adriatic through the TOUR project.",
   "photos": [
     {
