@@ -382,7 +382,7 @@
           "label": "Professional network",
           "type": "text",
           "readonly": true,
-          "default": "Sadržaj se uređuje na CMS stranici Profesionalna mreža i automatski prikazuje ovde i u Career history."
+          "default": "Sadržaj se uređuje na CMS stranici Saradnici i organizacije i automatski prikazuje ovde i u Career history."
         }
       ],
       "operations": {
