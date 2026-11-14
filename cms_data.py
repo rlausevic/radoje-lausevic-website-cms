@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 import json,html,re,datetime,copy,shutil
 from content_paths import collection_records,project_paths
 from network_data import network_document
+from experience_data import experience_period,experience_sort_key
 class CleanHTML(HTMLParser):
  allowed={'p','h2','h3','h4','strong','b','em','i','u','s','ul','ol','li','blockquote','br','hr','a','img','figure','figcaption','table','thead','tbody','tr','th','td','pre','code','sub','sup'}
  void={'img','br','hr'}
@@ -84,6 +85,8 @@ def load_cms(root,original):
   # Preserve CMS list order; ignore any legacy order value.
   return [dict(item,order=index) for index,item in enumerate(items,1)]
  model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
+ for item in model['experience_entries']:item['period']=experience_period(item)
+ model['experience_entries'].sort(key=experience_sort_key,reverse=True)
  for project in project_paths(root,model['project_entries']):
   project['topic']=project_topics(project)
   project['period']=project_period(project)

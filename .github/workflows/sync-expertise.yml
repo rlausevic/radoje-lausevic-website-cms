@@ -2,7 +2,7 @@ name: Sync CMS content choices
 on:
   push:
     branches: [main]
-    paths: ['content/cms/**', .pages.yml, scripts/sync_expertise.py, scripts/sync_related_content.py, network_data.py, related_content.py, content_archives.py, content_paths.py, cms_data.py, scripts/sync_projects.py, gallery_images.py, requirements.txt, scripts/prepare_gallery_cache.py, dist/assets/**, .github/workflows/sync-expertise.yml]
+    paths: ['content/cms/**', .pages.yml, scripts/sync_expertise.py, scripts/sync_related_content.py, network_data.py, related_content.py, content_archives.py, content_paths.py, cms_data.py, experience_data.py, scripts/sync_experience.py, scripts/sync_projects.py, gallery_images.py, requirements.txt, scripts/prepare_gallery_cache.py, dist/assets/**, .github/workflows/sync-expertise.yml]
   workflow_dispatch:
 permissions:
   contents: write
@@ -28,6 +28,7 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin main
             git reset --hard origin/main
+            python scripts/sync_experience.py
             python scripts/sync_expertise.py
             python scripts/sync_related_content.py
             python scripts/sync_projects.py

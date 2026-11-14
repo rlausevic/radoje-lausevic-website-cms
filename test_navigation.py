@@ -50,7 +50,7 @@ class NavigationTests(unittest.TestCase):
     else:(root/'content/cms'/name).write_text(json.dumps(data))
    self.assertNotIn('services',read('about.json'))
    expertise=read('expertise.json');expertise['services'][0]['summary']='One source expertise check';save('expertise.json',expertise)
-   about=read('about.json');about['body']='<p>Updated profile check</p>';about['recommendations'][0]['summary']='Shared recommendation check';save('about.json',about)
+   about=read('about.json');about['body']='<p>Updated profile check</p>';about['recommendations'][0].update(summary='Shared recommendation check',date='2099-01-01');save('about.json',about)
    gallery=read('gallery.json');gallery['albums'][0].update(title='Shared album check',date='2099-01-01');save('gallery.json',gallery)
    archive=read('videos.json');archive['items'].reverse();save('videos.json',archive)
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)

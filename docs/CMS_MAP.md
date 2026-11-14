@@ -1,6 +1,6 @@
 # CMS mapa — forme, izvori i prikaz
 
-Provereno prema `.pages.yml` i generatoru na commitu `ba06d42ccdf026b90317a5f7d107db27f44d7863`, 03.11.2026. Koristiti samo odeljak relevantan za zadatak. Projekti (više oblasti, automatske adrese) i PDF mreže dopunjeni 14.11.2026. Pravila su u [AGENTS.md](../AGENTS.md), operativni sažetak u [PROJECT_HANDOFF.md](../PROJECT_HANDOFF.md).
+Provereno prema `.pages.yml` i generatoru na commitu `ba06d42ccdf026b90317a5f7d107db27f44d7863`, 03.11.2026. Koristiti samo odeljak relevantan za zadatak. Projekti (više oblasti, automatske adrese), PDF mreže i automatski redosled radnog iskustva dopunjeni 14.11.2026. Pravila su u [AGENTS.md](../AGENTS.md), operativni sažetak u [PROJECT_HANDOFF.md](../PROJECT_HANDOFF.md).
 
 ## 1. Gde se šta uređuje
 
@@ -39,7 +39,7 @@ Insights nema posebnu ručnu listu. Contact nema posebnu CMS kolekciju: javni ko
 | Recommendations | `recommendations[].date` opadajuće; nedatirani na kraju. | 4; tekstualna pretraga i Year; sažetak i View full recommendation. Home uzima prve dve. |
 | Bibliography | Publications, Articles, Conferences, Invited lectures; unutar svake opadajući prvi četvorocifreni broj iz `year`. | 3 po kategoriji, ukupno do 12 vidljivih; zajednički tekst, Category, Year i zasebne stranice kategorija. |
 | Resume / Selected Bibliography | Isti redosled kao Bibliography. | Prve tri iz svake kategorije, bez paginacije; View full Bibliography. |
-| Experience | Redosled `items`; stari `order` se ignoriše. | Career highlights filtrira isti spisak prema izabranim nazivima. |
+| Experience | `ongoing=true` prvo, po `start` opadajuće; završena po `end` opadajuće. Jednaki datumi zadržavaju redosled izvora; nedatirani su poslednji u svojoj grupi. | Career history i izabrani Career highlights koriste isti sortirani spisak. |
 | Expertise | Redosled `services`. | Pet oblasti; kartice sa nazivom, sažetkom i detaljima. Povezani projekti imaju naziv oblasti u svojoj `topic` listi. |
 
 Bibliografske godine mogu biti rasponi, npr. `1993/94`: sortiranje uzima 1993, a filter prepoznaje obe godine. Nedatirane jedinice su poslednje. CMS pregled sortira string polje Year; složeni rasponi nisu nužno poređani potpuno kao javni generator.
@@ -47,6 +47,8 @@ Bibliografske godine mogu biti rasponi, npr. `1993/94`: sortiranje uzima 1993, a
 `dist/assets/journal.js` koristi kompletan `archive-index.json` za Journal, Video, Galleries i Projects; postoje i statičke `/page/2/` stranice. `section-archives.js` obrađuje About i Bibliography, njihove query parametre, broj rezultata i otkrivanje ciljanog sidra van trenutne stranice. Bez JavaScript-a ove sekcije prikazuju sve unose. Broj rezultata arhive nije brojač poseta.
 
 ## 3. Polja i odnosi koji zahtevaju pažnju
+
+**Radno iskustvo:** `start` = Početak radnog iskustva, `end` = Završetak radnog iskustva, `ongoing` = Radno iskustvo u toku. Datum se čuva kao `yyyy-MM`, jer postojeći izvori navode samo mesec i godinu; ne dodaje se izmišljeni dan. Nova datumska polja su inicijalno prazna. `period` je izveden engleski tekst za sajt, bez ručnog polja u CMS-u. `experience_data.py` deli ista pravila sortiranja i prikaza između generatora i `scripts/sync_experience.py`. Sync upisuje redosled posle Save; generator ga primenjuje i pre tog dodatnog commita. Stare stavke bez novih polja mogu zadržati tekst `period`, uz nedatirano sortiranje.
 
 **Projekti:** `title` znači Akronim, `full_name` pun naziv. `topic` je višestruki izbor oblasti; postojeće pojedinačne vrednosti se pretvaraju u liste bez promene izbora. Projekat se prikazuje pod svakom izabranom oblasti na Expertise, a Projects pretraga i Topic filter obuhvataju sve izabrane oblasti. Ne mešati `assignment_start/end/ongoing` sa `project_start/end`. Na detaljima slede Back to projects, akronim, Full project name, Project duration, My role, My assignment, fotografija, Project overview, My contribution, Selected results i Related content. Prazni opcioni odeljci se izostavljaju.
 
@@ -72,10 +74,11 @@ Nazivi ekspertiza i izabranih Career highlights služe kao tekstualni ključevi.
 
 CMS mediji koriste `dist/assets` → `/assets`. Fotografije: JPG/JPEG/PNG/WebP; dokumenti: PDF/DOC/DOCX/ODT/RTF/PPTX. `gallery_images.py` upravlja izvedenim slikama i `media/gallery-cache`, bez menjanja originala. Detaljna galerija prikazuje tekst pre mreže, po 12 novih fotografija i pregledač cele liste. Ne mešati ovu funkciju sa paginacijom arhive galerija.
 
-`.github/workflows/sync-expertise.yml` pokreće redom `scripts/sync_expertise.py`, `scripts/sync_related_content.py`, `scripts/sync_projects.py` i `scripts/prepare_gallery_cache.py`. Time održava izbore oblasti i karijere, ID-jeve, prazne post/gallery putanje, indeks saradnika, sortiranje projekata, njihove prazne adrese iz akronima, liste oblasti i keš. Save može prethoditi dodatnom sync commitu i deploymentu. Pri problemu proveriti konkretan izvorni unos, sync, zatim najnoviji Pages deployment; ne praviti paralelnu listu sadržaja kao zaobilazno rešenje.
+`.github/workflows/sync-expertise.yml` pokreće redom `scripts/sync_experience.py`, `scripts/sync_expertise.py`, `scripts/sync_related_content.py`, `scripts/sync_projects.py` i `scripts/prepare_gallery_cache.py`. Time održava izbore oblasti i karijere, ID-jeve, prazne post/gallery putanje, indeks saradnika, sortiranje radnog iskustva i izvedene periode, sortiranje projekata, njihove prazne adrese iz akronima, liste oblasti i keš. Save može prethoditi dodatnom sync commitu i deploymentu. Pri problemu proveriti konkretan izvorni unos, sync, zatim najnoviji Pages deployment; ne praviti paralelnu listu sadržaja kao zaobilazno rešenje.
 
 | Promena | Relevantni testovi / dokumentacija |
 |---|---|
+| Radno iskustvo, Career highlights | `test_experience.py`, `test_cms.py`, `test_navigation.py` |
 | Mreža, preporuke, grupisana paginacija | `test_section_archives.py`, `tests/section-archives.cjs`, `section_archives.py` |
 | Projects, URL-ovi, reference | `test_projects.py`, `test_related_content.py`, `test_content_paths.py`, `test_project_network_editing.py` |
 | Journal i arhive medija | `test_journal_pagination.py`, `test_media_pagination.py`, `tests/journal-pagination.cjs` |

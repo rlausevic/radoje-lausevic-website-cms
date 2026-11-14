@@ -1,6 +1,6 @@
 # Radoje Laušević web site — handoff
 
-Datum ciljane dopune: **14. novembar 2026.** (projekti i PDF mreže); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
+Datum ciljane dopune: **14. novembar 2026.** (projekti, PDF mreže i radno iskustvo); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
 
 ## 1. Merodavni izvori i kontrolna tačka
 
@@ -12,7 +12,7 @@ Aktuelni kod i CMS fajlovi imaju prednost nad razgovorima i starim uputstvima. `
 
 ## 2. Tehnologije i granice izvornog sadržaja
 
-Sajt generiše Python `build.py`, uz `cms_data.py`, `content_archives.py`, `content_paths.py`, `related_content.py`, `network_data.py`, `section_archives.py`, `gallery_images.py` i `metrics.py`. Koristiti Python 3.12+; zavisnost za slike je verzija Pillow iz `requirements.txt`. Interfejs koristi običan CSS i JavaScript, bez frontend frameworka. Pages CMS konfiguracija `.pages.yml` zapisana je kao JSON, što je validan YAML.
+Sajt generiše Python `build.py`, uz `cms_data.py`, `content_archives.py`, `content_paths.py`, `related_content.py`, `network_data.py`, `experience_data.py`, `section_archives.py`, `gallery_images.py` i `metrics.py`. Koristiti Python 3.12+; zavisnost za slike je verzija Pillow iz `requirements.txt`. Interfejs koristi običan CSS i JavaScript, bez frontend frameworka. Pages CMS konfiguracija `.pages.yml` zapisana je kao JSON, što je validan YAML.
 
 `content/cms/` sadrži uređivačke podatke; `content/site.json` ostaje migraciona osnova koju generator još učitava. `dist` je izlaz builda, ali **`dist/assets/` sadrži i prave izvore**: CSS, JavaScript, originale fotografija i dokumente. Ne brisati ceo `dist` i ne koristiti ručno izmenjen HTML kao trajnu popravku. Menjati generator, relevantan modul ili izvorni asset. Build ponovo pravi HTML, indekse, sitemap, zaglavlja i preusmerenja.
 
@@ -21,6 +21,8 @@ Sajt generiše Python `build.py`, uz `cms_data.py`, `content_archives.py`, `cont
 Glavna navigacija je About, Expertise, Projects, Bibliography, Insights, Contact. Ime vodi na Home, a Download CV je izdvojeno dugme. Insights ima svoj link i zasebno otvaranje podmenija Journal, Video, Galleries. `/work-experience` i `/resume` ostaju dostupni iz podnožja kao Career history i CV & documents. Spoljni HTTP(S) linkovi otvaraju novu karticu; unutrašnji ostaju u istoj.
 
 About prikazuje profil, izabranu karijeru, mrežu saradnika, preporuke i CV. Expertise je jedini izvor pet oblasti usluga. Home automatski uzima prve tri oblasti, prva dva sortirana projekta, prve dve sortirane preporuke i po jedan najnoviji Journal, Video i Gallery unos. Insights uzima do tri najnovija unosa iz svake od te tri kolekcije. Nema ručno kopiranih paralelnih verzija.
+
+Radno iskustvo u toku ima prednost, sortirano po početku od najnovijeg ka najstarijem; završena radna iskustva po završetku opadajuće. CMS, Career history i izabrani Career highlights koriste isti redosled. `experience.json` čuva `start` i `end` sa preciznošću meseca (`yyyy-MM`) i eksplicitni `ongoing`; postojeći periodi preneti su bez izmišljanja dana. Za jednake datume ostaje redosled liste, a unosi bez odgovarajućeg datuma su na kraju svoje grupe. `scripts/sync_experience.py` upisuje redosled i izvedeni engleski `period` posle Save.
 
 Projekti u toku imaju prednost, zatim se sortiraju po početku angažmana opadajuće; završeni po završetku angažmana opadajuće. Journal, Video, Galleries i Projects prikazuju 12 kartica po stranici. Network i Recommendations prikazuju po četiri, po datumu opadajuće. Bibliography prikazuje po tri jedinice u svakoj kategoriji, sortirane po godini opadajuće, sa nezavisnom paginacijom. Pretraga obuhvata cele arhive, ne samo vidljive stavke.
 
@@ -48,7 +50,7 @@ Posete koristi zaseban Pages binding `METRICS_DB`, D1 šema `migrations/0001_met
 
 ## 7. Rad, objavljivanje i nastavak
 
-Pre promene proveriti najnoviji commit i lokalne izmene. CMS Save upisuje u `main`. GitHub Actions `sync-expertise.yml` osvežava oblasti, reference, trajne identifikatore, redosled projekata i keš slika; može napraviti dodatni commit. Zato proveriti završni head, odgovarajući Pages deployment i javnu stranicu. Email Worker ima zasebnu build proveru. Cloudflare dashboard bindinge ne zaključivati samo iz `wrangler.jsonc`.
+Pre promene proveriti najnoviji commit i lokalne izmene. CMS Save upisuje u `main`. GitHub Actions `sync-expertise.yml` osvežava oblasti, reference, trajne identifikatore, redosled radnog iskustva i projekata i keš slika; može napraviti dodatni commit. Zato proveriti završni head, odgovarajući Pages deployment i javnu stranicu. Email Worker ima zasebnu build proveru. Cloudflare dashboard bindinge ne zaključivati samo iz `wrangler.jsonc`.
 
 Standardna kontrola koda je `python3 build.py && python3 validate.py`, zatim relevantni testovi i ciljana provera interakcija. Ovom prilikom generisano je 113 stranica plus 404, validator je prijavio nula grešaka, a 247 slika je ponovo iskorišćeno bez kodiranja. Sortiranje, reference, pretraga i paginacija dokumentovani su prema aktuelnom kodu; nije izvršen probni Save kroz prijavljeni CMS niti fizičko mobilno testiranje. Nema potvrđenog blokirajućeg kvara, ali ovo nije nov potpuni audit.
 

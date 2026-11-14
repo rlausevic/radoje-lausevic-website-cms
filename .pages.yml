@@ -309,8 +309,8 @@
               "Associate Professor at Faculty for Applied Ecology, Belgrade, Serbia",
               "Deputy Executive Director for Environmental Policy, Regional Environmental Center for Central and Eastern Europe (REC)",
               "Regional Director for South East Europe, Regional Environmental Center for Central and Eastern Europe (REC)",
-              "Director, Country Office Serbia and Montenegro, Regional Environmental Center for Central and Eastern Europe (REC)",
               "Assistant Professor, Faculty of Biology, University of Belgrade",
+              "Director, Country Office Serbia and Montenegro, Regional Environmental Center for Central and Eastern Europe (REC)",
               "Teaching Assistant, Faculty of Biology, University of Belgrade"
             ]
           },
@@ -484,7 +484,7 @@
               "summary": "{index}. {title}"
             }
           },
-          "description": "Prevucite stavku pomoću ručice da promenite redosled. Broj i redosled prikaza automatski prate poziciju u listi. Posle izmena kliknite Save.",
+          "description": "CMS i sajt prvo prikazuju radno iskustvo sa uključenim Radno iskustvo u toku, sortirane po Početku radnog iskustva od najnovijeg ka najstarijem. Zatim slede završena radna iskustva, sortirana po Završetku radnog iskustva od najnovijeg ka najstarijem. Za jednake datume ostaje postojeći redosled; unosi bez odgovarajućeg datuma su na kraju svoje grupe. Posle Save sačekajte automatsku obradu i ponovo učitajte CMS.",
           "fields": [
             {
               "name": "title",
@@ -493,10 +493,31 @@
               "required": true
             },
             {
-              "name": "period",
-              "label": "Period",
-              "type": "string",
-              "required": true
+              "name": "start",
+              "label": "Početak radnog iskustva",
+              "type": "date",
+              "default": "",
+              "options": {
+                "format": "yyyy-MM"
+              },
+              "description": "Mesec i godina početka. Za radno iskustvo u toku određuje redosled od najnovijeg ka najstarijem. Dan se ne čuva."
+            },
+            {
+              "name": "end",
+              "label": "Završetak radnog iskustva",
+              "type": "date",
+              "default": "",
+              "options": {
+                "format": "yyyy-MM"
+              },
+              "description": "Mesec i godina završetka. Za završena radna iskustva određuje redosled. Ne koristi se dok je uključeno Radno iskustvo u toku. Dan se ne čuva."
+            },
+            {
+              "name": "ongoing",
+              "label": "Radno iskustvo u toku",
+              "type": "boolean",
+              "default": false,
+              "description": "Uključena radna iskustva prikazuju se prva, sortirana po Početku radnog iskustva. Period na sajtu se automatski formira iz ovih polja."
             },
             {
               "name": "body",
