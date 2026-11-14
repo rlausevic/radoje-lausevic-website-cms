@@ -1,6 +1,8 @@
 {
   "title": "Small Danube",
-  "topic": "Environmental Research and Policy",
+  "topic": [
+    "Environmental Research and Policy"
+  ],
   "path": "/post/2018/04/14/small-danube",
   "date": "2018-04-14",
   "published": true,

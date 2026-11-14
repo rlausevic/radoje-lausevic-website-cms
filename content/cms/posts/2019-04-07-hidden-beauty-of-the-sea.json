@@ -1,6 +1,8 @@
 {
   "title": "Hidden Beauty of the Sea",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "path": "/post/2019/04/07/hidden-beauty-of-the-sea",
   "date": "2019-04-07",
   "published": true,

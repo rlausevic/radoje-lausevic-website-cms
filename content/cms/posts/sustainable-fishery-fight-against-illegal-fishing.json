@@ -1,6 +1,8 @@
 {
   "title": "Sustainable Fishery – Fight against Illegal Fishing",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "date": "2018-06-12",
   "published": true,
   "cover": "/assets/20180612-monteaqua-ws-17-1.jpg",

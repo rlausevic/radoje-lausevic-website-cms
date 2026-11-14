@@ -1,6 +1,8 @@
 {
   "title": "MonteAqua project extended",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "path": "/post/monteaqua-project-extended",
   "date": "2020-06-12",
   "published": true,

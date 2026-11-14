@@ -1,6 +1,8 @@
 {
   "title": "AdriBioPro2019",
-  "topic": "Leadership and Governance",
+  "topic": [
+    "Leadership and Governance"
+  ],
   "path": "/post/2019/04/11/adribiopro2019",
   "date": "2019-04-11",
   "published": true,

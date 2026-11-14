@@ -67,10 +67,12 @@ def project_sort_date(project):
 def project_sort_key(project):
  """Ongoing assignments first, then newest relevant date within each group."""
  return (project.get('assignment_ongoing') is True,project_sort_date(project))
-def project_topics(project):
- values=project.get('topic') or []
+def content_topics(item):
+ """Normalize the single or multiple expertise selections used by CMS content."""
+ values=item.get('topic') or []
  if isinstance(values,str):values=[values]
  return list(dict.fromkeys(value.strip() for value in values if isinstance(value,str) and value.strip()))
+def project_topics(project):return content_topics(project)
 def load_cms(root,original):
  base=root/'content/cms'
  if not base.exists():return original
@@ -119,6 +121,7 @@ def load_cms(root,original):
   if path in paths:raise ValueError('Two articles have the same address: '+path)
   paths.add(path)
   p.pop('categories',None)
+  p['topic']=content_topics(p)
   p['cover']=p.get('cover') or '';p['excerpt']=p.get('excerpt') or '';
   d=datetime.date.fromisoformat(p['date'][:10]);b=body(p.get('body',''));p.update({'date':d.strftime('%b %d, %Y'),'date_iso':d.isoformat(),'blocks':[b]});posts.append(p)
  posts.sort(key=lambda p:(p['date_iso'],p['title']),reverse=True);model['posts']=posts

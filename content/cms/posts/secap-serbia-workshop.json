@@ -1,6 +1,8 @@
 {
   "title": "SECAP Serbia Workshops",
-  "topic": "Climate and Energy Planning",
+  "topic": [
+    "Climate and Energy Planning"
+  ],
   "path": "/post/secap-serbia-workshop",
   "date": "2024-01-30",
   "published": true,

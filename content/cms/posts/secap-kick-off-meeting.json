@@ -1,6 +1,8 @@
 {
   "title": "SECAP Kick-off Meeting",
-  "topic": "Climate and Energy Planning",
+  "topic": [
+    "Climate and Energy Planning"
+  ],
   "path": "/post/SECAP-Kick-off-Meeting",
   "date": "2023-10-31",
   "published": true,

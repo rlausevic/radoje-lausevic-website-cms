@@ -35,8 +35,10 @@ if (process.argv[2]) {
  const real=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
  assert.equal(selectEntries(real,state).items.length,Math.min(12,real.length));
  for(const entry of real){
-  const result=selectEntries(real,{...state,category:entry.topic,year:entry.year});
-  assert.ok(result.total>0);
+  for (const topic of Array.isArray(entry.topic) ? entry.topic : [entry.topic]) {
+   const result=selectEntries(real,{...state,category:topic,year:entry.year});
+   assert.ok(result.total>0);
+  }
  }
 }
 console.log('Journal pagination/search tests passed.');

@@ -1,6 +1,8 @@
 {
   "title": "MonteAqua – AdriBioPro2019",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "date": "2019-04-10",
   "published": true,
   "cover": "/assets/adribiopro2019-participants-1.jpg",

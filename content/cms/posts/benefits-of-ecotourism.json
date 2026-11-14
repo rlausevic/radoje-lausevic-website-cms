@@ -1,6 +1,8 @@
 {
   "title": "Benefits of Ecotourism",
-  "topic": "Environmental Research and Policy",
+  "topic": [
+    "Environmental Research and Policy"
+  ],
   "date": "2024-07-04",
   "published": true,
   "cover": "/assets/tour-lovcen-2.jpg",

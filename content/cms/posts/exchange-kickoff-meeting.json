@@ -1,6 +1,8 @@
 {
   "title": "EXCHANGE Kickoff Meeting",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "date": "2020-09-11",
   "published": true,
   "cover": "/assets/2020911-kickoff-meeting-room.jpg",

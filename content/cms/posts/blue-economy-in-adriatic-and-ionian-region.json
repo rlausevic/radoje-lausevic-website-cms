@@ -1,6 +1,8 @@
 {
   "title": "Blue Economy in Adriatic and Ionian Region",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "date": "2024-12-10",
   "published": true,
   "cover": "/assets/20241210eusair-lausevic-chairs.jpg",

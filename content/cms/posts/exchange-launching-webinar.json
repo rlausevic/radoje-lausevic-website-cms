@@ -1,6 +1,8 @@
 {
   "title": "EXCHANGE Launching Webinar",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "date": "2020-10-19",
   "published": true,
   "cover": "/assets/2021019launching-online-4.png",

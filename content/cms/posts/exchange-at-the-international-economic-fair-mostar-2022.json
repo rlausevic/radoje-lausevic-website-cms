@@ -1,6 +1,8 @@
 {
   "title": "EXCHANGE at the International Economic Fair Mostar 2022",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "date": "2022-04-05",
   "published": true,
   "cover": "/assets/20220405lausevic-pestoric-joksimovic-cover.jpg",

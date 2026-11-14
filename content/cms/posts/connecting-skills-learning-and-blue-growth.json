@@ -1,6 +1,8 @@
 {
   "title": "Connecting Skills, Learning and Blue Growth",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "path": "/post/SKILLS-AdriBioPro2026",
   "date": "2026-09-25",
   "published": true,

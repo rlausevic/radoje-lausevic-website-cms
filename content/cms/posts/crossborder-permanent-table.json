@@ -1,6 +1,8 @@
 {
   "title": "Crossborder Permanent Table",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "date": "2024-10-04",
   "published": true,
   "cover": "/assets/20241004bari-cbpt-chairs.jpg",

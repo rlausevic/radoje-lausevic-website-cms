@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil,time
 BUILD_STARTED=time.perf_counter()
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
-from cms_data import load_cms,project_topics
+from cms_data import load_cms,project_topics,content_topics
 from content_archives import read_archive
 from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
@@ -134,11 +134,11 @@ def sections(path):
   elif cur:cur['blocks'].append(b)
  return out
 def post_search(p):
- return (p['title']+' '+p['excerpt']+' '+(p.get('topic') or '')+' '+' '.join(b.get('text','') for b in p['blocks'])).lower()
+ return (p['title']+' '+p['excerpt']+' '+' '.join(content_topics(p))+' '+' '.join(b.get('text','') for b in p['blocks'])).lower()
 def post_card(p,heading='h3',include_search=True):
- topic=p.get('topic') or ''
+ topics=content_topics(p);topic='|'.join(topics)
  search=f' data-search="{E(post_search(p))}"' if include_search else ''
- badge=f'<span class="post-topic">{E(topic)}</span>' if topic else ''
+ badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
  return f'<a class="post-card journal-card" data-post data-categories="{E(topic)}"{search} href="{E(p["path"])}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date"><time datetime="{E(p["date_iso"])}">{E(p["date"])}</time> · JOURNAL</span>{badge}<{heading}>{E(p["title"])}</{heading}><p class="post-excerpt">{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
@@ -542,7 +542,7 @@ for album in galleries:
 journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
 render_archive('/blog','post','article','articles','Journal',journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '',M['posts'],post_card,post_search,'/post/')
 for i,p in enumerate(M['posts']):
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back data-archive-back="/blog/" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(p['topic']) if p.get('topic') else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back data-archive-back="/blog/" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(' · '.join(content_topics(p))) if content_topics(p) else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
  if p['cover'] and p['cover'] not in p.get('body',''):body+=image(p['cover'],p['title'])
  related_projects=[project for project in project_entries if any(key=='journal' and any(item['href']==p['path'] for item in items) for key,_,items in selected_content(project,related_catalog))]
  if related_projects:body+='<div class="gallery-projects"><p><strong>'+('Related project' if len(related_projects)==1 else 'Related projects')+':</strong></p><ul class="related-list">'+''.join('<li><a href="'+E(project_path(project))+'">'+E(project['title'])+'</a></li>' for project in related_projects)+'</ul></div>'

@@ -1290,8 +1290,11 @@
               "Blue Economy and Skills Development",
               "Environmental Research and Policy",
               "Climate and Energy Planning"
-            ]
-          }
+            ],
+            "multiple": true,
+            "placeholder": "Izaberite jednu ili više oblasti ekspertize"
+          },
+          "description": "Izaberite sve oblasti relevantne za objavu. Lista se automatski usklađuje sa CMS stranicom Expertise nakon čuvanja izmena. Ponovo učitajte CMS da vidite ažurirane nazive."
         },
         {
           "name": "path",

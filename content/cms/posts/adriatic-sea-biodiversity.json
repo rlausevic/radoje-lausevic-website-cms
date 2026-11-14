@@ -1,6 +1,8 @@
 {
   "title": "Adriatic Sea Biodiversity",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "date": "2021-10-21",
   "published": true,
   "cover": "/assets/20211021meeting-room-logo.png",

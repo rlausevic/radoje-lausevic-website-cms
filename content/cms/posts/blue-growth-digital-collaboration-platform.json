@@ -1,6 +1,8 @@
 {
   "title": "Blue Growth Digital Collaboration Platform",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "path": "/post/blue-growth-digital-collab-platform",
   "date": "2025-06-11",
   "published": true,

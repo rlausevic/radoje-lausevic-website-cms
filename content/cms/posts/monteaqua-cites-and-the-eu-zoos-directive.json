@@ -1,6 +1,8 @@
 {
   "title": "MonteAqua – CITES and the EU Zoos Directive",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "date": "2018-10-09",
   "published": true,
   "cover": "/assets/20181010-monteaqua-ws-09-1.jpg",

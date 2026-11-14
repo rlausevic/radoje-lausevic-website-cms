@@ -1,6 +1,8 @@
 {
   "title": "Invasive Alien Species",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "path": "/post/invasive-alien-species",
   "date": "2018-12-05",
   "published": true,

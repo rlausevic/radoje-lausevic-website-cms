@@ -1,6 +1,8 @@
 {
   "title": "Fifty Years of Young Researchers of Serbia: Connecting Generations",
-  "topic": "Leadership and Governance",
+  "topic": [
+    "Leadership and Governance"
+  ],
   "path": "/post/50th-YRS",
   "date": "2026-10-10",
   "published": true,

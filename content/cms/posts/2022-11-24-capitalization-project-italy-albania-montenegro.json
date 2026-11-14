@@ -1,6 +1,8 @@
 {
   "title": "Capitalization project Italy-Albania-Montenegro",
-  "topic": "Leadership and Governance",
+  "topic": [
+    "Leadership and Governance"
+  ],
   "path": "/post/capitalization-project-italy-albania-montenegro",
   "date": "2022-11-24",
   "published": true,

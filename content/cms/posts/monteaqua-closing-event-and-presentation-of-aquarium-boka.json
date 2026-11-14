@@ -1,6 +1,8 @@
 {
   "title": "MonteAqua – Closing Event and Presentation of Aquarium Boka",
-  "topic": "Blue Economy and Skills Development",
+  "topic": [
+    "Blue Economy and Skills Development"
+  ],
   "date": "2020-12-17",
   "published": true,
   "cover": "/assets/202012-1707-closing-lausevic-02-3.jpg",

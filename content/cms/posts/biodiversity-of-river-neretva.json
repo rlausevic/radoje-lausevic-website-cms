@@ -1,6 +1,8 @@
 {
   "title": "Biodiversity of River Neretva",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "date": "2021-06-30",
   "published": true,
   "cover": "/assets/20210630mostar-lausevic-presenting-2.jpg",

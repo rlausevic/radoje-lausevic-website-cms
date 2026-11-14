@@ -1,6 +1,8 @@
 {
   "title": "Sustainable Tourism, Culture and Biodiversity",
-  "topic": "Environmental Research and Policy",
+  "topic": [
+    "Environmental Research and Policy"
+  ],
   "date": "2025-05-19",
   "published": true,
   "cover": "/assets/20250519b2b-kotor.jpg",

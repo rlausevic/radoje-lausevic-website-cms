@@ -1,6 +1,8 @@
 {
   "title": "Hutovo Blato Biodiversity",
-  "topic": "Project and Programme Management",
+  "topic": [
+    "Project and Programme Management"
+  ],
   "path": "/post/hutovo-blato-biodiversity",
   "date": "2022-03-08",
   "published": true,

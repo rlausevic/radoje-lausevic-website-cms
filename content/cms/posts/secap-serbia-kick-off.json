@@ -1,6 +1,8 @@
 {
   "title": "SECAP Serbia Kick-off",
-  "topic": "Climate and Energy Planning",
+  "topic": [
+    "Climate and Energy Planning"
+  ],
   "path": "/post/SECAP-Serbia-Kick-off",
   "date": "2023-11-08",
   "published": true,
