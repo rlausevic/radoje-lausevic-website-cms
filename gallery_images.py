@@ -10,16 +10,25 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from threading import Lock
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
 # Keep the existing public URLs. Changing the encoder pin invalidates the cache.
 ENCODER_VERSION = re.search(r'^Pillow==([^\s]+)', (ROOT / 'requirements.txt').read_text(), re.M)[1]
 RECIPE = 'gallery-v1-' + ENCODER_VERSION
+_PILLOW_LOCK = Lock()
 
 
 @lru_cache(maxsize=1)
 def pillow():
+    # lru_cache can call its function concurrently on a cold miss. Serialize
+    # dependency setup so both image workers cannot install into the same target.
+    with _PILLOW_LOCK:
+        return _load_pillow()
+
+
+def _load_pillow():
     dependencies = ROOT / '.build-deps'
     sys.path.insert(0, str(dependencies))
     try:

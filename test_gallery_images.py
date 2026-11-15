@@ -1,5 +1,9 @@
 """Image dimensions, orientation, transparency and cache invalidation."""
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+from threading import Barrier, Event
+from types import SimpleNamespace
+import builtins
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -11,6 +15,40 @@ Image, _ = pillow()
 
 
 class GalleryImageTests(unittest.TestCase):
+    def test_cold_parallel_workers_install_pillow_only_once(self):
+        installed = Event()
+        start = Barrier(2)
+        real_import = builtins.__import__
+        fake_pil = SimpleNamespace(Image=Image, ImageOps=object())
+
+        def import_pil(name, *args, **kwargs):
+            if name == 'PIL':
+                if not installed.is_set():
+                    raise ModuleNotFoundError("No module named 'PIL'", name='PIL')
+                return fake_pil
+            return real_import(name, *args, **kwargs)
+
+        def install(*args, **kwargs):
+            # Keep dependency setup pending while the other worker enters pillow.
+            installed.wait(0.1)
+            installed.set()
+
+        def worker():
+            start.wait(timeout=5)
+            return pillow()
+
+        pillow.cache_clear()
+        try:
+            with patch('builtins.__import__', side_effect=import_pil), \
+                 patch('gallery_images.subprocess.run', side_effect=install) as run:
+                with ThreadPoolExecutor(max_workers=2) as pool:
+                    futures = [pool.submit(worker) for _ in range(2)]
+                    results = [future.result(timeout=5) for future in futures]
+            self.assertEqual(run.call_count, 1)
+            self.assertEqual(results, [(Image, fake_pil.ImageOps)] * 2)
+        finally:
+            pillow.cache_clear()
+
     def test_landscape_portrait_and_original_preservation(self):
         with tempfile.TemporaryDirectory() as directory:
             dist = Path(directory) / 'dist'

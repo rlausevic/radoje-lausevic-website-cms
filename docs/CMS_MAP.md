@@ -66,6 +66,8 @@ Bibliografske godine mogu biti rasponi, npr. `1993/94`: sortiranje uzima 1993, a
 | `…related_content.bibliography` | Bibliography `id` / UUID | Link ka `#bibliography-UUID`; cilj se otkriva i kada nije na prvoj stranici. |
 | `about.recommendations[].related_contents` | `network.items[].id` / UUID | Related collaborations vodi ka `/about/#network-UUID` i otvara karticu. |
 
+Za Journal i Galleries izbor koristi sačuvani `path`; unos bez tog polja može biti objavljen kroz build, ali još nije dostupan za izbor u CMS-u. Sačekati uspešan sync i ponovo učitati Projekti. Ako sync padne pri obradi fotografija, proveriti `gallery_images.py`: inicijalizacija Pillow-a zaštićena je zaključavanjem da dva radnika ne pokrenu istovremenu instalaciju zavisnosti.
+
 Reference projekata su višestruki izbor iz stvarnih CMS kolekcija. Reference preporuka koriste automatski generisan indeks saradnika jer je original mreže u listi jedne forme. Posle izmene mreže sačekati `sync` i ponovo otvoriti Biografiju da se učita osvežen izbor. Obrisane ili nepostojeće reference se ne prikazuju; nacrti Journal objava nisu javni povezani sadržaji.
 
 Nazivi ekspertiza i izabranih Career highlights služe kao tekstualni ključevi. Pre njihovog preimenovanja proveriti postojeće `topic` vrednosti i izbor angažmana: osvežavanje padajuće liste nije migracija svih starih selekcija.
