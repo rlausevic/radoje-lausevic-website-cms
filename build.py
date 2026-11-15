@@ -156,6 +156,7 @@ for item in video_archive.get('items') or []:
  video_paths.add(path);video['path']=path
  video['date_iso']=datetime.date.fromisoformat(video['date'][:10]).isoformat()
  video['date_display']=datetime.date.fromisoformat(video['date_iso']).strftime('%b %d, %Y')
+ video['topic']=content_topics(video)
  video['content']=__import__('cms_data').body(video.get('body') or '')
  video['excerpt']=video.get('excerpt') or ''
  video['cover']=video.get('cover') or S['landscape']
@@ -165,10 +166,11 @@ videos.sort(key=lambda video:video['date_iso'],reverse=True)
 # Rebuild detail routes so removed videos do not leave stale pages behind.
 if (DIST/'video').exists():shutil.rmtree(DIST/'video')
 def video_search(video):
- return ' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],video.get('topic') or '',video['content']['text']]).lower()
+ return ' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],' '.join(content_topics(video)),video['content']['text']]).lower()
 def video_card(video,heading='h3',include_search=True):
  search=f' data-search="{E(video_search(video))}"' if include_search else ''
- topic=video.get('topic') or '';badge=f'<span class="post-topic">{E(topic)}</span>' if topic else ''
+ topics=content_topics(video);topic='|'.join(topics)
+ badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
  return f'<article class="post-card video-card archive-card" data-video data-categories="{E(topic)}"{search}><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span>{badge}<{heading}>{E(video["title"])}</{heading}><p class="post-excerpt">{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 # Multiple albums share one CMS source across Home, Insights and the archive.
 gallery_archive=read_archive(ROOT,'gallery')
@@ -367,7 +369,7 @@ def render_archive(base,prefix,singular,plural,title,label,heading,lead,entries,
   page(base if current==1 else f'{base}/page/{current}',title if current==1 else f'{title} — Page {current}',body,lead)
 render_archive('/video','video','video','videos','Video',video_archive.get('label','Video archive'),video_archive.get('heading','Conversation on sustainability'),video_archive.get('lead',''),videos,video_card,video_search,'/video/')
 for video in videos:
- body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/video/" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</p></header><div class="prose">'
+ body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/video/" href="/video">← Back to video archive</a><h1>{E(video["title"])}</h1><p class="article-meta"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO'+(' · '+E(' · '.join(content_topics(video))) if content_topics(video) else '')+'</p></header><div class="prose">'
  body+=image(video['cover'],video['title'])+(render(video['content']) if video['content']['text'] else f'<p>{E(video["excerpt"])}</p>')+f'<p><a class="button" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></p>'
  body+='</div>'
  # Reuse project selections, including legacy references by public Video path.

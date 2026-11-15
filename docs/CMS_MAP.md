@@ -1,6 +1,6 @@
 # CMS mapa — forme, izvori i prikaz
 
-Provereno prema `.pages.yml` i generatoru na commitu `ba06d42ccdf026b90317a5f7d107db27f44d7863`, 03.11.2026. Koristiti samo odeljak relevantan za zadatak. Projekti, Journal i galerije (više oblasti), projektne adrese, PDF mreže i automatski redosled radnog iskustva dopunjeni 14.11.2026. Pravila su u [AGENTS.md](../AGENTS.md), operativni sažetak u [PROJECT_HANDOFF.md](../PROJECT_HANDOFF.md).
+Provereno prema `.pages.yml` i generatoru na commitu `ba06d42ccdf026b90317a5f7d107db27f44d7863`, 03.11.2026. Koristiti samo odeljak relevantan za zadatak. Projekti, Journal, galerije i Video (više oblasti), projektne adrese, PDF mreže i automatski redosled radnog iskustva dopunjeni 14.11.2026; Video oblasti dopunjene 15.11.2026. Pravila su u [AGENTS.md](../AGENTS.md), operativni sažetak u [PROJECT_HANDOFF.md](../PROJECT_HANDOFF.md).
 
 ## 1. Gde se šta uređuje
 
@@ -33,7 +33,7 @@ Insights nema posebnu ručnu listu. Contact nema posebnu CMS kolekciju: javni ko
 |---|---|---|
 | Projects | `assignment_ongoing=true` prvo; za njih `assignment_start` opadajuće, za završene `assignment_end` opadajuće. Jednaki datumi zadržavaju redosled izvora. | 12 po stranici; tekst, Topic, Year. Year je godina početka za tekuće, završetka za završene angažmane. |
 | Journal | `date` opadajuće, zatim naslov opadajuće kod istog datuma. `published=false` isključuje objavu. | 12; naslov, excerpt, tekst i sve izabrane oblasti; Topic i Year. Stare Teme nisu izvor filtera. |
-| Video | `date` opadajuće; stabilne izjednačene vrednosti. | 12; naslov, datum, excerpt, tekst i oblast; Topic i Year. |
+| Video | `date` opadajuće; stabilne izjednačene vrednosti. | 12; naslov, datum, excerpt, tekst i sve izabrane oblasti; Topic i Year. |
 | Galleries | `date` opadajuće. | 12; tekstualna pretraga uključuje sve izabrane oblasti i sadržaj galerije i fotografija; Topic i Year. Prva fotografija je naslovna. |
 | Professional network | `items[].date` opadajuće; nedatirani iza datiranih, stabilno. | 4; tekstualna pretraga i Year; View details otvara saradnju i vezu. |
 | Recommendations | `recommendations[].date` opadajuće; nedatirani na kraju. | 4; tekstualna pretraga i Year; sažetak i View full recommendation. Home uzima prve dve. |
@@ -53,6 +53,8 @@ Bibliografske godine mogu biti rasponi, npr. `1993/94`: sortiranje uzima 1993, a
 **Journal / Blog objave:** `topic` je višestruki izbor iz Expertise, isto kao za projekte. Postojeći izbor ostaje sačuvan kao jednočlana lista. Sve izabrane oblasti prikazuju se na karticama (Home, Insights, Journal) i u zaglavlju detalja; svaka je dostupna kroz Topic filter i tekstualnu pretragu. `cms_data.content_topics` prihvata i ranije string vrednosti, a `scripts/sync_related_content.py` upisuje liste i za nacrte bez izmene ostalih polja.
 
 **Galerije:** `gallery_entries.topic` je višestruki izbor oblasti iz Expertise. Generator prihvata starije string vrednosti i liste; sync pretvara pojedinačni izbor u jednočlanu listu. Sve oblasti prikazuju se na karticama Home/Insights/Galleries i u zaglavlju detaljne galerije, a svaka radi u Topic filteru i pretrazi. Fotografije, opisi, datumi, putanje i projektne reference ostaju isti. Polje može ostati prazno.
+
+**Video:** `video_entries.topic` je višestruki izbor iz Expertise. Sve izabrane oblasti prikazuju se na karticama Home/Insights/Video i u zaglavlju detaljne video stranice; svaka radi u Topic filteru i tekstualnoj pretrazi. Sync pretvara stare string izbore u liste uz očuvane spoljne video linkove, naslovne fotografije, datume i tekstove. Prazno polje ostaje podržano. Promena oblasti ne menja hash adrese ili projektne reference jer se oni zasnivaju na polju `link`.
 
 **Projekti:** `title` znači Akronim, `full_name` pun naziv. `topic` je višestruki izbor oblasti; postojeće pojedinačne vrednosti se pretvaraju u liste bez promene izbora. Projekat se prikazuje pod svakom izabranom oblasti na Expertise, a Projects pretraga i Topic filter obuhvataju sve izabrane oblasti. Ne mešati `assignment_start/end/ongoing` sa `project_start/end`. Na detaljima slede Back to projects, akronim, Full project name, Project duration, My role, My assignment, fotografija, Project overview, My contribution, Selected results i Related content. Prazni opcioni odeljci se izostavljaju.
 
@@ -78,14 +80,14 @@ Nazivi ekspertiza i izabranih Career highlights služe kao tekstualni ključevi.
 
 CMS mediji koriste `dist/assets` → `/assets`. Fotografije: JPG/JPEG/PNG/WebP; dokumenti: PDF/DOC/DOCX/ODT/RTF/PPTX. `gallery_images.py` upravlja izvedenim slikama i `media/gallery-cache`, bez menjanja originala. Detaljna galerija prikazuje tekst pre mreže, po 12 novih fotografija i pregledač cele liste. Ne mešati ovu funkciju sa paginacijom arhive galerija.
 
-`.github/workflows/sync-expertise.yml` pokreće redom `scripts/sync_experience.py`, `scripts/sync_expertise.py`, `scripts/sync_related_content.py`, `scripts/sync_projects.py` i `scripts/prepare_gallery_cache.py`. Time održava izbore oblasti i karijere, ID-jeve, prazne post/gallery putanje, liste oblasti Journal objava i galerija, indeks saradnika, sortiranje radnog iskustva i izvedene periode, sortiranje projekata, njihove prazne adrese iz akronima, liste oblasti i keš. Save može prethoditi dodatnom sync commitu i deploymentu. Pri problemu proveriti konkretan izvorni unos, sync, zatim najnoviji Pages deployment; ne praviti paralelnu listu sadržaja kao zaobilazno rešenje.
+`.github/workflows/sync-expertise.yml` pokreće redom `scripts/sync_experience.py`, `scripts/sync_expertise.py`, `scripts/sync_related_content.py`, `scripts/sync_projects.py` i `scripts/prepare_gallery_cache.py`. Time održava izbore oblasti i karijere, ID-jeve, prazne post/gallery putanje, liste oblasti Journal objava, galerija i video unosa, indeks saradnika, sortiranje radnog iskustva i izvedene periode, sortiranje projekata, njihove prazne adrese iz akronima, liste oblasti i keš. Save može prethoditi dodatnom sync commitu i deploymentu. Pri problemu proveriti konkretan izvorni unos, sync, zatim najnoviji Pages deployment; ne praviti paralelnu listu sadržaja kao zaobilazno rešenje.
 
 | Promena | Relevantni testovi / dokumentacija |
 |---|---|
 | Radno iskustvo, Career highlights | `test_experience.py`, `test_cms.py`, `test_navigation.py` |
 | Mreža, preporuke, grupisana paginacija | `test_section_archives.py`, `tests/section-archives.cjs`, `section_archives.py` |
 | Projects, URL-ovi, reference | `test_projects.py`, `test_related_content.py`, `test_content_paths.py`, `test_project_network_editing.py` |
-| Journal i arhive medija | `test_gallery_topics.py`, `test_journal.py`, `test_journal_pagination.py`, `test_media_pagination.py`, `tests/journal-pagination.cjs` |
+| Journal i arhive medija | `test_video.py`, `test_gallery_topics.py`, `test_journal.py`, `test_journal_pagination.py`, `test_media_pagination.py`, `tests/journal-pagination.cjs` |
 | Bibliography | `test_bibliography.py`, `test_section_archives.py` |
 | Fotografije i pregledač | `test_gallery_images.py`, `tests/gallery-viewer.cjs` |
 | Contact | [CONTACT-SETUP.md](../CONTACT-SETUP.md), `tests/contact*.test.mjs` |

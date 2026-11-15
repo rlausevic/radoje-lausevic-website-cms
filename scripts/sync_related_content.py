@@ -15,8 +15,8 @@ def sync(root=ROOT):
   item=json.loads(source.read_text())
   if not item.get('id'):
    item['id']=bibliography_id(item);source.write_text(json.dumps(item,ensure_ascii=False,indent=2)+'\n')
- for folder,kind in [('posts','post'),('gallery_entries','gallery')]:
-  collection_records(root,folder,kind,persist=True)
+ for folder,kind in [('posts','post'),('gallery_entries','gallery'),('video_entries',None)]:
+  if kind:collection_records(root,folder,kind,persist=True)
   for source in (base/folder).glob('*.json'):
    item=json.loads(source.read_text())
    if 'topic' in item and item['topic']!=content_topics(item):

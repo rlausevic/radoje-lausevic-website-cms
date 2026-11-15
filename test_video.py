@@ -4,6 +4,49 @@ from pathlib import Path
 from content_archives import ARCHIVES,read_archive,write_archive
 ROOT=Path(__file__).resolve().parent
 class VideoCMS(unittest.TestCase):
+ def test_multiple_topics_previews_details_filter_and_sync(self):
+  from content_archives import video_path
+  from scripts.sync_related_content import sync
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
+   def field():
+    config=json.loads((root/'.pages.yml').read_text())
+    return next(x for x in next(x for x in config['content'] if x['name']=='video_entries')['fields'] if x['name']=='topic')
+   self.assertTrue(field()['options']['multiple']);topics=field()['options']['values'][:2]
+   folder=root/'content/cms/video_entries';sample=read_archive(root,'videos')['items'][0]
+   item=dict(sample,title='Multiple video topics fixture',date='2099-01-02',link='https://example.org/multiple-video-topics',topic=topics,body='<p>Unique video topics body</p>')
+   source=folder/'multiple-topics-test.json';source.write_text(json.dumps(item))
+   legacy=folder/'legacy-topic-test.json';legacy.write_text(json.dumps(dict(item,title='Legacy video topic',date='2097-01-02',link='https://example.org/legacy-video-topic',topic=topics[0])))
+   optional=folder/'no-topic-test.json';no_topic=dict(item,title='No topic video',date='2098-01-02',link='https://example.org/no-video-topic');no_topic.pop('topic');optional.write_text(json.dumps(no_topic))
+   result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True);self.assertEqual(result.returncode,0,result.stderr)
+   for name in ['index.html','insights/index.html','video/index.html']:
+    text=(root/'dist'/name).read_text();self.assertIn('data-categories="'+'|'.join(topics)+'"',text)
+    for topic in topics:self.assertIn('<span class="post-topic">'+topic+'</span>',text)
+   detail=(root/'dist'/video_path(item['link']).strip('/')/'index.html').read_text()
+   self.assertIn(' · VIDEO · '+' · '.join(topics),detail);self.assertIn('href="'+item['link']+'"',detail)
+   meta=re.search(r'<p class="article-meta">(.*?)</p>',(root/'dist'/video_path(no_topic['link']).strip('/')/'index.html').read_text())[1]
+   self.assertEqual(re.sub(r'<[^>]+>','',meta),'Jan 02, 2098 · VIDEO')
+   index=json.loads((root/'dist/video/archive-index.json').read_text());entry=next(x for x in index if video_path(item['link']) in x['html'])
+   self.assertEqual(entry['topic'],topics)
+   for topic in topics:self.assertIn(topic.lower(),entry['search'])
+   subprocess.run(['node','-e',r"""
+const fs=require('fs'),assert=require('assert');
+const {selectEntries}=require('./dist/assets/journal.js');
+const entries=JSON.parse(fs.readFileSync('dist/video/archive-index.json','utf8'));
+const fixture=entries.find(x=>x.search.includes('unique video topics body'));
+for(const category of fixture.topic){
+ const result=selectEntries(entries,{category,year:'2099',search:'unique video topics body',page:1});
+ assert.equal(result.total,1);assert.equal(result.items[0],fixture);
+}
+assert.equal(selectEntries(entries,{category:'Missing topic',search:'unique video topics body'}).total,0);
+"""],cwd=root,check=True)
+   sync(root);self.assertEqual(json.loads(source.read_text()),item)
+   self.assertEqual(json.loads(legacy.read_text())['topic'],[topics[0]])
+   self.assertNotIn('topic',json.loads(optional.read_text()))
+   before={p.name:p.read_bytes() for p in folder.glob('*.json')};sync(root)
+   self.assertEqual({p.name:p.read_bytes() for p in folder.glob('*.json')},before)
+   subprocess.run([sys.executable,'scripts/sync_expertise.py'],cwd=root,check=True)
+   self.assertTrue(field()['options']['multiple'])
  def test_shared_sources_and_video_routes(self):
   with tempfile.TemporaryDirectory() as directory:
    root=Path(directory)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
@@ -21,7 +64,9 @@ class VideoCMS(unittest.TestCase):
    for value in ['Shared expertise','Shared motto','Homepage expertise excerpt','Shared recommendation author','Homepage recommendation excerpt','Shared video title','Homepage video excerpt']:self.assertIn(value,home)
    self.assertEqual(home.count('data-video '),1);self.assertEqual(home.count('<blockquote>'),2)
    expected=['/video/'+hashlib.sha256(item['link'].encode()).hexdigest()[:16] for item in sorted(archive['items'],key=lambda item:item['date'],reverse=True)]
-   self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',videos),expected)
+   self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',videos),expected[:12])
+   index=json.loads((root/'dist/video/archive-index.json').read_text())
+   self.assertEqual([path for item in index for path in re.findall(r'href="(/video/[a-f0-9]+)">Read more',item['html'])],expected)
    self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',home),expected[:1])
    insights=(root/'dist/insights/index.html').read_text()
    self.assertEqual(re.findall(r'href="(/video/[a-f0-9]+)">Read more',insights),expected[:3])

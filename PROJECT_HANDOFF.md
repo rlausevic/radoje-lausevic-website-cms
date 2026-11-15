@@ -1,6 +1,6 @@
 # Radoje Laušević web site — handoff
 
-Datum ciljane dopune: **14. novembar 2026.** (projekti, oblasti Journal objava i galerija, PDF mreže i radno iskustvo); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
+Datum ciljane dopune: **15. novembar 2026.** (Video oblasti; prethodne dopune projekata, oblasti Journal objava i galerija, PDF mreže i radnog iskustva od 14. novembra); ostale provere su od 3. novembra 2026. Glavna verzija ovog dokumenta je u repozitorijumu. Ovo je sažetak važećeg stanja, ne dnevnik razvoja. Za pravila pročitajte [AGENTS.md](AGENTS.md); zatim samo potreban odeljak [CMS mape](docs/CMS_MAP.md).
 
 ## 1. Merodavni izvori i kontrolna tačka
 
@@ -35,6 +35,8 @@ Projekti čuvaju trajni `path`, nezavisan od naknadnih izmena akronima. Prazna a
 Journal objave takođe koriste višestruki `topic` izbor iz Expertise. Svaka oblast učestvuje u Topic filteru i pretrazi, prikazuje se na karticama Home/Insights/Journal i u zaglavlju detaljne objave. `scripts/sync_related_content.py` pretvara ranije pojedinačne oblasti u liste uz očuvane vrednosti i ostala polja. Generator prihvata oba formata; objave bez oblasti i nacrti ostaju podržani.
 
 Galerije koriste isti višestruki `topic` izbor: sve oblasti prikazuju se na Home, Insights, Galleries i u zaglavlju detalja. Svaka oblast radi u Topic filteru i tekstualnoj pretrazi. Sync pretvara ranije pojedinačne izbore u liste, bez promene fotografija, datuma, teksta, putanja i projektnih referenci. Prazno polje i stariji string format ostaju podržani u generatoru.
+
+Video unosi imaju višestruki `topic` izbor iz Expertise. Sve oblasti prikazuju se na Home, Insights, Video i u zaglavlju video detalja, a pretraga i Topic filter prepoznaju svaku. Sync pretvara starije pojedinačne izbore u liste uz očuvana sva ostala polja. Generator prihvata i starije string vrednosti i prazno polje.
 
 Video detaljna adresa nastaje iz hash-a spoljnog `link` polja. Promena tog linka može promeniti javni URL i CMS reference. Bibliography koristi UUID i sidro `bibliography-UUID`. Projekti biraju povezane objave, videe, galerije i bibliografiju iz kolekcija; Journal, Video i Gallery detalji automatski prikazuju povratne veze ka projektima. Preporuke biraju saradnike preko njihovog UUID-a i izvedene liste `network_references`; originali ostaju samo u `network.json`.
 
