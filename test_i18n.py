@@ -1,7 +1,7 @@
 """Editorial safety and real bilingual outputs, including stale-source races."""
 import copy,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
-from i18n import complete,ready,source_hash,sync_record,localize,Locale,digest
+from i18n import complete,ready,source_hash,sync_record,localize,Locale,digest,content_date
 from scripts.translate_sr import validate_translation,export,apply,ai_prepare,payload_target
 from unittest.mock import patch
 import io,os
@@ -13,6 +13,12 @@ def draft(item,key,**values):
  return item
 
 class Editorial(unittest.TestCase):
+ def test_card_date_languages(self):
+  months='јануар фебруар март април мај јун јул август септембар октобар новембар децембар'.split()
+  for month,name in enumerate(months,1):
+   self.assertEqual(content_date(f'2026-{month:02d}-02','sr'),f'2. {name} 2026.')
+  self.assertEqual(content_date('2026-11-22','en'),'Nov 22, 2026')
+  self.assertEqual(content_date('2024-02-29','sr'),'29. фебруар 2024.')
  def test_project_action_exports_only_saved_selected_project(self):
   payload={'repository':{'ref':'main'},'action':{'name':'translate-project-sr'},'context':{'type':'repository'},'inputs':{'project_path':'/project/REDEEM'}}
   self.assertLess(len(json.dumps(payload)),1000)
@@ -99,6 +105,20 @@ class BilingualBuild(unittest.TestCase):
    draft(home,'home',**{key:('СР '+value if value else '') for key,value in source_text(home,'home').items()})
    home['sr']['approved']=True;sync_record(home,'home');home_file.write_text(json.dumps(home,ensure_ascii=False))
    project_file.write_text(json.dumps(project_data,ensure_ascii=False));run('build.py')
+   import re,html
+   for name in ['index.html','insights/index.html','blog/index.html','video/index.html','galleries/index.html']:
+    for prefix,labels in [('sr/',{'ОБЈАВЕ','ВИДЕО','ГАЛЕРИЈА'}),('',{'JOURNAL','VIDEO','GALLERY'})]:
+     cards=(root/('dist/'+prefix+name)).read_text()
+     metadata=re.findall(r'<span class="date"><time datetime="([^"]+)">(.*?)</time> · <span>(.*?)</span></span>',cards)
+     self.assertTrue(metadata,name)
+     for iso,display,label in metadata:
+      self.assertEqual(html.unescape(display),content_date(iso,'sr' if prefix else 'en'))
+      self.assertIn(label,labels)
+     if name in ['index.html','insights/index.html']:self.assertEqual({x[2] for x in metadata},labels)
+   for archive in ['blog','video','galleries']:
+    entries=json.loads((root/f'dist/sr/{archive}/archive-index.json').read_text())
+    for entry in entries:
+     self.assertRegex(entry['html'],r'</time> · <span>(ОБЈАВЕ|ВИДЕО|ГАЛЕРИЈА)</span>')
    project_html=(root/('dist/sr'+project['path']+'/index.html')).read_text()
    self.assertIn('href="/sr'+path+'"',project_html)
    self.assertIn('<h1>'+project['title']+'</h1>',project_html)

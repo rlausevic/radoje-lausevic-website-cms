@@ -3,7 +3,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import json,html,re,urllib.parse,datetime,hashlib,shutil,time,os,subprocess,sys
-from i18n import SR,Locale,read_json
+from i18n import SR,Locale,read_json,content_date
 BUILD_STARTED=time.perf_counter()
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms,project_topics,content_topics
@@ -174,7 +174,7 @@ def post_card(p,heading='h3',include_search=True):
  topics=content_topics(p);topic='|'.join(topics)
  search=f' data-search="{E(post_search(p))}"' if include_search else ''
  badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
- return f'<a class="post-card journal-card" data-post data-categories="{E(topic)}"{search} href="{E(p["path"])}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date"><time datetime="{E(p["date_iso"])}">{E(p["date"])}</time> · JOURNAL</span>{badge}{locale.badge(p)}<{heading}>{E(p["title"])}</{heading}><p class="post-excerpt">{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
+ return f'<a class="post-card journal-card" data-post data-categories="{E(topic)}"{search} href="{E(p["path"])}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date"><time datetime="{E(p["date_iso"])}">{E(content_date(p["date_iso"]))}</time> · <span>JOURNAL</span></span>{badge}{locale.badge(p)}<{heading}>{E(p["title"])}</{heading}><p class="post-excerpt">{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
@@ -206,7 +206,7 @@ def video_card(video,heading='h3',include_search=True):
  search=f' data-search="{E(video_search(video))}"' if include_search else ''
  topics=content_topics(video);topic='|'.join(topics)
  badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
- return f'<article class="post-card video-card archive-card" data-video data-categories="{E(topic)}"{search}><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span>{badge}{locale.badge(video)}<{heading}>{E(video["title"])}</{heading}><p class="post-excerpt">{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
+ return f'<article class="post-card video-card archive-card" data-video data-categories="{E(topic)}"{search}><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(content_date(video["date_iso"]))}</time> · <span>VIDEO</span></span>{badge}{locale.badge(video)}<{heading}>{E(video["title"])}</{heading}><p class="post-excerpt">{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 # Multiple albums share one CMS source across Home, Insights and the archive.
 gallery_archive=read_archive(ROOT,'gallery')
 galleries=[];gallery_paths=set()
@@ -231,7 +231,7 @@ def gallery_card(album,heading='h3',include_search=True):
  search=f' data-search="{E(gallery_search(album))}"' if include_search else ''
  topics=content_topics(album);topic='|'.join(topics)
  badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
- return f'<article class="post-card gallery-card archive-card" data-album data-categories="{E(topic)}"{search}><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span>{badge}{locale.badge(album)}<{heading}>{E(album["title"])}</{heading}><p class="post-excerpt">{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
+ return f'<article class="post-card gallery-card archive-card" data-album data-categories="{E(topic)}"{search}><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(content_date(album["date_iso"]))}</time> · <span>GALLERY</span></span>{badge}{locale.badge(album)}<{heading}>{E(album["title"])}</{heading}><p class="post-excerpt">{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
 def gallery_description(album):
  content=album['content'];words=content['text'].split()
  if not words:return ''

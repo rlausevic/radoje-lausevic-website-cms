@@ -1,5 +1,6 @@
 """Single-record translations, explicit editorial approval, and locale-safe URLs."""
 import copy,hashlib,html,json,os,re
+from datetime import date
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,urlunsplit
@@ -9,6 +10,14 @@ LANG=os.environ.get('SITE_LANGUAGE','en')
 SR=LANG=='sr'
 SYSTEM_PAGES={'/projects','/blog','/video','/galleries','/insights','/contact'}
 PAGE_FILES={'/':'home','/about':'about','/expertise':'expertise','/resume':'resume','/work-experience':'network','/bibliography':'settings','/blog':'journal'}
+
+def content_date(value,language=LANG):
+ """Format shared card dates without changing the source or machine-readable date."""
+ day=date.fromisoformat(value)
+ if language=='sr':
+  months=('јануар','фебруар','март','април','мај','јун','јул','август','септембар','октобар','новембар','децембар')
+  return f'{day.day}. {months[day.month-1]} {day.year}.'
+ return day.strftime('%b %d, %Y')
 
 def source_text(item,key):
  return {field:item.get(field) or '' for field in FIELDS[key]+['seo_description']}
