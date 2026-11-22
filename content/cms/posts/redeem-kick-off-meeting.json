@@ -12,7 +12,9 @@
   "seo_description": "REDEEM kick-off meeting: Radoje Laušević presents the work plan and timeline for E3 Consulting’s support to Montenegro’s agriculture ministry.",
   "sr": {
     "approved": false,
-    "refresh_source": false,
-    "body": "<p></p>"
+    "body": "<p></p>",
+    "approved_hash": "",
+    "status": "Нацрт — потребна провера",
+    "source_hash": "4e2c625e1eff960d765b6d25221ec8742d3db37b6953efcb0062bf290ab93f25"
   }
 }
