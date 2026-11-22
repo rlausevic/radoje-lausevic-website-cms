@@ -61,15 +61,21 @@ def apply(patch):
  item['sr']=dict(values,approved=False,approved_hash='',source_hash=patch['source_hash'],status='AI нацрт — потребна ваша провера')
  path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 
+def payload_target(payload):
+ if payload.get('repository',{}).get('ref') not in {'main','refs/heads/main'}:raise ValueError('Use the main branch in Pages CMS.')
+ # A file action includes all projects in context.data and can exceed GitHub's
+ # dispatch limit. The repository action sends just the selected stable path.
+ path='content/cms/projects.json' if payload.get('action',{}).get('name')=='translate-project-sr' else payload.get('context',{}).get('path')
+ if not path:raise ValueError('Run the action on a saved file or collection entry.')
+ return path,payload.get('inputs',{}).get('project_path')
+
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--payload-env',action='store_true');parser.add_argument('--path');parser.add_argument('--project-path');parser.add_argument('--export',action='store_true');parser.add_argument('--apply');parser.add_argument('--output');args=parser.parse_args()
  if args.apply:apply(json.loads(Path(args.apply).read_text()));return
  path=args.path;project=args.project_path
  if args.payload_env:
   payload=json.loads(os.environ['PAGES_CMS_PAYLOAD'])
-  if payload.get('repository',{}).get('ref') not in {'main','refs/heads/main'}:raise ValueError('Use the main branch in Pages CMS.')
-  path=payload.get('context',{}).get('path');project=payload.get('inputs',{}).get('project_path')
-  if not path:raise ValueError('Run the action on a saved file or collection entry.')
+  path,project=payload_target(payload)
  patch=export(path,project)
  if not args.export:patch=ai_prepare(patch)
  encoded=json.dumps(patch,ensure_ascii=False,indent=2)+'\n'

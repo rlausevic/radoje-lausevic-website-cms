@@ -2,7 +2,7 @@
 import copy,json,shutil,subprocess,sys,tempfile,unittest
 from pathlib import Path
 from i18n import complete,ready,source_hash,sync_record,localize,Locale,digest
-from scripts.translate_sr import validate_translation,export,apply,ai_prepare
+from scripts.translate_sr import validate_translation,export,apply,ai_prepare,payload_target
 from unittest.mock import patch
 import io,os
 ROOT=Path(__file__).resolve().parent
@@ -13,6 +13,22 @@ def draft(item,key,**values):
  return item
 
 class Editorial(unittest.TestCase):
+ def test_project_action_exports_only_saved_selected_project(self):
+  payload={'repository':{'ref':'main'},'action':{'name':'translate-project-sr'},'context':{'type':'repository'},'inputs':{'project_path':'/project/cc5880ac12fff035'}}
+  self.assertLess(len(json.dumps(payload)),1000)
+  path,project=payload_target(payload)
+  patch_data=export(path,project)
+  projects=json.loads((ROOT/path).read_text())['items']
+  selected=next(item for item in projects if item['path']==project)
+  self.assertEqual(patch_data['source']['full_name'],selected['full_name'])
+  self.assertEqual(patch_data['source']['body'],selected['body'])
+  self.assertNotIn('items',patch_data['source'])
+  with self.assertRaisesRegex(ValueError,'exact permanent project path'):export(path,'/project/not-a-saved-project')
+ def test_saved_file_actions_and_branch_guard_still_work(self):
+  payload={'repository':{'ref':'main'},'context':{'path':'content/cms/home.json'}}
+  self.assertEqual(payload_target(payload),('content/cms/home.json',None))
+  payload['repository']['ref']='other-branch'
+  with self.assertRaisesRegex(ValueError,'main branch'):payload_target(payload)
  def test_explicit_approval_and_staleness(self):
   item=draft({'title':'Title','excerpt':'Lead','body':'<p>Original</p>'},'posts',title='Наслов',excerpt='Увод',body='<p>Превод</p>')
   self.assertFalse(ready(item,'posts'))
