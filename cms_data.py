@@ -36,9 +36,10 @@ class CleanHTML(HTMLParser):
 def body(value):
  p=CleanHTML();p.feed(value or '');return {'type':'html','html':''.join(p.out),'text':' '.join(' '.join(p.text).split())}
 def text(tag,value):return {'type':tag,'text':value,'html':html.escape(value)}
-def project_period(project,prefix='assignment'):
- """Use English month/year labels without inferring an ongoing assignment."""
- months=('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
+def project_period(project,prefix='assignment',language='en'):
+ """Format shared dates for display; CMS synchronization defaults to English."""
+ sr=language=='sr'
+ months=('јануар','фебруар','март','април','мај','јун','јул','август','септембар','октобар','новембар','децембар') if sr else ('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
  def read_date(key):
   value=project.get(key) or ''
   if not value:return None
@@ -51,12 +52,14 @@ def project_period(project,prefix='assignment'):
  # CMS date controls can retain a date; the explicit ongoing flag takes precedence.
  end=None if ongoing else read_date(prefix+'_end')
  if start and end and end<start:raise ValueError('Project end date precedes start date: '+prefix)
- label=lambda date:months[date.month-1]+' '+str(date.year)
+ def label(date,genitive=False):
+  names=('јануара','фебруара','марта','априла','маја','јуна','јула','августа','септембра','октобра','новембра','децембра') if sr and genitive else months
+  return names[date.month-1]+' '+str(date.year)
  if start and end:return label(start)+' – '+label(end)
- if start and ongoing:return label(start)+' – present'
- if ongoing:return 'Ongoing'
- if start:return 'From '+label(start)
- if end:return 'Until '+label(end)
+ if start and ongoing:return label(start)+(' – данас' if sr else ' – present')
+ if ongoing:return 'У току' if sr else 'Ongoing'
+ if start:return ('Од ' if sr else 'From ')+label(start,genitive=True)
+ if end:return ('До ' if sr else 'Until ')+label(end,genitive=True)
  # Compatibility for older content; new CMS records use the separate fields.
  if prefix=='assignment' and not any(k in project for k in ['assignment_start','assignment_end','assignment_ongoing']):return project.get('period') or ''
  return ''
@@ -92,8 +95,8 @@ def load_cms(root,original):
  model['experience_entries'].sort(key=experience_sort_key,reverse=True)
  for project in project_paths(root,model['project_entries']):
   project['topic']=project_topics(project)
-  project['period']=project_period(project)
-  project['project_duration']=project_period(project,'project')
+  project['period']=project_period(project,language='sr' if SR else 'en')
+  project['project_duration']=project_period(project,'project',language='sr' if SR else 'en')
  # Stable sorting preserves CMS order for equal or missing effective dates.
  model['project_entries'].sort(key=project_sort_key,reverse=True)
  network=read('network.json');blocks=[]

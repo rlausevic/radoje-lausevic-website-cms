@@ -8,7 +8,7 @@ class ProjectArchive(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))
    fields=next(x for x in json.loads((root/'.pages.yml').read_text())['content'] if x['name']=='projects')['fields'][0]['fields']
-   self.assertEqual(len(fields),19);self.assertNotIn('period',[x['name'] for x in fields])
+   self.assertEqual(len(fields),20);self.assertNotIn('period',[x['name'] for x in fields])
    source=root/'content/cms/projects.json';data=json.loads(source.read_text());p=data['items'][0]
    p.update(title='Test assignment',full_name='Unique full project name',assignment_start='2024-08-30',assignment_end='2025-01-13',assignment_ongoing=False,project_start='2023-07-01',project_end='2028-10-31',role='Test policy expert',contribution='<p>Unique stakeholder support</p>',results='<p>Unique verified output</p>')
    source.write_text(json.dumps(data));subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
@@ -63,6 +63,15 @@ class ProjectArchive(unittest.TestCase):
   self.assertEqual(project_period({'project_start':'2023-07-01'},'project'),'From Jul 2023')
   for data in [{'assignment_start':'bad'},{'assignment_start':'2024-02-30'},{'assignment_start':'2026-01-01','assignment_end':'2025-01-01'},{'assignment_ongoing':'false'}]:
    with self.assertRaises(ValueError):project_period(data)
+ def test_serbian_project_periods(self):
+  from cms_data import project_period
+  for month,name in enumerate(('јануара','фебруара','марта','априла','маја','јуна','јула','августа','септембра','октобра','новембра','децембра'),1):
+   self.assertEqual(project_period({'project_start':f'2026-{month:02d}-01'},'project',language='sr'),'Од '+name+' 2026')
+  self.assertEqual(project_period({'assignment_start':'2024-08-30','assignment_end':'2025-01-13'},language='sr'),'август 2024 – јануар 2025')
+  self.assertEqual(project_period({'assignment_start':'2026-09-07','assignment_ongoing':True},language='sr'),'септембар 2026 – данас')
+  self.assertEqual(project_period({'assignment_ongoing':True},language='sr'),'У току')
+  self.assertEqual(project_period({'project_end':'2029-05-31'},'project',language='sr'),'До маја 2029')
+  self.assertEqual(project_period({},language='sr'),'')
  def test_cms_topics_details_and_footer(self):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__'))

@@ -95,11 +95,23 @@ class BilingualBuild(unittest.TestCase):
    translated_project={key:('СР '+value if value else '') for key,value in source_text(project,'projects.items').items()}
    draft(project,'projects.items',**translated_project);project['sr']['approved']=True;sync_record(project,'projects.items')
    project.setdefault('related_content',{})['journal']=[path]
+   home_file=root/'content/cms/home.json';home=json.loads(home_file.read_text())
+   draft(home,'home',**{key:('СР '+value if value else '') for key,value in source_text(home,'home').items()})
+   home['sr']['approved']=True;sync_record(home,'home');home_file.write_text(json.dumps(home,ensure_ascii=False))
    project_file.write_text(json.dumps(project_data,ensure_ascii=False));run('build.py')
    project_html=(root/('dist/sr'+project['path']+'/index.html')).read_text()
    self.assertIn('href="/sr'+path+'"',project_html)
    self.assertIn('<h1>'+project['title']+'</h1>',project_html)
    self.assertIn('Пун назив пројекта:',project_html)
+   from cms_data import project_period
+   for prefix,label in [('project','Трајање пројекта:'),('assignment','Мој ангажман:')]:
+    period=project_period(project,prefix,language='sr')
+    self.assertIn('<strong>'+label+'</strong> '+period,project_html)
+   period=project_period(project,language='sr')
+   for page in ['dist/sr/index.html','dist/sr/projects/index.html','dist/sr/projects/archive-index.json']:
+    self.assertIn('<strong>Мој ангажман:</strong> '+period,(root/page).read_text())
+   english_project=(root/('dist'+project['path']+'/index.html')).read_text()
+   self.assertIn('<strong>My assignment:</strong> '+project_period(project),english_project)
    self.assertIn('href="/sr'+project['path']+'"',sr.read_text())
    translated=sr.read_text();original=en.read_text()
    for value in ['lang="sr-Cyrl"','Преведени текст за проверу','content="Српски SEO опис"','rel="canonical" href="https://www.radojelausevic.com/sr'+path,'hreflang="en"','hreflang="sr-Cyrl"','href="'+path+'" lang="en"']:
