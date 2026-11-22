@@ -12,10 +12,10 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "support": "<p></p>",
         "description": "<p></p>",
-        "source_hash": "e84b280753cb3984be7bd42ae77aa65bbb02b6d0af08be56b8b43a5feaf01093"
+        "source_hash": "e84b280753cb3984be7bd42ae77aa65bbb02b6d0af08be56b8b43a5feaf01093",
+        "approved_hash": ""
       }
     },
     {
@@ -27,10 +27,10 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "support": "<p></p>",
         "description": "<p></p>",
-        "source_hash": "c1b4ed608059c0bfcbc424763090b4124565065d41d8fcbf7d31b6965ee7c2f6"
+        "source_hash": "c1b4ed608059c0bfcbc424763090b4124565065d41d8fcbf7d31b6965ee7c2f6",
+        "approved_hash": ""
       }
     },
     {
@@ -42,10 +42,10 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "support": "<p></p>",
         "description": "<p></p>",
-        "source_hash": "56af3ad1653842d8c82b207a84b97ffe8610275339a401ef2c4424da5ce77767"
+        "source_hash": "56af3ad1653842d8c82b207a84b97ffe8610275339a401ef2c4424da5ce77767",
+        "approved_hash": ""
       }
     },
     {
@@ -57,10 +57,10 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "support": "<p></p>",
         "description": "<p></p>",
-        "source_hash": "b4ae47ed1c64246b7fb6d35340c8c8362a98be916cecbbda087c3d18930154a6"
+        "source_hash": "b4ae47ed1c64246b7fb6d35340c8c8362a98be916cecbbda087c3d18930154a6",
+        "approved_hash": ""
       }
     },
     {
@@ -72,22 +72,22 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "support": "<p></p>",
         "description": "<p></p>",
-        "source_hash": "5fb4067f70ee6a4ca6ec94093f95d7634ee5f1b075dbca1ad87e3996887b6bab"
+        "source_hash": "5fb4067f70ee6a4ca6ec94093f95d7634ee5f1b075dbca1ad87e3996887b6bab",
+        "approved_hash": ""
       }
     }
   ],
   "seo_description": "Explore Radoje Laušević’s expertise in leadership, project management, blue economy, skills development, environmental policy and climate planning.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "label": "Стручност",
     "heading": "Искуство које покреће идеје у акцију.",
     "lead": "Помажем институцијама, предузећима и истраживачким организацијама да ојачају руководство и управљање, воде пројекте и програме, унапреде плаву економију и развију вештине, као и да преведу еколошка истраживања у политику — претварајући заједничке приоритете у ефикасна партнерства, јаче капацитете и практичне исходе одрживости.",
     "seo_description": "Истражите стручност Радоја Лаушевића у области лидерства, управљања пројектима, плаве економије, развоја вештина, еколошке политике и климатског планирања.",
-    "source_hash": "f45f41b659720aa7dc025de3785afa17901f399b821b5330349a1109a0e90998"
+    "source_hash": "f45f41b659720aa7dc025de3785afa17901f399b821b5330349a1109a0e90998",
+    "approved_hash": "0ae6718fde8469f664ddddfe6606a09dc6415171d7de659e16162aa46bb67ddb"
   }
 }
