@@ -1,22 +1,23 @@
 'use strict';
+const siteLangSr=document.documentElement?.lang?.startsWith('sr')||false;
 const toggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('#primary-nav');
 const insightsToggle=document.querySelector('.insights-toggle');
 const insightsMenu=document.querySelector('#insights-menu');
 function closeInsights(){
  if(!insightsToggle||!insightsMenu)return;
- insightsMenu.hidden=true;insightsToggle.setAttribute('aria-expanded','false');insightsToggle.setAttribute('aria-label','Open Insights submenu');
+ insightsMenu.hidden=true;insightsToggle.setAttribute('aria-expanded','false');insightsToggle.setAttribute('aria-label',siteLangSr?'Отворите подмени Увиди':'Open Insights submenu');
 }
 function closeNavigation(){
  if(!toggle||!nav)return;
- nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';closeInsights();
+ nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent=siteLangSr?'Мени ☰':'Menu ☰';closeInsights();
 }
 if(toggle&&nav){
- toggle.addEventListener('click',()=>{const open=!nav.classList.contains('open');if(open){nav.classList.add('open');toggle.setAttribute('aria-expanded','true');toggle.textContent='Close ×';}else closeNavigation();});
+ toggle.addEventListener('click',()=>{const open=!nav.classList.contains('open');if(open){nav.classList.add('open');toggle.setAttribute('aria-expanded','true');toggle.textContent=siteLangSr?'Затвори ×':'Close ×';}else closeNavigation();});
  nav.addEventListener('click',event=>{if(event.target.closest('a'))closeNavigation();});
 }
 if(insightsToggle&&insightsMenu){
- const openInsights=()=>{insightsMenu.hidden=false;insightsToggle.setAttribute('aria-expanded','true');insightsToggle.setAttribute('aria-label','Close Insights submenu');};
+ const openInsights=()=>{insightsMenu.hidden=false;insightsToggle.setAttribute('aria-expanded','true');insightsToggle.setAttribute('aria-label',siteLangSr?'Затворите подмени Увиди':'Close Insights submenu');};
  insightsToggle.addEventListener('click',()=>{if(insightsMenu.hidden)openInsights();else closeInsights();});
  insightsToggle.addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();openInsights();insightsMenu.querySelector('a')?.focus();}});
  document.addEventListener('click',event=>{if(!event.target.closest('.nav-insights'))closeInsights();});
@@ -45,7 +46,7 @@ if(dialog){
  let visible=12;
  const updateGrid=()=>{
   photos.forEach((photo,index)=>{photo.hidden=index>=visible;});
-  visibleCount.textContent=`Showing ${Math.min(visible,photos.length)} of ${photos.length} photos`;
+  visibleCount.textContent=siteLangSr?`Приказано ${Math.min(visible,photos.length)} од ${photos.length} фотографија`:`Showing ${Math.min(visible,photos.length)} of ${photos.length} photos`;
   more.hidden=visible>=photos.length;
  };
  if(reveal&&more&&visibleCount&&photos.length>12){

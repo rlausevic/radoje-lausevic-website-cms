@@ -19,7 +19,8 @@ class RelatedContent(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    root=Path(temp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
    config=root/'.pages.yml';schema=json.loads(config.read_text())
-   fields=next(item for item in schema['content'] if item['name']=='projects')['fields'][0]['fields'][-1]['fields']
+   project_fields=next(item for item in schema['content'] if item['name']=='projects')['fields'][0]['fields']
+   fields=next(field for field in project_fields if field['name']=='related_content')['fields']
    journal=next(item for item in fields if item['name']=='journal');bibliography=copy.deepcopy(next(item for item in fields if item['name']=='bibliography'))
    self.assertEqual(journal['type'],'reference');self.assertTrue(journal['options']['multiple'])
    post={'title':'New CMS journal entry','path':'/post/new-cms-entry','published':True,'date':'2026-10-25','excerpt':'New preview','body':'<p>New body</p>'}
@@ -29,7 +30,7 @@ class RelatedContent(unittest.TestCase):
    post['title']='Updated CMS entry title';source.write_text(json.dumps(post))
    self.assertEqual(selected_content(project,load_catalog(root))[0][2][0]['title'],post['title'])
    subprocess.run([sys.executable,'scripts/sync_related_content.py'],cwd=root,check=True,capture_output=True)
-   fields=next(item for item in json.loads(config.read_text())['content'] if item['name']=='projects')['fields'][0]['fields'][-1]['fields']
+   fields=next(item for item in json.loads(config.read_text())['content'] if item['name']=='projects')['fields'][0]['fields'][-3]['fields']
    self.assertEqual(next(item for item in fields if item['name']=='journal'),journal)
    self.assertEqual(next(item for item in fields if item['name']=='bibliography'),bibliography)
    post['published']=False;source.write_text(json.dumps(post))
@@ -52,9 +53,10 @@ class RelatedContent(unittest.TestCase):
    bib=read('bibliography.json');saved=copy.deepcopy(bib);bib['items'].reverse();bib['items'][0]['title']='Updated bibliography title';save('bibliography.json',bib)
    subprocess.run([sys.executable,'scripts/sync_related_content.py'],cwd=root,check=True,capture_output=True)
    cfg=json.loads((root/'.pages.yml').read_text());schema=next(c for c in cfg['content'] if c['name']=='projects')['fields'][0]['fields']
-   self.assertEqual(schema[-1]['name'],'related_content')
+   related=next(field for field in schema if field['name']=='related_content')
+   self.assertEqual(related['name'],'related_content')
    catalog=load_catalog(root)
-   for field in schema[-1]['fields']:
+   for field in related['fields']:
     self.assertTrue(field['options']['multiple'])
     self.assertEqual(field['type'],'reference');self.assertNotIn('values',field['options'])
     target={'journal':'posts','videos':'video_entries','galleries':'gallery_entries','bibliography':'bibliography_entries'}[field['name']]

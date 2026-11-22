@@ -213,12 +213,89 @@
               ]
             }
           ]
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "brand",
+              "label": "Naziv agencije — српски",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "label": "Opis za pretraživače — српски",
+              "type": "text"
+            },
+            {
+              "name": "location",
+              "label": "Lokacija — српски",
+              "type": "string"
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "home",
@@ -273,12 +350,119 @@
           "name": "galleries_heading",
           "label": "Galerije: naslov",
           "type": "string"
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "heading",
+              "label": "Glavni naslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "lead",
+              "label": "Uvodni tekst — српски",
+              "type": "text"
+            },
+            {
+              "name": "landscape_quote",
+              "label": "Tekst uz panoramu — српски",
+              "type": "text"
+            },
+            {
+              "name": "recommendations_label",
+              "label": "Oznaka sekcije preporuka — српски",
+              "type": "string"
+            },
+            {
+              "name": "recommendations_heading",
+              "label": "Naslov sekcije preporuka — српски",
+              "type": "string"
+            },
+            {
+              "name": "videos_label",
+              "label": "Oznaka video sekcije — српски",
+              "type": "string"
+            },
+            {
+              "name": "videos_heading",
+              "label": "Naslov video sekcije — српски",
+              "type": "string"
+            },
+            {
+              "name": "galleries_label",
+              "label": "Galerije: nadnaslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "galleries_heading",
+              "label": "Galerije: naslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "about",
@@ -376,6 +560,69 @@
                 "label": "{fields.name}"
               },
               "description": "Izaberite saradnike ili organizacije iz automatske liste. Izvor se uređuje u Saradnici i organizacije; nakon njegovog čuvanja i obrade osvežite ovu formu."
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English",
+              "type": "text"
+            },
+            {
+              "name": "sr",
+              "label": "Српски — ћирилица",
+              "type": "object",
+              "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+              "fields": [
+                {
+                  "name": "status",
+                  "label": "Стање превода (аутоматски)",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved",
+                  "label": "Проверио сам превод — објави српску верзију",
+                  "type": "boolean",
+                  "default": false
+                },
+                {
+                  "name": "refresh_source",
+                  "label": "Ускладио сам превод са измењеним оригиналом",
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+                },
+                {
+                  "name": "summary",
+                  "label": "Kratak tekst preporuke za prvu stranu — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "body",
+                  "label": "Detaljan tekst preporuke — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "seo_description",
+                  "label": "SEO opis — English — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "source_hash",
+                  "label": "Верзија енглеског оригинала",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved_hash",
+                  "label": "Одобрена верзија превода",
+                  "type": "string",
+                  "hidden": true
+                }
+              ]
             }
           ],
           "description": "Preporuke se prikazuju po datumu od najnovije, četiri po stranici na About. Početna strana preuzima prve dve. Unosi bez datuma su na kraju, uz očuvan redosled liste."
@@ -386,12 +633,88 @@
           "type": "text",
           "readonly": true,
           "default": "Sadržaj se uređuje na CMS stranici Saradnici i organizacije i automatski prikazuje ovde i u Career history."
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "body",
+              "label": "Profile — profesionalni profil — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "expertise_intro",
+              "label": "Kratak uvod za Expertise — српски",
+              "type": "text"
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "expertise",
@@ -460,15 +783,174 @@
                 "format": "html",
                 "media": "images"
               }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English",
+              "type": "text"
+            },
+            {
+              "name": "sr",
+              "label": "Српски — ћирилица",
+              "type": "object",
+              "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+              "fields": [
+                {
+                  "name": "status",
+                  "label": "Стање превода (аутоматски)",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved",
+                  "label": "Проверио сам превод — објави српску верзију",
+                  "type": "boolean",
+                  "default": false
+                },
+                {
+                  "name": "refresh_source",
+                  "label": "Ускладио сам превод са измењеним оригиналом",
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+                },
+                {
+                  "name": "title",
+                  "label": "Naziv — српски",
+                  "type": "string"
+                },
+                {
+                  "name": "motto",
+                  "label": "Moto — српски",
+                  "type": "string"
+                },
+                {
+                  "name": "summary",
+                  "label": "Kratak opis za prvu stranu — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "support",
+                  "label": "Services — konkretne vrste podrške — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "description",
+                  "label": "Detaljan opis — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "seo_description",
+                  "label": "SEO opis — English — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "source_hash",
+                  "label": "Верзија енглеског оригинала",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved_hash",
+                  "label": "Одобрена верзија превода",
+                  "type": "string",
+                  "hidden": true
+                }
+              ]
             }
           ],
           "description": "Jedini izvor oblasti usluga za Expertise, početnu stranicu i izbor oblasti projekata. Selected projects se automatski povezuju prema izabranoj oblasti projekta."
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "label",
+              "label": "Oznaka stranice — српски",
+              "type": "string"
+            },
+            {
+              "name": "heading",
+              "label": "Naslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "lead",
+              "label": "Uvod — српски",
+              "type": "text"
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "experience",
@@ -530,6 +1012,64 @@
                 "format": "html",
                 "media": "images"
               }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English",
+              "type": "text"
+            },
+            {
+              "name": "sr",
+              "label": "Српски — ћирилица",
+              "type": "object",
+              "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+              "fields": [
+                {
+                  "name": "status",
+                  "label": "Стање превода (аутоматски)",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved",
+                  "label": "Проверио сам превод — објави српску верзију",
+                  "type": "boolean",
+                  "default": false
+                },
+                {
+                  "name": "refresh_source",
+                  "label": "Ускладио сам превод са измењеним оригиналом",
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+                },
+                {
+                  "name": "body",
+                  "label": "Opis angažmana — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "seo_description",
+                  "label": "SEO opis — English — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "source_hash",
+                  "label": "Верзија енглеског оригинала",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved_hash",
+                  "label": "Одобрена верзија превода",
+                  "type": "string",
+                  "hidden": true
+                }
+              ]
             }
           ]
         }
@@ -601,6 +1141,64 @@
                 "format": "html",
                 "media": "images"
               }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English",
+              "type": "text"
+            },
+            {
+              "name": "sr",
+              "label": "Српски — ћирилица",
+              "type": "object",
+              "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+              "fields": [
+                {
+                  "name": "status",
+                  "label": "Стање превода (аутоматски)",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved",
+                  "label": "Проверио сам превод — објави српску верзију",
+                  "type": "boolean",
+                  "default": false
+                },
+                {
+                  "name": "refresh_source",
+                  "label": "Ускладио сам превод са измењеним оригиналом",
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+                },
+                {
+                  "name": "body",
+                  "label": "Opis saradnje — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "seo_description",
+                  "label": "SEO opis — English — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "source_hash",
+                  "label": "Верзија енглеског оригинала",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved_hash",
+                  "label": "Одобрена верзија превода",
+                  "type": "string",
+                  "hidden": true
+                }
+              ]
             }
           ]
         },
@@ -617,12 +1215,83 @@
             ]
           },
           "description": "Kliknite Upload za novi PDF ili Select za postojeći. Upload je dostupan i uz već izabrani dokument. Poslednji PDF u izboru koristi se za oba dugmeta Download the full network list na About i Career history. Posle zamene uklonite prethodnu verziju iz izbora pomoću Remove i kliknite Save; javni linkovi se ažuriraju po objavljivanju."
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "body",
+              "label": "Opis — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "network_references",
@@ -870,6 +1539,97 @@
                   "description": "Pretražite i izaberite jednu ili više stavki direktno iz kolekcije."
                 }
               ]
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English",
+              "type": "text"
+            },
+            {
+              "name": "sr",
+              "label": "Српски — ћирилица",
+              "type": "object",
+              "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+              "fields": [
+                {
+                  "name": "status",
+                  "label": "Стање превода (аутоматски)",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved",
+                  "label": "Проверио сам превод — објави српску верзију",
+                  "type": "boolean",
+                  "default": false
+                },
+                {
+                  "name": "refresh_source",
+                  "label": "Ускладио сам превод са измењеним оригиналом",
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+                },
+                {
+                  "name": "full_name",
+                  "label": "Pun naziv projekta — српски",
+                  "type": "string"
+                },
+                {
+                  "name": "summary",
+                  "label": "Kratak opis za početnu stranu — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "role",
+                  "label": "Uloga — српски",
+                  "type": "string"
+                },
+                {
+                  "name": "body",
+                  "label": "Pregled projekta — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "contribution",
+                  "label": "Moj doprinos — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "results",
+                  "label": "Ostvareni rezultati — српски",
+                  "type": "rich-text",
+                  "options": {
+                    "format": "html",
+                    "media": "images"
+                  }
+                },
+                {
+                  "name": "seo_description",
+                  "label": "SEO opis — English — српски",
+                  "type": "text"
+                },
+                {
+                  "name": "source_hash",
+                  "label": "Верзија енглеског оригинала",
+                  "type": "string",
+                  "readonly": true
+                },
+                {
+                  "name": "approved_hash",
+                  "label": "Одобрена верзија превода",
+                  "type": "string",
+                  "hidden": true
+                }
+              ]
             }
           ]
         }
@@ -877,7 +1637,28 @@
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          },
+          "fields": [
+            {
+              "name": "project_path",
+              "label": "Трајна адреса пројекта, нпр. /project/REDEEM",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "resume",
@@ -995,12 +1776,133 @@
           "type": "text",
           "readonly": true,
           "default": "Automatski se prikazuju prva tri rada iz svake kategorije Bibliography nakon sortiranja po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled u CMS listi."
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "label",
+              "label": "Oznaka stranice — српски",
+              "type": "string"
+            },
+            {
+              "name": "heading",
+              "label": "Naslov stranice — српски",
+              "type": "string"
+            },
+            {
+              "name": "lead",
+              "label": "Uvodni tekst — српски",
+              "type": "text"
+            },
+            {
+              "name": "brief_cv_title",
+              "label": "Kratak CV — naziv — српски",
+              "type": "string"
+            },
+            {
+              "name": "brief_cv_description",
+              "label": "Kratak CV — opis — српски",
+              "type": "text"
+            },
+            {
+              "name": "europass_cv_title",
+              "label": "Europass CV — naziv — српски",
+              "type": "string"
+            },
+            {
+              "name": "europass_cv_description",
+              "label": "Europass CV — opis — српски",
+              "type": "text"
+            },
+            {
+              "name": "assortis_cv_title",
+              "label": "Assortis CV — naziv — српски",
+              "type": "string"
+            },
+            {
+              "name": "assortis_cv_description",
+              "label": "Assortis CV — opis — српски",
+              "type": "text"
+            },
+            {
+              "name": "bibliography_title",
+              "label": "Naziv kompletne bibliografije — српски",
+              "type": "string"
+            },
+            {
+              "name": "education",
+              "label": "Obrazovanje — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "bibliography_entries",
@@ -1098,6 +2000,64 @@
             "editable": false,
             "generate": false
           }
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "description",
+              "label": "Description — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "view": {
@@ -1119,7 +2079,21 @@
           "sort": "year",
           "order": "desc"
         }
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          },
+          "scope": "entry"
+        }
+      ]
     },
     {
       "name": "gallery_entries",
@@ -1217,6 +2191,74 @@
             "format": "html",
             "media": "images"
           }
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "title",
+              "label": "Naslov galerije — српски",
+              "type": "string"
+            },
+            {
+              "name": "summary",
+              "label": "Kratak opis za Insights — српски",
+              "type": "text"
+            },
+            {
+              "name": "body",
+              "label": "Tekst galerije — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "view": {
@@ -1237,7 +2279,21 @@
           "sort": "date",
           "order": "desc"
         }
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          },
+          "scope": "entry"
+        }
+      ]
     },
     {
       "name": "journal",
@@ -1261,12 +2317,89 @@
           "name": "lead",
           "label": "Uvodni tekst",
           "type": "text"
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "label",
+              "label": "Nadnaslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "heading",
+              "label": "Naslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "lead",
+              "label": "Uvodni tekst — српски",
+              "type": "text"
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "operations": {
         "delete": false,
         "rename": false
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          }
+        }
+      ]
     },
     {
       "name": "posts",
@@ -1346,6 +2479,74 @@
             "format": "html",
             "media": "images"
           }
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "title",
+              "label": "Naslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "excerpt",
+              "label": "Kratak opis — српски",
+              "type": "text"
+            },
+            {
+              "name": "body",
+              "label": "Tekst objave — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "view": {
@@ -1367,7 +2568,21 @@
           "sort": "date",
           "order": "desc"
         }
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          },
+          "scope": "entry"
+        }
+      ]
     },
     {
       "name": "video_entries",
@@ -1442,6 +2657,74 @@
             "regex": "^https://[^\\s]+$",
             "message": "Unesite punu HTTPS adresu videa (YouTube, Vimeo ili drugi servis)."
           }
+        },
+        {
+          "name": "seo_description",
+          "label": "SEO opis — English",
+          "type": "text"
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Један унос, два језика. Сачувајте енглески оригинал, припремите AI нацрт и прегледајте превод. Укључите одобрење тек након провере. После Save сачекајте sync и поново учитајте форму.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам превод — објави српску верзију",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "title",
+              "label": "Naslov — српски",
+              "type": "string"
+            },
+            {
+              "name": "excerpt",
+              "label": "Kratak sadržaj za naslovnu stranu — српски",
+              "type": "text"
+            },
+            {
+              "name": "body",
+              "label": "Detaljan sadržaj — српски",
+              "type": "rich-text",
+              "options": {
+                "format": "html",
+                "media": "images"
+              }
+            },
+            {
+              "name": "seo_description",
+              "label": "SEO opis — English — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
         }
       ],
       "view": {
@@ -1462,7 +2745,21 @@
           "sort": "date",
           "order": "desc"
         }
-      }
+      },
+      "actions": [
+        {
+          "name": "translate-sr",
+          "label": "Припреми AI нацрт (српски)",
+          "workflow": "translate-sr.yml",
+          "ref": "current",
+          "confirm": {
+            "title": "Припрема превода",
+            "message": "Прво сачувајте измене. AI ће припремити нацрт; превод се не објављује аутоматски. Потребан је OPENAI_API_KEY у GitHub Secrets.",
+            "button": "Припреми нацрт"
+          },
+          "scope": "entry"
+        }
+      ]
     }
   ]
 }

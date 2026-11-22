@@ -22,7 +22,7 @@ def project_paths(root,items):
   item['path']=candidate;used.add(candidate)
  return items
 
-def collection_records(root,folder,kind,persist=False):
+def collection_records(root,folder,kind,persist=False,localized=False):
  """Explicit addresses win. Only missing addresses are generated, including drafts.
 
  Resolve collisions against the whole collection so publishing a draft cannot
@@ -38,4 +38,5 @@ def collection_records(root,folder,kind,persist=False):
    while candidate in used:candidate+='-2'
    item['path']=candidate;used.add(candidate)
    if persist:source.write_text(json.dumps(item,ensure_ascii=False,indent=2)+'\n')
- return [item for _,item in records]
+ from i18n import localize,SR
+ return [localize(item,folder) if localized and SR else item for _,item in records]

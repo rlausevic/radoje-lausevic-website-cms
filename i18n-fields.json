@@ -1,0 +1,91 @@
+{
+  "settings": [
+    "brand",
+    "description",
+    "location"
+  ],
+  "home": [
+    "heading",
+    "lead",
+    "landscape_quote",
+    "recommendations_label",
+    "recommendations_heading",
+    "videos_label",
+    "videos_heading",
+    "galleries_label",
+    "galleries_heading"
+  ],
+  "about": [
+    "body",
+    "expertise_intro"
+  ],
+  "expertise": [
+    "label",
+    "heading",
+    "lead"
+  ],
+  "network": [
+    "body"
+  ],
+  "resume": [
+    "label",
+    "heading",
+    "lead",
+    "brief_cv_title",
+    "brief_cv_description",
+    "europass_cv_title",
+    "europass_cv_description",
+    "assortis_cv_title",
+    "assortis_cv_description",
+    "bibliography_title",
+    "education"
+  ],
+  "journal": [
+    "label",
+    "heading",
+    "lead"
+  ],
+  "projects.items": [
+    "full_name",
+    "summary",
+    "role",
+    "body",
+    "contribution",
+    "results"
+  ],
+  "posts": [
+    "title",
+    "excerpt",
+    "body"
+  ],
+  "video_entries": [
+    "title",
+    "excerpt",
+    "body"
+  ],
+  "gallery_entries": [
+    "title",
+    "summary",
+    "body"
+  ],
+  "bibliography_entries": [
+    "description"
+  ],
+  "expertise.services": [
+    "title",
+    "motto",
+    "summary",
+    "support",
+    "description"
+  ],
+  "experience.items": [
+    "body"
+  ],
+  "network.items": [
+    "body"
+  ],
+  "about.recommendations": [
+    "summary",
+    "body"
+  ]
+}

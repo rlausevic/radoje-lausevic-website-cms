@@ -10,7 +10,7 @@ def load_catalog(root):
  base=Path(root)/'content/cms'
  read=lambda name:json.loads((base/name).read_text())
  catalog={key:{} for key,_ in GROUPS}
- for item in collection_records(root,'posts','post'):
+ for item in collection_records(root,'posts','post',localized=True):
   if item.get('published',True):catalog['journal'][item['path']]={'title':item['title'],'href':item['path']}
  for item in read_archive(root,'videos').get('items') or []:
   path=video_path(item['link']);catalog['videos'][item['link'].strip()]={'title':item['title'],'href':path}

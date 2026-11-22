@@ -9,7 +9,7 @@ class NavigationTests(unittest.TestCase):
   brief=json.loads((ROOT/'content/cms/resume.json').read_text())['brief_cv'];brief=brief[0] if isinstance(brief,list) else brief
   self.assertTrue((ROOT/'dist'/brief.lstrip('/')).read_bytes().startswith(b'%PDF'))
   pages=list((ROOT/'dist').rglob('*.html'));self.assertGreater(len(pages),40)
-  header=None;footer=None
+  headers={};footers={}
   class Links(HTMLParser):
    def __init__(self):super().__init__();self.links=[];self.ids=set()
    def handle_starttag(self,tag,attrs):
@@ -20,16 +20,18 @@ class NavigationTests(unittest.TestCase):
   for file in pages:
    text=file.read_text();p=Links();p.feed(text);parsed[file]=p
    h=re.search(r'<header class="site-header">(.*?)</header>',text).group(1)
-   normalized=re.sub(r' aria-current="[^"]+"','',h)
-   if header is None:header=normalized
-   self.assertEqual(normalized,header,file)
+   lang='sr' if '<html lang="sr-Cyrl">' in text else 'en'
+   normalized=re.sub(r'<div class="language-switch".*?</div>','',h)
+   normalized=re.sub(r' aria-current="[^"]+"','',normalized)
+   if lang not in headers:headers[lang]=normalized
+   self.assertEqual(normalized,headers[lang],file)
    f=re.search(r'<footer class="footer">(.*?)</footer>',text).group(1)
-   if footer is None:footer=f
-   self.assertEqual(f,footer,file)
-   for name in ['About','Expertise','Projects','Bibliography','Insights','Contact']:self.assertIn('>'+name+'</a>',h)
+   if lang not in footers:footers[lang]=f
+   self.assertEqual(f,footers[lang],file)
+   for name in (['About','Expertise','Projects','Bibliography','Insights','Contact'] if lang=='en' else ['О мени','Експертиза','Пројекти','Библиографија','Увиди','Контакт']):self.assertIn('>'+name+'</a>',h)
    for name in ['Home','Experience','Resume']:self.assertNotIn('>'+name+'</a>',h)
    self.assertIn('href="'+brief+'" download',h);self.assertIn('href="'+brief+'" download',f)
-   self.assertIn('Career history',f);self.assertIn('CV &amp; documents',f)
+   self.assertIn('Career history' if lang=='en' else 'Каријера',f);self.assertIn('CV &amp; documents' if lang=='en' else 'CV и документи',f)
    self.assertIn('aria-controls="insights-menu"',h);self.assertIn('id="insights-menu" hidden',h)
   for file,p in parsed.items():
    for link in p.links:

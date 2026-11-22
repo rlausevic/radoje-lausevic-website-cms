@@ -11,6 +11,7 @@
  function pageNumbers(page,total) {return total<=7?Array.from({length:total},(_,i)=>i+1):[...new Set([1,total,page-1,page,page+1].filter(n=>n>=1&&n<=total))].sort((a,b)=>a-b);}
  if(typeof module!=='undefined')module.exports={normalize,paginate,pageNumbers};
  if(typeof document==='undefined')return;
+ const sr=document.documentElement.lang.startsWith('sr');
  document.querySelectorAll('[data-section-archive]').forEach(root=>{
   const prefix=root.dataset.prefix,size=Number(root.dataset.pageSize),label=root.dataset.label;
   const input=root.querySelector('[data-section-search]'),year=root.querySelector('[data-section-year]'),category=root.querySelector('[data-section-category]');
@@ -40,12 +41,12 @@
    function add(n,text,disabled=false){
     const a=document.createElement(disabled?'span':'a');a.textContent=text;
     if(disabled)a.setAttribute('aria-disabled','true');
-    else {a.href=urlFor(g,n);a.dataset.sectionPage=String(n);if(/^\d+$/.test(text)){a.setAttribute('aria-label','Page '+n);if(n===result.page)a.setAttribute('aria-current','page');}}
+    else {a.href=urlFor(g,n);a.dataset.sectionPage=String(n);if(/^\d+$/.test(text)){a.setAttribute('aria-label',(sr?'Страница ':'Page ')+n);if(n===result.page)a.setAttribute('aria-current','page');}}
     g.nav.append(a);
    }
-   add(result.page-1,'Previous',result.page===1);let previous=0;
+   add(result.page-1,sr?'Претходна':'Previous',result.page===1);let previous=0;
    for(const n of pageNumbers(result.page,result.pages)){if(previous&&n>previous+1){const gap=document.createElement('span');gap.textContent='…';gap.setAttribute('aria-hidden','true');g.nav.append(gap);}add(n,String(n));previous=n;}
-   add(result.page+1,'Next',result.page===result.pages);
+   add(result.page+1,sr?'Следећа':'Next',result.page===result.pages);
   }
   function apply(mode=null,focusGroup=null) {
    const results=groups.map(g=>paginate(g.entries,state,size,pages[g.key]));
@@ -57,10 +58,10 @@
     g.node.hidden=!!(state.search||state.year||state.category)&&result.total===0;
     const start=(result.page-1)*size+1,end=start+result.items.length-1;
     const unit=(g.node.dataset.label||label).replace(/s$/,result.total===1?'':'s');
-    g.count.textContent=result.total?`Showing ${start}–${end} of ${result.total} ${unit}`:'0 '+(g.node.dataset.label||label);
+    g.count.textContent=result.total?(sr?`Приказано ${start}–${end} од ${result.total} ${unit}`:`Showing ${start}–${end} of ${result.total} ${unit}`):'0 '+(g.node.dataset.label||label);
     navigate(g,result);
    });
-   if(total)total.textContent=`Showing ${visible} of ${matched} ${label.replace(/s$/,matched===1?'':'s')}`;
+   if(total)total.textContent=(sr?`Приказано ${visible} од ${matched} ${label}`:`Showing ${visible} of ${matched} ${label.replace(/s$/,matched===1?'':'s')}`);
    empty.hidden=matched>0;
    if(mode){const url=urlFor(null,1);if(url!==location.pathname+location.search+location.hash)history[mode==='push'?'pushState':'replaceState'](null,'',url);}
    if(focusGroup){focusGroup.count.focus({preventScroll:true});focusGroup.node.scrollIntoView({block:'start',behavior:'instant'});}

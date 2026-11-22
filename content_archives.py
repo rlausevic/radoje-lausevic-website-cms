@@ -1,6 +1,7 @@
 """Canonical file collections with separate archive settings and stable ordering."""
 import hashlib,json,uuid
 from pathlib import Path
+from i18n import read_json
 from content_paths import collection_records
 
 ARCHIVES={'videos':('video_entries','items'),'gallery':('gallery_entries','albums'),'bibliography':('bibliography_entries','items')}
@@ -19,12 +20,12 @@ def entry_key(name,item):
  return bibliography_id(item)
 
 def read_archive(root,name):
- folder,key=ARCHIVES[name];base=Path(root)/'content/cms';data=json.loads((base/(name+'.json')).read_text())
+ folder,key=ARCHIVES[name];base=Path(root)/'content/cms';data=read_json(base/(name+'.json'))
  source=base/folder
  settings=base/'settings.json'
- if settings.exists():data.update(json.loads(settings.read_text()).get('archive_pages',{}).get(name,{ }))
+ if settings.exists():data.update(read_json(settings).get('archive_pages',{}).get(name,{ }))
  if source.exists():
-  entries=collection_records(root,folder,'gallery') if name=='gallery' else [json.loads(path.read_text()) for path in sorted(source.glob('*.json'))]
+  entries=collection_records(root,folder,'gallery',localized=True) if name=='gallery' else [read_json(path) for path in sorted(source.glob('*.json'))]
   ordering={row['item']:i for i,row in enumerate(data.get('entry_order') or []) if row.get('item')}
   entries.sort(key=lambda item:ordering.get(entry_key(name,item),len(ordering)))
   data[key]=entries
@@ -44,7 +45,7 @@ def write_archive(root,name,data):
   if path.name not in keep:path.unlink()
  settings=base/'settings.json'
  if settings.exists():
-  site=json.loads(settings.read_text());headers=site.get('archive_pages',{}).get(name)
+  site=read_json(settings);headers=site.get('archive_pages',{}).get(name)
   if headers is not None:
    for field in headers:
     if field in metadata:headers[field]=metadata.pop(field)

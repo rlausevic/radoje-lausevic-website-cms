@@ -117,3 +117,9 @@ nav{gap:20px}nav a[aria-current=true],nav a[aria-current=page]{border-color:var(
 @media(max-width:700px){.about-archive-grid{grid-template-columns:1fr;gap:14px}.about-archive-card{padding:14px}.about-archive-card summary h3{font-size:22px}}
 
 .page-about #recommendations>.wrap>h2{font:32px/1.25 var(--serif);margin:0 0 14px}
+
+/* Language selection uses the same header on both language versions. */
+.language-switch{display:flex;gap:.35rem;align-items:center;white-space:nowrap;font-size:.875rem}
+.language-switch a{padding:.4rem .2rem;text-decoration:none}
+.language-switch a[aria-current]{font-weight:700;text-decoration:underline;text-underline-offset:.25rem}
+.language-original{display:block;font-size:.875rem;margin:.4rem 0;color:var(--muted)}

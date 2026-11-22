@@ -96,3 +96,19 @@ CMS mediji koriste `dist/assets` → `/assets`. Fotografije: JPG/JPEG/PNG/WebP; 
 | Brojači | [METRICS-SETUP.md](../METRICS-SETUP.md), `test_metrics.py`, `tests/metrics*.test.mjs` |
 
 Izabrati provere prema promeni, ne pokretati celu tabelu za svaki zadatak. Aktuelne nazive i ponašanje uvek potvrditi u izvoru. Ova mapa ne sadrži tajne niti zamenjuje stanje Cloudflare bindinga.
+
+## 5. Višejezično uređivanje u istom unosu (22.11.2026)
+
+| Podatak | Engleski | Srpski — ćirilica |
+|---|---|---|
+| Naslov, sažetak, tekst, SEO opis | Postojeća polja; dodat je `seo_description` | Odgovarajuća polja u grupi `sr` |
+| Projekat | `title` je zajednički akronim; `full_name`, `summary`, `role`, `body`, `contribution`, `results` su engleski | Prevodi istih tekstualnih polja u `items[].sr`; nema drugog akronima |
+| Datum, fotografije, putanja i reference | Zajednički izvori | Isti podaci, bez dupliranja |
+| Odobrenje | Postojeći `published` za objavu ostaje glavni uslov | `sr.approved` + odgovarajući izvorni i odobreni otisci teksta |
+| Stanje prevoda | Nema dodatnog engleskog unosa | `sr.status`, readonly, osvežava sync nakon Save |
+
+`sr.source_hash` čuva verziju originala. `sr.approved_hash` čuva odobreni prevod. AI/import ih postavlja bez odobrenja. Nakon ručne provere uključiti **Проверио сам превод — објави српску верзију**, Save, sačekati uspešan sync i deployment. Izmena originala odmah čini prevod nevažećim za javni build; sync upisuje stanje potrebnog ažuriranja. Posle ručnog usklađivanja uključiti **Ускладио сам превод са измењеним оригиналом**, Save i ponovo učitati formu; zatim proveriti i odobriti. Izmena već odobrenog prevoda takođe zahteva novo odobrenje.
+
+Dugme AI nacrta postoji na podržanim file formama i stranicama kolekcijskog unosa. Za Projects, gde je više projekata unutar jednog fajla, dijalog traži tačan postojeći `path` projekta. Akcija radi sa sačuvanim sadržajem, ne sa nečuvanim izmenama u editoru. Nedostajući API ključ daje jasnu grešku u Actions, bez izmene sadržaja. Detalji i alternativa preko ChatGPT-a su u [MULTILINGUAL.md](MULTILINGUAL.md).
+
+Pojedinačni tekstualni podzapisi Expertise, Experience, Network i preporuka imaju svoje `sr` grupe i svoje odobrenje. Naslovi/identifikatori korišćeni za reference ostaju zajednički gde je to potrebno. Bibliografski citat ostaje u izvornom obliku; prevodi se opis. `i18n-fields.json` je eksplicitna lista dozvoljenih prevodivih tekstova; AI ne može upisati datum, medij, putanju, referencu ili odobrenje.

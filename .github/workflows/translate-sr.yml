@@ -1,0 +1,45 @@
+name: Prepare Serbian AI draft
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS saved-entry context
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: prepare-serbian-draft
+  cancel-in-progress: false
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare draft from saved content
+        env:
+          PAGES_CMS_PAYLOAD: ${{ inputs.payload }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TRANSLATION_MODEL: ${{ vars.OPENAI_TRANSLATION_MODEL }}
+        run: python scripts/translate_sr.py --payload-env --output /tmp/serbian-draft.json
+      - name: Save draft without overwriting concurrent CMS edits
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/translate_sr.py --apply /tmp/serbian-draft.json
+            python scripts/sync_translations.py
+            git add content/cms
+            git diff --cached --quiet && exit 0
+            git commit -m 'Prepare Serbian translation draft for review'
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          echo 'Concurrent CMS edits prevented saving; run the action again.' >&2
+          exit 1

@@ -26,7 +26,8 @@ def network_records(root,persist=False):
   if item['id'] in seen:raise ValueError('Duplicate network ID: '+item['id'])
   seen.add(item['id'])
  if persist and changed:source.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
- return dated(items)
+ from i18n import SR,localize
+ return dated([localize(item,'network.items') for item in items] if SR and not persist else items)
 
 def safe_network_link(value):
  value=str(value or '').strip()

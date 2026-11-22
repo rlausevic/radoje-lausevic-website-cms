@@ -2,7 +2,8 @@
 """Build the portable static website, including optimized gallery images."""
 from pathlib import Path
 from html.parser import HTMLParser
-import json,html,re,urllib.parse,datetime,hashlib,shutil,time
+import json,html,re,urllib.parse,datetime,hashlib,shutil,time,os,subprocess,sys
+from i18n import SR,Locale,read_json
 BUILD_STARTED=time.perf_counter()
 ROOT=Path(__file__).resolve().parent; DIST=ROOT/'dist'
 from cms_data import load_cms,project_topics,content_topics
@@ -14,8 +15,9 @@ from network_data import network_records,dated,safe_network_link
 from section_archives import controls as section_controls,paging as section_paging,fallback as section_fallback,date_label
 metrics=Metrics(ROOT)
 gallery_images=GalleryImages(DIST)
+locale=Locale(ROOT)
 M=load_cms(ROOT,json.loads((ROOT/'content/site.json').read_text())); S=M['site']; written=[]
-resume=json.loads((ROOT/'content/cms/resume.json').read_text())
+resume=read_json(ROOT/'content/cms/resume.json')
 brief_files=resume.get('brief_cv') or []
 if isinstance(brief_files,str):brief_files=[brief_files]
 brief_cv_url=next((url for url in brief_files if urllib.parse.urlsplit(url).path.lower().endswith('.pdf')),brief_files[0] if brief_files else '')
@@ -39,7 +41,7 @@ def gallery_image(src,alt='',card=False):
  sizes=f'(max-width: 600px) {mobile}, (max-width: 850px) calc((100vw - 68px) / 2), (max-width: 1100px) calc((100vw - 96px) / 3), (max-width: 1320px) calc((100vw - 128px) / 3), 400px'
  return f'<img src="{E(preview["url"])}" srcset="{E(srcset)}" sizes="{E(sizes)}" width="{preview["width"]}" height="{preview["height"]}" alt="{E(alt)}" loading="lazy" decoding="async">'
 def render(b):
- if b['type']=='html':return b['html']
+ if b['type']=='html':return '<!--cms:start-->'+b['html']+'<!--cms:end-->'
  if b['type']=='image':return image(b['src'],b['alt'])
  tag=b['type'] if b['type'] in ['h2','h3','h4','p','li'] else 'p'
  return f'<{tag}>{b["html"]}</{tag}>'
@@ -80,6 +82,19 @@ def apply_link_targets(document):
  return document
 
 def page(path,title,body,desc=None):
+ original_path=path
+ available=locale.available(path)
+ if SR and path=='/404':return
+ desc=locale.seo(path,desc)
+ if SR and path in {'/blog','/video','/galleries'} and not locale.translated(path):
+  labels={'/blog':('Објаве','Објаве и приче са терена.'),'/video':('Видео','Видео разговори и догађаји.'),'/galleries':('Галерије','Фотографије са пројеката и догађаја.')}
+  label,heading=labels[path]
+  body=re.sub(r'<section class="page-intro">.*?</section>',intro(label,heading,'Преведени садржаји и везе ка енглеским оригиналима.'),body,count=1,flags=re.S)
+  title=label;desc='Преведени садржаји и енглески оригинали.'
+ if SR and not available:
+  title='Превод још није доступан'
+  desc='Овај садржај можете прочитати у енглеском оригиналу.'
+  body=intro('Српски','Превод још није доступан.','Превод ће бити доступан након провере и одобрења.')+'<section class="section"><div class="wrap"><a class="button" data-original-language href="'+E(path)+'" lang="en">Прочитајте енглески оригинал</a><p><a href="/sr/projects">Пројекти</a> · <a href="/sr/blog">Објаве</a></p></div></section>'
  metric_key=metrics.page(path,title)
  if metric_key:
   if path.startswith('/project/'):
@@ -110,17 +125,34 @@ def page(path,title,body,desc=None):
   else:nav+=f'<a href="{url}"{current}>{label}</a>'
  nav+=cv_download('button nav-download')
  schema={'@context':'https://schema.org','@type':'Person','name':S['name'],'url':S['domain'],'jobTitle':'Senior Environmental Consultant','email':S['email'],'sameAs':[S['linkedin'],S['twitter']]}
- if path.startswith('/post/'):
+ if path.startswith('/post/') and (not SR or available):
   post=next(p for p in M['posts'] if p['path']==path);schema={'@context':'https://schema.org','@type':'BlogPosting','headline':post['title'],'author':{'@type':'Person','name':S['name']},'mainEntityOfPage':S['domain']+path}
   try:schema['datePublished']=datetime.datetime.strptime(post['date'],'%b %d, %Y').date().isoformat()
   except ValueError:pass
  resume_styles='<style>.resume-education p,.resume-education li{line-height:1.4}.resume-education p{margin:0 0 6px}.resume-education h3{font-size:22px;line-height:1.3;margin:18px 0 6px}.resume-education h3:first-child{margin-top:0}</style>' if path=='/resume' else ''
  contact_script=f'<script src="/assets/contact.js?v={ASSET_VERSION["contact.js"]}" defer></script>' if path=='/contact' else ''
  journal_script=f'<script src="/assets/journal.js?v={ASSET_VERSION["journal.js"]}" defer></script>' if path in {'/blog','/video','/galleries','/projects'} or path.startswith(('/blog/page/','/galleries/page/','/post/','/video/','/gallery/','/projects/page/','/project/')) else ''
- fulltitle=title+' | '+S['name'] if path!='/' else S['name']+' — Senior Environmental Consultant'
+ fulltitle=title+' | '+S['name'] if path!='/' or SR else S['name']+' — Senior Environmental Consultant'
  contact_cta='<section class="cta"><div class="wrap"><div><h2>Let’s make progress together.</h2><p>Explore a project, exchange ideas, or discuss your next challenge.</p></div><a class="button" href="/contact">Get in touch <span aria-hidden="true">↗</span></a></div></section>' if path!='/contact' else ''
  section_script=f'<script src="/assets/section-archives.js?v={ASSET_VERSION["section-archives.js"]}" defer></script>' if path in {'/about','/bibliography'} else ''
  data=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(fulltitle)}</title><meta name="description" content="{E(desc or S['description'])}"><meta name="theme-color" content="#193d3b"><link rel="canonical" href="{E(S['domain']+path)}"><meta property="og:type" content="{'article' if path.startswith('/post/') else 'website'}"><meta property="og:title" content="{E(fulltitle)}"><meta property="og:description" content="{E(desc or S['description'])}"><meta property="og:url" content="{E(S['domain']+path)}"><meta property="og:image" content="{E(S['domain']+S['portrait'])}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/site.css?v={ASSET_VERSION['site.css']}">{resume_styles}{contact_script}{journal_script}{section_script}<script src="/assets/metrics.js?v={ASSET_VERSION["metrics.js"]}" defer></script><script src="/assets/site.js?v={ASSET_VERSION['site.js']}" defer></script><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')}</script></head><body class="{'page-home' if path=='/' else 'page-inner page-about' if path=='/about' else 'page-inner'}"><a class="skip" href="#main">Skip to content</a><div class="topline"><div class="wrap"><span>ENVIRONMENT · PEOPLE · SUSTAINABILITY</span><a href="mailto:{S['email']}">{S['email']} &nbsp; ↗</a></div></div><header class="site-header"><div class="wrap header-row"><a class="brand" href="/" aria-label="Radoje Laušević home"><strong>{E(S['name'])}<span style="color:var(--accent);font-size:inherit;letter-spacing:0;display:inline">.</span></strong><span>{E(S['brand'])}</span></a><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu ☰</button><nav id="primary-nav" aria-label="Main navigation">{nav}</nav></div></header><main id="main">{body}</main>{contact_cta}<footer class="footer"><div class="wrap"><div class="footer-top"><div><strong>{S['name']}</strong><p>Senior Environmental Consultant<br>Partner Consulting · {S['location']}</p></div><div class="footer-links"><a href="/galleries">Galleries</a>{cv_download("footer-download")}<a href="/work-experience">Career history</a><a href="/resume">CV &amp; documents</a><a href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="{S['twitter']}" target="_blank" rel="noopener noreferrer">X / Twitter ↗</a><a href="mailto:{S['email']}">Email ↗</a></div></div><div class="footer-bottom"><span>© {datetime.date.today().year} Radoje Laušević. All rights reserved.</span><span>Leadership · Project management · Environmental research</span></div></div></footer></body></html>'''
+ switch='<div class="language-switch" role="group" aria-label="Language">'+'<a href="'+E(original_path)+'" lang="en"'+(' aria-current="true"' if not SR else '')+'>EN</a> <span aria-hidden="true">/</span> <a href="'+E('/sr'+('/' if original_path=='/' else original_path))+'" lang="sr-Cyrl"'+(' aria-current="true"' if SR else '')+'>СР</a></div>'
+ if path!='/404':data=data.replace('</nav></div></header>',switch+'</nav></div></header>')
+ # Transform before inserting canonical and alternate URLs: language links must never be rewritten.
+ data=locale.transform(data)
+ # Restore EN switches and explicit original links after normal URL localization.
+ data=re.sub(r'(<a [^>]*href=")[^"]*("[^>]*lang="en"[^>]*>EN</a>)',lambda m:m[1]+E(original_path)+m[2],data)
+ if SR:
+  localized_path='/sr'+('/' if path=='/' else path)
+  canonical=S['domain']+(localized_path if available else path)
+  data=re.sub(r'(<link rel="canonical" href=")[^"]*',lambda m:m[1]+E(canonical),data)
+  data=re.sub(r'(<meta property="og:url" content=")[^"]*',lambda m:m[1]+E(canonical),data)
+  data=data.replace('"mainEntityOfPage": "'+S['domain']+path+'"','"mainEntityOfPage": "'+S['domain']+localized_path+'"')
+  if not available:data=data.replace('</head>','<meta name="robots" content="noindex,follow"></head>')
+  path=localized_path
+ alternates='<link rel="alternate" hreflang="en" href="'+E(S['domain']+original_path)+'"><link rel="alternate" hreflang="x-default" href="'+E(S['domain']+original_path)+'">'
+ if available:alternates+='<link rel="alternate" hreflang="sr-Cyrl" href="'+E(S['domain']+'/sr'+('/' if original_path=='/' else original_path))+'">'
+ if not SR or available:data=data.replace('</head>',alternates+'</head>')
  data=apply_link_targets(data)
  f=DIST/('index.html' if path=='/' else path.strip('/')+'/index.html');f.parent.mkdir(parents=True,exist_ok=True);f.write_text(data);written.append(path)
 def intro(label,title,text=''):
@@ -139,7 +171,7 @@ def post_card(p,heading='h3',include_search=True):
  topics=content_topics(p);topic='|'.join(topics)
  search=f' data-search="{E(post_search(p))}"' if include_search else ''
  badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
- return f'<a class="post-card journal-card" data-post data-categories="{E(topic)}"{search} href="{E(p["path"])}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date"><time datetime="{E(p["date_iso"])}">{E(p["date"])}</time> · JOURNAL</span>{badge}<{heading}>{E(p["title"])}</{heading}><p class="post-excerpt">{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
+ return f'<a class="post-card journal-card" data-post data-categories="{E(topic)}"{search} href="{E(p["path"])}"><div class="image-wrap">{image(p["cover"] or S["landscape"],p["title"])}</div><span class="date"><time datetime="{E(p["date_iso"])}">{E(p["date"])}</time> · JOURNAL</span>{badge}{locale.badge(p)}<{heading}>{E(p["title"])}</{heading}><p class="post-excerpt">{E(p["excerpt"])}</p><span class="read">Read more &nbsp; ↗</span></a>'
 # A shared ordered source powers About and the home previews.
 expertise_page=M['expertise']
 expertise=expertise_page.get('services') or []
@@ -164,14 +196,14 @@ for item in video_archive.get('items') or []:
 # Newest dates first across the archive and shared previews; retain CMS order for ties.
 videos.sort(key=lambda video:video['date_iso'],reverse=True)
 # Rebuild detail routes so removed videos do not leave stale pages behind.
-if (DIST/'video').exists():shutil.rmtree(DIST/'video')
+if not SR and (DIST/'video').exists():shutil.rmtree(DIST/'video')
 def video_search(video):
  return ' '.join([video['title'],video['date_display'],video['date_iso'],video['excerpt'],' '.join(content_topics(video)),video['content']['text']]).lower()
 def video_card(video,heading='h3',include_search=True):
  search=f' data-search="{E(video_search(video))}"' if include_search else ''
  topics=content_topics(video);topic='|'.join(topics)
  badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
- return f'<article class="post-card video-card archive-card" data-video data-categories="{E(topic)}"{search}><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span>{badge}<{heading}>{E(video["title"])}</{heading}><p class="post-excerpt">{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
+ return f'<article class="post-card video-card archive-card" data-video data-categories="{E(topic)}"{search}><div class="video-detail-link"><div class="image-wrap">{image(video["cover"],video["title"])}</div><span class="date"><time datetime="{E(video["date_iso"])}">{E(video["date_display"])}</time> · VIDEO</span>{badge}{locale.badge(video)}<{heading}>{E(video["title"])}</{heading}><p class="post-excerpt">{E(video["excerpt"])}</p></div><div class="video-actions"><a class="textlink" href="{E(video["path"])}">Read more →</a><a class="textlink" href="{E(video["link"])}" target="_blank" rel="noopener noreferrer">Watch video ↗</a></div></article>'
 # Multiple albums share one CMS source across Home, Insights and the archive.
 gallery_archive=read_archive(ROOT,'gallery')
 galleries=[];gallery_paths=set()
@@ -186,9 +218,9 @@ for item in gallery_archive.get('albums') or []:
  album['photos']=[photo for photo in album.get('photos') or [] if photo.get('image')]
  album['content']=__import__('cms_data').body(album.get('body') or '')
  galleries.append(album)
-galleries.sort(key=lambda album:(album['date_iso'],album['title']),reverse=True)
+galleries.sort(key=lambda album:(album['date_iso'],album.get('_source_title',album['title'])),reverse=True)
 gallery_images.prepare_many(photo['image'] for album in galleries for photo in album['photos'])
-if (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
+if not SR and (DIST/'gallery').exists():shutil.rmtree(DIST/'gallery')
 def gallery_search(album):
  return ' '.join([album['title'],album['date_iso'],album['date_display'],' '.join(content_topics(album)),album.get('summary') or '',album['content']['text']]+[str(photo.get(key) or '') for photo in album['photos'] for key in ['title','caption']]).lower()
 def gallery_card(album,heading='h3',include_search=True):
@@ -196,7 +228,7 @@ def gallery_card(album,heading='h3',include_search=True):
  search=f' data-search="{E(gallery_search(album))}"' if include_search else ''
  topics=content_topics(album);topic='|'.join(topics)
  badge=''.join(f'<span class="post-topic">{E(value)}</span>' for value in topics)
- return f'<article class="post-card gallery-card archive-card" data-album data-categories="{E(topic)}"{search}><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span>{badge}<{heading}>{E(album["title"])}</{heading}><p class="post-excerpt">{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
+ return f'<article class="post-card gallery-card archive-card" data-album data-categories="{E(topic)}"{search}><div class="image-wrap">{gallery_image(cover,album["title"],card=True)}</div><span class="date"><time datetime="{E(album["date_iso"])}">{E(album["date_display"])}</time> · GALLERY</span>{badge}{locale.badge(album)}<{heading}>{E(album["title"])}</{heading}><p class="post-excerpt">{E(album.get("summary") or "")}</p><a class="textlink read" href="{E(album["path"])}">View full gallery →</a></article>'
 def gallery_description(album):
  content=album['content'];words=content['text'].split()
  if not words:return ''
@@ -257,7 +289,7 @@ home+=''.join(video_card(video) for video in videos[:1])
 home+=''.join(gallery_card(album) for album in galleries[:1])
 home+='</div></div></section>';page('/','Home',home)
 # About: shared source records provide career highlights, network and recommendations.
-about=M['about'];network_data=json.loads((ROOT/'content/cms/network.json').read_text())
+about=M['about'];network_data=read_json(ROOT/'content/cms/network.json')
 body=intro('About','Experience, with purpose.','A biologist’s perspective. An environmental leader’s experience. A practical approach to sustainability.')
 body+='<section class="section" id="profile"><div class="wrap two-col"><aside class="side-note">'+image(S['portrait'],S['name'])+'<p>PhD in Biology<br>University of Belgrade</p></aside><div class="prose"><h2>Profile</h2>'+render(__import__('cms_data').body(about.get('body') or ''))
 body+='<div id="my-services">'+''.join(f'<span id="expertise-{i+1}" class="legacy-anchor"></span>' for i in range(len(expertise)))+'<p>'+E(about.get('expertise_intro') or '')+'</p><a class="textlink" href="/expertise">Explore my expertise →</a></div></div></div></section>'
@@ -314,7 +346,7 @@ for i,item in enumerate(expertise):
  if support['text']:body+='<h3>Services</h3>'+render(support)
  detail=__import__('cms_data').body(item.get('description') or '')
  if detail['text']:body+='<h3>Experience &amp; approach</h3>'+render(detail)
- related=[project for project in project_entries if item['title'] in project_topics(project)]
+ related=[project for project in project_entries if item.get('_source_title',item['title']) in project_topics(project)]
  if related:body+='<h3>Selected projects</h3><ul>'+''.join(f'<li><a href="{E(project_path(project))}">{E(project["title"])}</a></li>' for project in related)+'</ul>'
  body+='<p><a class="textlink" href="/contact">Discuss a collaboration →</a></p></div></details>'
 body+='</div></section>';page('/expertise','Expertise',body,expertise_page.get('lead'))
@@ -330,9 +362,9 @@ page('/insights','Insights',body)
 # Shared static pagination and archive-wide search for Journal, media and Projects.
 def render_archive(base,prefix,singular,plural,title,label,heading,lead,entries,card,search,detail_prefix):
  size=12;total=max(1,(len(entries)+size-1)//size)
- directory=DIST/base.lstrip('/');directory.mkdir(exist_ok=True)
+ directory=DIST/((('sr'+base) if SR else base).lstrip('/'));directory.mkdir(parents=True,exist_ok=True)
  if (directory/'page').exists():shutil.rmtree(directory/'page')
- index=[{'year':item['date_iso'][:4] or 'undated','topic':item.get('topic') or '', 'search':search(item),'html':card(item,'h2',False)} for item in entries]
+ index=[{'year':item['date_iso'][:4] or 'undated','topic':item.get('topic') or '', 'search':search(item),'html':locale.transform(card(item,'h2',False))} for item in entries]
  payload=json.dumps(index,ensure_ascii=False,separators=(',',':'))
  (directory/'archive-index.json').write_text(payload)
  version=hashlib.sha256(payload.encode()).hexdigest()[:12]
@@ -386,7 +418,7 @@ body+='</div></section><section class="section testimonials"><div class="wrap pr
 network=next(x for x in sections('/work-experience') if x['title']=='My Professional Network');body+=render_all(network['blocks'])
 body+=network_download()+'</div></section>';page('/work-experience','Work experience',body)
 # Projects archive uses Journal cards and the shared search engine.
-if (DIST/'project').exists():shutil.rmtree(DIST/'project')
+if not SR and (DIST/'project').exists():shutil.rmtree(DIST/'project')
 def project_search(project):
  detail=__import__('cms_data').body(project.get('body') or '')
  return ' '.join([project['title'],project.get('full_name') or '',project['period'],project.get('project_duration') or '',project.get('role') or '',project.get('summary') or '', ' '.join(project_topics(project)),detail['text']]+[__import__('cms_data').body(project.get(field) or '')['text'] for field in ['contribution','results']]+[project.get(field) or '' for field in ['assignment_start','assignment_end','project_start','project_end']]).lower()
@@ -394,7 +426,7 @@ def project_card(project,heading='h2',include_search=True):
  topic='|'.join(project_topics(project));path=project_path(project)
  search=f' data-search="{E(project_search(project))}"' if include_search else ''
  assignment_label=f'<p class="project-assignment"><strong>My assignment:</strong> {E(project["period"])}</p>' if project['period'] else ''
- return f'<article class="post-card project-archive-card" data-project data-categories="{E(topic)}"{search}><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div><{heading}>{E(project["title"])}</{heading}>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
+ return f'<article class="post-card project-archive-card" data-project data-categories="{E(topic)}"{search}><div class="image-wrap">{image(project.get("image") or S["landscape"],project.get("image_alt") or project["title"])}</div>{locale.badge(project)}<{heading}>{E(project["title"])}</{heading}>{assignment_label}<p>{E(project.get("summary") or "")}</p><div class="project-actions"><a class="textlink" href="{E(path)}">View all details →</a></div></article>'
 for project in project_entries:project['date_iso']=project.get('assignment_start' if project.get('assignment_ongoing') else 'assignment_end') or ''
 render_archive('/projects','project','project','projects','Projects','Selected portfolio','Projects.','A selection from more than 100 projects managed or supervised, with a total portfolio exceeding €50 million.',project_entries,project_card,project_search,'/project/')
 def related_links(project):
@@ -543,7 +575,7 @@ for album in galleries:
  body+='</div></article><dialog class="gallery-dialog" id="gallery-dialog" aria-label="Photo viewer" aria-describedby="gallery-caption"><div class="gallery-toolbar"><span class="gallery-counter" data-gallery-counter role="status" aria-live="polite" aria-atomic="true"></span><button type="button" data-gallery-close autofocus aria-label="Close photo viewer">Close ×</button></div><div class="gallery-stage"><img alt="" draggable="false"></div><p id="gallery-caption"></p><div class="gallery-controls"><button type="button" data-gallery-previous aria-label="Previous photo">← Previous</button><button type="button" data-gallery-next aria-label="Next photo">Next →</button></div></dialog>'
  page(album['path'],album['title'],body,album.get('summary'))
 # Render genuine archive pages; fetch the compact global index only for filtering/navigation.
-journal_archive=json.loads((ROOT/'content/cms/journal.json').read_text())
+journal_archive=read_json(ROOT/'content/cms/journal.json')
 render_archive('/blog','post','article','articles','Journal',journal_archive.get('label') or '',journal_archive['heading'],journal_archive.get('lead') or '',M['posts'],post_card,post_search,'/post/')
 for i,p in enumerate(M['posts']):
  body=f'<article class="article"><div class="wrap"><header class="article-head"><a class="textlink" data-journal-back data-archive-back="/blog/" href="/blog">← Back to journal</a><h1>{E(p["title"])}</h1><p class="article-meta">Radoje Laušević · {E(p["date"])}'+(' · '+E(' · '.join(content_topics(p))) if content_topics(p) else '')+'</p></header><div class="prose">'+render_all(p['blocks'])
@@ -559,21 +591,36 @@ CONTACT_EMAIL=S['email']
 body=intro('Contact','Let’s talk.','Have a project in mind, need guidance, or want to explore a collaboration? Get in touch.')+f'''<section class="section"><div class="wrap contact-grid"><div class="contact-info"><span class="eyebrow">Partner Consulting</span><h2>Start a conversation.</h2><p>{S['location']}</p><a href="mailto:{S['email']}">{S['email']}</a><br><a href="tel:{E(re.sub(r'[^+0-9]','',S['phone']))}">{S['phone']}</a><p><a class="textlink" href="{S['linkedin']}" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></p></div><form class="contact-form" id="contact-form" action="/api/contact" method="post" data-email="{E(CONTACT_EMAIL)}" aria-describedby="contact-status" aria-busy="false"><fieldset disabled><legend class="visually-hidden">Send a message</legend><label>Your name<input name="name" autocomplete="name" required maxlength="150"></label><label>Your email<input type="email" name="email" autocomplete="email" required maxlength="200"></label><label>Subject<input name="subject" required maxlength="200"></label><label>Message<textarea name="message" required maxlength="4000"></textarea></label><div class="contact-trap" aria-hidden="true"><label>Leave this field empty<input name="website" tabindex="-1" autocomplete="off"></label></div><div id="contact-security"></div><button class="button" type="submit" disabled>Send message</button></fieldset><p class="form-note" id="contact-status" role="status" aria-live="polite" tabindex="-1">Loading the secure contact form…</p><p class="form-note">You can also email <a href="mailto:{E(CONTACT_EMAIL)}">{E(CONTACT_EMAIL)}</a>.</p><noscript><p>Please enable JavaScript to use the form, or use the email link above.</p></noscript></form></div></section>''';page('/contact','Contact',body)
 # Legal-neutral error page and infrastructure.
 page('/404','Page not found',intro('404','This page could not be found.','Explore the main pages or return to the journal archive.')+'<section class="section"><div class="wrap"><a class="button" href="/">Return home →</a></div></section>')
-(DIST/'404.html').write_text((DIST/'404/index.html').read_text());(DIST/'404/index.html').unlink();(DIST/'404').rmdir()
-(DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+E(S['domain']+p)+'</loc></url>' for p in written if p!='/404')+'</urlset>')
-(DIST/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+S['domain']+'/sitemap.xml\n')
-(DIST/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n/assets/*\n  Cache-Control: public, max-age=86400\n/media/gallery/*\n  Cache-Control: public, max-age=31536000, immutable\n')
-redirects=['/home / 301','/index.html / 301','/blog/hashtags/:tag /blog?search=:tag 301']
-for source,target in project_redirects.items():
- redirects.extend([source+' '+target+' 301',source+'/ '+target+' 301'])
-# Preserve old category URLs without retaining obsolete topic metadata.
-redirects.append('/blog/categories/* /blog 301')
-for original,localpath in json.loads((ROOT/'content/asset-map.json').read_text()).items():
- if '/_files/ugd/' in original:redirects.append(urllib.parse.urlsplit(original).path+' '+localpath+' 301')
-(DIST/'_redirects').write_text('\n'.join(dict.fromkeys(redirects))+'\n')
-(DIST/'assets/favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#193d3b"/><text x="32" y="44" text-anchor="middle" fill="#f7f6ef" font-family="Georgia,serif" font-size="32">RL</text></svg>')
-print(f'Built {len(written)-1} pages, {len(M["posts"])} blog articles and custom 404.')
+if not SR:
+ (DIST/'404.html').write_text((DIST/'404/index.html').read_text());(DIST/'404/index.html').unlink();(DIST/'404').rmdir()
+ (DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+E(S['domain']+p)+'</loc></url>' for p in written if p!='/404')+'</urlset>')
+ (DIST/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+S['domain']+'/sitemap.xml\n')
+ (DIST/'_headers').write_text('/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n/assets/*\n  Cache-Control: public, max-age=86400\n/media/gallery/*\n  Cache-Control: public, max-age=31536000, immutable\n')
+ redirects=['/home / 301','/index.html / 301','/blog/hashtags/:tag /blog?search=:tag 301']
+ for source,target in project_redirects.items():
+  redirects.extend([source+' '+target+' 301',source+'/ '+target+' 301'])
+ # Preserve old category URLs without retaining obsolete topic metadata.
+ redirects.append('/blog/categories/* /blog 301')
+ for original,localpath in json.loads((ROOT/'content/asset-map.json').read_text()).items():
+  if '/_files/ugd/' in original:redirects.append(urllib.parse.urlsplit(original).path+' '+localpath+' 301')
+ (DIST/'_redirects').write_text('\n'.join(dict.fromkeys(redirects))+'\n')
+ (DIST/'assets/favicon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#193d3b"/><text x="32" y="44" text-anchor="middle" fill="#f7f6ef" font-family="Georgia,serif" font-size="32">RL</text></svg>')
+ print(f'Built {len(written)-1} pages, {len(M["posts"])} blog articles and custom 404.')
 
-print(gallery_images.summary()+f' Build time: {time.perf_counter()-BUILD_STARTED:.2f}s.')
+ print(gallery_images.summary()+f' Build time: {time.perf_counter()-BUILD_STARTED:.2f}s.')
 
-metrics.write(DIST)
+ metrics.write(DIST)
+
+if not SR:
+ # Build locale pages from the same templates and source records.
+ if (DIST/'sr').exists():shutil.rmtree(DIST/'sr')
+ subprocess.run([sys.executable,__file__],env=dict(os.environ,SITE_LANGUAGE='sr'),check=True)
+ urls=[p for p in written if p!='/404']
+ urls += ['/sr'+('/' if p=='/' else p) for p in written if locale.available(p) and p!='/404']
+ def sitemap_entry(p):
+  original=p[3:] or '/' if p.startswith('/sr/') else p
+  original=original.rstrip('/') or '/'
+  alts='<xhtml:link rel="alternate" hreflang="en" href="'+E(S['domain']+original)+'"/><xhtml:link rel="alternate" hreflang="x-default" href="'+E(S['domain']+original)+'"/>'
+  if locale.available(original):alts+='<xhtml:link rel="alternate" hreflang="sr-Cyrl" href="'+E(S['domain']+'/sr'+('/' if original=='/' else original))+'"/>'
+  return '<url><loc>'+E(S['domain']+p)+'</loc>'+alts+'</url>'
+ (DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+''.join(sitemap_entry(p) for p in urls)+'</urlset>')

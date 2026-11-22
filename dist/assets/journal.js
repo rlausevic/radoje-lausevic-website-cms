@@ -20,6 +20,7 @@
  };
  if (typeof module !== 'undefined') module.exports = {normalize, selectEntries, pageNumbers, stateURL};
  if (typeof document === 'undefined') return;
+ const sr=document.documentElement.lang.startsWith('sr');
  const stored = key => {try { return sessionStorage.getItem(key); } catch { return null; }};
  const save = (key, value) => {try { sessionStorage.setItem(key, value); } catch { /* Storage may be disabled. */ }};
  const isArchivePath = (path, base) => path === base || path === base.slice(0,-1) || (path.startsWith(base+'page/') && /^\d+\/?$/.test(path.slice((base+'page/').length)));
@@ -67,19 +68,19 @@
    else {
     node.href = stateURL({...state, page},base); node.dataset.journalPage = String(page);
     if (/^\d+$/.test(label)) {
-     node.setAttribute('aria-label','Page '+page);
+     node.setAttribute('aria-label',(sr?'Страница ':'Page ')+page);
      if (page === state.page) node.setAttribute('aria-current','page');
     }
    }
    nav.append(node);
   };
-  add(state.page-1, 'Previous', state.page === 1);
+  add(state.page-1, sr?'Претходна':'Previous', state.page === 1);
   let previous = 0;
   for (const number of pageNumbers(state.page, pages)) {
    if (previous && number > previous+1) {const gap = document.createElement('span'); gap.textContent='…'; gap.setAttribute('aria-hidden','true'); nav.append(gap);}
    add(number, String(number)); previous = number;
   }
-  add(state.page+1, 'Next', state.page === pages);
+  add(state.page+1, sr?'Следећа':'Next', state.page === pages);
  }
  function updateURL(state, mode) {
   if (!mode) return;
@@ -109,7 +110,7 @@
    }
    grid.replaceChildren(fragment);
    const start = (result.page-1)*size+1, end = start+result.items.length-1;
-   count.textContent = result.total ? `Showing ${start}–${end} of ${result.total} ${result.total===1?singular:plural}` : '0 '+plural;
+   count.textContent = result.total ? (sr?`Приказано ${start}–${end} од ${result.total} ${result.total===1?singular:plural}`:`Showing ${start}–${end} of ${result.total} ${result.total===1?singular:plural}`) : '0 '+plural;
    empty.hidden = result.total > 0;
    navigation(state,result.pages); updateURL(state,mode);
    if (scroll) {

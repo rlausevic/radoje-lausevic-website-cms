@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs';
 const source=fs.readFileSync('dist/assets/contact.js','utf8');
-async function setup(mode){
+async function setup(mode,lang='en'){
  const fields={disabled:true},button={disabled:true},status={dataset:{},focus(){this.focused=true;}};
  const values={name:'Visitor',email:'visitor@example.org',subject:'Test',message:'Keep this text',website:''};
  let submit,callback,reset=false,pendingResolve,calls=0;
@@ -16,7 +16,7 @@ async function setup(mode){
   if(mode==='pending')await new Promise(resolve=>pendingResolve=resolve);
   return new Response(JSON.stringify(mode==='success'?{ok:true}:{ok:false,message:'Delivery failed. Please retry.'}),{status:mode==='success'?200:502});
  };
- vm.runInNewContext(source,{document:{querySelector:s=>s==='#contact-form'?form:status,createElement:()=>({}),head:{appendChild:()=>queueMicrotask(()=>window.contactTurnstileReady())}},window,fetch,FormData:class{get(key){return values[key];}},setTimeout,clearTimeout,AbortController,AbortSignal,TypeError,SyntaxError,Error});
+ vm.runInNewContext(source,{document:{documentElement:{lang},querySelector:s=>s==='#contact-form'?form:status,createElement:()=>({}),head:{appendChild:()=>queueMicrotask(()=>window.contactTurnstileReady())}},window,fetch,FormData:class{get(key){return values[key];}},setTimeout,clearTimeout,AbortController,AbortSignal,TypeError,SyntaxError,Error});
  await new Promise(resolve=>setImmediate(resolve));
  return {fields,button,status,values,submit:()=>submit({preventDefault(){}}),verify:()=>callback('verified'),release:()=>pendingResolve(),calls:()=>calls,reset:()=>reset};
 }
@@ -24,3 +24,5 @@ test('success is announced only after acceptance and clears the form',async()=>{
 test('provider rejection and network failure retain input and never claim success',async()=>{for(const mode of ['failure','network']){const ui=await setup(mode);ui.verify();await ui.submit();assert(!ui.reset());assert.equal(ui.values.message,'Keep this text');assert.equal(ui.status.dataset.state,'error');assert(ui.status.focused);}});
 test('double clicks cannot make parallel requests',async()=>{const ui=await setup('pending');ui.verify();const first=ui.submit();await new Promise(resolve=>setImmediate(resolve));await ui.submit();assert.equal(ui.calls(),1);assert(ui.button.disabled);ui.release();await first;});
 test('unconfigured service stays disabled with a usable fallback address',async()=>{const ui=await setup('disabled');assert(ui.fields.disabled);assert(ui.button.disabled);assert(ui.status.textContent.includes('radoje.lausevic@gmail.com'));assert.equal(ui.calls(),0);});
+
+test('Serbian form announces acceptance and preserves error recovery',async()=>{const ui=await setup('success','sr-Cyrl');ui.verify();await ui.submit();assert.equal(ui.status.textContent,'Хвала. Ваша порука је послата.');assert.equal(ui.button.textContent,'Пошаљи поруку');const disabled=await setup('disabled','sr-Cyrl');assert(disabled.status.textContent.startsWith('Слање преко обрасца'));assert(disabled.fields.disabled);});

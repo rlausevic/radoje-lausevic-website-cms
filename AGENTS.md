@@ -11,7 +11,7 @@ Ova pravila važe za ceo repozitorijum `rlausevic/radoje-lausevic-website-cms`. 
 ## Sadržaj i kontinuitet
 
 - Zadrži vizuelni identitet, boje, tipografiju, kompaktan raspored, postojeće adrese i jedinstvene izvore podataka. Promenu URL-a prati odgovarajućim preusmerenjem i proverom referenci i brojača.
-- Javni sadržaj i interfejs ostaju na engleskom; CMS oznake i uputstva mogu biti na srpskom. Odgovaraj na jeziku korisnikovog zahteva.
+- Engleski je osnovni jezik na postojećim adresama; srpska ćirilica koristi `/sr/`. Jedan sadržaj ostaje jedan CMS unos sa zajedničkim identitetom, datumima, fotografijama i referencama. Prevod je nacrt dok ga vlasnik ne proveri i izričito odobri; AI nikada ne uključuje odobrenje. Izmena izvornog teksta zahteva ponovno usklađivanje i proveru prevoda. CMS oznake i uputstva mogu biti na srpskom. Odgovaraj na jeziku korisnikovog zahteva.
 - Ne izmišljaj angažmane, rezultate, preporuke, datume ili profesionalne kvalifikacije. Nepoznate vrednosti ostavi prazne ili jasno označi nedostatak.
 - Home, Insights i Resume preuzimaju sadržaj iz postojećih kolekcija. Ne pravi duple uređivačke verzije. Centralni Download CV potiče iz `resume.json` → `brief_cv`.
 - Ne uređuj generisani HTML kao trajno rešenje. `dist/assets/` sadrži izvorne stilove, skripte, dokumente i fotografije; ne briši ceo `dist`. Sačuvaj originale i postojeći keš obrađenih slika.

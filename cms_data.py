@@ -2,6 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import json,html,re,datetime,copy,shutil
+from i18n import read_json,SR
 from content_paths import collection_records,project_paths
 from network_data import network_document
 from experience_data import experience_period,experience_sort_key
@@ -76,14 +77,14 @@ def project_topics(project):return content_topics(project)
 def load_cms(root,original):
  base=root/'content/cms'
  if not base.exists():return original
- def read(path):return json.loads((base/path).read_text())
+ def read(path):return read_json(base/path)
  model=copy.deepcopy(original);model['site']=read('settings.json');model['home']=read('home.json')
  a=read('about.json');model['pages']['/about']['blocks']=[body(a['body'])];model['about']=a
  model['expertise']=read('expertise.json') if (base/'expertise.json').exists() else {'services':a.get('services') or []}
  def ordered_entries(name):
   source=base/(name+'.json')
   if source.exists():items=read(name+'.json').get('items') or []
-  else:items=[json.loads(f.read_text()) for f in sorted((base/name).glob('*.json'),key=lambda f:(json.loads(f.read_text()).get('order',0),f.name))]
+  else:items=[read_json(f) for f in sorted((base/name).glob('*.json'),key=lambda f:(json.loads(f.read_text()).get('order',0),f.name))]
   # Preserve CMS list order; ignore any legacy order value.
   return [dict(item,order=index) for index,item in enumerate(items,1)]
  model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
@@ -114,7 +115,7 @@ def load_cms(root,original):
   resume_links.extend({'text':'Download','href':url} for url in files if url)
  model['pages']['/resume']={'blocks':[text('h2','Education'),body(r.get('education') or ''),text('h2','Selected Publications'),body(r.get('publications') or '')],'links':resume_links}
  posts=[];paths=set()
- for p in collection_records(root,'posts','post'):
+ for p in collection_records(root,'posts','post',localized=True):
   if not p.get('published',True):continue
   path=p.get('path','')
   if not re.fullmatch(r'/post/(?:[A-Za-z0-9_-]+/)*[A-Za-z0-9_-]+',path):raise ValueError(f'{path}: address must use /post/your-article-name with letters, digits and hyphens')
@@ -124,7 +125,7 @@ def load_cms(root,original):
   p['topic']=content_topics(p)
   p['cover']=p.get('cover') or '';p['excerpt']=p.get('excerpt') or '';
   d=datetime.date.fromisoformat(p['date'][:10]);b=body(p.get('body',''));p.update({'date':d.strftime('%b %d, %Y'),'date_iso':d.isoformat(),'blocks':[b]});posts.append(p)
- posts.sort(key=lambda p:(p['date_iso'],p['title']),reverse=True);model['posts']=posts
+ posts.sort(key=lambda p:(p['date_iso'],p.get('_source_title',p['title'])),reverse=True);model['posts']=posts
  # Removed/draft articles must not remain published in the generated directory.
- if (root/'dist/post').exists():shutil.rmtree(root/'dist/post')
+ if not SR and (root/'dist/post').exists():shutil.rmtree(root/'dist/post')
  return model
