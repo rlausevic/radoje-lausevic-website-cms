@@ -435,7 +435,7 @@ render_archive('/projects','project','project','projects','Projects','Selected p
 def related_links(project):
  groups=selected_content(project,related_catalog)
  if not groups:return ''
- links=''.join('<li><span class="related-type">'+E(label)+' · </span><a href="'+E(item['href'])+'">'+E(item['title'])+'</a></li>' for _,label,items in groups for item in items)
+ links=''.join('<li><span class="related-type"><span>'+E(label)+'</span> · </span><a href="'+E(item['href'])+'">'+E(item['title'])+'</a></li>' for _,label,items in groups for item in items)
  return '<section class="project-section related-content"><h2>Related content:</h2><ul class="related-list">'+links+'</ul></section>'
 for project in project_entries:
  body=f'<article class="article project-page"><div class="wrap"><header class="article-head"><a class="textlink" data-archive-back="/projects/" href="/projects">← Back to projects</a><h1>{E(project["title"])}</h1></header><div class="prose">'
