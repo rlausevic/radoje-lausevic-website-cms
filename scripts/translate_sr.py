@@ -15,6 +15,8 @@ def target(path,project_path=None):
  if not path.is_relative_to(base) or path.suffix!='.json' or not path.is_file():raise ValueError('Choose a saved CMS JSON entry.')
  data=json.loads(path.read_text());key=file_key(path)
  if key=='projects':
+  from content_paths import project_url
+  project_path=project_url(project_path or '',json.loads((ROOT/'content/project-redirects.json').read_text()))
   matches=[i for i in data.get('items',[]) if i.get('path')==project_path]
   if len(matches)!=1:raise ValueError('Enter the exact permanent project path from CMS.')
   item=matches[0];key='projects.items'

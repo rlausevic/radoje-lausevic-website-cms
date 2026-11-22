@@ -11,6 +11,7 @@ from content_archives import read_archive
 from related_content import video_path,bibliography_id,load_catalog,selected_content
 from gallery_images import GalleryImages
 from metrics import Metrics
+from content_paths import project_url
 from network_data import network_records,dated,safe_network_link
 from section_archives import controls as section_controls,paging as section_paging,fallback as section_fallback,date_label
 metrics=Metrics(ROOT)
@@ -106,6 +107,8 @@ def page(path,title,body,desc=None):
 
  def fixlink(match):
   value=html.unescape(match.group(1))
+  current=project_url(value,project_redirects,S['domain'])
+  if current!=value:return 'href="'+E(current)+'"'
   if value.startswith('/about#expertise-') or value=='/about#my-services':
    return 'href="/expertise#'+E(value.split('#',1)[1])+'"'
   if value.startswith('/blog/hashtags/'):
@@ -599,6 +602,7 @@ if not SR:
  redirects=['/home / 301','/index.html / 301','/blog/hashtags/:tag /blog?search=:tag 301']
  for source,target in project_redirects.items():
   redirects.extend([source+' '+target+' 301',source+'/ '+target+' 301'])
+  redirects.extend(['/sr'+source+' /sr'+target+' 301','/sr'+source+'/ /sr'+target+' 301'])
  # Preserve old category URLs without retaining obsolete topic metadata.
  redirects.append('/blog/categories/* /blog 301')
  for original,localpath in json.loads((ROOT/'content/asset-map.json').read_text()).items():

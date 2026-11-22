@@ -22,4 +22,12 @@ class MetricsTests(unittest.TestCase):
    old=Metrics(root).page('/post/before','Before')
    source.write_text(json.dumps({'title':'After','path':'/post/after'}))
    self.assertEqual(old,Metrics(root).page('/post/after','After'))
+ def test_project_counter_survives_acronym_migration(self):
+  with tempfile.TemporaryDirectory() as folder:
+   root=Path(folder);source=root/'content/cms/projects.json';source.parent.mkdir(parents=True)
+   old=Metrics(root).page('/project/old-id','Before')
+   source.write_text(json.dumps({'items':[{'title':'REDEEM','path':'/project/REDEEM','metrics_id':'/project/old-id'}]}))
+   metrics=Metrics(root)
+   self.assertEqual(old,metrics.page('/project/REDEEM','After'))
+   self.assertEqual(metrics.catalog[old]['path'],'/project/REDEEM')
 if __name__=='__main__':unittest.main()

@@ -1,6 +1,17 @@
 """Generate persistent public addresses for new projects, articles and galleries."""
 import hashlib,json,re,unicodedata
 from pathlib import Path
+from urllib.parse import urlsplit,urlunsplit
+
+def project_url(url,redirects,domain='https://www.radojelausevic.com'):
+ """Resolve retired local project URLs, preserving locale, query and fragment."""
+ parts=urlsplit(url)
+ if parts.netloc and parts.hostname not in {urlsplit(domain).hostname,'radojelausevic.com'}:return url
+ if parts.scheme and parts.scheme not in {'http','https'}:return url
+ prefix='/sr' if parts.path.startswith('/sr/project/') else ''
+ path=parts.path[len(prefix):].rstrip('/')
+ if path not in redirects:return url
+ return urlunsplit((parts.scheme,parts.netloc,prefix+redirects[path],parts.query,parts.fragment))
 
 def slug(title,preserve_case=False):
  title=str(title).replace('Đ','D').replace('đ','d')

@@ -61,7 +61,9 @@ class RelatedContent(unittest.TestCase):
     self.assertEqual(field['type'],'reference');self.assertNotIn('values',field['options'])
     target={'journal':'posts','videos':'video_entries','galleries':'gallery_entries','bibliography':'bibliography_entries'}[field['name']]
     self.assertEqual(field['options']['collection'],target)
-   def build():subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
+   def build():
+    result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
+    self.assertEqual(result.returncode,0,result.stderr)
    build();detail=(root/'dist'/project['path'].strip('/')/'index.html').read_text()
    self.assertIn('<h2>Related content:</h2>',detail)
    for key,values in selected.items():

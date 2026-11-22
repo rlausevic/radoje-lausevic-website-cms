@@ -7,6 +7,10 @@ class Metrics:
  def __init__(self,root):
   self.catalog={};self.seeds={}
   root=Path(root)
+  projects=root/'content/cms/projects.json'
+  if projects.exists():
+   for item in json.loads(projects.read_text()).get('items',[]):
+    if item.get('path'):self.seeds[item['path']]=item.get('metrics_id') or item['path']
   for folder,kind in [('posts','post'),('gallery_entries','gallery')]:
    files=sorted((root/'content/cms'/folder).glob('*.json'))
    for source,item in zip(files,collection_records(root,folder,kind)):

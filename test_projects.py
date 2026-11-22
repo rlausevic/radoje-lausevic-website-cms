@@ -96,7 +96,7 @@ class ProjectArchive(unittest.TestCase):
    source=root/'content/cms/projects.json';data=json.loads(source.read_text())
    paths={p['path'] for p in data['items']}
    legacy=json.loads((root/'content/project-redirects.json').read_text())
-   self.assertEqual(legacy['/project/2c631ae227efe57f'],'/project/66b9602360ee8e93')
+   self.assertEqual(legacy['/project/2c631ae227efe57f'],'/project/BLUECONNECT')
    # Rename every project and reverse CMS order without changing any address.
    for p in data['items']:p['title']='Renamed '+p['title']
    data['items'].reverse();source.write_text(json.dumps(data))
@@ -112,6 +112,8 @@ class ProjectArchive(unittest.TestCase):
     self.assertIn(new,paths)
     self.assertIn(old+' '+new+' 301',rules)
     self.assertIn(old+'/ '+new+' 301',rules)
+    self.assertIn('/sr'+old+' /sr'+new+' 301',rules)
+    self.assertIn('/sr'+old+'/ /sr'+new+' 301',rules)
     self.assertNotIn(old,(root/'dist/sitemap.xml').read_text())
    # Home and Expertise links still point at the same current projects.
    for name in ['index.html','expertise/index.html']:

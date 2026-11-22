@@ -1370,6 +1370,13 @@
               }
             },
             {
+              "name": "metrics_id",
+              "label": "Идентитет бројача (аутоматски)",
+              "type": "string",
+              "hidden": true,
+              "readonly": true
+            },
+            {
               "name": "topic",
               "label": "Izbor oblasti",
               "type": "select",

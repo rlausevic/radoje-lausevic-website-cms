@@ -3,7 +3,7 @@
     {
       "title": "REDEEM",
       "full_name": "Resilience in Desertification and Drought for Mediterranean",
-      "path": "/project/cc5880ac12fff035",
+      "path": "/project/REDEEM",
       "topic": [
         "Climate and Energy Planning",
         "Project and Programme Management"
@@ -41,12 +41,13 @@
         "seo_description": "Откријте рад Радоја Лаушевића у пројекту REDEEM, који подржава климатску отпорност и интегрисано управљање водом, енергијом, храном и екосистемима у Црној Гори.",
         "source_hash": "76a5baf014d1625c70dd76dc9bff29c769c569f459faf867c6f63d4fb0a3283c",
         "approved_hash": "e522a4814f82658827d4230561cfab8741d458e78d9da60f4bd51b8496161c24"
-      }
+      },
+      "metrics_id": "/project/cc5880ac12fff035"
     },
     {
       "title": "SATECON",
       "full_name": "Smart, Innovative and Sustainable Agriculture",
-      "path": "/project/42a235570e754bcd",
+      "path": "/project/SATECON",
       "topic": [
         "Environmental Research and Policy"
       ],
@@ -78,12 +79,13 @@
         "results": "<p></p>",
         "source_hash": "2a22ca94f2e80cb37698489f8a6f1d35f79a3264fdefcdc528544d0e0b115452",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/42a235570e754bcd"
     },
     {
       "title": "BLUECONNECT",
       "full_name": "Enhancing Cross-Border Blue Growth: Fostering Innovation and Cooperation for Competitive Entrepreneurship",
-      "path": "/project/66b9602360ee8e93",
+      "path": "/project/BLUECONNECT",
       "topic": [
         "Blue Economy and Skills Development",
         "Leadership and Governance"
@@ -134,12 +136,13 @@
         "results": "<p><strong>Досадашњи напредак (19. октобар 2026)</strong></p><ul><li><p>Развијена дигитална платформа <a href=\"https://adriaticbgc.org/\">https://adriaticbgc.org/</a></p></li><li><p>Развијен <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://adriaticbgc.org/about-us\">Јадрански кластер плавог раста</a></p></li><li><p>Припремљени нацрти споразума о партнерству и сарадњи</p></li><li><p>Пружена подршка радионицама и састанцима пројектног тима</p></li></ul><p></p>",
         "source_hash": "7383ac8d1fc5f594ca81b412ce84442cccac79157b09a1a74513b7e859798828",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/66b9602360ee8e93"
     },
     {
       "title": "AZA4ICE",
       "full_name": "Allocated Zones for Circular Aquaculture to Trigger the Transition to an Inclusive Circular Economy",
-      "path": "/project/891c915a7e952e4d",
+      "path": "/project/AZA4ICE",
       "topic": [
         "Blue Economy and Skills Development"
       ],
@@ -173,12 +176,13 @@
         "results": "<p></p>",
         "source_hash": "5243a578845bfa9aa4c6cf3a985073859c25821156062ed62eb40c5c702d4858",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/891c915a7e952e4d"
     },
     {
       "title": "TOUR",
       "full_name": "TOURists friends of the environment",
-      "path": "/project/tour",
+      "path": "/project/TOUR",
       "topic": [
         "Environmental Research and Policy"
       ],
@@ -213,12 +217,13 @@
         "results": "<p></p>",
         "source_hash": "b6e13bc7c58c8c5f86b24b7b8e0bbc618ab65dc9ed361def47a637f73cc94929",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/tour"
     },
     {
       "title": "SKILLS",
       "full_name": "High LEVEL and market-respondent Competences for a Blue and Digitalized “Smart and skilled South Adriatic”",
-      "path": "/project/463051f456ad180a",
+      "path": "/project/SKILLS",
       "topic": [
         "Blue Economy and Skills Development"
       ],
@@ -268,12 +273,13 @@
         "results": "<p></p>",
         "source_hash": "a1bfb44da1d5816913e7a523cc6f2fe6921bc7c0788d6d994519085d4ef5f441",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/463051f456ad180a"
     },
     {
       "title": "SECAP",
       "full_name": "EU4 Energy Transition: Covenant of Mayors in the Western Balkans and Türkiye (EU4ETTR)",
-      "path": "/project/06db78605aaf9107",
+      "path": "/project/SECAP",
       "topic": [
         "Climate and Energy Planning"
       ],
@@ -308,12 +314,13 @@
         "results": "<p></p>",
         "source_hash": "1916efcceba4694c910764bc09a6e5558aa96d49d979980b306b9cf634f9ea47",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/06db78605aaf9107"
     },
     {
       "title": "EXChAngE",
       "full_name": "Explore Cross-border Aquatic Biodiversity",
-      "path": "/project/12c72986d1cf22df",
+      "path": "/project/EXChAngE",
       "topic": [
         "Project and Programme Management",
         "Blue Economy and Skills Development"
@@ -370,12 +377,13 @@
         "results": "<p></p>",
         "source_hash": "0024426aeab8eb889214ef9d7f052bec9dfd662c3c1949b19e4177055b0ed446",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/12c72986d1cf22df"
     },
     {
       "title": "Wetland Restore",
       "full_name": "Ecological Network Impact Assessment for Wetland Ecosystem Revitalisation in Three Pilot Areas",
-      "path": "/project/e5ca14d9eb1aa849",
+      "path": "/project/Wetland-Restore",
       "topic": [
         "Environmental Research and Policy"
       ],
@@ -399,12 +407,13 @@
         "results": "<p></p>",
         "source_hash": "4a5f912a5080ca2fbed2fbc8f21d1e77f53084e17b3a52a7ff7fd97afe045d53",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/e5ca14d9eb1aa849"
     },
     {
       "title": "MonteAqua",
       "full_name": "Marine Biodiversity Conservation Center “Boka Aquarium”",
-      "path": "/project/5c8c1a8167d8a7ca",
+      "path": "/project/MonteAqua",
       "topic": [
         "Blue Economy and Skills Development",
         "Project and Programme Management"
@@ -467,12 +476,13 @@
         "results": "<p></p>",
         "source_hash": "8b0006b6b9b4d68bc806716b671b1407fe2377636ee219b4d63b2dab49b7c454",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/5c8c1a8167d8a7ca"
     },
     {
       "title": "WATER SUM",
       "full_name": "Sustainable Use of Transboundary Water Resources and Water Security Management",
-      "path": "/project/37d8622e6db3d49b",
+      "path": "/project/WATER-SUM",
       "topic": [
         "Environmental Research and Policy",
         "Project and Programme Management"
@@ -507,12 +517,13 @@
         "results": "<p></p>",
         "source_hash": "3442d5a80e7931fd716c7f536b6644d3682cc3594f9655a27e17f0fb35f8e54f",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/37d8622e6db3d49b"
     },
     {
       "title": "LINK",
       "full_name": "Local Initiatives for a Sustainable Ukraine",
-      "path": "/project/link",
+      "path": "/project/LINK",
       "topic": [
         "Climate and Energy Planning",
         "Project and Programme Management"
@@ -542,12 +553,13 @@
         "results": "<p></p>",
         "source_hash": "dc92b5d839c8ffab54f41052ab1815ac204a8be925f66dcd819373f1e0ca2e14",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/link"
     },
     {
       "title": "WGS Initiative",
       "full_name": "Water, Growth and Stability Initiative",
-      "path": "/project/wgs-initiative",
+      "path": "/project/WGS-Initiative",
       "topic": [
         "Leadership and Governance"
       ],
@@ -560,7 +572,7 @@
       "assignment_ongoing": false,
       "project_start": "2016-04-27",
       "project_end": "2017-04-30",
-      "body": "<p>The Water, Growth and Stability Initiative emerged from the <a href=\"https://www.radojelausevic.com/project/37d8622e6db3d49b/\">WATER SUM</a> project to strengthen cooperation on water governance, sustainable development and stability in the Middle East and North Africa. Launched during the April 2016 stakeholder conference in Szentendre, Hungary, the initiative was supported and managed by the Regional Environmental Center for Central and Eastern Europe (REC) in cooperation with strategic partners. It brought together perspectives from government, academia, business, civil society and municipalities around three pillars: water for sustainable development; water for growth and stability; and good governance for water. The initiative envisaged a knowledge platform, an expert network linking the MENA region and Europe, and e-learning tools to support capacity building, climate adaptation and the exchange of practical experience.</p>",
+      "body": "<p>The Water, Growth and Stability Initiative emerged from the <a href=\"https://www.radojelausevic.com/project/WATER-SUM\">WATER SUM</a> project to strengthen cooperation on water governance, sustainable development and stability in the Middle East and North Africa. Launched during the April 2016 stakeholder conference in Szentendre, Hungary, the initiative was supported and managed by the Regional Environmental Center for Central and Eastern Europe (REC) in cooperation with strategic partners. It brought together perspectives from government, academia, business, civil society and municipalities around three pillars: water for sustainable development; water for growth and stability; and good governance for water. The initiative envisaged a knowledge platform, an expert network linking the MENA region and Europe, and e-learning tools to support capacity building, climate adaptation and the exchange of practical experience.</p>",
       "contribution": "<p><strong>Organisation:</strong> Regional Environmental Center for Central and Eastern Europe (REC)<br><strong>Geographical coverage:</strong> Middle East and North Africa, with cooperation and knowledge exchange involving European partners</p><p>As Project Director, provided strategic leadership for the launch and development of the WGS Initiative within the WATER SUM framework. Contributed to dialogue connecting water management, regional cooperation and sustainable development. At the founding conference, facilitated the panel on the importance of transboundary water cooperation for development, peace and stability; participated in discussions on regional approaches and future priorities; and presented within the session launching the Manual for Local Water Security Action Planning. Supported the formulation of the initiative’s objectives and arrangements for continued stakeholder cooperation.</p>",
       "results": "<ul><li><p>Supported the launch of the WGS Initiative at the April 2016 conference in Szentendre, where participants endorsed a framework for continued cooperation on water management, sustainable development and stability.</p></li><li><p>Contributed to defining the initiative’s three strategic pillars: water for sustainable development; water for growth and stability; and good governance for water.</p></li><li><p>Helped formulate a stakeholder governance model comprising a High-Level Panel and five forums representing academia, business, civil society, municipalities and women.</p></li><li><p>Facilitated dialogue on the contribution of transboundary water cooperation to development, peace and stability, connecting perspectives from the MENA region and Europe.</p></li><li><p>Contributed to the conference launch of the Manual for Local Water Security Action Planning, linking practical planning methods with the initiative’s wider knowledge-sharing objectives.</p></li><li><p>Supported the formulation of priorities captured in the draft conference outcome document, including capacity building, climate adaptation, regional cooperation, resource mobilisation and development of a longer-term framework programme.</p></li></ul><p></p>",
       "related_content": {
@@ -570,19 +582,20 @@
         ]
       },
       "sr": {
-        "status": "Нацрт — допуните превод свих енглеских поља",
+        "status": "Потребно ажурирање — енглески оригинал је промењен",
         "approved": false,
         "body": "<p></p>",
         "contribution": "<p></p>",
         "results": "<p></p>",
         "source_hash": "3631a59f4590ec4bfc7ea380a3bf0dc92bc5b88f571b5f0991f298f6ef532163",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/wgs-initiative"
     },
     {
       "title": "EMC",
       "full_name": "Setting up Environmental Management Center in Serbia",
-      "path": "/project/e3c1ca0a13301ebc",
+      "path": "/project/EMC",
       "topic": [
         "Leadership and Governance"
       ],
@@ -606,12 +619,13 @@
         "results": "<p></p>",
         "source_hash": "e15fcecff05cb4dc8f33cc6d7ee47c72d1e726c7e907bc24f6890442ac942292",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/e3c1ca0a13301ebc"
     },
     {
       "title": "SEE BAP",
       "full_name": "Biodiversity and Ecosystem Services for Local Sustainable Development in the Western Balkans",
-      "path": "/project/f6a013763a24b214",
+      "path": "/project/SEE-BAP",
       "topic": [
         "Environmental Research and Policy"
       ],
@@ -635,12 +649,13 @@
         "results": "<p></p>",
         "source_hash": "73020a988bac324f7fca7440975cb4dc1ce89a3559cbb531cc8153b6bf827814",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/f6a013763a24b214"
     },
     {
       "title": "Aquatic ecosystems",
       "full_name": "Structure and dynamics of aquatic ecosystems of different trophic levels",
-      "path": "/project/7a62e37c0c51e425",
+      "path": "/project/Aquatic-ecosystems",
       "topic": [
         "Environmental Research and Policy"
       ],
@@ -664,7 +679,8 @@
         "results": "<p></p>",
         "source_hash": "05e3d563659b9b87de2c7826e14637f16b9721679496a62d3cc47848b0fdcd36",
         "approved_hash": ""
-      }
+      },
+      "metrics_id": "/project/7a62e37c0c51e425"
     }
   ]
 }

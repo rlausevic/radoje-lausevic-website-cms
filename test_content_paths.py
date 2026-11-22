@@ -1,10 +1,35 @@
 """Generated addresses, persistent slugs and unified CMS configuration."""
 import json,re,tempfile,unittest
 from pathlib import Path
-from content_paths import collection_records,project_paths
+from content_paths import collection_records,project_paths,project_url
 from content_archives import read_archive,write_archive
 ROOT=Path(__file__).resolve().parent
 class ContentPaths(unittest.TestCase):
+ def test_project_migration_flattens_history_and_preserves_approval_and_identity(self):
+  from scripts.migrate_project_urls import migrate
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp);folder=root/'content/cms';folder.mkdir(parents=True)
+   source=folder/'projects.json'
+   item={'title':'REDEEM','path':'/project/old','body':'Original','sr':{'approved':True,'body':'Превод','source_hash':'source','approved_hash':'reviewed'}}
+   source.write_text(json.dumps({'items':[item]}))
+   (root/'content/project-redirects.json').write_text(json.dumps({'/project/older':'/project/old'}))
+   (folder/'home.json').write_text(json.dumps({'body':'<a href="/sr/project/older/?q=x#result">Link</a>'}))
+   migrate(root)
+   migrated=json.loads(source.read_text())['items'][0]
+   self.assertEqual(migrated['sr'],item['sr']);self.assertEqual(migrated['body'],item['body'])
+   self.assertEqual(migrated['metrics_id'],'/project/old')
+   self.assertEqual(migrated['path'],'/project/REDEEM')
+   redirects=json.loads((root/'content/project-redirects.json').read_text())
+   self.assertEqual(redirects,{'/project/old':'/project/REDEEM','/project/older':'/project/REDEEM'})
+   self.assertIn('/sr/project/REDEEM?q=x#result',json.loads((folder/'home.json').read_text())['body'])
+   snapshot={str(p):p.read_text() for p in (root/'content').rglob('*.json')}
+   migrate(root)
+   self.assertEqual(snapshot,{str(p):p.read_text() for p in (root/'content').rglob('*.json')})
+ def test_old_project_link_rewriting_keeps_external_urls_and_locale(self):
+  redirects={'/project/old':'/project/REDEEM'}
+  self.assertEqual(project_url('/sr/project/old/?q=one#result',redirects),'/sr/project/REDEEM?q=one#result')
+  self.assertEqual(project_url('https://www.radojelausevic.com/project/old/',redirects),'https://www.radojelausevic.com/project/REDEEM')
+  self.assertEqual(project_url('https://example.com/project/old',redirects),'https://example.com/project/old')
  def test_project_acronym_paths_reserve_existing_and_retired_urls(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);(root/'content').mkdir()

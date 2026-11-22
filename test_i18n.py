@@ -14,7 +14,7 @@ def draft(item,key,**values):
 
 class Editorial(unittest.TestCase):
  def test_project_action_exports_only_saved_selected_project(self):
-  payload={'repository':{'ref':'main'},'action':{'name':'translate-project-sr'},'context':{'type':'repository'},'inputs':{'project_path':'/project/cc5880ac12fff035'}}
+  payload={'repository':{'ref':'main'},'action':{'name':'translate-project-sr'},'context':{'type':'repository'},'inputs':{'project_path':'/project/REDEEM'}}
   self.assertLess(len(json.dumps(payload)),1000)
   path,project=payload_target(payload)
   patch_data=export(path,project)
@@ -22,6 +22,7 @@ class Editorial(unittest.TestCase):
   selected=next(item for item in projects if item['path']==project)
   self.assertEqual(patch_data['source']['full_name'],selected['full_name'])
   self.assertEqual(patch_data['source']['body'],selected['body'])
+  self.assertEqual(export(path,'/project/cc5880ac12fff035')['source'],patch_data['source'])
   self.assertNotIn('items',patch_data['source'])
   with self.assertRaisesRegex(ValueError,'exact permanent project path'):export(path,'/project/not-a-saved-project')
  def test_saved_file_actions_and_branch_guard_still_work(self):
