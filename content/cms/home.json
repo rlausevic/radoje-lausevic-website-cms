@@ -10,9 +10,8 @@
   "galleries_heading": "Snapshots from my activities.",
   "seo_description": "Radoje Laušević, senior environmental consultant specialising in blue economy, EU project management, governance, skills development and sustainability.",
   "sr": {
-    "status": "Оригинал је потврђен — прегледајте и одобрите превод",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "heading": "Наука у политику. Лидерство у акцију.",
     "lead": "Помажем институцијама и партнерствима да ојачају лидерство и управљање, воде пројекте и програме, и унапреде плаву економију и развој вештина. Мој рад повезује истраживања из области заштите животне средине и политику са планирањем у области климе и енергије како би се постигли практични резултати.",
     "landscape_quote": "Природа није моја околина — она је усађена у мене.",
@@ -23,6 +22,7 @@
     "galleries_label": "Галерије",
     "galleries_heading": "Одабрани тренуци мојих активности.",
     "seo_description": "Радоје Лаушевић, старији консултант за животну средину специјализован за плаву економију, управљање ЕУ пројектима, управљање, развој вештина и одрживост.",
-    "source_hash": "c8a67f2909ff784b9ce23689e0778b091518a35d3d471dc2758c41a90119e72c"
+    "source_hash": "c8a67f2909ff784b9ce23689e0778b091518a35d3d471dc2758c41a90119e72c",
+    "approved_hash": "d791a5b6c527cd5330a04242c96f1272b34a29490c9f78f0d1ee2a603fb96d0a"
   }
 }
