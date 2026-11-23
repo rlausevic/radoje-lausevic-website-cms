@@ -6,6 +6,13 @@ from content_archives import read_archive,write_archive
 from cms_data import load_cms
 ROOT=Path(__file__).resolve().parent
 class SectionArchives(unittest.TestCase):
+ def test_section_dates_share_the_localized_card_formatter(self):
+  from section_archives import date_label
+  self.assertEqual(date_label('2026-09-01','sr'),'1. септембар 2026.')
+  self.assertEqual(date_label('2026-09-01'),'Sep 01, 2026')
+  self.assertEqual(date_label('2024-02-29','sr'),'29. фебруар 2024.')
+  for value in ['',None,'invalid','2026-02-30']:
+   self.assertEqual(date_label(value,'sr'),'')
  def test_network_reference_identity_and_deletion(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp);folder=root/'content/cms';folder.mkdir(parents=True)
@@ -42,6 +49,17 @@ class SectionArchives(unittest.TestCase):
    write_archive(root,'bibliography',bib)
    subprocess.run([sys.executable,'build.py'],cwd=root,check=True,capture_output=True)
    text=(root/'dist/about/index.html').read_text();self.assertIn(re.sub(r'<[^>]+>', '', original['body']),re.sub(r'<[^>]+>', '',text))
+   from section_archives import date_label
+   for language,prefix in [('en',''),('sr','sr/')]:
+    output=(root/f'dist/{prefix}about/index.html').read_text()
+    dates=re.findall(r'<time datetime="([^"]+)">([^<]+)</time>',output)
+    self.assertEqual(len(dates),12)
+    for iso,display in dates:self.assertEqual(display,date_label(iso,language))
+    if language=='sr':
+     self.assertIn('>Претрага професионалне мреже<input',output)
+     self.assertIn('placeholder="Претрага професионалне мреже…"',output)
+     self.assertNotIn('Search professional network',output)
+    else:self.assertIn('placeholder="Search professional network…"',output)
    for title in ['Partner','Author']:
     cards=re.findall(r'<details class="post-card about-archive-card"([^>]*)><summary>.*?<h3>('+title+r' \d)</h3>',text)
     self.assertEqual([name for _,name in cards],[f'{title} {n}' for n in reversed(range(6))]);self.assertEqual(sum(' hidden' not in attrs for attrs,_ in cards),4)

@@ -315,7 +315,7 @@ def about_archive(prefix,entries):
  out+=f'<div data-section-group data-group="all">'+section_paging(prefix,'all',label,len(entries),4)+f'<div class="journal-grid about-archive-grid" id="{prefix}-results">'
  lookup={item['id']:item for item in network_entries}
  for index,item in enumerate(entries):
-  content=__import__('cms_data').body(item.get('body') or '');date=str(item.get('date') or '');date_text=date_label(date)
+  content=__import__('cms_data').body(item.get('body') or '');date=str(item.get('date') or '');date_text=date_label(date,language='sr' if SR else 'en')
   title=item.get('name') if is_network else item['author']
   selected=item.get('related_contents') or []
   if isinstance(selected,str):selected=[selected]

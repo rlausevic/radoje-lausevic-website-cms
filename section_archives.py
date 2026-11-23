@@ -1,10 +1,10 @@
 """Small in-page archives: shared controls, accessible paging and no-JS fallback."""
 from html import escape
-import datetime
+from i18n import content_date
 E=lambda value:escape(str(value),quote=True)
 
-def date_label(value):
- try:return datetime.date.fromisoformat(str(value)[:10]).strftime('%b %d, %Y')
+def date_label(value,language='en'):
+ try:return content_date(str(value)[:10],language)
  except ValueError:return ''
 
 def controls(prefix,label,years,categories=()):
