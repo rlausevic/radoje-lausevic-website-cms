@@ -101,6 +101,8 @@ Izabrati provere prema promeni, ne pokretati celu tabelu za svaki zadatak. Aktue
 
 ## 5. Višejezično uređivanje u istom unosu (22.11.2026)
 
+**Dostupnost radnog iskustva i mreže (23.11.2026):** `/sr/work-experience/` je dostupan kada najmanje jedan `experience.items[].sr` ima validno odobrenje i otiske. `network.sr` uređuje samo uvod profesionalne mreže; njegovo odobrenje ne sme skrivati odobrene angažmane. Kartice mreže na About koriste odobrenja pojedinačnih `network.items[].sr`, nezavisno od uvoda. Jednokratni oporavak 15 vlasničkih odobrenja iz CMS upisa `b705cc5` uskladio je stare otiske bez `name` sa aktuelnom šemom, uz proveru nepromenjenih izvora i prevoda. To nije opšte automatsko odobravanje ili zaobilaženje zastarelog izvora: novi ili promenjeni prevodi i dalje zahtevaju vlasničku proveru i odobrenje.
+
 | Podatak | Engleski | Srpski — ćirilica |
 |---|---|---|
 | Naslov, sažetak, tekst, SEO opis | Postojeća polja; dodat je `seo_description` | Odgovarajuća polja u grupi `sr` |

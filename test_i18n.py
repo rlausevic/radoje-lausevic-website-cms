@@ -157,6 +157,16 @@ class Editorial(unittest.TestCase):
   self.assertEqual(locale.target('/blog?page=2'),'/sr/blog?page=2')
   self.assertEqual(locale.target('/blog/archive-index.json?v=1'),'/sr/blog/archive-index.json?v=1')
   self.assertEqual(locale.target('/blog/page/2/'),'/sr/blog/page/2/')
+ def test_work_experience_requires_a_valid_entry_not_network_approval(self):
+  item=draft({'title':'Role','body':'Duties'},'experience.items',title='Функција',body='Дужности')
+  locale=Locale();locale.collections['/work-experience']=([item],'experience.items')
+  self.assertFalse(locale.available('/work-experience'))
+  item['sr']['approved']=True;sync_record(item,'experience.items')
+  self.assertTrue(locale.available('/work-experience'))
+  self.assertEqual(locale.target('/work-experience'),'/sr/work-experience')
+  self.assertEqual(locale.seo('/work-experience','Career description'),'Career description')
+  item['body']='Changed duties'
+  self.assertFalse(locale.available('/work-experience'))
 
 class BilingualBuild(unittest.TestCase):
  def test_network_names_cards_search_and_recommendation_links(self):
@@ -205,7 +215,7 @@ class BilingualBuild(unittest.TestCase):
     path=root/f'content/cms/{name}.json';data=json.loads(path.read_text())
     if name=='about':data['career_highlights']=[item['title'] for item in entries]
     draft(data,name,**{key:('СР '+value if value else '') for key,value in source_text(data,name).items()})
-    data['sr']['approved']=True;sync_record(data,name);path.write_text(json.dumps(data,ensure_ascii=False))
+    data['sr']['approved']=name=='about';sync_record(data,name);path.write_text(json.dumps(data,ensure_ascii=False))
    subprocess.run([sys.executable,'scripts/sync_expertise.py'],cwd=root,check=True)
    config=json.loads((root/'.pages.yml').read_text())
    fields=next(x for x in config['content'] if x['name']=='about')['fields']
@@ -214,12 +224,17 @@ class BilingualBuild(unittest.TestCase):
    self.assertEqual(result.returncode,0,result.stderr)
    for page,tag in [('about','h3'),('work-experience','h2')]:
     sr=(root/f'dist/sr/{page}/index.html').read_text();en=(root/f'dist/{page}/index.html').read_text()
+    self.assertNotIn('noindex,follow',sr)
     for title in ['Изабрана функција','Retained English role','Draft English role']:
      self.assertIn('>'+title+'</'+tag+'>',sr)
     self.assertNotIn('>Selected English role</'+tag+'>',sr)
     self.assertNotIn('Неодобрена функција',sr)
     for item in entries:self.assertIn('>'+item['title']+'</'+tag+'>',en)
     self.assertNotIn('Изабрана функција',en)
+   self.assertIn('rel="canonical" href="https://www.radojelausevic.com/sr/work-experience"',sr)
+   self.assertIn('hreflang="sr-Cyrl" href="https://www.radojelausevic.com/sr/work-experience"',en)
+   self.assertIn('<loc>https://www.radojelausevic.com/sr/work-experience</loc>',(root/'dist/sitemap.xml').read_text())
+   self.assertFalse(json.loads((root/'content/cms/network.json').read_text())['sr']['approved'])
    self.assertEqual(json.loads(source.read_text())['items'],entries)
  def test_draft_approval_source_change_and_seo(self):
   with tempfile.TemporaryDirectory() as tmp:

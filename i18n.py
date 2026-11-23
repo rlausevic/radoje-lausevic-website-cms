@@ -9,7 +9,8 @@ FIELDS=json.loads((ROOT/'i18n-fields.json').read_text())
 LANG=os.environ.get('SITE_LANGUAGE','en')
 SR=LANG=='sr'
 SYSTEM_PAGES={'/projects','/blog','/video','/galleries','/insights','/contact'}
-PAGE_FILES={'/':'home','/about':'about','/expertise':'expertise','/resume':'resume','/work-experience':'network','/bibliography':'settings','/blog':'journal'}
+PAGE_FILES={'/':'home','/about':'about','/expertise':'expertise','/resume':'resume','/bibliography':'settings','/blog':'journal'}
+COLLECTION_PAGES={'/work-experience':('experience','experience.items')}
 
 def content_date(value,language=LANG):
  """Format shared card dates without changing the source or machine-readable date."""
@@ -117,8 +118,13 @@ def route_records(root=ROOT):
  return out
 
 class Locale:
- def __init__(self,root=ROOT):self.records=route_records(root)
+ def __init__(self,root=ROOT):
+  self.records=route_records(root)
+  self.collections={route:(json.loads((Path(root)/'content/cms'/(name+'.json')).read_text()).get('items') or [],key) for route,(name,key) in COLLECTION_PAGES.items()}
  def translated(self,path):
+  if path in self.collections:
+   items,key=self.collections[path]
+   return any(ready(item,key) for item in items)
   item,key=self.records.get(path,({},None))
   return bool(key and ready(item,key))
  def available(self,path):
