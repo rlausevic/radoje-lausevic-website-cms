@@ -3,10 +3,10 @@
   "path": "/video/467bbd4bd7040e95",
   "description": "Discover Aquarium Boka in Kotor and EXChAngE’s contribution to Adriatic biodiversity awareness, visitor experiences and sustainable cross-border tourism.",
   "sr": {
-    "description": "Откријте Акваријум Бока у Котору и допринос EXChAngE свести о јадранском биодиверзитету, искуству посетилаца и одрживом прекограничном туризму.",
-    "approved": false,
-    "source_hash": "82310e9c1cfe0c170f89e2bd52b734c0bff6a647ec18935e638414e6959892c4",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
+    "description": "Откријте Акваријум Бока у Котору и допринос EXChAngE пројекта свести о јадранском биодиверзитету, искуству посетилаца и одрживом прекограничном туризму.",
+    "source_hash": "82310e9c1cfe0c170f89e2bd52b734c0bff6a647ec18935e638414e6959892c4"
   }
 }
