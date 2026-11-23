@@ -1,0 +1,52 @@
+name: Prepare requested blog translations
+on:
+  push:
+    branches: [codex/blog-translations-20261123]
+    paths: [.github/workflows/translate-blog-batch.yml]
+permissions:
+  contents: write
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare drafts using the existing translation service
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TRANSLATION_MODEL: ${{ vars.OPENAI_TRANSLATION_MODEL }}
+        run: |
+          python - <<'PY'
+          import concurrent.futures,json,sys,time
+          from pathlib import Path
+          sys.path.insert(0,'.')
+          from scripts.translate_sr import export,ai_prepare,apply
+          seo={d['path']:d for p in Path('content/cms/page_seo').glob('*.json') if (d:=json.loads(p.read_text()))}
+          paths=[p for p in sorted(Path('content/cms/posts').glob('*.json')) if not (json.loads(p.read_text()).get('sr')or{}).get('body')]
+          def translate(path):
+              for attempt in range(3):
+                  try:
+                      patch=ai_prepare(export(path))
+                      item=json.loads(path.read_text())
+                      patch['translation']['seo_description']=seo[item['path']]['sr']['description']
+                      apply(patch)
+                      print('Prepared:',path.name,flush=True)
+                      return
+                  except Exception as exc:
+                      if attempt==2: raise
+                      print('Retry:',path.name,type(exc).__name__,flush=True)
+                      time.sleep(3)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+              list(pool.map(translate,paths))
+          print('Prepared',len(paths),'drafts; approval remains off.')
+          PY
+      - name: Save drafts on the task branch for review
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/cms/posts
+          git diff --cached --quiet && exit 0
+          git commit -m '[CF-Pages-Skip] Prepare blog translation drafts for review'
+          git push origin HEAD:codex/blog-translations-20261123
