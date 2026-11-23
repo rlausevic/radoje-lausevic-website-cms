@@ -8,5 +8,16 @@
   "published": true,
   "cover": "/assets/fe972de415585535.webp",
   "excerpt": "A visual note from the archive.",
-  "body": "<img src=\"/assets/fe972de415585535.webp\" alt=\"AdriBioPro2019 inforgraphics\"><p></p>"
+  "body": "<img src=\"/assets/fe972de415585535.webp\" alt=\"AdriBioPro2019 inforgraphics\"><p></p>",
+  "seo_description": "A visual archive entry from AdriBioPro2019, preserved in Radoje Laušević’s journal of biodiversity events and professional activities.",
+  "sr": {
+    "title": "AdriBioPro2019",
+    "excerpt": "Визуелна белешка из архива.",
+    "body": "<img src=\"/assets/fe972de415585535.webp\" alt=\"AdriBioPro2019 инфографика\" loading=\"lazy\" decoding=\"async\"><p></p>",
+    "seo_description": "Визуелни запис са AdriBioPro2019, сачуван у дневнику Радоја Лаушевића о догађајима посвећеним биодиверзитету и професионалним активностима.",
+    "approved": true,
+    "approved_hash": "66e523bf57dfb28cc6f060b276afc76ace8f3adcf893ce6e0cf442a1015c55ca",
+    "source_hash": "ef3b3fe2e60510b68908eb2363f09ce9853bff561d8d572486ba27027c656373",
+    "status": "Одобрено за објављивање"
+  }
 }
