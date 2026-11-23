@@ -16,46 +16,23 @@
   "assortis_cv_description": "Professional experience and project record in Assortis format.",
   "bibliography_title": "Complete bibliography",
   "education": "<ul><li><p><strong>PhD in Biology, Faculty of Biology, University of Belgrade, Serbia. </strong>July 1992 - June 1995</p></li><li><p><strong>Master of Science in Biology (pre-Bologna), Faculty of Biology, University of Belgrade, Serbia. </strong>November 1987 - May 1992</p></li><li><p><strong>Graduate Biologist (B Sci), Faculty of Biology, University of Belgrade, Serbia. </strong>October 1983 - November 1987</p></li></ul><p></p>",
-  "publication_items": [
-    {
-      "title": "Stakeholder analysis for supporting local water security planning in the Kingdom of Jordan",
-      "description": "<p>M. Bartula, R. Laušević, U. Radojević (2017). Water Utility Journal 15: 3-13.</p><p>Stakeholder analysis (SA) represents a precondition for setting up an effective stakeholder participation in water management since it helps to better understand stakeholders` role and actions, identify whose stake should be taken into account, reveals power relations among stakeholders, helps to understand the diverse range of potentially conflicting interests, analyze driving forces and existing coordination among stakeholders, and identify bottlenecks in communication which affect daily operations or strategic planning for the future way forward. This paper presents the results of a SA performed in the Kingdom of Jordan for water management sector with the purpose of assessing stakeholders’ capacity to participate in water management planning process based on following attributes: power, interest, knowledge, attitude, legitimacy, attention getting capacity and existing and desired level of involvement. Statistical correlation of stakeholders` knowledge about water management issues and power in water management sector with other attributes was investigated as well. This was designed to determine the importance of stakeholders` level of knowledge and power relevant for success of water management process.&nbsp;</p>",
-      "file": [
-        "/assets/9c25abe53a3ba269.pdf"
-      ]
-    },
-    {
-      "title": "Local Water Security Action Planning Manual",
-      "description": "<p>R. Laušević, S. Milutinović, J. Petersen-Perlman, M. Reed, A. Graves, M. Bartula, S. Sušić, A. Popović (2016). Regional Environmental Center, Szentendre, Hungary. ISBN 978-963-9638-69-3</p><p>This <a href=\"/assets/951edadca49390b4.pdf\">manual </a>is a step-by-step guidebook for practitioners who are developing local water security action plans (LWSAPs) in local communities. The authors have compiled an original methodology comprising seven interrelated activities, some supported by a separate tailored methodology, which cover stakeholder analysis, public opinion assessment, local water security assessment, and problem analysis and prioritisation. Each of the seven activities comprises two or more steps, making a total of 20 steps in the LWSAP process. All 20 steps, and the deliverables related to each one, are described in detail in the manual.</p>",
-      "file": [
-        "/assets/951edadca49390b4.pdf"
-      ]
-    },
-    {
-      "title": "Participatory planning for biodiversity protection in Western Balkans",
-      "description": "<p>Laušević, R., Bartula, M. (2015). Natural Areas Journal, 36(3):339-344.</p><p>The rich Western Balkans biodiversity and ecosystem services suffer from negative anthropogenic activities. Solving those problems requires a coherent strategy for biodiversity conservation with a focus on the involvement of relevant stakeholders. This paper presents a Local Biodiversity Action Plan (LBAP) as a tool for biodiversity protection and conservation on a local level in five countries of the Western Balkans. Results indicate that the LBAP improved local planning practices and secured stakeholder involvement by adequate stakeholder analysis and well defined incentives in the form of probiodiversity business (PBB). LBAP also enabled municipalities to assess biodiversity potential on their territory, and to develop a comprehensive planning document and biodiversity protection action plan.&nbsp;</p>",
-      "file": [
-        "/assets/f2a0b0e306dfce6f.pdf"
-      ]
-    }
-  ],
-  "publications": "<p></p>",
+  "bibliography_note": "Automatski se prikazuju prva tri rada iz svake kategorije Bibliography nakon sortiranja po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled u CMS listi.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "label": "Квалификације и публикације",
     "heading": "Резиме.",
     "lead": "Истражите моје академско образовање, преузмите биографију и прочитајте изабране публикације.",
-    "brief_cv_title": "Радоје Лаушевић европас кратка биографија",
+    "brief_cv_title": "Радоје Лаушевић Europass кратка биографија",
     "brief_cv_description": "Кратак преглед радног искуства и вештина.",
-    "europass_cv_title": "Радоје Лаушевић европас биографија",
+    "europass_cv_title": "Радоје Лаушевић Europass биографија",
     "europass_cv_description": "Детаљно искуство, образовање, вештине, пројекти и публикације.",
-    "assortis_cv_title": "Ассортис биографија",
-    "assortis_cv_description": "Професионално искуство и списак пројеката у Ассортис формату.",
+    "assortis_cv_title": "Асортис биографија",
+    "assortis_cv_description": "Професионално искуство и списак пројеката у Асортис формату.",
     "bibliography_title": "Комплетна библиографија",
     "education": "<ul><li><p><strong>Доктор биолошких наука, Биолошки факултет, Универзитет у Београду, Србија.</strong> Јул 1992 - Јун 1995</p></li><li><p><strong>Мастер биологије (пред Болонском реформом), Биолошки факултет, Универзитет у Београду, Србија.</strong> Новембар 1987 - Мај 1992</p></li><li><p><strong>Дипломирани биолог (Биолошки науке), Биолошки факултет, Универзитет у Београду, Србија.</strong> Октобар 1983 - Новембар 1987</p></li></ul><p></p>",
-    "seo_description": "",
-    "approved": false,
-    "approved_hash": "",
-    "source_hash": "3387d6352560bf94a45ca215d91b4156507f0c16457f99b08fbf38b47569130c",
-    "status": "Нацрт — потребна провера"
+    "seo_description": "Академско образовање, професионалне квалификације и изабране публикације др Радоја Лаушевића. Преузмите кратку или детаљну Europass биографију.",
+    "source_hash": "3387d6352560bf94a45ca215d91b4156507f0c16457f99b08fbf38b47569130c"
   }
 }
