@@ -1,5 +1,6 @@
 {
   "title": "AdriBioPro2022 – Science, Art and Heritage in Kotor",
+  "path": "/gallery/adribiopro2022-science-art-and-heritage-in-kotor",
   "date": "2022-06-15",
   "topic": [
     "Project and Programme Management",
@@ -198,16 +199,15 @@
     }
   ],
   "body": "<p>Kotor became a meeting place for science, art and cultural heritage during the second International Conference <strong>Adriatic Biodiversity Protection – AdriBioPro2022</strong>, held from <strong>13 to 17 June 2022</strong>. Organised by the Institute of Marine Biology of the University of Montenegro, the conference brought together more than 300 participants from 22 countries. I served as <strong>Chair of the Organizing Committee</strong>.</p><p>This gallery captures moments from a programme that extended beyond scientific presentations. The <em>Water as inspiration</em> exhibition explored connections between artistic expression and aquatic life, while traditional music and dance introduced participants to the cultural heritage of Boka Kotorska. Conversations continued between sessions and during informal gatherings, creating opportunities to exchange ideas and build professional relationships.</p><p>As the final event of the <strong>Explore Cross-border Aquatic Biodiversity – EXChAngE</strong> project, AdriBioPro2022 also connected biodiversity conservation with interpretation, education and sustainable tourism. Together, these photographs recall the people, places and shared experiences that gave the conference its character—and the cooperation behind efforts to protect the Adriatic’s marine and freshwater ecosystems.</p>",
-  "path": "/gallery/adribiopro2022-science-art-and-heritage-in-kotor",
   "seo_description": "Highlights from AdriBioPro2022, a conference held in Kotor with 300+ participants from 22 countries focusing on Adriatic biodiversity conservation, art, education, and sustainable tourism.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "title": "AdriBioPro2022 – Наука, уметност и наслеђе у Котору",
     "summary": "Најважнији догађаји друге Међународне конференције за заштиту јадранске биолошке разноврсности, одржане у Котору, Црна Гора, од 13. до 17. јуна 2022. године. Научне размене, изложба „Вода као инспирација“ и културни сусрети окупили су више од 300 учесника из 22 земље. Био сам председник Организационог одбора.",
     "body": "<p>Котор је постао место сусрета науке, уметности и културног наслеђа током друге Међународне конференције <strong>Заштита јадранске биолошке разноврсности – AdriBioPro2022</strong>, одржане од <strong>13. до 17. јуна 2022.</strong> Конференцију је организовао Институт за морску биологију Универзитета Црне Горе, окупивши више од 300 учесника из 22 земље. Био сам <strong>председник Организационог одбора</strong>.</p><p>Ова галерија бележи тренутке програма који је превазишао научне презентације. Изложба <em>Вода као инспирација</em> истраживала је везе између уметничког изражавања и воденог живота, док су традиционална музика и игра упознали учеснике са културним наслеђем Боке Которске. Разговори су се настављали између сесија и током неформалних окупљања, пружајући прилике за размену идеја и изградњу професионалних односа.</p><p>Као завршни догађај пројекта <strong>Истраживање прекограничне водене биолошке разноврсности – EXChAngE</strong>, AdriBioPro2022 је такође повезао очување биолошке разноврсности са тумачењем, образовањем и одрживим туризмом. Заједно, ове фотографије подсећају на људе, места и заједничка искуства која су конференцији дала карактер — и сарадњу која стоји иза напора заштите јадранских морских и слатководних екосистема.</p>",
     "seo_description": "AdriBioPro2022 окупио је више од 300 учесника из 22 земље у Котору током конференције посвећене заштити јадранске биодиверзитетне разноврсности, укључујући научне и културне програме.",
-    "approved": false,
-    "approved_hash": "",
-    "source_hash": "913772f2a5a3f8af9bf0c90203f1943a7c9395156bb44a34a64397ba458ad25b",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "913772f2a5a3f8af9bf0c90203f1943a7c9395156bb44a34a64397ba458ad25b"
   }
 }
