@@ -2217,7 +2217,8 @@
         {
           "name": "seo_description",
           "label": "SEO opis — English",
-          "type": "text"
+          "type": "text",
+          "description": "English meta description. Ako je prazno, dugme Припреми AI нацрт (српски) automatski ga kreira iz sadržaja galerije i priprema srpsku verziju."
         },
         {
           "name": "sr",
@@ -2265,8 +2266,9 @@
             },
             {
               "name": "seo_description",
-              "label": "SEO opis — English — српски",
-              "type": "text"
+              "label": "SEO опис — српски",
+              "type": "text",
+              "description": "AI dugme prevodi postojeći engleski SEO opis. Ako engleski opis nedostaje, kreira oba opisa iz sadržaja galerije. Ovde unosite isključivo srpski opis."
             },
             {
               "name": "source_hash",
@@ -2310,7 +2312,7 @@
           "ref": "current",
           "confirm": {
             "title": "Припрема превода",
-            "message": "Прво сачувајте измене. AI ће заједно превести наслов, кратак опис, текст галерије, попуњени енглески SEO опис и наслове и описе свих фотографија. Поново отворите галерију и прегледајте нацрт пре одобрења.",
+            "message": "Прво сачувајте измене. AI ће превести текстове галерије и свих фотографија, као и SEO опис. Ако енглески SEO опис недостаје, направиће енглески и српски опис из садржаја галерије. Поново отворите галерију и прегледајте нацрт пре одобрења.",
             "button": "Припреми нацрт"
           },
           "scope": "entry"

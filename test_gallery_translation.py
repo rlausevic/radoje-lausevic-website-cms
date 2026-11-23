@@ -59,6 +59,44 @@ class GalleryTranslation(unittest.TestCase):
    before=self.path.read_text()
    with self.assertRaises(ValueError):translate_sr.apply(data)
    self.assertEqual(self.path.read_text(),before)
+ def test_missing_english_seo_is_generated_with_serbian_in_one_request(self):
+  item=gallery();item.pop('seo_description');self.path.write_text(json.dumps(item))
+  data=self.prepare();response_text=dict(data['translation'],seo_description_en='Gallery of project meetings and cooperation.',seo_description='Галерија пројектних састанака и сарадње.')
+  response={'status':'completed','output':[{'content':[{'type':'output_text','text':json.dumps(response_text)}]}]}
+  with patch.dict(os.environ,{'OPENAI_API_KEY':'test-placeholder'}),patch('urllib.request.urlopen',return_value=io.BytesIO(json.dumps(response).encode())) as request:
+   result=translate_sr.ai_prepare(data)
+  self.assertEqual(request.call_count,1)
+  sent=json.loads(request.call_args.args[0].data)
+  self.assertIn('seo_description_en',sent['text']['format']['schema']['required'])
+  translate_sr.apply(result);saved=json.loads(self.path.read_text())
+  self.assertEqual(saved['seo_description'],response_text['seo_description_en'])
+  self.assertEqual(saved['sr']['seo_description'],response_text['seo_description'])
+  self.assertEqual(saved['sr']['source_hash'],source_hash(saved,KEY))
+  self.assertFalse(saved['sr']['approved'])
+  sync_record(saved,KEY);self.assertNotIn('ажурирање',saved['sr']['status'])
+  saved['sr']['approved']=True;sync_record(saved,KEY);self.assertTrue(ready(saved,KEY))
+  for field in ['title','summary','body','path','date']:self.assertEqual(saved[field],item[field])
+ def test_generated_seo_cannot_replace_existing_english_or_other_content(self):
+  data=self.prepare();data['generated_seo_description']='Replacement SEO'
+  before=self.path.read_text()
+  with self.assertRaisesRegex(ValueError,'empty English SEO'):translate_sr.apply(data)
+  self.assertEqual(self.path.read_text(),before)
+  with self.assertRaisesRegex(ValueError,'only for a gallery'):
+   translate_sr.translation_source({'generated_seo_description':'New SEO'},{'seo_description':''},'posts')
+ def test_generated_seo_rejects_invalid_or_missing_text_without_writing(self):
+  item=gallery();item['seo_description']='';self.path.write_text(json.dumps(item))
+  for english,serbian in [('', 'Опис'),('<p>English</p>','Опис'),('English',''),('x'*301,'Опис'),('English','x'*301),('English','<p>Опис</p>')]:
+   data=self.prepare();data['generated_seo_description']=english;data['translation']['seo_description']=serbian
+   before=self.path.read_text()
+   with self.assertRaises(ValueError):translate_sr.apply(data)
+   self.assertEqual(self.path.read_text(),before)
+ def test_generated_seo_rejects_concurrent_editor_seo_or_source_changes(self):
+  for field,value in [('seo_description','Editor English SEO'),('summary','Updated summary')]:
+   item=gallery();item['seo_description']='';self.path.write_text(json.dumps(item))
+   data=self.prepare();data['generated_seo_description']='Generated English SEO';data['translation']['seo_description']='Генерисани SEO опис'
+   item[field]=value;self.path.write_text(json.dumps(item));before=self.path.read_text()
+   with self.assertRaisesRegex(ValueError,'Nothing was overwritten'):translate_sr.apply(data)
+   self.assertEqual(self.path.read_text(),before)
  def test_concurrent_photo_edits_and_reordering_are_not_overwritten(self):
   for mutation in ['caption','image','sr','order','add']:
    self.path.write_text(json.dumps(gallery()));data=self.prepare();item=gallery()
@@ -98,10 +136,11 @@ class GalleryTranslationBuild(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
    path=next((root/'content/cms/gallery_entries').glob('*.json'))
-   item=json.loads(path.read_text());item['date']='2099-01-01';item['seo_description']='English gallery SEO'
+   item=json.loads(path.read_text());item['date']='2099-01-01';item['seo_description']=''
    path.write_text(json.dumps(item))
    with patch.object(translate_sr,'ROOT',root):
     data=translate_sr.export(str(path.relative_to(root)));data['translation']=translated(data['source'])
+    data['generated_seo_description']='English gallery SEO'
     data['translation']['seo_description']='Преведен SEO опис галерије'
     data['translation']['photos.0.title']='Посебан наслов фотографије'
     data['translation']['photos.0.caption']='Посебан опис фотографије'
