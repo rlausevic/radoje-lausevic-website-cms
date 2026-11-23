@@ -3,10 +3,10 @@
   "path": "/post/SKILLS-AdriBioPro2026",
   "description": "SA SKILLS presentations at AdriBioPro2026 connect labour-market evidence, qualifications, practical learning and digital cooperation for South Adriatic blue growth.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Презентације SA SKILLS на AdriBioPro2026 повезују податке тржишта рада, квалификације, практично учење и дигиталну сарадњу за плави раст Јужног Јадрана.",
-    "source_hash": "27b45118da53ae30985677131fbbf1d8d1b6ee777392f69cb610e72040acc051"
+    "source_hash": "27b45118da53ae30985677131fbbf1d8d1b6ee777392f69cb610e72040acc051",
+    "approved_hash": "1c4596f60c981a45f0af62f05cd5d9ed9186637715ac533dcfa5b3d0c443b32a"
   }
 }

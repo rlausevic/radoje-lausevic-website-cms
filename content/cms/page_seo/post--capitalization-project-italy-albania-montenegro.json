@@ -3,10 +3,10 @@
   "path": "/post/capitalization-project-italy-albania-montenegro",
   "description": "An overview of Interreg South Adriatic capitalisation opportunities, explaining how existing project results can support new cross-border cooperation.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Преглед могућности капитализације у програму Interreg Јужни Јадран: како резултати постојећих пројеката могу подржати нову прекограничну сарадњу.",
-    "source_hash": "334d461a5ea0de6d39cd1b6b6b0d3169a7228e43b90382e5d1fbbcbd05685cd6"
+    "source_hash": "334d461a5ea0de6d39cd1b6b6b0d3169a7228e43b90382e5d1fbbcbd05685cd6",
+    "approved_hash": "f65a3690da35e0829754f1b85ce15cfc2198389e3cb5315d001cb1d8e920e685"
   }
 }
