@@ -3,10 +3,10 @@
   "path": "/post/adriatic-sea-biodiversity",
   "description": "Radoje Laušević supports an EXCHANGE workshop in Dubrovnik, connecting Adriatic biodiversity knowledge with tourism guides, visitor interpretation and Blue Pass.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Радоје Лаушевић подржава радионицу EXCHANGE у Дубровнику која повезује знање о јадранском биодиверзитету, туристичке водиче и понуду Blue Pass.",
-    "source_hash": "8ca0ac924acc1bfd597ce3f14911581eccaa40859706d3e63c4ba95d5afff8fe"
+    "source_hash": "8ca0ac924acc1bfd597ce3f14911581eccaa40859706d3e63c4ba95d5afff8fe",
+    "approved_hash": "805d561acb4d8f4741a9a386b17176b40ce28b0c3c4cbd0715dea0b7ecea98c3"
   }
 }
