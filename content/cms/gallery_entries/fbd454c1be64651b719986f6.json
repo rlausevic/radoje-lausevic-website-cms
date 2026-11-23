@@ -10,33 +10,67 @@
     {
       "title": "Radoje Lasušević",
       "image": "/assets/radoje-lausevic-20251215.jpg",
-      "caption": "Radoje Laušević at AZA4ICE Workshop (December 2025)"
+      "caption": "Radoje Laušević at AZA4ICE Workshop (December 2025)",
+      "sr": {
+        "title": "Радоје Лаушевић",
+        "caption": "Радоје Лаушевић на радионици АЗА4ICE (децембар 2025)"
+      }
     },
     {
       "title": "Workshop presentation",
       "image": "/assets/ws-presentation-20251215.jpg",
-      "caption": "AZA4ICE Workshop presentation, Podgorica, Montenegro (December 2025)"
+      "caption": "AZA4ICE Workshop presentation, Podgorica, Montenegro (December 2025)",
+      "sr": {
+        "title": "Презентација на радионици",
+        "caption": "Презентација на радионици АЗА4ICE, Подгорица, Црна Гора (децембар 2025)"
+      }
     },
     {
       "title": "Workshop participants",
       "image": "/assets/ws-20251215.jpg",
-      "caption": "AZA4ICE Workshop participants, Podgorica, Montenegro (December 2025)"
+      "caption": "AZA4ICE Workshop participants, Podgorica, Montenegro (December 2025)",
+      "sr": {
+        "title": "Учесници радионице",
+        "caption": "Учесници радионице АЗА4ICE, Подгорица, Црна Гора (децембар 2025)"
+      }
     },
     {
       "title": "Radoje Laušević",
       "image": "/assets/lirrie-ulcinj-lausevic-20250309.jpg",
-      "caption": "Radoje Laušević at AZA4ICE Workshop, Ulcinj, Montenegro (May 2025)"
+      "caption": "Radoje Laušević at AZA4ICE Workshop, Ulcinj, Montenegro (May 2025)",
+      "sr": {
+        "title": "Радоје Лаушевић",
+        "caption": "Радоје Лаушевић на радионици АЗА4ICE, Улцињ, Црна Гора (мај 2025)"
+      }
     },
     {
       "title": "Workshop presenters",
       "image": "/assets/ws-ulcinj-20250513.jpg",
-      "caption": "Presenters at AZA4ICE Workshop, Ulcinj, Montenegro (May 2025)"
+      "caption": "Presenters at AZA4ICE Workshop, Ulcinj, Montenegro (May 2025)",
+      "sr": {
+        "title": "Предавачи на радионици",
+        "caption": "Предавачи на радионици АЗА4ICE, Улцињ, Црна Гора (мај 2025)"
+      }
     },
     {
       "title": "Workshop audience",
       "image": "/assets/lirrie-ulcinj-radjenovic-20250309.jpg",
-      "caption": "Audience at AZA4ICE Workshop, Ulcinj, Montenegro (May 2025)"
+      "caption": "Audience at AZA4ICE Workshop, Ulcinj, Montenegro (May 2025)",
+      "sr": {
+        "title": "Публика на радионици",
+        "caption": "Публика на радионици АЗА4ICE, Улцињ, Црна Гора (мај 2025)"
+      }
     }
   ],
-  "body": "<p>This gallery brings together photographs from stakeholder engagement, consultation and learning activities within <a href=\"https://www.radojelausevic.com/project/AZA4ICE\">AZA4ICE</a> — Allocated Zones for Circular Aquaculture to Trigger the Transition to an Inclusive Circular Economy.</p><p>Focusing on Montenegro and the Šasko Lake pilot area, these activities connected public authorities, businesses, researchers and community representatives to explore practical pathways towards circular aquaculture. Through the Living Responsible Research and Innovation Ecosystem (LiRRIE), participants shared knowledge, discussed local challenges and helped shape a common vision for responsible aquaculture development.</p><p>Contracted by the Chamber of Commerce of Montenegro, I supported stakeholder mapping, facilitated consultations and delivered training on circular aquaculture and business transformation. This collaborative work informed Montenegro’s Circular Aquaculture Action Plan and approaches for continued cooperation and transfer of project results.</p>"
+  "body": "<p>This gallery brings together photographs from stakeholder engagement, consultation and learning activities within <a href=\"https://www.radojelausevic.com/project/AZA4ICE\">AZA4ICE</a> — Allocated Zones for Circular Aquaculture to Trigger the Transition to an Inclusive Circular Economy.</p><p>Focusing on Montenegro and the Šasko Lake pilot area, these activities connected public authorities, businesses, researchers and community representatives to explore practical pathways towards circular aquaculture. Through the Living Responsible Research and Innovation Ecosystem (LiRRIE), participants shared knowledge, discussed local challenges and helped shape a common vision for responsible aquaculture development.</p><p>Contracted by the Chamber of Commerce of Montenegro, I supported stakeholder mapping, facilitated consultations and delivered training on circular aquaculture and business transformation. This collaborative work informed Montenegro’s Circular Aquaculture Action Plan and approaches for continued cooperation and transfer of project results.</p>",
+  "sr": {
+    "title": "АЗА4ICE – Укључивање заинтересованих страна и кружна аквакултура",
+    "summary": "Састанци заинтересованих страна, радионице и обуке у циљу подршке кружној аквакултури и инклузивној сарадњи у Црној Гори кроз пројекат АЗА4ICE.",
+    "body": "<p>Ова галерија окупља фотографије са активности укључивања заинтересованих страна, консултација и учења у оквиру <a href=\"https://www.radojelausevic.com/project/AZA4ICE\">АЗА4ICE</a> — Додељене зоне за кружну аквакултуру као покретач транзиције ка инклузивној кружној економији.</p><p>Фокусирајући се на Црну Гору и пилот област Шашког језера, ове активности су повезале јавне институције, привреду, истраживаче и представнике заједнице ради истраживања практичних путева ка кружној аквакултури. Кроз Иновативни екосистем за одговорна истраживања и иновације (LiRRIE), учесници су размењивали знања, разговарали о локалним изазовима и помогли у обликовању заједничке визије одговорног развоја аквакултуре.</p><p>Уговорен од стране Привредне коморе Црне Горе, пружао сам подршку у мапирању заинтересованих страна, олакшавао консултације и држао обуке о кружној аквакултури и трансформацији пословања. Ова заједничка сарадња допринела је изради Акционог плана кружне аквакултуре Црне Горе и приступа за наставак сарадње и пренос резултата пројекта.</p>",
+    "seo_description": "",
+    "approved": false,
+    "approved_hash": "",
+    "source_hash": "828fb84cbd838cb273d9793070495295d6b9938450365c7e03629d71439a621f",
+    "status": "Нацрт — потребна провера"
+  }
 }
