@@ -3,10 +3,10 @@
   "path": "/post/BLUECONNECT-Final-Conference",
   "description": "Radoje Laušević chairs the T4 BlueConnect session in Kotor and co-authors a poster linking digital cooperation, pilot centres and Adriatic blue growth.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Радоје Лаушевић председава сесијом T4 BlueConnect у Котору и коаутор је постера који повезује дигиталну сарадњу, пилот-центре и јадрански плави раст.",
-    "source_hash": "ac65d9460bdd59ee07dfa8bc3c940173a01a951a95640a3c4d4655bef6e1da0f"
+    "source_hash": "ac65d9460bdd59ee07dfa8bc3c940173a01a951a95640a3c4d4655bef6e1da0f",
+    "approved_hash": "47ed9da6acee40b90fb78b48bf5306927c38cbfa7c36787ce969dda6c9235cf9"
   }
 }

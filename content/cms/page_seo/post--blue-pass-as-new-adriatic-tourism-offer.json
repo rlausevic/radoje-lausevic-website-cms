@@ -3,10 +3,10 @@
   "path": "/post/blue-pass-as-new-adriatic-tourism-offer",
   "description": "At EXCHANGE’s closing event in Dubrovnik, Radoje Laušević presents the Blue Pass app and Action Plan for a shared Adriatic biodiversity tourism offer.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "На завршном догађају EXCHANGE у Дубровнику Радоје Лаушевић представља апликацију Blue Pass и акциони план за заједничку јадранску туристичку понуду.",
-    "source_hash": "30fc150613f60ab53b76ae925c5087004d5beb0ff58a327538f77fa652a24e25"
+    "source_hash": "30fc150613f60ab53b76ae925c5087004d5beb0ff58a327538f77fa652a24e25",
+    "approved_hash": "420903e05d6bbc7a58cb8530b71f03baffadfa47ff094e0f736e91456c1874ec"
   }
 }
