@@ -146,13 +146,13 @@
   "body": "<p>Photographs from the workshop “Sustainable Fisheries – The Fight Against Illegal Fishing”, held at the Institute of Marine Biology in Kotor, Montenegro, on 12 June 2018, within the MonteAqua project.</p><p>The programme connected Slovenian, EU and Montenegrin perspectives on sustainable fisheries and the fight against illegal, unreported and unregulated (IUU) fishing. Sessions addressed monitoring and inspection, the use of scientific data in fisheries management, and measures to combat illegal fishing in Montenegro.</p><p>As MonteAqua Project Manager, my contribution included presenting the project and introducing the 9mCollab platform. The gallery documents an exchange of scientific expertise and policy and inspection experience focused on the responsible management of marine resources.</p>",
   "seo_description": "MonteAqua Workshop in Kotor gathered Slovenian and Montenegrin experts to exchange knowledge on sustainable fisheries and combating illegal fishing.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "title": "МонтеАква – одрживи риболов и борба против илегалног риболова",
     "summary": "Размена словеначког и црногорског искуства у одрживом риболову и контроли илегалног, нерегистрованог и нерегулисаног риболова.",
     "body": "<p>Фотографије са радионице „Одрживи риболов – борба против илегалног риболова“, одржане на Институту за морску биологију у Котору, Црна Гора, 12. јуна 2018. у оквиру пројекта МонтеАква.</p><p>Програм је повезао словеначке, ЕУ и црногорске перспективе о одрживом риболову и борби против илегалног, нерегистрованог и нерегулисаног (ИУУ) риболова. Теме су обухватале праћење и инспекцију, употребу научних података у управљању риболовом и мере за сузбијање илегалног риболова у Црној Гори.</p><p>Као менаџер пројекта МонтеАква, мој допринос је укључивао представљање пројекта и увођење платформе 9mCollab. Галерија документује размену научних стручности и искуства у политици и инспекцијама usмерену на одговорно управљање морским ресурсима.</p>",
     "seo_description": "Радионица МонтеАква у Котору окупила стручњаке из Словеније и Црне Горе ради размене искуства у одрживом риболову и борби против илегалног риболова.",
-    "source_hash": "861c8089cfaf9a4354496028badd30c3111d1905366620d1899d8ca22eccb5f4"
+    "source_hash": "861c8089cfaf9a4354496028badd30c3111d1905366620d1899d8ca22eccb5f4",
+    "approved_hash": "49774e9ba3e57d6a1a2d78c4e068c0f13acc40f8fed637dead606e8c38b68ece"
   }
 }
