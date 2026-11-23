@@ -3,10 +3,10 @@
   "path": "/project/Aquatic-ecosystems",
   "description": "Radoje Laušević’s research on Vlasina Reservoir examined algal composition and seasonal and spatial patterns of phytoplankton in Serbia’s aquatic ecosystems.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "Истраживања Радоја Лаушевића на Власинском језеру обухватила су састав алги и сезонске и просторне промене фитопланктона водених екосистема Србије.",
-    "approved": false,
-    "source_hash": "1a19eb0d9d2f5426356ac5ceaafcf21076b5fd81a9ae63b086b9459b99cc5ff2",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "1a19eb0d9d2f5426356ac5ceaafcf21076b5fd81a9ae63b086b9459b99cc5ff2"
   }
 }
