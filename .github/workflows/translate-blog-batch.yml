@@ -16,7 +16,7 @@ jobs:
       - name: Prepare drafts using the existing translation service
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_TRANSLATION_MODEL: ${{ vars.OPENAI_TRANSLATION_MODEL }}
+          OPENAI_TRANSLATION_MODEL: gpt-4.1
         run: |
           python - <<'PY'
           import concurrent.futures,json,sys,time
@@ -24,7 +24,7 @@ jobs:
           sys.path.insert(0,'.')
           from scripts.translate_sr import export,ai_prepare,apply
           seo={d['path']:d for p in Path('content/cms/page_seo').glob('*.json') if (d:=json.loads(p.read_text()))}
-          paths=[p for p in sorted(Path('content/cms/posts').glob('*.json')) if not (json.loads(p.read_text()).get('sr')or{}).get('body')]
+          paths=[p for p in sorted(Path('content/cms/posts').glob('*.json')) if not (json.loads(p.read_text()).get('sr')or{}).get('approved')]
           def translate(path):
               for attempt in range(3):
                   try:
