@@ -9,49 +9,96 @@
     {
       "title": "EXCHANGE Project Partners",
       "image": "/assets/20220405project-team.jpg",
-      "caption": "Project partners at the EXCHANGE exhibition stand during the International Economic Fair Mostar, 6 April 2022."
+      "caption": "Project partners at the EXCHANGE exhibition stand during the International Economic Fair Mostar, 6 April 2022.",
+      "sr": {
+        "title": "Партнери на пројекту EXCHANGE",
+        "caption": "Партнери на пројекту на штанду EXCHANGE током Међународног економског сајма Мостар, 6. април 2022."
+      }
     },
     {
       "title": "Radoje Laušević, Branka Pestorić and Aleksandar Joksimović",
       "image": "/assets/20220405lausevic-pestoric-joksimovic-cover-1.jpg",
-      "caption": "Radoje Laušević, Branka Pestorić and Aleksandar Joksimović at the Aquarium Boka stand during the International Economic Fair Mostar, 5 April 2022."
+      "caption": "Radoje Laušević, Branka Pestorić and Aleksandar Joksimović at the Aquarium Boka stand during the International Economic Fair Mostar, 5 April 2022.",
+      "sr": {
+        "title": "Радеје Лаушевић, Бранка Песторић и Александар Јоксимовић",
+        "caption": "Радеје Лаушевић, Бранка Песторић и Александар Јоксимовић на штанду Акваријум Бока током Међународног економског сајма Мостар, 5. април 2022."
+      }
     },
     {
       "title": "Presenting Aquarium Boka and Blue Pass",
       "image": "/assets/20220405lausevic-pestoric-joksimovic.jpg",
-      "caption": "Radoje Laušević, Branka Pestorić and Aleksandar Joksimović, with a wider view of the exhibition stand presenting Aquarium Boka and the EXCHANGE tourism offer."
+      "caption": "Radoje Laušević, Branka Pestorić and Aleksandar Joksimović, with a wider view of the exhibition stand presenting Aquarium Boka and the EXCHANGE tourism offer.",
+      "sr": {
+        "title": "Презентација Акваријум Бока и Blue Pass",
+        "caption": "Радеје Лаушевић, Бранка Песторић и Александар Јоксимовић са ширим приказом штанда за презентацију Акваријум Бока и туристичке понуде EXCHANGE."
+      }
     },
     {
       "title": "Nikola Zovko at the Stand",
       "image": "/assets/20220405nikola-zovko.jpg",
-      "caption": "Nikola Zovko at the EXCHANGE exhibition stand, representing Hutovo Blato Nature Park within the cross-border partnership."
+      "caption": "Nikola Zovko at the EXCHANGE exhibition stand, representing Hutovo Blato Nature Park within the cross-border partnership.",
+      "sr": {
+        "title": "Никола Зовко на штанду",
+        "caption": "Никола Зовко на штанду EXCHANGE, представљајући Природни парк Хутово Блато у оквиру прекограничног партнерства."
+      }
     },
     {
       "title": "Dragana Samardžić and Jovan Ristić",
       "image": "/assets/20220405samardzic-ristic.jpg",
-      "caption": "Dragana Samardžić and Jovan Ristić at the exhibition stand, representing the Tourist Organisation of Kotor."
+      "caption": "Dragana Samardžić and Jovan Ristić at the exhibition stand, representing the Tourist Organisation of Kotor.",
+      "sr": {
+        "title": "Драгана Самарџић и Јован Ристић",
+        "caption": "Драгана Самарџић и Јован Ристић на штанду, представљају Туристичку организацију Котор."
+      }
     },
     {
       "title": "Selma Tule and Ramiz Bašić",
       "image": "/assets/20220405selma-tule-ramiz-basic.jpg",
-      "caption": "Selma Tule and Ramiz Bašić at the EXCHANGE stand, representing the Tourist Board of Herzegovina-Neretva Canton."
+      "caption": "Selma Tule and Ramiz Bašić at the EXCHANGE stand, representing the Tourist Board of Herzegovina-Neretva Canton.",
+      "sr": {
+        "title": "Селма Туле и Рамиз Башић",
+        "caption": "Селма Туле и Рамиз Башић на штанду EXCHANGE, представљају Туристичку заједницу Херцеговачко-неретванског кантона."
+      }
     },
     {
       "title": "Valter Kožul, Nenad Antolović and Nikša Glavić",
       "image": "/assets/20220405valter-kozul-nenad-antolovic-niksa-glavic.jpg",
-      "caption": "Valter Kožul, Nenad Antolović and Nikša Glavić from the University of Dubrovnik at the EXCHANGE exhibition stand."
+      "caption": "Valter Kožul, Nenad Antolović and Nikša Glavić from the University of Dubrovnik at the EXCHANGE exhibition stand.",
+      "sr": {
+        "title": "Валтер Кожељ, Ненад Антоловић и Никша Главић",
+        "caption": "Валтер Кожељ, Ненад Антоловић и Никша Главић са Универзитета Дубровник на штанду EXCHANGE."
+      }
     },
     {
       "title": "The EXCHANGE Team",
       "image": "/assets/20220406project-partners.jpg",
-      "caption": "Members of the EXCHANGE project team gathered at the exhibition stand during the International Economic Fair Mostar 2022."
+      "caption": "Members of the EXCHANGE project team gathered at the exhibition stand during the International Economic Fair Mostar 2022.",
+      "sr": {
+        "title": "Тим EXCHANGE",
+        "caption": "Чланови тима EXCHANGE пројекта окупљени на штанду током Међународног економског сајма Мостар 2022."
+      }
     },
     {
       "title": "Blue Pass – Connecting Destinations",
       "image": "/assets/20220405bluepassticket-1.jpg",
-      "caption": "The Blue Pass ticket, offering discounted visits to participating attractions across Croatia, Bosnia and Herzegovina, and Montenegro."
+      "caption": "The Blue Pass ticket, offering discounted visits to participating attractions across Croatia, Bosnia and Herzegovina, and Montenegro.",
+      "sr": {
+        "title": "Blue Pass – Повезивање дестинација",
+        "caption": "Карта Blue Pass, која нуди умањене цене улазница за учесничке атракције широм Хрватске, Босне и Херцеговине и Црне Горе."
+      }
     }
   ],
   "body": "<p>Photographs from EXCHANGE’s participation in the International Economic Fair Mostar 2022, bringing together project partners to promote aquatic biodiversity, regional cooperation and sustainable tourism.</p><p>The fair provided an opportunity to present Blue Pass and launch its digital guide for Android and iOS. The guide connects natural and cultural heritage with thematic visitor routes across Croatia, Bosnia and Herzegovina, and Montenegro, while the Blue Pass ticket offers discounted visits to participating attractions.</p><p>I joined colleagues and project partners at the exhibition stand to present this shared tourism offer. The gallery captures the people behind the initiative, exchanges at the stand and the Blue Pass ticket linking the project’s destinations.</p><p><a href=\"https://www.radojelausevic.com/post/exchange-at-the-international-economic-fair-mostar-2022/\">Read more about EXCHANGE at the fair</a>.</p>",
-  "path": "/gallery/exchange-at-the-international-economic-fair-mostar-2022"
+  "path": "/gallery/exchange-at-the-international-economic-fair-mostar-2022",
+  "seo_description": "EXCHANGE presented Blue Pass and its digital guide at the International Economic Fair Mostar 2022, promoting aquatic biodiversity, regional cooperation and sustainable tourism across Croatia, Bosnia and Herzegovina, and Montenegro.",
+  "sr": {
+    "title": "ЈАВНА ПРЕЗЕНТАЦИЈА EXCHANGE на Међународном економском сајму Мостар 2022",
+    "summary": "Презентација Blue Pass и његовог дигиталног водича на Међународном економском сајму Мостар 2022.",
+    "body": "<p>Фотографије са учешћа EXCHANGE на Међународном економском сајму Мостар 2022, који окупља партнере на пројекту ради промоције водене биодиверзитетности, регионалне сарадње и одрживог туризма.</p><p>Сајам је пружио прилику за представљање Blue Pass и лансирање дигиталног водича за Android и iOS. Водич повезује природно и културно наслеђе са тематским туристичким рутама кроз Хрватску, Босну и Херцеговину и Црну Гору, док карта Blue Pass нуди умањену цену улазница за учесничке атракције.</p><p>Придружио сам се колегама и партнерима на штанду како бисмо представили ову заједничку туристичку понуду. Галерија приказује људе иза ове иницијативе, размене на штанду и карту Blue Pass која повезује дестинације пројекта.</p><p><a href=\"https://www.radojelausevic.com/post/exchange-at-the-international-economic-fair-mostar-2022/\">Прочитајте више о EXCHANGE на сајму</a>.</p>",
+    "seo_description": "EXCHANGE је представио Blue Pass и дигитални водич за повезивање туристичких дестинација на Међународном економском сајму Мостар 2022.",
+    "approved": false,
+    "approved_hash": "",
+    "source_hash": "b115bac2d6863599af326e36a715123de6b4d8175af7791183c759e28d57506e",
+    "status": "Нацрт — потребна провера"
+  }
 }
