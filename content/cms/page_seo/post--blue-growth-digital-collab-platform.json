@@ -3,10 +3,10 @@
   "path": "/post/blue-growth-digital-collab-platform",
   "description": "A BLUECONNECT workshop in Kotor gathers feedback on its digital collaboration platform and marketplace to support Adriatic businesses and knowledge exchange.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Радионица BLUECONNECT у Котору прикупља предлоге за дигиталну платформу сарадње и тржиште ради подршке јадранским предузећима и размени знања.",
-    "source_hash": "dd40521e252480f416f8648aeba80c2e8e097159e6cc16c49d43b8afbba0d79e"
+    "source_hash": "dd40521e252480f416f8648aeba80c2e8e097159e6cc16c49d43b8afbba0d79e",
+    "approved_hash": "ef5e7ca98553b1eeba4b45f21e3c5645f6de7913064e4e4ed5387c9cc69500d4"
   }
 }

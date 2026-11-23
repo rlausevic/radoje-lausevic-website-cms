@@ -3,10 +3,10 @@
   "path": "/video/c013c799cabc193b",
   "description": "An introduction to Montenegro’s Blue Growth Cluster, connecting fisheries, aquaculture, tourism and maritime transport through skills and technology transfer.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Увод у Кластер плавог раста Црне Горе, који повезује рибарство, аквакултуру, туризам и поморски транспорт кроз вештине и трансфер технологије.",
-    "source_hash": "01b490759f422356ea063451d67ca0ac773bbc4105d2cb3fb831c5db70125e6f"
+    "source_hash": "01b490759f422356ea063451d67ca0ac773bbc4105d2cb3fb831c5db70125e6f",
+    "approved_hash": "8df0fc756de6775b6c46713441fa3edbd818bf2af9a536f9a4a35d7e1d1db27b"
   }
 }
