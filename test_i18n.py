@@ -13,6 +13,33 @@ def draft(item,key,**values):
  return item
 
 class Editorial(unittest.TestCase):
+ def test_network_name_translation_and_existing_approvals(self):
+  key='network.items';item={'name':'Original organisation','body':'English collaboration'}
+  item['sr']={'approved':True,'body':'Опис сарадње'}
+  fields=['body','seo_description']
+  item['sr']['source_hash']=digest({f:item.get(f) or '' for f in fields})
+  item['sr']['approved_hash']=digest({f:item['sr'].get(f) or '' for f in fields})
+  before=copy.deepcopy(item);sync_record(item,key);self.assertEqual(item,before)
+  self.assertTrue(ready(item,key));self.assertEqual(localize(item,key)['name'],item['name'])
+  for target,field in [('en','body'),('sr','body')]:
+   changed=copy.deepcopy(item);(changed if target=='en' else changed['sr'])[field]='Changed'
+   self.assertFalse(ready(changed,key))
+  item['sr']['name']='Назив организације'
+  self.assertFalse(ready(item,key));sync_record(item,key);self.assertFalse(item['sr']['approved'])
+  item['sr']['refresh_source']=True;sync_record(item,key);self.assertFalse(ready(item,key))
+  item['sr']['approved']=True;sync_record(item,key);self.assertTrue(ready(item,key))
+  self.assertEqual(localize(item,key)['name'],'Назив организације')
+  self.assertEqual(item['name'],'Original organisation')
+  for target in ['en','sr']:
+   changed=copy.deepcopy(item);(changed if target=='en' else changed['sr'])['name']='Changed name'
+   self.assertFalse(ready(changed,key))
+  config=json.loads((ROOT/'.pages.yml').read_text())
+  network=next(x for x in config['content'] if x['name']=='network')
+  fields=next(x for x in network['fields'] if x['name']=='items')['fields']
+  sr=next(x for x in fields if x['name']=='sr')
+  self.assertEqual(next(x for x in sr['fields'] if x['name']=='name')['type'],'string')
+  from i18n import source_text
+  self.assertEqual(source_text(item,key)['name'],'Original organisation')
  def test_recommendation_author_translation_and_existing_approvals(self):
   key='about.recommendations'
   item={'author':'Original author, role','summary':'English summary','body':'English body'}
@@ -132,6 +159,36 @@ class Editorial(unittest.TestCase):
   self.assertEqual(locale.target('/blog/page/2/'),'/sr/blog/page/2/')
 
 class BilingualBuild(unittest.TestCase):
+ def test_network_names_cards_search_and_recommendation_links(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
+   path=root/'content/cms/network.json';data=json.loads(path.read_text())
+   entries=data['items'][:3]
+   for item,name in zip(entries,['Преведена организација','','Неодобрена организација']):
+    draft(item,'network.items',name=name,body='<p>Преведена сарадња</p>')
+    if name!='Неодобрена организација':item['sr']['approved']=True;sync_record(item,'network.items')
+   data['items']=entries;path.write_text(json.dumps(data,ensure_ascii=False))
+   about=root/'content/cms/about.json';a=json.loads(about.read_text())
+   a['recommendations'][0]['related_contents']=[entries[0]['id']]
+   about.write_text(json.dumps(a,ensure_ascii=False))
+   from network_data import sync_network_index
+   sync_network_index(root)
+   for item in entries:
+    reference=json.loads((root/f"content/cms/network_references/{item['id']}.json").read_text())
+    self.assertEqual(reference['name'],item['name'])
+   result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr)
+   en=(root/'dist/about/index.html').read_text();sr=(root/'dist/sr/about/index.html').read_text()
+   self.assertIn('<h3>Преведена организација</h3>',sr)
+   self.assertIn('data-search="Преведена организација',sr)
+   self.assertIn('#network-'+entries[0]['id']+'">Преведена организација</a>',sr)
+   self.assertNotIn('Неодобрена организација',sr)
+   for item in entries:
+    self.assertIn('<h3>'+item['name']+'</h3>',en)
+    self.assertIn('id="network-'+item['id']+'"',sr)
+   for item in entries[1:]:self.assertIn('<h3>'+item['name']+'</h3>',sr)
+   self.assertNotIn('Преведена организација',en)
+   self.assertEqual(json.loads(path.read_text())['items'],entries)
  def test_experience_titles_in_both_views_keep_english_selection(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))

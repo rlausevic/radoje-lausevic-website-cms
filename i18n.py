@@ -28,7 +28,7 @@ def translated_text(item,key):
  sr=item.get('sr') or {}
  return {f:sr.get(f) or '' for f in FIELDS[key]+['seo_description']}
 def translation_hash(item,key):return digest(translated_text(item,key))
-OPTIONAL_FIELDS={'about.recommendations':'author','experience.items':'title'}
+OPTIONAL_FIELDS={'about.recommendations':'author','experience.items':'title','network.items':'name'}
 def legacy_optional_field_ready(item,key):
  # Preserve verified old approvals only while the newly translatable field is empty.
  # Adding that translation requires new source fingerprints and editorial approval.
@@ -43,7 +43,7 @@ def legacy_optional_field_ready(item,key):
 
 def complete(item,key):
  sr=item.get('sr') or {}
- # Optional attribution/title fields may retain their English original.
+ # Optional attribution/title/name fields may retain their English original.
  # SEO is optional, with translated summary fallback.
  return all(isinstance(sr.get(f),str) and bool(sr[f].strip()) for f in FIELDS[key] if item.get(f) and f!=OPTIONAL_FIELDS.get(key))
 def ready(item,key):

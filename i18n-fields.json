@@ -83,6 +83,7 @@
     "body"
   ],
   "network.items": [
+    "name",
     "body"
   ],
   "about.recommendations": [
