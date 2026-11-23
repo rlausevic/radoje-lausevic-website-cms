@@ -272,13 +272,13 @@
   "body": "<p>This gallery brings together photographs from conferences, workshops and fieldwork within <a href=\"https://www.radojelausevic.com/project/TOUR\">TOUR — TOURists friends of the environment</a>. The project connected partners and stakeholders from Italy, Albania and Montenegro to advance environmentally responsible tourism in the South Adriatic.</p><p>From discussions with tourism operators and local communities to visits exploring natural landscapes and conservation practices, these activities created opportunities to exchange experience and develop practical approaches to ecotourism. They supported a shared vision linking environmental protection, cultural heritage and local economic opportunities.</p><p>As Tourism and Conservation Specialist, contracted by the Tourism Organisation of Kotor, I supported workshops, business exchanges and conference preparation in Montenegro, helping connect tourism development with the conservation of natural landscapes.</p>",
   "seo_description": "A gallery showcasing photos from TOUR project events exploring ecotourism, nature conservation, and cross-border cooperation in the South Adriatic region.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "title": "ТОУР – Конференције, радионице и теренски рад",
     "summary": "Конференције, радионице и теренски рад који проучавају еко-туризам, заштиту природе и прекограничну сарадњу у Јужном Јадрану у оквиру пројекта TOUR.",
     "body": "<p>Ова галерија окупља фотографије са конференција, радионица и теренских радова у оквиру <a href=\"https://www.radojelausevic.com/project/TOUR\">TOUR — Приятели туриста и природе</a>. Пројекат је повезао партнере и заинтересоване стране из Италије, Албаније и Црне Горе ради унапређења еколошки одговорног туризма у Јужном Јадрану.</p><p>Од разговора са туристичким оператерима и локалним заједницама до посета које су истраживале природне пејзаже и праксе заштите природе, ове активности су пружиле прилике за размену искустава и развој практичних приступа еко-туризму. Подржале су заједничку визију која повезује заштиту животне средине, културно наслеђе и локалне економске могућности.</p><p>Као стручњак за туризам и заштиту природе, ангажован од стране Туристичке организације Котора, подржавао сам радионице, пословне размене и припрему конференција у Црној Гори, помажући повезивање развоја туризма са очувањем природних пејзажа.</p>",
     "seo_description": "Фотографије са конференција, радионица и теренских активности у оквиру пројекта TOUR који промовише еко-туризам и заштиту природе у Јужном Јадрану.",
-    "source_hash": "2c898b9132ba7d2c71311a9b6387415094c21edad55d2e3df319f84fe506cfe5"
+    "source_hash": "2c898b9132ba7d2c71311a9b6387415094c21edad55d2e3df319f84fe506cfe5",
+    "approved_hash": "74960ebc12235b715460f8e33399c2e8abafa8d34d8d18df06eb05268162e329"
   }
 }
