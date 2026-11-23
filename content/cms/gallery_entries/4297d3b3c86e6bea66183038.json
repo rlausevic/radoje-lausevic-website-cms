@@ -10,178 +10,310 @@
     {
       "title": "Kick off meeting participants",
       "image": "/assets/2024-10-08kick-off-participant-2.jpg",
-      "caption": "BLUECONNECT Kickoff meeting participants, Podgorica, Montenegro (October 2024)"
+      "caption": "BLUECONNECT Kickoff meeting participants, Podgorica, Montenegro (October 2024)",
+      "sr": {
+        "title": "Учесници почетног састанка",
+        "caption": "Учесници почетног састанка BLUECONNECT-а, Подгорица, Црна Гора (октобар 2024)"
+      }
     },
     {
       "title": "Project partners",
       "image": "/assets/2024-10-08kick-off-partners-1.jpg",
-      "caption": "Project partners at the BLUECONNECT Kickoff meeting, Podgorica, Montenegro (October 2024)"
+      "caption": "Project partners at the BLUECONNECT Kickoff meeting, Podgorica, Montenegro (October 2024)",
+      "sr": {
+        "title": "Партнери на пројекту",
+        "caption": "Партнери на пројекту на почетном састанку BLUECONNECT-а, Подгорица, Црна Гора (октобар 2024)"
+      }
     },
     {
       "title": "Planning process",
       "image": "/assets/2024-10-08kick-off-wg-1.jpg",
-      "caption": "Planning process at the BLUECONNECT Kickoff meeting, Podgorica, Montenegro (October 2024)"
+      "caption": "Planning process at the BLUECONNECT Kickoff meeting, Podgorica, Montenegro (October 2024)",
+      "sr": {
+        "title": "Процес планирања",
+        "caption": "Процес планирања на почетном састанку BLUECONNECT-а, Подгорица, Црна Гора (октобар 2024)"
+      }
     },
     {
       "title": "Project team meeting",
       "image": "/assets/2025-05-17ptm-1.jpg",
-      "caption": "Participants of the BLUECONNECT Project team meeting, Mostar (May 2025)"
+      "caption": "Participants of the BLUECONNECT Project team meeting, Mostar (May 2025)",
+      "sr": {
+        "title": "Састанак пројектног тима",
+        "caption": "Учесници састанка пројектног тима BLUECONNECT-а, Мостар (мај 2025)"
+      }
     },
     {
       "title": "Project presentation",
       "image": "/assets/2025-11-06ws-1.jpg",
-      "caption": "Project presentation the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)"
+      "caption": "Project presentation the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)",
+      "sr": {
+        "title": "Презентација пројекта",
+        "caption": "Презентација пројекта на састанку пројектног тима BLUECONNECT-а, Котор, Црна Гора (новембар 2025)"
+      }
     },
     {
       "title": "Project team meeting participants",
       "image": "/assets/2025-11-06ws-audience-1.jpg",
-      "caption": "Participants of the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)"
+      "caption": "Participants of the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)",
+      "sr": {
+        "title": "Учесници састанка пројектног тима",
+        "caption": "Учесници састанка пројектног тима BLUECONNECT-а, Котор, Црна Гора (новембар 2025)"
+      }
     },
     {
       "title": "Radoje Laušević",
       "image": "/assets/2025-11-06ws-lausevic-1.jpg",
-      "caption": "Radoje Laušević at the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)"
+      "caption": "Radoje Laušević at the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)",
+      "sr": {
+        "title": "Радоје Лаушевић",
+        "caption": "Радоје Лаушевић на састанку пројектног тима BLUECONNECT-а, Котор, Црна Гора (новембар 2025)"
+      }
     },
     {
       "title": "Family photo",
       "image": "/assets/2025-11-06ws-participants-1.jpg",
-      "caption": "Family photo of participants of the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)"
+      "caption": "Family photo of participants of the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)",
+      "sr": {
+        "title": "Збирна фотографија",
+        "caption": "Збирна фотографија учесника састанка пројектног тима BLUECONNECT-а, Котор, Црна Гора (новембар 2025)"
+      }
     },
     {
       "title": "Digital platform presentation",
       "image": "/assets/2025-11-06ws-presentation-1.jpg",
-      "caption": "Digital platform presentation during the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)"
+      "caption": "Digital platform presentation during the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)",
+      "sr": {
+        "title": "Презентација дигиталне платформе",
+        "caption": "Презентација дигиталне платформе током састанка пројектног тима BLUECONNECT-а, Котор, Црна Гора (новембар 2025)"
+      }
     },
     {
       "title": "Project team meeting room",
       "image": "/assets/2025-11-06ws-room-1.jpg",
-      "caption": "Meeting room of the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)"
+      "caption": "Meeting room of the BLUECONNECT Project team meeting, Kotor, Montenegro (November 2025)",
+      "sr": {
+        "title": "Сала за састанке пројектног тима",
+        "caption": "Сала за састанке пројектног тима BLUECONNECT-а, Котор, Црна Гора (новембар 2025)"
+      }
     },
     {
       "title": "Study visit participants",
       "image": "/assets/2026-05-14sv-gropup-1.jpg",
-      "caption": "BLUECONNECT Study visit participants in front of Sardina doo, Brač, Croatia (May 2026)"
+      "caption": "BLUECONNECT Study visit participants in front of Sardina doo, Brač, Croatia (May 2026)",
+      "sr": {
+        "title": "Учесници студијске посете",
+        "caption": "Учесници студијске посете BLUECONNECT-а испред компаније Sardina doo, Брач, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Discussion on study visit",
       "image": "/assets/2026-05-14sv-presentation-2.jpg",
-      "caption": "Discussion on study visit in Sardina doo, Brač, Croatia (May 2026)"
+      "caption": "Discussion on study visit in Sardina doo, Brač, Croatia (May 2026)",
+      "sr": {
+        "title": "Дискусија о студијској посети",
+        "caption": "Дискусија током студијске посете у Sardina doo, Брач, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Sardina doo Brač ",
       "image": "/assets/2026-05-14sv-processing.jpg",
-      "caption": "Production process in Sardina doo Brač, Croatia (May 2026)"
+      "caption": "Production process in Sardina doo Brač, Croatia (May 2026)",
+      "sr": {
+        "title": "Sardina doo Брач",
+        "caption": "Процес производње у Sardina doo Брач, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Sardina doo Brač",
       "image": "/assets/2026-05-14sv-sardina.jpg",
-      "caption": "Production process in Sardina doo Brač, Croatia (May 2026)"
+      "caption": "Production process in Sardina doo Brač, Croatia (May 2026)",
+      "sr": {
+        "title": "Sardina doo Брач",
+        "caption": "Процес производње у Sardina doo Брач, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Study visit participants",
       "image": "/assets/2026-05-14sv-group.jpg",
-      "caption": "BLUECONNECT Study visit participants in Bol, Brač, Croatia (May 2026)"
+      "caption": "BLUECONNECT Study visit participants in Bol, Brač, Croatia (May 2026)",
+      "sr": {
+        "title": "Учесници студијске посете",
+        "caption": "Учесници студијске посете BLUECONNECT-а у Болу, Брач, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Workshop participants",
       "image": "/assets/2026-05-16ws-audience.jpg",
-      "caption": "BLUECONNECT Workshop participants, Split, Croatia (May 2026)"
+      "caption": "BLUECONNECT Workshop participants, Split, Croatia (May 2026)",
+      "sr": {
+        "title": "Учесници радионице",
+        "caption": "Учесници радионице BLUECONNECT-а, Сплит, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Family photo",
       "image": "/assets/2026-05-16ws-group.jpg",
-      "caption": "Family photo of the BLUECONNECT Workshop participants, Split, Croatia (May 2026)"
+      "caption": "Family photo of the BLUECONNECT Workshop participants, Split, Croatia (May 2026)",
+      "sr": {
+        "title": "Збирна фотографија",
+        "caption": "Збирна фотографија учесника радионице BLUECONNECT-а, Сплит, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Workshop discussion",
       "image": "/assets/2026-05-17ptm-wg.jpg",
-      "caption": "Discussion during BLUECONNECT Workshop, Split, Croatia (May 2026)"
+      "caption": "Discussion during BLUECONNECT Workshop, Split, Croatia (May 2026)",
+      "sr": {
+        "title": "Дискусија на радионици",
+        "caption": "Дискусија током радионице BLUECONNECT-а, Сплит, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Workshop meeting room",
       "image": "/assets/2026-05-17ptm-work.jpg",
-      "caption": "Meeting room for the BLUECONNECT Workshop, Split, Croatia (May 2026)"
+      "caption": "Meeting room for the BLUECONNECT Workshop, Split, Croatia (May 2026)",
+      "sr": {
+        "title": "Сала за састанке радионице",
+        "caption": "Сала за састанке радионице BLUECONNECT-а, Сплит, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Workshop chairs",
       "image": "/assets/2026-05-17ws-chairs.jpg",
-      "caption": "Chairs of the BLUECONNECT Workshop, Split, Croatia (May 2026)"
+      "caption": "Chairs of the BLUECONNECT Workshop, Split, Croatia (May 2026)",
+      "sr": {
+        "title": "Столице на радионици",
+        "caption": "Столице на радионици BLUECONNECT-а, Сплит, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Workshop audience",
       "image": "/assets/2026-09-23conf-audience.jpg",
-      "caption": "Audience of the BLUECONNECT Workshop, Split, Croatia (May 2026)"
+      "caption": "Audience of the BLUECONNECT Workshop, Split, Croatia (May 2026)",
+      "sr": {
+        "title": "Публика радионице",
+        "caption": "Публика радионице BLUECONNECT-а, Сплит, Хрватска (мај 2026)"
+      }
     },
     {
       "title": "Conference registration",
       "image": "/assets/2026-09-23conf-reg.jpg",
-      "caption": "Registration of participants for the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "Registration of participants for the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "Регистрација за конференцију",
+        "caption": "Регистрација учесника за завршну конференцију BLUECONNECT-а, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Project team at the Conference",
       "image": "/assets/2026-09-24conference-all.jpg",
-      "caption": "BLUECONNECT team at the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "BLUECONNECT team at the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "Пројектни тим на конференцији",
+        "caption": "Тим BLUECONNECT-а на завршној конференцији, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Conference family photo",
       "image": "/assets/2026-09-24conference-family.jpg",
-      "caption": "Family photo of participants of the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "Family photo of participants of the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "Збирна фотографија са конференције",
+        "caption": "Збирна фотографија учесника завршне конференције BLUECONNECT-а, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Conference participants",
       "image": "/assets/2026-09-24conference-guests.jpg",
-      "caption": "Participants of the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "Participants of the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "Учесници конференције",
+        "caption": "Учесници завршне конференције BLUECONNECT-а, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Conference room",
       "image": "/assets/2026-09-24conference-mr.jpg",
-      "caption": "Conference room for the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "Conference room for the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "Сала за конференцију",
+        "caption": "Сала за завршну конференцију BLUECONNECT-а, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Conference participants",
       "image": "/assets/2026-09-24conference-room.jpg",
-      "caption": "Participants of the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "Participants of the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "Учесници конференције",
+        "caption": "Учесници завршне конференције BLUECONNECT-а, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Conference VIP guests",
       "image": "/assets/2026-09-24conference-vip.jpg",
-      "caption": "VIP guests at the BLUECONNECT final conference, Kotor, Montenegro (September 2026)"
+      "caption": "VIP guests at the BLUECONNECT final conference, Kotor, Montenegro (September 2026)",
+      "sr": {
+        "title": "ВИП гости конференције",
+        "caption": "ВИП гости на завршној конференцији BLUECONNECT-а, Котор, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Project team meeting",
       "image": "/assets/2026-09-24meeting.jpg",
-      "caption": "BLUECONNECT Project team meeting, Stoliv, Montenegro (September 2026)"
+      "caption": "BLUECONNECT Project team meeting, Stoliv, Montenegro (September 2026)",
+      "sr": {
+        "title": "Састанак пројектног тима",
+        "caption": "Састанак пројектног тима BLUECONNECT-а, Столив, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Project team meeting presentation",
       "image": "/assets/2026-09-24ptm.jpg",
-      "caption": "Presentation during Project team meeting, Stoliv, Montenegro (September 2026)"
+      "caption": "Presentation during Project team meeting, Stoliv, Montenegro (September 2026)",
+      "sr": {
+        "title": "Презентација на састанку тима",
+        "caption": "Презентација током састанка пројектног тима, Столив, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "Project team meeting participants",
       "image": "/assets/2026-09-24room.jpg",
-      "caption": "Participants of the Project team meeting, Stoliv, Montenegro (September 2026)"
+      "caption": "Participants of the Project team meeting, Stoliv, Montenegro (September 2026)",
+      "sr": {
+        "title": "Учесници састанка пројектног тима",
+        "caption": "Учесници састанка пројектног тима, Столив, Црна Гора (септембар 2026)"
+      }
     },
     {
       "title": "BLUECONNECT online monitoring meeting",
       "image": "/assets/20261026-screen01.png",
-      "caption": "Participants of the BLUECONNECT online monitoring meeting, 26 October 2026"
+      "caption": "Participants of the BLUECONNECT online monitoring meeting, 26 October 2026",
+      "sr": {
+        "title": "Онлајн мониторинг састанак BLUECONNECT-а",
+        "caption": "Учесници онлајн мониторинг састанка BLUECONNECT-а, 26. октобар 2026."
+      }
     },
     {
       "title": "BLUECONNECT implementation status",
       "image": "/assets/20261026-screen02.png",
-      "caption": "Screenshot of the BLUECONNECT implementation status reviewed during the Joint Secretariat monitoring meeting, 26 October 2026."
+      "caption": "Screenshot of the BLUECONNECT implementation status reviewed during the Joint Secretariat monitoring meeting, 26 October 2026.",
+      "sr": {
+        "title": "Статус имплементације BLUECONNECT-а",
+        "caption": "Снимак екрана статуса имплементације BLUECONNECT-а прегледан током мониторинг састанка Заједничког секретаријата, 26. октобар 2026."
+      }
     }
   ],
   "body": "<p>This gallery brings together photographs from workshops, project meetings, a study visit and conferences within BLUECONNECT — Enhancing Cross-Border Blue Growth: Fostering Innovation and Cooperation for Competitive Entrepreneurship.</p><p>These activities connect project partners and stakeholders across Croatia, Bosnia and Herzegovina, and Montenegro, creating opportunities to exchange knowledge, explore practical solutions and build partnerships for a sustainable blue economy. They support cooperation around aquaculture, fisheries monitoring and resource-efficient fish processing, alongside the development of the Adriatic Blue Growth Cluster and its digital collaboration platform.</p><p>As Blue Growth Collaboration Platform Expert, contracted by the Institute of Marine Biology, University of Montenegro, I support platform development, stakeholder engagement and cooperation arrangements. My ongoing work helps connect businesses, researchers and public authorities and establish a basis for collaboration beyond the project.</p>",
   "sr": {
-    "status": "Одобрено за објављивање",
-    "approved": true,
-    "title": "БЛУКОНЕКТ – Повезивање људи за плави раст",
-    "summary": "Радионе, састанци пројекта, студијска посета и конференције које повезују истраживање, пословање и иновације у Хрватској, Босни и Херцеговини и Црној Гори кроз БЛУКОНЕКТ.",
-    "body": "<p>Ова галерија окупља фотографије са радионица, састанака пројекта, студијске посете и конференција у оквиру БЛУКОНЕКТ — Побољшање прекограничног плавог раста: Подстицање иновација и сарадње за конкурентно предузетништво.</p><p>Ове активности повезују партнере пројекта и заинтересоване стране из Хрватске, Босне и Херцеговине и Црне Горе, стварајући могућности за размену знања, истраживање практичних решења и изградњу партнерстава за одрживу плаву економију. Оне подржавају сарадњу у области аквакултуре, праћења рибарства и ресурсо-ефикасне прераде рибе, као и развој Јадранског кластера плавог раста и његове дигиталне платформе за сарадњу.</p><p>Као експерт за платформу за сарадњу плавог раста, ангажован од Института за морску биологију Универзитета Црне Горе, подржавам развој платформе, укључивање заинтересованих страна и уређење сарадње. Мој континуирани рад помаже у повезивању пословних субјеката, истраживача и јавних власти и успоставља основу за сарадњу која прелази оквире пројекта.</p>",
-    "seo_description": "Фотографије са састанака, радионица, студијских посјета и конференција пројекта BLUECONNECT — сарадња за одрживу плаву економију Јадрана.",
-    "source_hash": "5a68e28780cc55cea8a65026f25bf1ae692ecc08ef40213b612e28125d6ba82d",
-    "approved_hash": "3dd1c6315ad36a7b9119a6c95627f27d3c9797457f419cb1e5595893f3b94eee"
+    "title": "BLUECONNECT – Повезивање људи за плави раст",
+    "summary": "Радни састанци, састанци пројекта, студијска посета и конференције које повезују истраживање, бизнис и иновације кроз Хрватску, Босну и Херцеговину и Црну Гору у оквиру BLUECONNECT-а.",
+    "body": "<p>Ова галерија окупља фотографије са радних састанака, састанака пројекта, студијске посете и конференција у оквиру BLUECONNECT — Јачање прекограничног плавог раста: Подстицање иновација и сарадње за конкурентно предузетништво.</p><p>Ове активности повезују партнере на пројекту и заинтересоване стране у Хрватској, Босни и Херцеговини и Црној Гори, стварајући прилике за размену знања, истраживање практичних решења и изградњу партнерстава за одрживу плаву економију. Оне подржавају сарадњу у области аквакултуре, мониторинга рибарства и ресурсо-ефикасне прераде рибе, уз развој Адријатског кластера плавог раста и његове дигиталне платформе за сарадњу.</p><p>Као експерт за Платформу за сарадњу у области Плавог раста, ангажован од Института за морску биологију Универзитета у Црној Гори, подржавам развој платформе, укључивање заинтересованих страна и договоре о сарадњи. Мој континуирани рад помаже повезивању предузећа, истраживача и јавних власти и успоставља основу за сарадњу и након пројекта.</p>",
+    "seo_description": "",
+    "approved": false,
+    "approved_hash": "",
+    "source_hash": "674669e8ebea2079a6fe77e81b5015e81ee4f3e226d131d068a5e34c85399365",
+    "status": "Нацрт — потребна провера"
   }
 }
