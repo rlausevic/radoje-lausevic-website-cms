@@ -3,10 +3,10 @@
   "path": "/video/8d6aee87d951f1a4",
   "description": "Watch the opening and highlights of AdriBioPro2019 in Kotor, connecting science, policy and regional cooperation for aquatic biodiversity conservation.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Погледајте отварање и најважније тренутке AdriBioPro2019 у Котору, који повезује науку, политике и регионалну сарадњу за заштиту воденог биодиверзитета.",
-    "source_hash": "7b0ab427ef9b28f066bc74f0d458cdc1f664f139ddefd75bb5806b2bdde4a66b"
+    "source_hash": "7b0ab427ef9b28f066bc74f0d458cdc1f664f139ddefd75bb5806b2bdde4a66b",
+    "approved_hash": "435d780eecd2029c8df9d57ef3242e627544fbb898b8063e732bf4ba6d11543b"
   }
 }
