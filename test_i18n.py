@@ -164,7 +164,7 @@ class Editorial(unittest.TestCase):
   item['sr']['approved']=True;sync_record(item,'experience.items')
   self.assertTrue(locale.available('/work-experience'))
   self.assertEqual(locale.target('/work-experience'),'/sr/work-experience')
-  self.assertEqual(locale.seo('/work-experience','Career description'),'Career description')
+  self.assertEqual(locale.seo('/work-experience','Career description'),locale.page_seo['/work-experience']['description'])
   item['body']='Changed duties'
   self.assertFalse(locale.available('/work-experience'))
 

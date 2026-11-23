@@ -90,5 +90,8 @@
     "author",
     "summary",
     "body"
+  ],
+  "page_seo": [
+    "description"
   ]
 }

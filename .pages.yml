@@ -2784,6 +2784,98 @@
           "scope": "entry"
         }
       ]
+    },
+    {
+      "name": "page_seo",
+      "label": "SEO страница — описи за проверу",
+      "type": "collection",
+      "path": "content/cms/page_seo",
+      "format": "json",
+      "filename": "{title}.json",
+      "view": {
+        "fields": [
+          "title",
+          "path"
+        ],
+        "primary": "title",
+        "search": [
+          "title",
+          "path"
+        ]
+      },
+      "fields": [
+        {
+          "name": "title",
+          "label": "Страница",
+          "type": "string",
+          "required": true,
+          "readonly": true
+        },
+        {
+          "name": "path",
+          "label": "Јавна адреса (без /sr/)",
+          "type": "string",
+          "required": true,
+          "readonly": true,
+          "description": "За архиве овај опис важи и за пагинацију; број стране додаје се аутоматски."
+        },
+        {
+          "name": "description",
+          "label": "SEO opis — English",
+          "type": "text",
+          "required": true,
+          "description": "Допуњује недостајући опис. Постојећи засебни SEO опис у изворном уносу има предност."
+        },
+        {
+          "name": "sr",
+          "label": "Српски — ћирилица",
+          "type": "object",
+          "description": "Ова провера објављује само SEO опис. Одобрење садржаја странице остаје засебно. Измена EN описа захтева усклађивање и поновно одобрење овог описа.",
+          "fields": [
+            {
+              "name": "status",
+              "label": "Стање превода (аутоматски)",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved",
+              "label": "Проверио сам SEO опис — објави српски опис",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "refresh_source",
+              "label": "Ускладио сам превод са измењеним оригиналом",
+              "type": "boolean",
+              "default": false,
+              "description": "Користите само након ручног ажурирања застарелог превода. Save поставља нову верзију оригинала и враћа превод у нацрт; затим прегледајте и укључите одобрење."
+            },
+            {
+              "name": "description",
+              "label": "SEO опис — српски",
+              "type": "text"
+            },
+            {
+              "name": "source_hash",
+              "label": "Верзија енглеског оригинала",
+              "type": "string",
+              "readonly": true
+            },
+            {
+              "name": "approved_hash",
+              "label": "Одобрена верзија превода",
+              "type": "string",
+              "hidden": true
+            }
+          ]
+        }
+      ],
+      "operations": {
+        "create": false,
+        "delete": false,
+        "rename": false
+      }
     }
   ],
   "actions": [

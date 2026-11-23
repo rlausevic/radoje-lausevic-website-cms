@@ -87,7 +87,6 @@ def page(path,title,body,desc=None):
  original_path=path
  available=locale.available(path)
  if SR and path=='/404':return
- desc=locale.seo(path,desc)
  if SR and path in {'/blog','/video','/galleries'} and not locale.translated(path):
   labels={'/blog':('Објаве','Објаве и приче са терена.'),'/video':('Видео','Видео разговори и догађаји.'),'/galleries':('Галерије','Фотографије са пројеката и догађаја.')}
   label,heading=labels[path]
@@ -97,6 +96,7 @@ def page(path,title,body,desc=None):
   title='Превод још није доступан'
   desc='Овај садржај можете прочитати у енглеском оригиналу.'
   body=intro('Српски','Превод још није доступан.','Превод ће бити доступан након провере и одобрења.')+'<section class="section"><div class="wrap"><a class="button" data-original-language href="'+E(path)+'" lang="en">Прочитајте енглески оригинал</a><p><a href="/sr/projects">Пројекти</a> · <a href="/sr/blog">Објаве</a></p></div></section>'
+ if not SR or available:desc=locale.seo(path,desc)
  metric_key=metrics.page(path,title)
  if metric_key:
   if path.startswith('/project/'):

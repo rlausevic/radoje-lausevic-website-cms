@@ -100,7 +100,7 @@ def walk(data,key):
 
 def file_key(path):
  path=Path(path)
- return path.parent.name if path.parent.name in {'posts','video_entries','gallery_entries','bibliography_entries'} else path.stem
+ return path.parent.name if path.parent.name in {'posts','video_entries','gallery_entries','bibliography_entries','page_seo'} else path.stem
 
 def localize(data,key):
  data=copy.deepcopy(data)
@@ -144,6 +144,8 @@ def route_records(root=ROOT):
 class Locale:
  def __init__(self,root=ROOT):
   self.records=route_records(root)
+  from page_seo import load_descriptions
+  self.page_seo=load_descriptions(root)
   self.collections={route:(json.loads((Path(root)/'content/cms'/(name+'.json')).read_text()).get('items') or [],key) for route,(name,key) in COLLECTION_PAGES.items()}
  def translated(self,path):
   if path in self.collections:
@@ -155,9 +157,14 @@ class Locale:
   base=re.sub(r'/page/\d+$','',path)
   return base in SYSTEM_PAGES or self.translated(path)
  def seo(self,path,default):
-  item,key=self.records.get(path,({},None))
+  from page_seo import description
+  base=re.sub(r'/page/\d+$','',path)
+  item,key=self.records.get(base,({},None))
   data=((item.get('sr') or {}) if key and ready(item,key) else {}) if SR else item
-  return data.get('seo_description') or default
+  # Settings describes the site, not the bibliography archive. Its legacy
+  # fallback remains visible until the page-specific draft is approved.
+  explicit=data.get('seo_description') if key!='settings' else None
+  return description(self.page_seo,path,'sr' if SR else 'en',explicit) or data.get('seo_description') or default
  def badge(self,item):
   return '<span class="language-original" lang="sr-Cyrl">Енглески оригинал</span>' if SR and not item.get('_translated') else ''
  def target(self,url):
