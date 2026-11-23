@@ -6,13 +6,14 @@
       "ongoing": true,
       "body": "<p>Main services: Project development and management: design, preparation, and implementation of complex international projects (EU, bilateral and multilateral programmes), providing tailored, results-oriented solutions from concept development and proposal writing to full project execution and impact delivery. Strategic leadership and organisational development: advising and supporting organisations in building effective governance structures, mobilising resources, leading multidisciplinary teams, and managing complex initiatives in multicultural and multi-stakeholder environments. Environmental policy, research and innovation: expert services in biodiversity conservation, water and marine ecosystem management, environmental governance, and sustainable resource management, including stakeholder analysis, participatory planning processes, and development of policy-relevant research and strategic action plans.</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Оснивач и предузетник: Агенција Partner Consulting",
         "body": "<p>Главне услуге: Развој и управљање пројектима: осмишљавање, припрема и спровођење сложених међународних пројеката (у оквиру програма ЕУ, као и билатералних и мултилатералних програма), уз пружање прилагођених решења усмерених на резултате – од развоја концепта и писања предлога пројеката до њихове потпуне реализације и остваривања жељених ефеката. Стратешко руковођење и организациони развој: саветовање и подршка организацијама у изградњи ефикасних управљачких структура, мобилизацији ресурса, вођењу мултидисциплинарних тимова и управљању сложеним иницијативама у мултикултуралним окружењима која укључују различите заинтересоване стране. Политика заштите животне средине, истраживање и иновације: стручне услуге у области очувања биодиверзитета, управљања водама и морским екосистемима, управљања животном средином и одрживог управљања ресурсима, укључујући анализу заинтересованих страна, процесе партиципативног планирања, као и израду истраживања релевантних за креирање политика и стратешких акционих планова.</p>",
-        "source_hash": "c57991493f7495f92b505ce80ab64f3f7c0ddde778e5d7b977325c29eadc7bcc"
-      }
+        "source_hash": "c57991493f7495f92b505ce80ab64f3f7c0ddde778e5d7b977325c29eadc7bcc",
+        "approved_hash": "606974ecfc4887383f565cd59216fab52a6ec7e8e55a1d881735dd046b0b1010"
+      },
+      "period": "March 2018 - ongoing"
     },
     {
       "title": "Project Manager",
@@ -20,13 +21,14 @@
       "ongoing": true,
       "body": "<p>Assisting the University of Montenegro, Institute for Marine Biology, in implementing international projects; Managing a multidisciplinary team that is enhancing Montenegro's EU integration process in the environmental sector, with a focus on the sustainable management of the Adriatic Sea.</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Менаџер пројекта",
         "body": "<p>Пружање подршке Универзитету Црне Горе – Институту за биологију мора у спровођењу међународних пројеката; руковођење мултидисциплинарним тимом који доприноси процесу интеграције Црне Горе у ЕУ у сектору животне средине, са фокусом на одрживо управљање Јадранским морем.</p>",
-        "source_hash": "f0bdc83e7ce26975f22f5634a583fc517edd0d6715f1f5c554e222e9bf80cabc"
-      }
+        "source_hash": "f0bdc83e7ce26975f22f5634a583fc517edd0d6715f1f5c554e222e9bf80cabc",
+        "approved_hash": "5e0c395024028ec08f495f0e434184902f5015062cc1357a5367e45f4a6ccea2"
+      },
+      "period": "December 2017 - ongoing"
     },
     {
       "title": "Expert for LIRRIES, Chamber of Commerce of Montenegro",
@@ -35,13 +37,14 @@
       "ongoing": false,
       "body": "<p>Development of LiRRIEs (Living Responsible Research and Innovation Ecosystems) and ICE (Inclusive Circular Economy) in Montenegro. Project: AZA4ICE – Allocated Zones for Circular Aquaculture to Trigger the Transition to an Inclusive Circular Economy Programme: Interreg VI-B EURO-MED 2021–2027</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Стручњак за LIRRIES, Привредна комора Црне Горе",
         "body": "<p>Развој LiRRIE-а (живих екосистема одговорног истраживања и иновација) и инклузивне циркуларне економије (ICE) у Црној Гори. Пројекат: AZA4ICE – Одређене зоне за циркуларну аквакултуру као покретач преласка на инклузивну циркуларну економију. Програм: Interreg VI-B EURO-MED 2021–2027.</p>",
-        "source_hash": "aa62637dda0f43cad64caf60e6736b8e5e6a54728aa3cbd1bbbce7bcb4f2fa37"
-      }
+        "source_hash": "aa62637dda0f43cad64caf60e6736b8e5e6a54728aa3cbd1bbbce7bcb4f2fa37",
+        "approved_hash": "7a1d73c651ccedc0ca69b7a73ee3713a09f098c9e3cc7ad903dd52b084019f37"
+      },
+      "period": "September 2023 - September 2025"
     },
     {
       "title": "Founder and Director, Asenvirocon doo Kotor, Montenegro",
@@ -50,13 +53,14 @@
       "ongoing": false,
       "body": "<p>Main services: Project development and management: design and implementation of international and national projects, including concept development, proposal preparation, partnership building, and coordination of multidisciplinary teams for projects funded by EU and international donors. Digital transformation of SMEs: advisory and implementation services supporting the digitalisation of small and medium-sized enterprises, including development of digital tools, online platforms, and innovative solutions to enhance business efficiency, visibility, and market competitiveness.</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Оснивач и директор, Asenvirocon д.о.о. Котор, Црна Гора",
         "body": "<p>Кључне услуге: Развој и управљање пројектима – осмишљавање и спровођење међународних и националних пројеката, што обухвата развој концепта, припрему предлога пројеката, успостављање партнерстава и координацију мултидисциплинарних тимова за пројекте које финансирају ЕУ и међународни донатори. Дигитална трансформација малих и средњих предузећа (МСП) – саветодавне услуге и подршка у спровођењу дигитализације, укључујући развој дигиталних алата, онлајн платформи и иновативних решења усмерених на унапређење пословне ефикасности, видљивости и конкурентности на тржишту.</p>",
-        "source_hash": "44a4f1bc712f1057763580504aaafad6c3ac6e13cee8099ce5f786e6cd15db88"
-      }
+        "source_hash": "44a4f1bc712f1057763580504aaafad6c3ac6e13cee8099ce5f786e6cd15db88",
+        "approved_hash": "accc5af2e851a1c7c33b2f4b2f60cf3c9da85ec9a7dca4719f702a1cf2093afa"
+      },
+      "period": "April 2021 - April 2025"
     },
     {
       "title": "Director, Innovation Center of the Faculty of Biology, University of Belgrade",
@@ -65,13 +69,14 @@
       "ongoing": false,
       "body": "<p>Main duties: Strategic leadership and management of the Innovation Center, coordinating research, innovation and project development activities in the fields of biodiversity, environmental monitoring and sustainable resource management. Development of research and innovation projects, including preparation of national and international project proposals and establishment of partnerships with universities, public institutions and private sector stakeholders. Promotion of knowledge transfer and applied research, supporting the development of innovative solutions addressing environmental and sustainability challenges. Main achievements: Developed a methodology for biodiversity monitoring applied in environmental assessment and ecosystem management. Led preparation of the Ecological Network Impact Assessment study for the design plan of wetland ecosystem revitalisation in three pilot protected areas in Serbia (Zasavica Special Nature Reserve, Jegrička Nature Park and Bara Trskovača protected habitat).</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Директор, Иновациони центар Биолошког факултета Универзитета у Београду",
         "body": "<p>Главне дужности: Стратешко руковођење и управљање Иновационим центром, уз координацију активности у области истраживања, иновација и развоја пројеката који се тичу биодиверзитета, праћења стања животне средине и одрживог управљања ресурсима. Развој истраживачких и иновационих пројеката, што укључује припрему националних и међународних пројектних предлога, као и успостављање партнерстава са универзитетима, јавним институцијама и актерима из приватног сектора. Промовисање трансфера знања и примењених истраживања, уз пружање подршке развоју иновативних решења за решавање изазова у области животне средине и одрживости. Главна достигнућа: Развијена методологија за праћење биодиверзитета, која се примењује у процени стања животне средине и управљању екосистемима. Руковођење израдом Студије процене утицаја на еколошку мрежу, у оквиру пројектне документације за ревитализацију мочварних екосистема на три пилот-подручја у Србији (Специјални резерват природе „Засавица“, Парк природе „Јегричка“ и заштићено станиште „Бара Трсковача“).</p>",
-        "source_hash": "9cefd6eca91948985a0f33dacddc6ac5b8caaeb5e76dd53bcaf770cd9589b1e1"
-      }
+        "source_hash": "9cefd6eca91948985a0f33dacddc6ac5b8caaeb5e76dd53bcaf770cd9589b1e1",
+        "approved_hash": "324973792811561e56ecd842786d26b158e2cd2a7f34bdc647a57c78084081b0"
+      },
+      "period": "July 2019 - February 2023"
     },
     {
       "title": "Independent Senior Environmental Consultant",
@@ -80,13 +85,14 @@
       "ongoing": false,
       "body": "<p>Services in leading environmental non-profits, programme and project management and environmental research:&nbsp;nature resource management, biodiversity, water management, environmental security, local environmental action planning, stakeholder’s analysis and participation.</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Независни виши консултант за животну средину",
         "body": "<p>Ангажовање у водећим непрофитним организацијама у области животне средине, управљање програмима и пројектима, као и истраживања у области животне средине: управљање природним ресурсима, биодиверзитет, управљање водама, еколошка безбедност, локално планирање еколошких активности, те анализа и учешће заинтересованих страна.</p>",
-        "source_hash": "3f1b5bfc37db1f177204bc3d26a8666cc1685e8743f318015055161d27f929b0"
-      }
+        "source_hash": "3f1b5bfc37db1f177204bc3d26a8666cc1685e8743f318015055161d27f929b0",
+        "approved_hash": "ef1861e6f3a681c0281a12a9eabcf0fd5b7cb526bcb8ae20026728aa713c5bbf"
+      },
+      "period": "May 2017 - December 2017"
     },
     {
       "title": "Associate Professor at Faculty for Applied Ecology, Belgrade, Serbia",
@@ -95,13 +101,14 @@
       "ongoing": false,
       "body": "<p>Main duties:&nbsp;Lecturing subjects: “Water pollution and protection”, “Eco-hydrology”, “Sustainable development and environment”;&nbsp;Main achievements:&nbsp;Contributed to curriculum development,&nbsp;Developed e-learning programme</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Ванредни професор на Факултету за примењену екологију, Београд, Србија",
         "body": "<p>Главне дужности: Држање наставе из предмета „Загађење и заштита вода”, „Екохидрологија”, „Одрживи развој и животна средина”; Главна постигнућа: Допринос развоју наставног плана и програма, развој програма за електронско учење</p>",
-        "source_hash": "4bbad64731ccafc4dcf1bfefadee6f2af4bd0efe95f3df3a4b037f3e36a64847"
-      }
+        "source_hash": "4bbad64731ccafc4dcf1bfefadee6f2af4bd0efe95f3df3a4b037f3e36a64847",
+        "approved_hash": "019c264868437ca6a1668093c854c9b9b140906bda6baf12784a384a4076a8b7"
+      },
+      "period": "October 2006 - April 2017"
     },
     {
       "title": "Deputy Executive Director for Environmental Policy, Regional Environmental Center for Central and Eastern Europe (REC)",
@@ -110,13 +117,14 @@
       "ongoing": false,
       "body": "<p>Main duties: Providing strategic vision and planning; Resource mobilization (portfolio of 12 M EUR annually); Staff coaching and leadership. Main achievements: Secured sustainability of operations; Coordinated topic areas; Edited Local Water Security Action Planning Manual which is step-by-step guide to local water security action planning;&nbsp;Developed methodology for local biodiversity action planning, which became unique tool for biodiversity protection and evaluation of ecosystem services; Launched Water Security initiative as a framework for creation of a knowledge-based platform, a dynamic network of water experts, and an e-learning tool for capacity building and the dissemination of lessons learned.</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Заменик извршног директора за политику животне средине, Регионални центар за животну средину за Централну и Источну Европу (REC)",
         "body": "<p>Главне дужности: Пружање стратешке визије и планирање; мобилизација ресурса (портфолио од 12 милиона евра годишње); менторство и руковођење тимом. Главна постигнућа: Обезбеђена одрживост пословања; координирање тематских области; уређивање „Приручника за планирање активности за локалну безбедност вода” (Local Water Security Action Planning Manual), који представља водич „корак по корак” за планирање активности у овој области; развијање методологије за планирање активности у домену локалног биодиверзитета, која је постала јединствен алат за заштиту биодиверзитета и вредновање услуга екосистема; покретање иницијативе „Безбедност вода” (Water Security) као оквира за стварање платформе засноване на знању, динамичне мреже стручњака за воде, као и алата за електронско учење намењеног изградњи капацитета и ширењу стечених искустава и поука.</p>",
-        "source_hash": "f8bb42542c326e96079d451363846186dee46b73470834cf0baf9e53144d4451"
-      }
+        "source_hash": "f8bb42542c326e96079d451363846186dee46b73470834cf0baf9e53144d4451",
+        "approved_hash": "dfa0e322e4a55a9ec760a625e01aecbcf373f11d2150fcabed165cbceabda36e"
+      },
+      "period": "October 2008 - September 2016"
     },
     {
       "title": "Regional Director for South East Europe, Regional Environmental Center for Central and Eastern Europe (REC)",
@@ -125,13 +133,14 @@
       "ongoing": false,
       "body": "<p>Main duties:&nbsp;Providing strategic vision and programme planning,&nbsp;Supervision and coaching of REC Country and Field Office Directors in SEE,&nbsp;Ensuring the overall financial sustainability of the REC Country and Field Offices in the assigned Region.&nbsp;Main achievements:&nbsp;Improved management and strengthen country office network of the REC;&nbsp;Introduced indicator based performance appraisal system for country offices;&nbsp;Coordinated local environmental action plans in 50+ local communities in South East Europe, which contributed to sustainable development on local level;&nbsp;Leaded support to environmental civil society organizations, which strengthened capacities of environmental civil sector in South East Europe</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Регионални директор за југоисточну Европу, Регионални центар за животну средину за централну и источну Европу (REC)",
         "body": "<p>Главне дужности: Пружање стратешке визије и планирање програма; надзор и менторство директора националних и теренских канцеларија REC-а у југоисточној Европи; обезбеђивање укупне финансијске одрживости националних и теренских канцеларија REC-а у додељеном региону. Главна постигнућа: Унапређено управљање и ојачана мрежа националних канцеларија REC-а; уведен систем оцењивања учинка националних канцеларија заснован на индикаторима; координисана израда локалних акционих планова за животну средину у више од 50 локалних заједница у југоисточној Европи, што је допринело одрживом развоју на локалном нивоу; предвођење активности подршке организацијама цивилног друштва у области животне средине, чиме су ојачани капацитети еколошког цивилног сектора у југоисточној Европи.</p>",
-        "source_hash": "06355ce3024b03e00967881a05e1d1028ce0f631935d0f5304798816fe821e73"
-      }
+        "source_hash": "06355ce3024b03e00967881a05e1d1028ce0f631935d0f5304798816fe821e73",
+        "approved_hash": "343c0608ddd845340a2e42e0180a7dbfe8cfbcbee6131e675df27f9b1c6b62e9"
+      },
+      "period": "July 2004 - October 2008"
     },
     {
       "title": "Assistant Professor, Faculty of Biology, University of Belgrade",
@@ -140,13 +149,14 @@
       "ongoing": false,
       "body": "<p>Main duties: University teaching and academic instruction in General Hydrobiology, Hydroecology and Protection of Inland Waters, Botany I and Mycology, and Systematics of Algae, Fungi and Lichens (since December 2005 focused on Hydrobiology and Hydroecology). Conducting scientific research in hydrobiology, aquatic ecology and taxonomy, including participation in national research projects and field-based environmental monitoring. Contributing to the management and development of academic programmes and research activities within the Institute of Botany and the Botanical Garden “Jevremovac”. Main achievements: Contributed to the development and modernisation of academic curricula in hydrobiology and environmental sciences (1996–2006). Established and led a research team for water quality monitoring, implementing several scientific and environmental research projects. Managed the Botanical Garden “Jevremovac”, strengthening its role as a scientific, educational and public centre for biodiversity conservation (1996–2000)</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Доцент, Биолошки факултет, Универзитет у Београду",
         "body": "<p>Главне дужности: Универзитетска настава и академска обука из области опште хидробиологије, хидроекологије и заштите унутрашњих вода, ботанике I и микологије, као и систематике алги, гљива и лишајева (од децембра 2005. године фокус је на хидробиологији и хидроекологији). Спровођење научног истраживања у области хидробиологије, екологије водених екосистема и таксономије, укључујући учешће у националним истраживачким пројектима и теренском праћењу стања животне средине. Допринос управљању и развоју академских програма и истраживачких активности у оквиру Института за ботанику и Ботаничке баште „Јевремовац”. Главна достигнућа: Допринос развоју и модернизацији академских наставних планова и програма у области хидробиологије и наука о животној средини (1996–2006). Формирање и вођење истраживачког тима за праћење квалитета воде, уз реализацију неколико научних и еколошких истраживачких пројеката. Управљање Ботаничком баштом „Јевремовац”, уз јачање њене улоге као научног, образовног и јавног центра за очување биодиверзитета (1996–2000).</p>",
-        "source_hash": "83a22366637bb24c2b41ea6a3b7d9590b023cf37bd418cb96d97ea76f442fb87"
-      }
+        "source_hash": "83a22366637bb24c2b41ea6a3b7d9590b023cf37bd418cb96d97ea76f442fb87",
+        "approved_hash": "38fe15590945c52aa737fc0e5863a9dc3169bb569115bdd39e8731b4b23a8ed0"
+      },
+      "period": "April 1996 - June 2006"
     },
     {
       "title": "Director, Country Office Serbia and Montenegro, Regional Environmental Center for Central and Eastern Europe (REC)",
@@ -155,13 +165,14 @@
       "ongoing": false,
       "body": "<p>Main duties:&nbsp;Representing the REC in Serbia and Montenegro; managing the REC Country Office SCG;&nbsp;Project and grant management;&nbsp;Maintaining relations with donors, governments, local authorities, business and NGOs;&nbsp;&nbsp;Supervision the CO staff;&nbsp;Fund raising at national and international level. Main achievements:&nbsp;Managed CO operations in sustainable way and increased CO project portfolio 10 times;&nbsp;Increased CO project staff from 4 to 18 members and strengthened internal managerial and expert capacities;&nbsp;Managed establishment of two programme offices, which improved local presence and increased flexibility in operations; Managed projects with focus on local governance, which proved mission driven role of the REC at local level; Developed methodology for local environmental action planning, which represented innovative tool for local sustainable management (2003-2005).</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Директор, Канцеларија за Србију и Црну Гору, Регионални центар за животну средину за Централну и Источну Европу (REC)",
         "body": "<p>Главне дужности: Заступање REC-а у Србији и Црној Гори; управљање канцеларијом REC-а за СЦГ; управљање пројектима и грантовима; одржавање односа са донаторима, владама, локалним самоуправама, пословним сектором и невладиним организацијама; надзор над особљем канцеларије; прикупљање средстава на националном и међународном нивоу. Главна постигнућа: Управљање радом канцеларије на одржив начин уз десетоструко увећање портфолија пројеката; повећање броја запослених на пројектима са 4 на 18, уз јачање интерних управљачких и стручних капацитета; организовање оснивања две програмске канцеларије, чиме је унапређено присуство на терену и повећана флексибилност у раду; управљање пројектима усмереним на локалну самоуправу, што је потврдило улогу REC-а на локалном нивоу у складу са његовом мисијом; развој методологије за локално планирање активности у области животне средине, која је представљала иновативан алат за локално одрживо управљање (2003–2005).</p>",
-        "source_hash": "a036f27486338572b1c0dc985f559cd3841354f3f390dd42e454a2c05a64c1e5"
-      }
+        "source_hash": "a036f27486338572b1c0dc985f559cd3841354f3f390dd42e454a2c05a64c1e5",
+        "approved_hash": "ae7f2826fec490cad874a71d08efde14aff70ce62af4cbd7ccabb92557bcc79f"
+      },
+      "period": "January 2001 - November 2005"
     },
     {
       "title": "Teaching Assistant, Faculty of Biology, University of Belgrade",
@@ -170,13 +181,14 @@
       "ongoing": false,
       "body": "<p>Main duties:&nbsp;Work with students which attend courses at the Chair of Algology, Mycology and Lichenology;&nbsp;Research activities in algal ecology and taxonomy.&nbsp;Main achievements:&nbsp; Gained PhD in biology; Awarded with UNESCO grant for hydrobiological study of Vlasina reservoir (Serbia) which resulted in scientific contribution to the reservoir management; Managed 5th Congress of Ecologists (500+ participants) as largest professional event in the Western Balkans; Acknowledged by students for lecturing skills.</p>",
       "sr": {
-        "status": "Нацрт — потребна провера",
+        "status": "Одобрено за објављивање",
         "approved": true,
-        "refresh_source": false,
         "title": "Асистент, Биолошки факултет, Универзитет у Београду",
         "body": "<p>Главне дужности: Рад са студентима који похађају курсеве на Катедри за алгологију, микологију и лихенологију; истраживачки рад у области екологије и таксономије алги. Главна достигнућа: Стечен докторат из биологије; добијена УНЕСКО стипендија за хидробиолошка истраживања акумулације Власина (Србија), што је резултирало научним доприносом управљању овом акумулацијом; организација 5. конгреса еколога (више од 500 учесника), највећег стручног скупа на Западном Балкану; признање студената за предавачке вештине.</p>",
-        "source_hash": "41363311b30256fddf833eaaee864bf62ee1646344ad5d5fd229060009a0ee25"
-      }
+        "source_hash": "41363311b30256fddf833eaaee864bf62ee1646344ad5d5fd229060009a0ee25",
+        "approved_hash": "da80f8f99ee3d64d225811b3b37a44537a559cefac740da4cd9a05dc88abe8eb"
+      },
+      "period": "December 1989 - April 1996"
     }
   ]
 }
