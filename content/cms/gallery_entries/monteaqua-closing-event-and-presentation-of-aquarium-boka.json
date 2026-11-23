@@ -1,5 +1,6 @@
 {
   "title": "MonteAqua – Closing Event and Presentation of Aquarium Boka",
+  "path": "/gallery/monteaqua-closing-event-and-presentation-of-aquarium-boka",
   "date": "2020-12-17",
   "topic": [
     "Blue Economy and Skills Development"
@@ -179,16 +180,15 @@
     }
   ],
   "body": "<p>Photographs from the MonteAqua closing event, held at the Institute of Marine Biology in Kotor, Montenegro, on 17 December 2020. Organised as a seminar and webinar, the event presented the project’s achievements and introduced Aquarium Boka to the public through a virtual tour.</p><p>The programme brought together institutional representatives, project partners and aquarium professionals to reflect on the development of a centre connecting marine research, education and biodiversity conservation. Contributions highlighted Norwegian support, Montenegro’s investment and cooperation with aquariums in the Adriatic and wider Mediterranean region.</p><p>As MonteAqua Project Manager, I presented the project’s results, connecting capacity-building workshops, scientific exchange and publications with the establishment of Montenegro’s first public aquarium. The gallery records a milestone in turning a conservation initiative into a lasting resource for science, learning and public engagement with the Adriatic Sea.</p><p><a href=\"https://www.youtube.com/watch?v=-viQpLi-X7A\">Watch the event recording</a>.</p>",
-  "path": "/gallery/monteaqua-closing-event-and-presentation-of-aquarium-boka",
   "seo_description": "MonteAqua project's closing event showcased the achievements and introduced Aquarium Boka, Montenegro's first public aquarium, via a virtual tour.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "title": "MonteAqua – Завршни догађај и презентација Акваријума Бока",
     "summary": "Презентација резултата MonteAqua пројекта и Акваријума Бока, првог јавног акваријума у Црној Гори.",
     "body": "<p>Фотографије са завршног догађаја MonteAqua, одржаног у Институту за морску биологију у Котору, Црна Гора, 17. децембра 2020. године. Организован као семинар и вебинар, догађај је представио достигнућа пројекта и јавности преко виртуелне туре представио Акваријум Бока.</p><p>Програм је окупио представнике институција, партнере на пројекту и стручњаке за акваријуме како би се разговарало о развоју центра који повезује морска истраживања, образовање и очување биодиверзитета. Излагања су посебно истакла норвешку подршку, инвестиције Црне Горе и сарадњу са акваријумима у Јадранском и ширем Медитеранском региону.</p><p>Као менаџер MonteAqua пројекта, представио сам резултате који повезују радионице за јачање капацитета, научну размену и публикације са оснивањем првог јавног акваријума у Црној Гори. Галерија бележи важан корак у претварању иницијативе за очување у трајни ресурс за науку, учење и јавну интеракцију са Јадранским морем.</p><p><a href=\"https://www.youtube.com/watch?v=-viQpLi-X7A\">Погледајте снимак догађаја</a>.</p>",
     "seo_description": "Завршни догађај MonteAqua пројекта и презентација првог јавног акваријума у Црној Гори, Акваријума Бока, кроз виртуелну туру и разговор о сарадњи и подршци.",
-    "approved": false,
-    "approved_hash": "",
-    "source_hash": "9e61fe8c4c0e358ea2a2fa6bfae8be98214c6f63fd5599f37376e3432b11b6e2",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "9e61fe8c4c0e358ea2a2fa6bfae8be98214c6f63fd5599f37376e3432b11b6e2"
   }
 }
