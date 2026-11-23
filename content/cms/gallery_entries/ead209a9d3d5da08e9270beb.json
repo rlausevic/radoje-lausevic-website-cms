@@ -1,6 +1,6 @@
 {
-  "path": "/gallery/flowers-of-my-mediterranean-garden",
   "title": "Flowers of My Mediterranean Garden",
+  "path": "/gallery/flowers-of-my-mediterranean-garden",
   "date": "2017-06-05",
   "topic": [
     "Environmental Research and Policy"
@@ -38,13 +38,13 @@
   "body": "<h2>Flowers of My Mediterranean Garden</h2><p>June 5, 2017</p><p>On the occasion of #WorldEnvironmentDay 2017 I am posting flowers of my Mediterranean garden in Montenegro. Nature is not my environment – it is embedded in me and significant part of my professional career I spent in efforts to protect the nature. Whenever I am visiting my garden I’m reconnecting with nature and celebrating this places that matter to me. I hope you will enjoy browsing these photos. Get connect and pay quick visit if you are passing by.</p><p>Interested in those places? Get in touch with me today.</p>",
   "seo_description": "Photos of flowers from a Mediterranean garden in Montenegro, shared for World Environment Day 2017, featuring Spartium junceum and Nerium oleander.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "title": "Цвеће мог медитеранског врта",
     "summary": "Цвеће из мог медитеранског врта у Црној Гори — лична веза са природом.",
     "body": "<h2>Цвеће мог медитеранског врта</h2><p>5. јун 2017.</p><p>Поводом #ДанСветскеЖивотнеСредине 2017. године објављујем цвеће из мог медитеранског врта у Црној Гори. Природа није моје окружење – она је у мени и значајан део моје професионалне каријере коју сам провео у напорима да је заштитим. Када год посетим свој врт, поново се повезујем са природом и славим ова места која ми много значе. Надам се да ћете уживати прегледајући фотографије. Повежите се и свратите ако сте у пролазу.</p><p>Занимају вас ова места? Јавите ми се данас.</p>",
     "seo_description": "Цвеће из медитеранског врта ауторског рада у Црној Гори поводом Светског дана животне средине 2017.",
-    "approved": false,
-    "approved_hash": "",
-    "source_hash": "72493b5a9a6d5ece11320c59047281c964ad4be8a8075e9e45516e1031cad624",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "72493b5a9a6d5ece11320c59047281c964ad4be8a8075e9e45516e1031cad624"
   }
 }
