@@ -3,10 +3,10 @@
   "path": "/project/EMC",
   "description": "Discover the EMC project’s work on environmental management in Serbia and Radoje Laušević’s editorial contribution to Reporting for Sustainability proceedings.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "Пројекат EMC и управљање животном средином у Србији: уреднички допринос Радоја Лаушевића зборнику конференције „Извештавање за одрживост“.",
-    "approved": false,
-    "source_hash": "00d28d16f6ce1f398ab4b7c11c1dc80174982d3c7cad4bd70c116a950c020a8b",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "00d28d16f6ce1f398ab4b7c11c1dc80174982d3c7cad4bd70c116a950c020a8b"
   }
 }
