@@ -3,10 +3,10 @@
   "path": "/post/blueconnect-kick-off-meeting",
   "description": "At BLUECONNECT’s kick-off meeting in Kotor, Radoje Laušević presents the roadmap and facilitates dialogue on innovation, blue growth and cross-border partnerships.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "На почетном састанку BLUECONNECT у Котору Радоје Лаушевић представља план рада и води дијалог о иновацијама, плавом расту и прекограничним партнерствима.",
-    "approved": false,
-    "source_hash": "ae44535ef12428add381df1bbf3d162b0a7d5af67757bc36eee5742c7cf2c76b",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "ae44535ef12428add381df1bbf3d162b0a7d5af67757bc36eee5742c7cf2c76b"
   }
 }
