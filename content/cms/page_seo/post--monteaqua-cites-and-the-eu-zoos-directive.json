@@ -4,9 +4,9 @@
   "description": "A MonteAqua workshop in Kotor connects CITES wildlife trade controls, EU zoo rules and the planned biodiversity conservation centre presented by Radoje Laušević.",
   "sr": {
     "description": "Радионица MonteAqua у Котору повезује CITES, прописе ЕУ о зоолошким вртовима и планирани центар за заштиту биодиверзитета који представља Радоје Лаушевић.",
-    "approved": false,
+    "approved": true,
     "source_hash": "76eb5124ea2a41f77cde7fed3a815913bdfa5436106ee4154d6fa5223c8f60a4",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "f1e8adfade032666af54c97c55c44ba86a353a3ac088c036b7a004e259312362",
+    "status": "Одобрено за објављивање"
   }
 }

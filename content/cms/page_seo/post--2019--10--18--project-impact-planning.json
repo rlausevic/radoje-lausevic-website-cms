@@ -4,9 +4,9 @@
   "description": "Partner Consulting’s workshop in Bihać supports Sava River Basin Network stakeholders in planning project impacts within the Sava TIES initiative.",
   "sr": {
     "description": "Радионица Партнер Консалтинга у Бихаћу подржава заинтересоване стране Мреже слива Саве у планирању утицаја пројекта у оквиру иницијативе Sava TIES.",
-    "approved": false,
+    "approved": true,
     "source_hash": "4fbf069b4309f52eccf2bf01cba28212df5a830cd9bfe5e8f8f18730628a0f24",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "3c15ab5d0db0e168b63996c89656447a30e2ea00768b2e462708cbc5e82db40c",
+    "status": "Одобрено за објављивање"
   }
 }

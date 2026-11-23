@@ -4,9 +4,9 @@
   "description": "Radoje Laušević directed WATER SUM, supporting integrated water management, local water security and knowledge exchange in Tunisia, Egypt and Jordan.",
   "sr": {
     "description": "Радоје Лаушевић је руководио пројектом WATER SUM за интегрисано управљање водама, локалну водну безбедност и размену знања у Тунису, Египту и Јордану.",
-    "approved": false,
+    "approved": true,
     "source_hash": "fe085094309b500a894b32e96ce6299f6210eb91d2ee618f751cac5f09c4ae78",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "b628ff663870863709f94886549e73bc96e7b203f5ada888d12c9d1269b4dde8",
+    "status": "Одобрено за објављивање"
   }
 }

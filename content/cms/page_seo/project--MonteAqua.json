@@ -4,9 +4,9 @@
   "description": "As MonteAqua Project Manager, Radoje Laušević supported the establishment of Aquarium Boka and facilities for Adriatic biodiversity research and conservation.",
   "sr": {
     "description": "Као руководилац пројекта MonteAqua, Радоје Лаушевић је подржао успостављање Акваријума Бока и капацитета за истраживање и заштиту јадранског биодиверзитета.",
-    "approved": false,
+    "approved": true,
     "source_hash": "b4b0cd05a9c01ebdb725610903dc0ef72497f435dc4b0a04a7411771883aec5f",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "5494e0aa83c67f882be467414cd49438b6ba8f6eb101ba2647bbc7ee3d9a5647",
+    "status": "Одобрено за објављивање"
   }
 }

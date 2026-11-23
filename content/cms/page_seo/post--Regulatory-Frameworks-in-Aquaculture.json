@@ -4,9 +4,9 @@
   "description": "At the LiRRIE workshop in Ulcinj, Radoje Laušević delivers circular aquaculture training and demonstrates BLUEfasma to support innovation at Šasko Lake.",
   "sr": {
     "description": "На радионици LiRRIE у Улцињу Радоје Лаушевић води обуку о циркуларној аквакултури и представља BLUEfasma за подршку иновацијама на Шаском језеру.",
-    "approved": false,
+    "approved": true,
     "source_hash": "a08e875e74cf7bf750d797ff513266473262cb75e240eefbb402e54dc7fb9eec",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "c928993f79d83cf2ec1f83de707d7f025db689f56cafafdd6e418fbf17521bf8",
+    "status": "Одобрено за објављивање"
   }
 }

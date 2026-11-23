@@ -4,9 +4,9 @@
   "description": "A video introduction to the Water, Growth and Stability Initiative, available in Radoje Laušević’s archive of regional water and sustainability cooperation.",
   "sr": {
     "description": "Видео-увод у иницијативу Вода, раст и стабилност, доступан у архиви регионалне сарадње Радоја Лаушевића у области вода и одрживости.",
-    "approved": false,
+    "approved": true,
     "source_hash": "50f5c61d12b8997cd607e09cf08ab110a62b5bae2b8e95323b42c2f4239e87d0",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "2f861dbdfedc2551f763ef8352277555360a47f6ce7d5073c0cb43e9abb05742",
+    "status": "Одобрено за објављивање"
   }
 }

@@ -4,9 +4,9 @@
   "description": "At MonteAqua’s closing event, Radoje Laušević presents the project results and Aquarium Boka as a centre for marine conservation, research and education.",
   "sr": {
     "description": "На завршном догађају MonteAqua Радоје Лаушевић представља резултате и Акваријум Бока као центар за заштиту мора, истраживање и образовање.",
-    "approved": false,
+    "approved": true,
     "source_hash": "64c096fab7767aa6ecf3e860df4338951bd7afe529c6d441697237528f2e288d",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "fe023bf4c2cb9dca6d354f7653aa36b706dd76a05e079dceeb9be05afd9be7f4",
+    "status": "Одобрено за објављивање"
   }
 }

@@ -4,9 +4,9 @@
   "description": "Watch interviews, conference highlights and project videos on water security, Adriatic biodiversity, Aquarium Boka and cross-border blue economy cooperation.",
   "sr": {
     "description": "Интервјуи, конференцијски снимци и пројектни видео-записи о водној безбедности, јадранском биодиверзитету, Акваријуму Бока и прекограничној сарадњи.",
-    "approved": false,
+    "approved": true,
     "source_hash": "a27be500fe4ebc381ee748cef9bf79072740c34c570ad82e72f0a5ff1148101d",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "48a922f4fda06b6007c903b15ba318ea186e8d3ac95c0aeeeaead6fa2b4f4779",
+    "status": "Одобрено за објављивање"
   }
 }

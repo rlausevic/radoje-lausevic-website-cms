@@ -4,9 +4,9 @@
   "description": "Radoje Laušević’s MonteAqua project and committee roles support AdriBioPro2019 in Kotor, bringing together an international biodiversity conservation community.",
   "sr": {
     "description": "Пројектне и одборске улоге Радоја Лаушевића у MonteAqua подржавају AdriBioPro2019 у Котору и повезују међународну заједницу за заштиту биодиверзитета.",
-    "approved": false,
+    "approved": true,
     "source_hash": "68f774504a052e43fe31f465159e6300e66e585c92fa4541cf65af8e2159d818",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "b2beda3534040f6a242c108f0bbfad3c34782e10553e910386521b2a258dc5fc",
+    "status": "Одобрено за објављивање"
   }
 }

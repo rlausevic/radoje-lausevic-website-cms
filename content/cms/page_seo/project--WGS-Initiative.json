@@ -4,9 +4,9 @@
   "description": "Explore Radoje Laušević’s strategic leadership in the Water, Growth and Stability Initiative, connecting water governance and dialogue between MENA and Europe.",
   "sr": {
     "description": "Стратешко руководство Радоја Лаушевића у иницијативи Вода, раст и стабилност, која повезује управљање водама и дијалог региона MENA и Европе.",
-    "approved": false,
+    "approved": true,
     "source_hash": "aac0c63ba1cc14fb8c58a1229b59ab35adc3f3f1198d1e3c13f9db5d614e508d",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "04648fa7423c3c2aa6cac7d0a8b8e41fb9099ed082ca50992fcf037a3981a545",
+    "status": "Одобрено за објављивање"
   }
 }

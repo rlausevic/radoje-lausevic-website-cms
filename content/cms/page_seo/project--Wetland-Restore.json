@@ -4,9 +4,9 @@
   "description": "Ecological network impact assessment led by Radoje Laušević supported wetland restoration in Serbia’s Zasavica, Jegrička and Bara Trskovača protected areas.",
   "sr": {
     "description": "Радоје Лаушевић је водио оцену утицаја на еколошку мрежу за обнову влажних станишта у заштићеним подручјима Засавица, Јегричка и Бара Трсковача.",
-    "approved": false,
+    "approved": true,
     "source_hash": "dd735937e731425984e9a6fd368e2a3165006b189b3391dcb8e89b9131bf1094",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "24e831ebed463cd5a8173fe3aa3e0a726c577eb80e5349737344217ce07ccc93",
+    "status": "Одобрено за објављивање"
   }
 }

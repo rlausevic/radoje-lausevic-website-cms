@@ -4,9 +4,9 @@
   "description": "Radoje Laušević supervised REC’s contribution to SEE BAP, linking biodiversity conservation and participatory local development in ten Western Balkan municipalities.",
   "sr": {
     "description": "Радоје Лаушевић је надгледао допринос REC-а пројекту SEE BAP за заштиту биодиверзитета и партиципативни развој у десет општина Западног Балкана.",
-    "approved": false,
+    "approved": true,
     "source_hash": "12d063ea975edd2e82dec505a63e9ffbb3402cf4e77fb2f92c98368b7f7cdbb4",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "7f2a225449c2c6bc5947d59536472387f2970acd7fee1c9859e8b5d9139826d6",
+    "status": "Одобрено за објављивање"
   }
 }

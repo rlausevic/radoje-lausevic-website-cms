@@ -4,9 +4,9 @@
   "description": "At the first Šasko Lake LiRRIE event, Radoje Laušević supports a shared vision for circular aquaculture and introduces the BLUEfasma self-assessment tool.",
   "sr": {
     "description": "На првом догађају LiRRIE за Шаско језеро Радоје Лаушевић подржава заједничку визију циркуларне аквакултуре и представља алат BLUEfasma за самопроцену.",
-    "approved": false,
+    "approved": true,
     "source_hash": "65020c10371b4e544e1192381b1dc219d85f5da1b45573c725ee24b0ce3fe7de",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "755ac518b42bedc90392d60af15ff5e0cabf5b91fd12c63ae387dd3782cfdc9c",
+    "status": "Одобрено за објављивање"
   }
 }

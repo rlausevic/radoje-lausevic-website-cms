@@ -4,9 +4,9 @@
   "description": "An interview on transboundary water resources recorded during the WATER SUM regional event in January 2016, exploring a shared water-management theme.",
   "sr": {
     "description": "Интервју о прекограничним водним ресурсима, снимљен на регионалном догађају WATER SUM у јануару 2016. године, посвећен заједничкој теми управљања водама.",
-    "approved": false,
+    "approved": true,
     "source_hash": "0cc12bba924ea98d9c80866edca33b9d06b1483aa086b39c1a77a7e0426b1f68",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "71fe549b91dd49c3acea25ae1bc7eb7cc342bc0bfec2608c18f582008187bbb1",
+    "status": "Одобрено за објављивање"
   }
 }

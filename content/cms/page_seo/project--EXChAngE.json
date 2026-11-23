@@ -4,9 +4,9 @@
   "description": "Explore Radoje Laušević’s project management role in EXChAngE, connecting aquatic biodiversity and sustainable tourism across three Adriatic countries.",
   "sr": {
     "description": "Улога Радоја Лаушевића у управљању пројектом EXChAngE, који повезује водени биодиверзитет и одрживи туризам у три јадранске земље.",
-    "approved": false,
+    "approved": true,
     "source_hash": "c91315d2f4b6db628a9109c2a5fac797a92cc048f0ccdf1b01f55f1742cba350",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "8f90ecc9ef0cf356cc282731a370d9155ecd37982d44124c9bd827fa2d538827",
+    "status": "Одобрено за објављивање"
   }
 }

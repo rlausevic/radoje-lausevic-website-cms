@@ -4,9 +4,9 @@
   "description": "As Serbia Country Team Leader, Radoje Laušević joins the GIZ SECAP kickoff to coordinate expert support and quality assurance for local climate action plans.",
   "sr": {
     "description": "Као вођа тима за Србију, Радоје Лаушевић учествује на почетном састанку GIZ SECAP за координацију експертске подршке и квалитет локалних климатских планова.",
-    "approved": false,
+    "approved": true,
     "source_hash": "2d740c2a5f0b580963bb990c456e4077337f012c24c17468aaee7866b91cf3ef",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "91468d6ca95e0d7f2cb0723b318cd4e6bf4eef537da2e686dc007ff92b3fcf69",
+    "status": "Одобрено за објављивање"
   }
 }

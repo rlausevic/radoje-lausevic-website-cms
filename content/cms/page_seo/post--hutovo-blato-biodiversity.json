@@ -4,9 +4,9 @@
   "description": "An EXCHANGE seminar at Hutovo Blato connects knowledge of plants, fish and birds with tourism interpretation and opportunities for sustainable rural tourism.",
   "sr": {
     "description": "Семинар EXCHANGE у Хутовом блату повезује знање о биљкама, рибама и птицама са туристичком интерпретацијом и одрживим руралним туризмом.",
-    "approved": false,
+    "approved": true,
     "source_hash": "cf40fd5b9f41f12236010b0710a381b3a57b2dec82a6e381fb685c4753ab5b13",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "c034aefea43cc8f5ad2b311bf6faf2bd6b2898d7b6271086c20b59e93bcbea42",
+    "status": "Одобрено за објављивање"
   }
 }

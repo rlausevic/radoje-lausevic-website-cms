@@ -4,9 +4,9 @@
   "description": "EXCHANGE presents Blue Pass at the Mostar fair, connecting aquatic biodiversity, cultural heritage and thematic tourism routes across three countries.",
   "sr": {
     "description": "EXCHANGE представља Blue Pass на сајму у Мостару, повезујући водени биодиверзитет, културно наслеђе и тематске туристичке руте у три земље.",
-    "approved": false,
+    "approved": true,
     "source_hash": "a2e85688105afcf77d3b5b6de3fce1d60c39627a8896158fe8ff528e4299d3f8",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "3bf0727e4a6ded1e0e5c0b2afc50ae1a12261435919c37101bcc1a137235edac",
+    "status": "Одобрено за објављивање"
   }
 }

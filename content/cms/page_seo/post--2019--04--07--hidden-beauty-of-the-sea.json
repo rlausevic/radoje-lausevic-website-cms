@@ -4,9 +4,9 @@
   "description": "The Hidden Beauty of the Sea underwater photography exhibition at AdriBioPro2019 reveals marine life and supports awareness of Adriatic biodiversity.",
   "sr": {
     "description": "Изложба подводних фотографија „Скривена лепота мора“ на AdriBioPro2019 открива морски свет и подиже свест о јадранском биодиверзитету.",
-    "approved": false,
+    "approved": true,
     "source_hash": "493df2dedfd0893061047dc3075d43fdb07d0d3b0ba5d6936c8a6d12b656a081",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "7aae7181b2f0a2d657b6321da1a6bc5c8b0dec3f352e97d333b322e531a455a2",
+    "status": "Одобрено за објављивање"
   }
 }

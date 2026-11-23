@@ -4,9 +4,9 @@
   "description": "Read Radoje Laušević’s project updates and explore videos and photo stories on blue economy, biodiversity, environmental policy and sustainable development.",
   "sr": {
     "description": "Објаве, видео-записи и фото-приче Радоја Лаушевића о плавој економији, биодиверзитету, еколошкој политици и одрживом развоју.",
-    "approved": false,
+    "approved": true,
     "source_hash": "22f2ee84bdca64250a9da3f4a5dfeea04ff08d2fe47c07006c92ce5cb23b1680",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "ca337d8e05527292839dfeb82084f2a3b9fbd34f87eaa78cf821f02f643def24",
+    "status": "Одобрено за објављивање"
   }
 }

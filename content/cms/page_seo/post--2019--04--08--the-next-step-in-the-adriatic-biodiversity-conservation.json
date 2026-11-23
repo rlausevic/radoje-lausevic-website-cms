@@ -4,9 +4,9 @@
   "description": "AdriBioPro2019 opens in Kotor, connecting scientific knowledge and regional dialogue on the conservation of Adriatic marine and freshwater biodiversity.",
   "sr": {
     "description": "Отварање AdriBioPro2019 у Котору повезује научна сазнања и регионални дијалог о заштити морског и слатководног биодиверзитета Јадрана.",
-    "approved": false,
+    "approved": true,
     "source_hash": "1760f6515004b4fba8b2661c93780e38f75f1642c827c32639b172160eaa740f",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "8bf5819d9d3b861e5c339683a5a2ad2071481c6005bdb845e9007dcfdbcc29cc",
+    "status": "Одобрено за објављивање"
   }
 }

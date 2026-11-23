@@ -4,9 +4,9 @@
   "description": "Radoje Laušević led the Serbia expert team supporting local governments in preparing Sustainable Energy and Climate Action Plans under EU4ETTR.",
   "sr": {
     "description": "Радоје Лаушевић је водио експертски тим за Србију у подршци градовима при изради акционих планова за одрживу енергију и климу у оквиру EU4ETTR.",
-    "approved": false,
+    "approved": true,
     "source_hash": "27bc5aed7b69626c07cb0e2f5a6159acccfb799d4251c14c1904c06614e22f04",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "1e7ce9fb98fde79b3e93bab4f96fbe220e5bffaa32fddeaddb53db92a9d659cf",
+    "status": "Одобрено за објављивање"
   }
 }

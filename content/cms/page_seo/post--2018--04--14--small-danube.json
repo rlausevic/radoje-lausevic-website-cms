@@ -4,9 +4,9 @@
   "description": "A visit to the Little Danube Center for Fishery and Applied Hydrobiology with Professor Zoran Marković, recorded in Radoje Laušević’s field journal.",
   "sr": {
     "description": "Посета Центру за рибарство и примењену хидробиологију „Мали Дунав“ са професором Зораном Марковићем, забележена у дневнику Радоја Лаушевића.",
-    "approved": false,
+    "approved": true,
     "source_hash": "d4d12d47f24fa266ddc801a37cf17170456471643f1cd0e4672ca99372eb5ae4",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "5818b85ef6822fae7f1600f70a2d5f087b6fb0f648d64dc4794ca8de038d24e2",
+    "status": "Одобрено за објављивање"
   }
 }

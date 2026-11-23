@@ -4,9 +4,9 @@
   "description": "Radoje Laušević chairs AdriBioPro2022’s Organizing Committee, connecting over 300 participants in Kotor around biodiversity, tourism and cultural heritage.",
   "sr": {
     "description": "Радоје Лаушевић председава Организационим одбором AdriBioPro2022, који у Котору повезује преко 300 учесника око биодиверзитета, туризма и културног наслеђа.",
-    "approved": false,
+    "approved": true,
     "source_hash": "a781890dc37ad835a1fd445b61006d06be5751008e1d3ef42571092b5cd49364",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "910d27f0d05fe7fa7af5529894167c534dfe4fb0c27456771400a709ee56ff09",
+    "status": "Одобрено за објављивање"
   }
 }

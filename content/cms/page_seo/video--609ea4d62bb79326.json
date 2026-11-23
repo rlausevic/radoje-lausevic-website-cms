@@ -4,9 +4,9 @@
   "description": "The MonteAqua closing event presents Aquarium Boka and project results, connecting marine conservation, research and education in Kotor, Montenegro.",
   "sr": {
     "description": "Завршни догађај MonteAqua представља Акваријум Бока и резултате пројекта који повезује заштиту мора, истраживање и образовање у Котору, Црна Гора.",
-    "approved": false,
+    "approved": true,
     "source_hash": "5ad7dceaa222ebecdd901acf4f07ef2fde98f022af029cb43a7abfc8fdbdc22d",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "0b42aeb1565cf73ef46f487d4816e24e38ee630fffa96c63f8705f458b23a681",
+    "status": "Одобрено за објављивање"
   }
 }

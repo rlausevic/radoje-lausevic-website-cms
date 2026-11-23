@@ -4,9 +4,9 @@
   "description": "Explore Radoje Laušević’s policy analysis, stakeholder engagement and monitoring work supporting SKILLS and blue economy competences in the South Adriatic.",
   "sr": {
     "description": "Анализа политика, рад са заинтересованим странама и праћење резултата Радоја Лаушевића у пројекту SKILLS за развој вештина плаве економије Јужног Јадрана.",
-    "approved": false,
+    "approved": true,
     "source_hash": "4f2ed972bfeeaa1ec287466ed089db174cf58d3f89e9fb16746c520ac024b4b2",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "6eba4e5573f4f6a52e2312a5e81b5e76fe539984d682d7a4203e352789a0bfae",
+    "status": "Одобрено за објављивање"
   }
 }

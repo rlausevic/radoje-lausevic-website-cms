@@ -4,9 +4,9 @@
   "description": "During BLUECONNECT’s Sardina study visit on Brač, Radoje Laušević facilitates exchanges on fish processing, resource efficiency and Adriatic cooperation.",
   "sr": {
     "description": "Током посете BLUECONNECT компанији Сардина на Брачу, Радоје Лаушевић води размену о преради рибе, ефикасности ресурса и јадранској сарадњи.",
-    "approved": false,
+    "approved": true,
     "source_hash": "1af0f6f18d26bfcffcca0023461002c17b23c1c75cc11e6ab24cf2cb160b26c1",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "8c58a7f5330834de6119eb8f12c6f81d545b5fe64c3bb05f4931863a95d14c2d",
+    "status": "Одобрено за објављивање"
   }
 }

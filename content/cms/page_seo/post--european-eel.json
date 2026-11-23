@@ -4,9 +4,9 @@
   "description": "A MonteAqua study proposes the European eel as a Skadar Lake flagship species. Radoje Laušević contributed to the assessment and conservation recommendations.",
   "sr": {
     "description": "Студија MonteAqua предлаже европску јегуљу за симбол Скадарског језера. Радоје Лаушевић је допринео процени стања и препорукама за заштиту.",
-    "approved": false,
+    "approved": true,
     "source_hash": "f6707a29cabcc4ab592b48a367dfc9b374f79253d738ca0598a0b34266b0a259",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "1db611902c6a60af706764d567628427def0828f8411c7cfda78c348aa014196",
+    "status": "Одобрено за објављивање"
   }
 }

@@ -4,9 +4,9 @@
   "description": "SATECON’s Kotor kickoff connects nine institutions from Croatia, Bosnia and Herzegovina and Montenegro to advance smart agriculture and mariculture.",
   "sr": {
     "description": "Почетна конференција SATECON у Котору повезује девет институција из Хрватске, Босне и Херцеговине и Црне Горе за развој паметне пољопривреде и марикултуре.",
-    "approved": false,
+    "approved": true,
     "source_hash": "78a472c845a33fbbf827435f76394e2f37ec9dd1eee21089b88596e1cb598e72",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "1fe3f490c65503a48049bd14c64722efbee2a4a326d1f5dc05a68693e394f2d6",
+    "status": "Одобрено за објављивање"
   }
 }

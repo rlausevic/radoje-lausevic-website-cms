@@ -4,9 +4,9 @@
   "description": "A Sava TIES regional workshop in Kulen Vakuf, Bosnia and Herzegovina, explores transnational cooperation to manage invasive alien species in the Sava basin.",
   "sr": {
     "description": "Регионална радионица Sava TIES у Кулен Вакуфу у Босни и Херцеговини разматра прекограничну сарадњу у управљању инвазивним страним врстама слива Саве.",
-    "approved": false,
+    "approved": true,
     "source_hash": "55a8ac701436692dcd118b4863f64721cd7f50eb86deaf6f3a4343952e84675e",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "36e0b944d3de15b05dfc8c6ec0998ed4b7bf8dd5c78128a697d5a0ce7da961a9",
+    "status": "Одобрено за објављивање"
   }
 }

@@ -4,9 +4,9 @@
   "description": "A MonteAqua workshop in Kotor connects fisheries experts and stakeholders on illegal fishing, with Radoje Laušević presenting the project and 9mCollab.",
   "sr": {
     "description": "Радионица MonteAqua у Котору повезује рибарске стручњаке и заинтересоване стране у борби против незаконитог риболова, уз представљање пројекта и 9mCollab.",
-    "approved": false,
+    "approved": true,
     "source_hash": "e566ed9ab00b39f8f36eb95f884ad205e4b64552cbbf7b8d57b7441d9a3febfe",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "b106e39b9d97818fe486a24f1775eeb32e4f6b6ed46cb9084e221596b078ad83",
+    "status": "Одобрено за објављивање"
   }
 }

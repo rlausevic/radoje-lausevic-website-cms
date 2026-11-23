@@ -4,9 +4,9 @@
   "description": "Explore five SKILLS Summer School themes planned for Puglia in 2027, from sustainable aquaculture to marine plastics and island energy systems.",
   "sr": {
     "description": "Пет тема летњих школа SKILLS планираних у Пуљи за 2027. годину: од одрживе аквакултуре до морске пластике и енергетских система острва.",
-    "approved": false,
+    "approved": true,
     "source_hash": "0b2ed824aa46e34db9387b96d670664e0f560dd4e11a7d9bdd2328524feb33e9",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "f11c6c6d9cab7cff4cb7a9aa8ba945c7ffc5fc504de2339e512b06572ff1a301",
+    "status": "Одобрено за објављивање"
   }
 }

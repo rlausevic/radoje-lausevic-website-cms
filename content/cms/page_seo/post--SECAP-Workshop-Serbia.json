@@ -4,9 +4,9 @@
   "description": "At the SECAP workshop in Vrdnik, Radoje Laušević guides expert contributions from municipal assessments towards practical climate mitigation and adaptation measures.",
   "sr": {
     "description": "На радионици SECAP у Врднику Радоје Лаушевић усмерава експертски рад од градских процена ка практичним мерама ублажавања климатских промена и прилагођавања.",
-    "approved": false,
+    "approved": true,
     "source_hash": "af96deba9890001a977ec8f8e8ef1823ad08b40283eebeac9edf2de667229587",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "approved_hash": "de1e41eb41859b455e6dde1bab791b9fddbc6d69681d93f0c4f7d3f3338e8e88",
+    "status": "Одобрено за објављивање"
   }
 }
