@@ -3,10 +3,10 @@
   "path": "/post/cooperation-with-sarajevo-protected-areas",
   "description": "Radoje Laušević discusses cooperation with Sarajevo protected areas, exploring cross-border projects, BluePass and the conservation of natural heritage.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Радоје Лаушевић разматра сарадњу са заштићеним подручјима Сарајева кроз прекограничне пројекте, BluePass и очување природног наслеђа.",
-    "source_hash": "c89de2dc666ab1f59fc41e7b5bff5706666ac528e77793f5c3d642199af4df5a"
+    "source_hash": "c89de2dc666ab1f59fc41e7b5bff5706666ac528e77793f5c3d642199af4df5a",
+    "approved_hash": "5ca2d9c7f98d9b9c3fe75932048fb5098ae93d26ad61d79672fe20c34dfc523f"
   }
 }
