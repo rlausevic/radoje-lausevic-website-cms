@@ -83,13 +83,13 @@
   "body": "<p>On <strong>15 February 2018</strong>, I participated as <strong>MonteAqua Project Manager</strong> in the workshop on invasive and allien species at the <strong>Institute of Marine Biology in Kotor, Montenegro</strong>.</p><p>I presented the MonteAqua project and the <strong>9mCollab platform</strong>, introducing the project’s objectives and a digital resource for collaboration and knowledge exchange.</p><p>The workshop brought together researchers and environmental authorities to discuss invasive species in marine and freshwater ecosystems, monitoring methods and the implementation of relevant legislation. Contributions included Croatia’s experience with EU requirements, Montenegro’s proposed legal framework and the use of local ecological knowledge to monitor newly recorded species.</p><p>These photographs document the presentations and exchanges supporting regional cooperation in biodiversity conservation.</p>",
   "seo_description": "MonteAqua and the 9mCollab platform were presented at a regional workshop in Kotor focused on invasive alien species, supporting biodiversity protection and regulatory knowledge exchange.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "title": "BLUECONNECT Инвазивне стране врсте",
     "summary": "Представљање MonteAqua и платформе 9mCollab на регионалној радионици о инвазивним страним врстама у Котору, подршка размени знања о заштити биодиверзитета, мониторингу и регулаторним приступима.",
     "body": "<p>Дана <strong>15. фебруара 2018.</strong>, учествовао сам као <strong>менаџер пројекта MonteAqua</strong> на радионици о инвазивним и страним врстама у <strong>Институту за морску биологију у Котору, Црна Гора</strong>.</p><p>Представио сам пројекат MonteAqua и платформу <strong>9mCollab</strong>, указујући на циљеве пројекта и дигитални ресурс за сарадњу и размену знања.</p><p>Радионица је окупила истраживаче и надлежне еколошке институције како би разматрали инвазивне врсте у морским и слатководним екосистемима, методе мониторинга и примену релевантних прописа. Допринели су искуствима Хрватске у складу са ЕУ захтевима, предложеним правним оквиром Црне Горе и коришћењем локалног еколошког знања за праћење ново евидентираних врста.</p><p>Ове фотографије документују презентације и размену која подржава регионалну сарадњу у очувању биодиверзитета.</p>",
     "seo_description": "Представљени су MonteAqua пројекат и 9mCollab платформа на регионалној радионици о инвазивним страним врстама у Котору, у фокусу заштита биодиверзитета.",
-    "source_hash": "7f9e89ab3a37f6932c7bd2519daabed17a8ebc13c98e8f732562d83852d80a90"
+    "source_hash": "7f9e89ab3a37f6932c7bd2519daabed17a8ebc13c98e8f732562d83852d80a90",
+    "approved_hash": "f2fc6cc51ca2b9584d1ab19a3c3fad8825224dd0dceae134545876389bcd0ffb"
   }
 }
