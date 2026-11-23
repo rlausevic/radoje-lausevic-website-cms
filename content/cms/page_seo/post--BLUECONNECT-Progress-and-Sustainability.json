@@ -3,10 +3,10 @@
   "path": "/post/BLUECONNECT-Progress-and-Sustainability",
   "description": "Radoje Laušević joins BLUECONNECT’s monitoring meeting with the Joint Secretariat, focusing on platform use and lasting cross-border cooperation.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "Радоје Лаушевић учествује на мониторинг састанку BLUECONNECT са Заједничким секретаријатом, са фокусом на платформу и трајну прекограничну сарадњу.",
-    "approved": false,
-    "source_hash": "414f9ccf9785f01fda4d4f692dda1d814477a4a3427073ef1b62a67c587313b3",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "414f9ccf9785f01fda4d4f692dda1d814477a4a3427073ef1b62a67c587313b3"
   }
 }
