@@ -6,6 +6,12 @@ from experience_data import experience_period,experience_sort_key
 from scripts.sync_experience import sync
 ROOT=Path(__file__).resolve().parent
 class Experience(unittest.TestCase):
+ def test_serbian_periods_keep_shared_dates_and_english_sync(self):
+  months='јануар фебруар март април мај јун јул август септембар октобар новембар децембар'.split()
+  for month,name in enumerate(months,1):
+   self.assertEqual(experience_period({'start':f'2026-{month:02d}','ongoing':True},'sr'),f'{name} 2026 – данас')
+  for item,expected in [({'start':'2001-01','end':'2005-11'},'јануар 2001 – новембар 2005'),({'ongoing':True},'У току'),({'start':'2001-01'},'Од јануар 2001'),({'end':'2005-11'},'До новембар 2005'),({},'')]:
+   self.assertEqual(experience_period(item,'sr'),expected)
  def test_stable_order_and_missing_dates(self):
   items=[{'title':'finished undated','ongoing':False,'start':'2099-01'},
    {'title':'finished older','end':'2020-05'},

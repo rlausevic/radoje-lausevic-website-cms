@@ -24,10 +24,10 @@ class SectionArchives(unittest.TestCase):
  def test_cms_contract(self):
   schemas={c['name']:c for c in json.loads((ROOT/'.pages.yml').read_text())['content']}
   network=schemas['network']['fields'];self.assertEqual(network[0]['name'],'body');self.assertEqual(network[0]['label'],'Opis')
-  fields=next(f for f in network if f['name']=='items')['fields'];self.assertEqual([f['name'] for f in fields],['id','name','date','link','body'])
+  fields=next(f for f in network if f['name']=='items')['fields'];self.assertEqual([f['name'] for f in fields],['id','name','date','link','body','seo_description','sr'])
   rec=next(f for f in schemas['about']['fields'] if f['name']=='recommendations')['fields']
-  self.assertEqual([f['name'] for f in rec],['author','date','summary','body','related_contents'])
-  relation=rec[-1];self.assertEqual(relation['type'],'reference');self.assertTrue(relation['options']['multiple'])
+  self.assertEqual([f['name'] for f in rec],['author','date','summary','body','related_contents','seo_description','sr'])
+  relation=next(f for f in rec if f['name']=='related_contents');self.assertEqual(relation['type'],'reference');self.assertTrue(relation['options']['multiple'])
   self.assertEqual(relation['options']['collection'],'network_references');self.assertFalse(schemas['network_references']['operations']['create'])
  def test_generated_archives_preserve_all_records(self):
   with tempfile.TemporaryDirectory() as tmp:

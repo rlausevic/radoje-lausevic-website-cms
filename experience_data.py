@@ -9,13 +9,20 @@ def experience_date(value):
  try:return datetime.date.fromisoformat(value+'-01' if len(value)==7 else value)
  except ValueError:raise ValueError('Invalid work-experience date: '+value)
 
-def experience_period(item):
+def experience_period(item,language='en'):
  ongoing=item.get('ongoing',False)
  if not isinstance(ongoing,bool):raise ValueError('Radno iskustvo u toku must be true or false')
  start=experience_date(item.get('start'))
  end=None if ongoing else experience_date(item.get('end'))
  if start and end and end<start:raise ValueError('Work-experience end date precedes start date')
- label=lambda value:MONTHS[value.month-1]+' '+str(value.year)
+ months=('јануар','фебруар','март','април','мај','јун','јул','август','септембар','октобар','новембар','децембар') if language=='sr' else MONTHS
+ label=lambda value:months[value.month-1]+' '+str(value.year)
+ if language=='sr':
+  if start and ongoing:return label(start)+' – данас'
+  if start and end:return label(start)+' – '+label(end)
+  if ongoing:return 'У току'
+  if start:return 'Од '+label(start)
+  if end:return 'До '+label(end)
  if start and ongoing:return label(start)+' - ongoing'
  if start and end:return label(start)+' - '+label(end)
  if ongoing:return 'Ongoing'

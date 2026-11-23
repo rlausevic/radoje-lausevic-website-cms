@@ -91,7 +91,7 @@ def load_cms(root,original):
   # Preserve CMS list order; ignore any legacy order value.
   return [dict(item,order=index) for index,item in enumerate(items,1)]
  model['experience_entries']=ordered_entries('experience');model['project_entries']=ordered_entries('projects')
- for item in model['experience_entries']:item['period']=experience_period(item)
+ for item in model['experience_entries']:item['period']=experience_period(item,language='sr' if SR else 'en')
  model['experience_entries'].sort(key=experience_sort_key,reverse=True)
  for project in project_paths(root,model['project_entries']):
   project['topic']=project_topics(project)

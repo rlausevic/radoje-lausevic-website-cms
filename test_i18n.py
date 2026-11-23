@@ -13,6 +13,31 @@ def draft(item,key,**values):
  return item
 
 class Editorial(unittest.TestCase):
+ def test_recommendation_author_translation_and_existing_approvals(self):
+  key='about.recommendations'
+  item={'author':'Original author, role','summary':'English summary','body':'English body'}
+  # Existing approval fingerprints predate the optional attribution field.
+  item['sr']={'approved':True,'summary':'Сажетак','body':'Текст'}
+  fields=['summary','body','seo_description']
+  item['sr']['source_hash']=digest({f:item.get(f) or '' for f in fields})
+  item['sr']['approved_hash']=digest({f:item['sr'].get(f) or '' for f in fields})
+  before=copy.deepcopy(item);sync_record(item,key);self.assertEqual(item,before)
+  self.assertTrue(ready(item,key));self.assertEqual(localize(item,key)['author'],item['author'])
+  changed=copy.deepcopy(item);changed['sr']['body']='Измењен текст'
+  self.assertFalse(ready(changed,key));sync_record(changed,key);self.assertFalse(changed['sr']['approved'])
+  changed=copy.deepcopy(item);changed['summary']='Changed original'
+  self.assertFalse(ready(changed,key))
+  item['sr']['author']='Аутор, функција'
+  self.assertFalse(ready(item,key));sync_record(item,key);self.assertFalse(item['sr']['approved'])
+  item['sr']['refresh_source']=True;sync_record(item,key);self.assertFalse(ready(item,key))
+  item['sr']['approved']=True;sync_record(item,key)
+  self.assertTrue(ready(item,key));self.assertEqual(localize(item,key)['author'],'Аутор, функција')
+  item['author']='Changed attribution';self.assertFalse(ready(item,key))
+  config=json.loads((ROOT/'.pages.yml').read_text())
+  about=next(x for x in config['content'] if x['name']=='about')
+  recommendations=next(x for x in about['fields'] if x['name']=='recommendations')
+  sr=next(x for x in recommendations['fields'] if x['name']=='sr')
+  self.assertEqual(next(x for x in sr['fields'] if x['name']=='author')['type'],'string')
  def test_card_date_languages(self):
   months='јануар фебруар март април мај јун јул август септембар октобар новембар децембар'.split()
   for month,name in enumerate(months,1):
