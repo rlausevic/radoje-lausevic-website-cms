@@ -1,5 +1,6 @@
 {
   "title": "MonteAqua – CITES and the EU Zoos Directive",
+  "path": "/gallery/monteaqua-cites-and-the-eu-zoos-directive",
   "date": "2018-10-09",
   "topic": [
     "Blue Economy and Skills Development"
@@ -116,16 +117,15 @@
     }
   ],
   "body": "<p>Photographs from the MonteAqua workshops on CITES and the EU Zoos Directive, held at the Institute of Marine Biology in Kotor, Montenegro, on 9 October 2018.</p><p>The programme connected wildlife trade controls with the conservation and educational roles of zoos and aquariums. Sessions explored Montenegro’s experience with CITES implementation and customs procedures, followed by perspectives from Dubrovnik Aquarium and presentations on the concept and construction of Aquarium Boka.</p><p>As MonteAqua Project Manager, I presented the project’s goals and activities and the planned Center for Adriatic Biodiversity Conservation. The gallery documents presentations and discussions linking institutional responsibilities, scientific expertise and public engagement in biodiversity conservation.</p>",
-  "path": "/gallery/monteaqua-cites-and-the-eu-zoos-directive",
   "seo_description": "MonteAqua workshops in Kotor, Montenegro (2018) linking CITES, EU Zoos Directive, and the conservation role of zoos and aquariums.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "title": "МонтеАква – ЦИТЕС и Директива ЕУ о зоолошким вртовима",
     "summary": "Истражујући ЦИТЕС, Директиву ЕУ о зоолошким вртовима и улогу акваријума у очувању природе.",
     "body": "<p>Фотографије са радионица пројекта МонтеАква о ЦИТЕС и Директиви ЕУ о зоолошким вртовима, одржаних у Институту за морску биологију у Котору, Црна Гора, 9. октобра 2018. године.</p><p>Програм је повезао контролу трговине дивљим животињама са улогом очувања и образовања зоолошких вртова и акваријума. Теме су обухватале искуство Црне Горе у примени ЦИТЕС-а и царинске процедуре, као и перспективе Акваријума Дубровник и презентације концепта и изградње Акваријума Бока.</p><p>Као менаџер пројекта МонтеАква, представио сам циљеве и активности пројекта као и планирани Центар за очување адријатске биодиверзитет. Галерија документира презентације и дискусије које повезују институционалне одговорности, научну експертизу и ангажман јавности у очувању биодиверзитета.</p>",
     "seo_description": "Радионице МонтеАква о ЦИТЕС и Директиви ЕУ о зоолошким вртовима, истражују улоге контроле трговине и акваријума у очувању биодиверзитета.",
-    "approved": false,
-    "approved_hash": "",
-    "source_hash": "7bf4b7c589afdcb73f9c6b5870964fe040d80f1bd85177a48f8d9e2a7fcdb9c7",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "7bf4b7c589afdcb73f9c6b5870964fe040d80f1bd85177a48f8d9e2a7fcdb9c7"
   }
 }
