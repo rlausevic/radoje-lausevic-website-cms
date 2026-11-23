@@ -7,5 +7,16 @@
   ],
   "excerpt": "Supporting sustainable development of Ukraine",
   "body": "<p>Supporting sustainable development of Ukraine</p>",
-  "link": "https://www.youtube.com/watch?v=UFzhN8GOscQ"
+  "link": "https://www.youtube.com/watch?v=UFzhN8GOscQ",
+  "seo_description": "LINK Ukraine video presenting support for the sustainable development of Ukraine.",
+  "sr": {
+    "title": "LINK Украјина",
+    "excerpt": "Подршка одрживом развоју Украјине",
+    "body": "<p>Подршка одрживом развоју Украјине</p>",
+    "seo_description": "Видео LINK Украјина представља подршку одрживом развоју Украјине.",
+    "approved": true,
+    "approved_hash": "0f3e3347c54dacbf334c73cf3dd60c90b95b4fa77f4beb3b44a4ce54cbdff567",
+    "status": "Одобрено за објављивање",
+    "source_hash": "aad631ac49ddf82115f9b51b6dd594a2b74f5c3b74d7768e84102773c42c9b4e"
+  }
 }

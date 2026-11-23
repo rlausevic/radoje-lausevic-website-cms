@@ -7,5 +7,16 @@
   ],
   "excerpt": "An introduction to Montenegro’s Blue Growth Cluster, connecting businesses and supporting technology transfer, skills development and cooperation across blue economy sectors.",
   "body": "<p>This June 2023 video introduces the Montenegrin Blue Growth Cluster, established in Kotor to strengthen the competitiveness of businesses in fisheries, aquaculture, tourism and maritime transport.</p><p>The cluster promotes technology transfer, innovative education and skills development, helping members respond to market needs and contribute to a sustainable blue economy.</p><p>Cooperation with other Adriatic clusters offers opportunities to exchange knowledge, develop partnerships and connect Montenegro’s blue economy with regional and international markets.</p>",
-  "link": "https://www.youtube.com/watch?v=GFq5brsgHGc"
+  "link": "https://www.youtube.com/watch?v=GFq5brsgHGc",
+  "seo_description": "Meet Montenegro’s Blue Growth Cluster in Kotor, connecting fisheries, aquaculture, tourism and maritime transport through skills and technology transfer.",
+  "sr": {
+    "title": "Кластер плавог раста – повезивање плаве економије Црне Горе",
+    "excerpt": "Представљање црногорског Кластера плавог раста, који повезује предузећа и подржава трансфер технологија, развој вештина и сарадњу у секторима плаве економије.",
+    "body": "<p>Овај видео из јуна 2023. године представља црногорски Кластер плавог раста, основан у Котору ради јачања конкурентности предузећа у рибарству, аквакултури, туризму и поморском саобраћају.</p><p>Кластер подстиче трансфер технологија, иновативно образовање и развој вештина, помажући члановима да одговоре на потребе тржишта и допринесу одрживој плавој економији.</p><p>Сарадња са другим јадранским кластерима отвара могућности за размену знања, развој партнерстава и повезивање плаве економије Црне Горе са регионалним и међународним тржиштима.</p>",
+    "seo_description": "Упознајте Кластер плавог раста у Котору, који повезује рибарство, аквакултуру, туризам и поморски саобраћај кроз вештине и трансфер технологија.",
+    "approved": true,
+    "approved_hash": "f740eb7d194cf0bf573bc1732e0203eb095fa694be82882caf35add601801d30",
+    "status": "Одобрено за објављивање",
+    "source_hash": "238008c10953833b5045407cd0a192b7e0805bb988eb56619418005302fa9c2e"
+  }
 }

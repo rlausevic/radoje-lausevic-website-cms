@@ -7,5 +7,16 @@
   ],
   "excerpt": "Sustainable Use of Transboundary Water Resources and Water Security Management",
   "body": "<p>Sustainable Use of Transboundary Water Resources and Water Security Management</p>",
-  "link": "https://www.youtube.com/watch?v=dR5K4fferXk"
+  "link": "https://www.youtube.com/watch?v=dR5K4fferXk",
+  "seo_description": "WATER SUM video on the sustainable use of transboundary water resources and water security management.",
+  "sr": {
+    "title": "WATER SUM",
+    "excerpt": "Одрживо коришћење прекограничних водних ресурса и управљање водном безбедношћу",
+    "body": "<p>Одрживо коришћење прекограничних водних ресурса и управљање водном безбедношћу</p>",
+    "seo_description": "Видео о пројекту WATER SUM: одрживо коришћење прекограничних водних ресурса и управљање водном безбедношћу.",
+    "approved": true,
+    "approved_hash": "cee4f8b8c336682b50b4b761b0e5d3de1987c19d5b121227f4f894eac05fac54",
+    "status": "Одобрено за објављивање",
+    "source_hash": "46ccadcb28e80ca2c2fe94d1b836e9bef07f8c2048484c43b84c2f140934afb4"
+  }
 }

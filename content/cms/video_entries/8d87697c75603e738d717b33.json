@@ -7,5 +7,16 @@
   ],
   "excerpt": "Water, Growth and Stability Initiative",
   "body": "<p>Water, Growth and Stability Initiative</p>",
-  "link": "https://www.youtube.com/watch?v=MMenHrPAh_M"
+  "link": "https://www.youtube.com/watch?v=MMenHrPAh_M",
+  "seo_description": "Video presenting the Water, Growth and Stability Initiative (WGS), with a focus on water, growth and stability.",
+  "sr": {
+    "title": "Иницијатива WGS",
+    "excerpt": "Иницијатива „Вода, раст и стабилност“",
+    "body": "<p>Иницијатива „Вода, раст и стабилност“</p>",
+    "seo_description": "Видео представља иницијативу „Вода, раст и стабилност“ (WGS), посвећену води, расту и стабилности.",
+    "approved": true,
+    "approved_hash": "9b63f021963242c2ee6dfe26ed08c686d97aa32844096ecd413755efefa54426",
+    "status": "Одобрено за објављивање",
+    "source_hash": "727c330a5f736b0c769826c48f9f0250088088c89360a1b265a591e181535f8c"
+  }
 }

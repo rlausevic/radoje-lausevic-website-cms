@@ -7,5 +7,16 @@
   ],
   "excerpt": "Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)",
   "body": "<p>Interview was recorded during the WATER SUM Regional Transboundary Water Resources event (January 2016)</p>",
-  "link": "https://www.youtube.com/watch?v=7nyVQJ3qFPQ"
+  "link": "https://www.youtube.com/watch?v=7nyVQJ3qFPQ",
+  "seo_description": "Video interview on water security, recorded during the WATER SUM regional transboundary water resources event in January 2016.",
+  "sr": {
+    "title": "Водна безбедност",
+    "excerpt": "Интервју снимљен током регионалног скупа пројекта WATER SUM о прекограничним водним ресурсима у јануару 2016. године.",
+    "body": "<p>Интервју снимљен током регионалног скупа пројекта WATER SUM о прекограничним водним ресурсима у јануару 2016. године.</p>",
+    "seo_description": "Видео-интервју о водној безбедности, снимљен током регионалног скупа пројекта WATER SUM о прекограничним водним ресурсима у јануару 2016.",
+    "approved": true,
+    "approved_hash": "6c86811c3eea657b905f8d7280ac496dae751cbeafe2109205d636bcc05ce075",
+    "status": "Одобрено за објављивање",
+    "source_hash": "a0f57bc0fe9feeb4cf14608f7aebec4272d0cb13cdc3a4dde0cb97aa65bfeee6"
+  }
 }
