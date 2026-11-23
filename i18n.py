@@ -20,15 +20,33 @@ def content_date(value,language=LANG):
   return f'{day.day}. {months[day.month-1]} {day.year}.'
  return day.strftime('%b %d, %Y')
 
-def source_text(item,key):
- return {field:item.get(field) or '' for field in FIELDS[key]+['seo_description']}
+GALLERY_PHOTO_FIELDS=('title','caption')
+def record_text(item,key,translated=False):
+ data=(item.get('sr') or {}) if translated else item
+ text={field:data.get(field) or '' for field in FIELDS[key]+['seo_description']}
+ if key=='gallery_entries':
+  for index,photo in enumerate(item.get('photos') or []):
+   data=(photo.get('sr') or {}) if translated else photo
+   for field in GALLERY_PHOTO_FIELDS:text[f'photos.{index}.{field}']=data.get(field) or ''
+ return text
+def source_text(item,key):return record_text(item,key)
 def digest(value):
  return hashlib.sha256(json.dumps(value,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
-def source_hash(item,key):return digest(source_text(item,key))
-def translated_text(item,key):
- sr=item.get('sr') or {}
- return {f:sr.get(f) or '' for f in FIELDS[key]+['seo_description']}
+def source_hash(item,key):
+ text=source_text(item,key)
+ # Bind indexed photo text to its original image, including duplicate captions.
+ if key=='gallery_entries' and item.get('photos'):
+  return digest({'text':text,'images':[p.get('image') or '' for p in item['photos']]})
+ return digest(text)
+def translated_text(item,key):return record_text(item,key,translated=True)
 def translation_hash(item,key):return digest(translated_text(item,key))
+def legacy_gallery_ready(item,key):
+ if key!='gallery_entries' or any((p.get('sr') or {}).get(f) for p in item.get('photos') or [] for f in GALLERY_PHOTO_FIELDS):return False
+ sr=item.get('sr') or {};fields=FIELDS[key]+['seo_description']
+ return bool(sr.get('approved') is True and
+  sr.get('source_hash')==digest({f:item.get(f) or '' for f in fields}) and
+  sr.get('approved_hash')==digest({f:sr.get(f) or '' for f in fields}) and
+  all(isinstance(sr.get(f),str) and sr[f].strip() for f in FIELDS[key] if item.get(f)))
 OPTIONAL_FIELDS={'about.recommendations':'author','experience.items':'title','network.items':'name'}
 def legacy_optional_field_ready(item,key):
  # Preserve verified old approvals only while the newly translatable field is empty.
@@ -46,17 +64,18 @@ def complete(item,key):
  sr=item.get('sr') or {}
  # Optional attribution/title/name fields may retain their English original.
  # SEO is optional, with translated summary fallback.
- return all(isinstance(sr.get(f),str) and bool(sr[f].strip()) for f in FIELDS[key] if item.get(f) and f!=OPTIONAL_FIELDS.get(key))
+ translated=translated_text(item,key)
+ return all(isinstance(translated.get(f),str) and bool(translated[f].strip()) for f,value in source_text(item,key).items() if value and f not in {'seo_description',OPTIONAL_FIELDS.get(key)})
 def ready(item,key):
  sr=item.get('sr') or {}
- return legacy_optional_field_ready(item,key) or bool(sr.get('approved') is True and sr.get('source_hash')==source_hash(item,key) and sr.get('approved_hash')==translation_hash(item,key) and complete(item,key))
+ return legacy_gallery_ready(item,key) or legacy_optional_field_ready(item,key) or bool(sr.get('approved') is True and sr.get('source_hash')==source_hash(item,key) and sr.get('approved_hash')==translation_hash(item,key) and complete(item,key))
 def sync_record(item,key):
  if not item.get('sr'):return
  sr=item['sr'];current=source_hash(item,key)
  if sr.pop('refresh_source',False):
   sr.update(source_hash=current,approved=False,approved_hash='',status='Оригинал је потврђен — прегледајте и одобрите превод')
   return
- if legacy_optional_field_ready(item,key):return
+ if legacy_gallery_ready(item,key) or legacy_optional_field_ready(item,key):return
  if sr.get('source_hash')!=current:
   sr['approved']=False;sr['approved_hash']=''
   sr['status']='Потребно ажурирање — енглески оригинал је промењен' if sr.get('source_hash') else 'Нацрт — потребна провера'
@@ -89,6 +108,11 @@ def localize(data,key):
   if ready(item,kind):
    item['_source_title']=item.get('title','')
    translated=translated_text(item,kind)
+   if kind=='gallery_entries':
+    for index,photo in enumerate(item.get('photos') or []):
+     for field in GALLERY_PHOTO_FIELDS:
+      value=translated.pop(f'photos.{index}.{field}')
+      if value:photo[field]=value
    optional=OPTIONAL_FIELDS.get(kind)
    if optional and not translated.get(optional):translated.pop(optional,None)
    item.update(translated);item['_translated']=True

@@ -6,7 +6,7 @@ patch can also be prepared by ChatGPT using --export / --import (no API key).
 import argparse,copy,json,os,sys,urllib.request,urllib.error
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from i18n import FIELDS,ROOT,source_text,source_hash,digest,walk,file_key,sync_record
+from i18n import FIELDS,ROOT,source_text,source_hash,digest,walk,file_key,sync_record,GALLERY_PHOTO_FIELDS
 from cms_data import body
 
 def target(path,project_path=None):
@@ -24,9 +24,15 @@ def target(path,project_path=None):
  if key not in FIELDS:raise ValueError('This CMS entry is not translatable.')
  return path,data,item,key
 
+def draft_hash(item,key):
+ draft=item.get('sr') or {}
+ if key=='gallery_entries':
+  draft={'sr':draft,'photos':[p.get('sr') or {} for p in item.get('photos') or []]}
+ return digest(draft)
+
 def export(path,project_path=None):
  path,data,item,key=target(path,project_path)
- return {'path':str(path.relative_to(ROOT)),'project_path':project_path,'key':key,'source_hash':source_hash(item,key),'draft_hash':digest(item.get('sr') or {}),'source':source_text(item,key)}
+ return {'path':str(path.relative_to(ROOT)),'project_path':project_path,'key':key,'source_hash':source_hash(item,key),'draft_hash':draft_hash(item,key),'source':source_text(item,key)}
 
 def validate_translation(translation,source):
  if not isinstance(translation,dict) or set(translation)!=set(source):raise ValueError('The translation must contain exactly the exported text fields.')
@@ -58,8 +64,11 @@ def ai_prepare(patch):
 
 def apply(patch):
  path,data,item,key=target(patch['path'],patch.get('project_path'))
- if source_hash(item,key)!=patch['source_hash'] or digest(item.get('sr') or {})!=patch['draft_hash']:raise ValueError('English or Serbian text changed while preparing the draft. Nothing was overwritten. Prepare again from the newest version.')
+ if source_hash(item,key)!=patch['source_hash'] or draft_hash(item,key)!=patch['draft_hash']:raise ValueError('English or Serbian text changed while preparing the draft. Nothing was overwritten. Prepare again from the newest version.')
  values=validate_translation(copy.deepcopy(patch['translation']),source_text(item,key))
+ if key=='gallery_entries':
+  for index,photo in enumerate(item.get('photos') or []):
+   photo['sr']={field:values.pop(f'photos.{index}.{field}') for field in GALLERY_PHOTO_FIELDS}
  item['sr']=dict(values,approved=False,approved_hash='',source_hash=patch['source_hash'],status='AI нацрт — потребна ваша провера')
  path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 
