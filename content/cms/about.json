@@ -16,9 +16,9 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "body": "<p></p>",
-        "source_hash": "2b399f4ed7eef92d2642b09b59b553782d6329ea2b947b3cdc6cf76486f19d40"
+        "source_hash": "2b399f4ed7eef92d2642b09b59b553782d6329ea2b947b3cdc6cf76486f19d40",
+        "approved_hash": ""
       }
     },
     {
@@ -29,9 +29,9 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "body": "<p></p>",
-        "source_hash": "ca74cba54e6bd70153dd5efe1358d5b4c2e6bdf3930d20855f1f280ec1a8ac60"
+        "source_hash": "ca74cba54e6bd70153dd5efe1358d5b4c2e6bdf3930d20855f1f280ec1a8ac60",
+        "approved_hash": ""
       }
     },
     {
@@ -42,9 +42,9 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "body": "<p></p>",
-        "source_hash": "9e24052286d3f8d86f75a59c2bd6f6d33c4bf880dc1365dee6ac99bcca9ee4bc"
+        "source_hash": "9e24052286d3f8d86f75a59c2bd6f6d33c4bf880dc1365dee6ac99bcca9ee4bc",
+        "approved_hash": ""
       }
     },
     {
@@ -55,9 +55,9 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "body": "<p></p>",
-        "source_hash": "5d83949a2c8aa7f33f720021948d8665076a8cad71675f5ab5f2ff4470bd759c"
+        "source_hash": "5d83949a2c8aa7f33f720021948d8665076a8cad71675f5ab5f2ff4470bd759c",
+        "approved_hash": ""
       }
     },
     {
@@ -68,21 +68,21 @@
       "sr": {
         "status": "Нацрт — допуните превод свих енглеских поља",
         "approved": false,
-        "refresh_source": false,
         "body": "<p></p>",
-        "source_hash": "527bc4515e581b349408a5dc516b39e85d36f53ebdea2511079403ef0412fa2d"
+        "source_hash": "527bc4515e581b349408a5dc516b39e85d36f53ebdea2511079403ef0412fa2d",
+        "approved_hash": ""
       }
     }
   ],
   "network_note": "Sadržaj se uređuje na CMS stranici Saradnici i organizacije i automatski prikazuje ovde i u Career history.",
   "seo_description": "Radoje Laušević, PhD biologist and environmental consultant with 30+ years of experience in leadership, EU projects and sustainable development.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "body": "<p>Ја сам виши консултант за заштиту животне средине који помаже јавним институцијама, предузећима и научноистраживачким организацијама да еколошке приоритете претворе у практичне стратегије, програме и пројекте. Поседујем докторат из биологије и имам више од 30 година искуства на лидерским позицијама у универзитетима и међународним организацијама за заштиту животне средине. Моја експертиза обухвата лидерство и управљање, пројектни и програмски менаџмент, плаву економију и развој вештина, истраживање животне средине и политике, као и планирање у области климе и енергије. Повезујем научне доказе, институционално искуство и перспективе заинтересованих страна како бих ојачао организациони капацитет, информисао одлуке и подржао ефикасну имплементацију. Контактирајте ме да разговарамо о вашим приоритетима и начинима заједничке сарадње.</p>",
     "expertise_intro": "Подржавам институције, предузећа и научноистраживачке организације кроз лидерство, управљање пројектима, вештине плаве економије, истраживање животне средине и планирање у области климе и енергетике.",
     "seo_description": "Радоје Лаушевић, доктор биолошких наука и консултант за животну средину са преко 30 година искуства у лидерству, ЕУ пројектима и одрживом развоју.",
-    "source_hash": "c1659af091e4ce0c27c3f876ef4879e9b8f7fbd12197a88c6e77a93bf78e265d"
+    "source_hash": "c1659af091e4ce0c27c3f876ef4879e9b8f7fbd12197a88c6e77a93bf78e265d",
+    "approved_hash": "194c4385038530d8ab61a6ecace9dc661cc8558bffb360012d0099d529b1b48b"
   }
 }
