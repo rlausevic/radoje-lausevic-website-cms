@@ -3,10 +3,10 @@
   "path": "/post/benefits-of-ecotourism",
   "description": "At a TOUR workshop in Kotor, Radoje Laušević presents the BluePass app, connecting natural and cultural attractions with more sustainable visitor experiences.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "На радионици TOUR у Котору Радоје Лаушевић представља апликацију BluePass, која повезује природне и културне атракције са одрживим туристичким искуствима.",
-    "source_hash": "07d8ac6b707f81e7cf2427dd452e0d9c6bf456478b7b890e998fc97db7ea76c9"
+    "source_hash": "07d8ac6b707f81e7cf2427dd452e0d9c6bf456478b7b890e998fc97db7ea76c9",
+    "approved_hash": "33ecd3ad4d0f16cf72d4aa627672661fae30f0587db502a44ebaf94ed4bacc5b"
   }
 }

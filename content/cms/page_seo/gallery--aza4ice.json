@@ -3,8 +3,10 @@
   "path": "/gallery/aza4ice",
   "description": "Explore AZA4ICE photos of stakeholder dialogue and training in Montenegro, supporting circular aquaculture and a shared vision for the Šasko Lake pilot area.",
   "sr": {
-    "approved": true,
-    "refresh_source": false,
-    "description": "Погледајте AZA4ICE фотографије дијалога са заинтересованим странама и обука у Црној Гори, које пружају подршку циркуларној аквакултури и заједничкој визији за пилот-подручје Шашког језера."
+    "approved": false,
+    "description": "Погледајте AZA4ICE фотографије дијалога са заинтересованим странама и обука у Црној Гори, које пружају подршку циркуларној аквакултури и заједничкој визији за пилот-подручје Шашког језера.",
+    "approved_hash": "",
+    "status": "Нацрт — потребна провера",
+    "source_hash": "f752d107b88bd05bf5c7b173d3a5c453a658b56f8b553edd7d69c75e5f7c4ee8"
   }
 }
