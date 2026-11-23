@@ -37,13 +37,13 @@
   ],
   "body": "<p>This gallery documents my involvement in REDEEM activities in Montenegro, supporting an integrated approach to water, energy, food and ecosystems — the WEFE nexus.</p><p>The work brings together institutional knowledge, stakeholder perspectives and practical tools to identify interdependencies, assess emerging risks and support coordinated resource management. Cooperation and shared learning help translate these connections into priorities for action and stronger climate resilience.</p><p>My contribution includes stakeholder mapping and consultation, governance support, capacity development and carbon footprint assessment. Working with the Ministry of Agriculture, Forestry and Water Management and the expert team, I support the preparation of methodologies, learning resources and tools for project implementation.</p>",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "title": "REDEEM – Повезивање воде, енергије, хране и екосистема",
     "summary": "Делатности пројекта и сарадња заинтересованих страна у Црној Гори, истражујући везе између воде, енергије, хране и екосистема кроз REDEEM.",
     "body": "<p>Ова галерија документује моје укључивање у активности REDEEM у Црној Гори, подржавајући интегрисани приступ води, енергији, храни и екосистемима — WEFE nexus.</p><p>Рад окупља институционално знање, перспективе заинтересованих страна и практичне алате како би се идентификовали међузависности, проценили новојављени ризици и подржало координирано управљање ресурсима. Сарадња и заједничко учење помажу у превођењу ових веза у приоритете за деловање и јачу климатску отпорност.</p><p>Мој допринос обухвата мапирање заинтересованих страна и консултације, подршку у управљању, развој капацитета и процену угљеничног отиска. Радећи са Министарством пољопривреде, шумарства и водопривреде и стручним тимом, подржавам припрему методологија, образовних ресурса и алата за имплементацију пројекта.</p>",
     "seo_description": "Фотографије активности пројекта REDEEM у Црној Гори — сарадња заинтересованих страна у повезивању воде, енергије, хране и екосистема кроз WEFE приступ.",
-    "source_hash": "dfb5b33d976752c8fa8cdfe5627ef780bb01f5696c2a4646619bd18c515121c3"
+    "source_hash": "dfb5b33d976752c8fa8cdfe5627ef780bb01f5696c2a4646619bd18c515121c3",
+    "approved_hash": "912c98f249c4f870ac24cd5fab69aee6fb07c134206a32b936e7684904caa067"
   }
 }
