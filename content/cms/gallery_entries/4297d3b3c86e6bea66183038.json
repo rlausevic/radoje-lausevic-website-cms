@@ -307,12 +307,12 @@
   ],
   "body": "<p>This gallery brings together photographs from workshops, project meetings, a study visit and conferences within BLUECONNECT — Enhancing Cross-Border Blue Growth: Fostering Innovation and Cooperation for Competitive Entrepreneurship.</p><p>These activities connect project partners and stakeholders across Croatia, Bosnia and Herzegovina, and Montenegro, creating opportunities to exchange knowledge, explore practical solutions and build partnerships for a sustainable blue economy. They support cooperation around aquaculture, fisheries monitoring and resource-efficient fish processing, alongside the development of the Adriatic Blue Growth Cluster and its digital collaboration platform.</p><p>As Blue Growth Collaboration Platform Expert, contracted by the Institute of Marine Biology, University of Montenegro, I support platform development, stakeholder engagement and cooperation arrangements. My ongoing work helps connect businesses, researchers and public authorities and establish a basis for collaboration beyond the project.</p>",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "title": "BLUECONNECT – Повезивање људи за плави раст",
     "summary": "Радни састанци, састанци пројекта, студијска посета и конференције које повезују истраживање, бизнис и иновације кроз Хрватску, Босну и Херцеговину и Црну Гору у оквиру BLUECONNECT-а.",
     "body": "<p>Ова галерија окупља фотографије са радних састанака, састанака пројекта, студијске посете и конференција у оквиру BLUECONNECT — Јачање прекограничног плавог раста: Подстицање иновација и сарадње за конкурентно предузетништво.</p><p>Ове активности повезују партнере на пројекту и заинтересоване стране у Хрватској, Босни и Херцеговини и Црној Гори, стварајући прилике за размену знања, истраживање практичних решења и изградњу партнерстава за одрживу плаву економију. Оне подржавају сарадњу у области аквакултуре, мониторинга рибарства и ресурсо-ефикасне прераде рибе, уз развој Адријатског кластера плавог раста и његове дигиталне платформе за сарадњу.</p><p>Као експерт за Платформу за сарадњу у области Плавог раста, ангажован од Института за морску биологију Универзитета у Црној Гори, подржавам развој платформе, укључивање заинтересованих страна и договоре о сарадњи. Мој континуирани рад помаже повезивању предузећа, истраживача и јавних власти и успоставља основу за сарадњу и након пројекта.</p>",
-    "source_hash": "674669e8ebea2079a6fe77e81b5015e81ee4f3e226d131d068a5e34c85399365"
+    "source_hash": "674669e8ebea2079a6fe77e81b5015e81ee4f3e226d131d068a5e34c85399365",
+    "approved_hash": "c649b0219fe1af9a1ffb3984ff354f145325c2c172e12c66a330f50a33a9e4d2"
   }
 }
