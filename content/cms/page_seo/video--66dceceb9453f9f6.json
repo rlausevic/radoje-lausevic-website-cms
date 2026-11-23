@@ -3,10 +3,10 @@
   "path": "/video/66dceceb9453f9f6",
   "description": "Watch AdriBioPro2026 highlights from Kotor, capturing scientific sessions, dialogue and cooperation on Adriatic biodiversity and sustainable blue growth.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "Погледајте најважније тренутке AdriBioPro2026 у Котору: научне сесије, дијалог и сарадњу за јадрански биодиверзитет и одрживи плави раст.",
-    "approved": false,
-    "source_hash": "ce4c807e665c94112253f18e2754a2aef24a04ee855d4a5c0d2a9399e3afd682",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "ce4c807e665c94112253f18e2754a2aef24a04ee855d4a5c0d2a9399e3afd682"
   }
 }
