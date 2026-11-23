@@ -45,5 +45,15 @@
       "heading": "Conversation on sustainability",
       "lead": "Project updates, environmental insights and personal observations"
     }
+  },
+  "sr": {
+    "brand": "Партнер Консалтинг",
+    "description": "Виши консултант за животну средину. Лидерство, развој и управљање пројектима, као и истраживање животне средине.",
+    "location": "Београд, Србија",
+    "seo_description": "",
+    "approved": false,
+    "approved_hash": "",
+    "source_hash": "d14d3f9cc646d4857571d10261e9f76adb5685be6d88092a70f515bf974461bd",
+    "status": "Нацрт — потребна провера"
   }
 }
