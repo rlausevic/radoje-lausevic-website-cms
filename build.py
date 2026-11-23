@@ -297,7 +297,7 @@ body=intro('About','Experience, with purpose.','A biologist’s perspective. An 
 body+='<section class="section" id="profile"><div class="wrap two-col"><aside class="side-note">'+image(S['portrait'],S['name'])+'<p>PhD in Biology<br>University of Belgrade</p></aside><div class="prose"><h2>Profile</h2>'+render(__import__('cms_data').body(about.get('body') or ''))
 body+='<div id="my-services">'+''.join(f'<span id="expertise-{i+1}" class="legacy-anchor"></span>' for i in range(len(expertise)))+'<p>'+E(about.get('expertise_intro') or '')+'</p><a class="textlink" href="/expertise">Explore my expertise →</a></div></div></div></section>'
 selected=set(about.get('career_highlights') or [])
-career=[item for item in M['experience_entries'] if item['title'] in selected]
+career=[item for item in M['experience_entries'] if item.get('_source_title',item['title']) in selected]
 if career:
  body+='<section class="section" id="career-highlights"><div class="wrap prose"><h2>Career highlights</h2>'
  body+='<div class="career-cards">'

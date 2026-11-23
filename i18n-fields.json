@@ -79,6 +79,7 @@
     "description"
   ],
   "experience.items": [
+    "title",
     "body"
   ],
   "network.items": [

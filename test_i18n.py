@@ -38,6 +38,32 @@ class Editorial(unittest.TestCase):
   recommendations=next(x for x in about['fields'] if x['name']=='recommendations')
   sr=next(x for x in recommendations['fields'] if x['name']=='sr')
   self.assertEqual(next(x for x in sr['fields'] if x['name']=='author')['type'],'string')
+ def test_experience_title_translation_and_existing_approvals(self):
+  key='experience.items'
+  item={'title':'Original role, organisation','body':'English duties'}
+  item['sr']={'approved':True,'body':'Опис ангажмана'}
+  fields=['body','seo_description']
+  item['sr']['source_hash']=digest({f:item.get(f) or '' for f in fields})
+  item['sr']['approved_hash']=digest({f:item['sr'].get(f) or '' for f in fields})
+  before=copy.deepcopy(item);sync_record(item,key);self.assertEqual(item,before)
+  self.assertTrue(ready(item,key));self.assertEqual(localize(item,key)['title'],item['title'])
+  changed=copy.deepcopy(item);changed['body']='Changed duties';self.assertFalse(ready(changed,key))
+  changed=copy.deepcopy(item);changed['sr']['body']='Промењен опис';self.assertFalse(ready(changed,key))
+  item['sr']['title']='Функција, организација'
+  self.assertFalse(ready(item,key));sync_record(item,key);self.assertFalse(item['sr']['approved'])
+  item['sr']['refresh_source']=True;sync_record(item,key);self.assertFalse(ready(item,key))
+  item['sr']['approved']=True;sync_record(item,key);self.assertTrue(ready(item,key))
+  translated=localize(item,key)
+  self.assertEqual(translated['title'],'Функција, организација')
+  self.assertEqual(translated['_source_title'],item['title'])
+  self.assertEqual(item['title'],'Original role, organisation')
+  item['title']='Changed role';self.assertFalse(ready(item,key))
+  config=json.loads((ROOT/'.pages.yml').read_text())
+  fields=next(x for x in config['content'] if x['name']=='experience')['fields'][0]['fields']
+  sr=next(x for x in fields if x['name']=='sr')
+  title=next(x for x in sr['fields'] if x['name']=='title')
+  self.assertEqual(title['label'],'Функција / организација — српски')
+  self.assertEqual(title['type'],'string')
  def test_card_date_languages(self):
   months='јануар фебруар март април мај јун јул август септембар октобар новембар децембар'.split()
   for month,name in enumerate(months,1):
@@ -106,6 +132,38 @@ class Editorial(unittest.TestCase):
   self.assertEqual(locale.target('/blog/page/2/'),'/sr/blog/page/2/')
 
 class BilingualBuild(unittest.TestCase):
+ def test_experience_titles_in_both_views_keep_english_selection(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','__pycache__','.build-deps'))
+   entries=[{'title':'Selected English role','body':'<p>English duties</p>','start':'2026-01','ongoing':True},
+    {'title':'Retained English role','body':'<p>Other duties</p>','start':'2025-01','ongoing':True},
+    {'title':'Draft English role','body':'<p>Draft duties</p>','start':'2024-01','ongoing':True}]
+   for item,title in zip(entries,['Изабрана функција','','Неодобрена функција']):
+    draft(item,'experience.items',title=title,body='<p>Преведене дужности</p>')
+    if title!='Неодобрена функција':
+     item['sr']['approved']=True;sync_record(item,'experience.items')
+   source=root/'content/cms/experience.json';source.write_text(json.dumps({'items':entries},ensure_ascii=False))
+   from i18n import source_text
+   for name in ['about','network']:
+    path=root/f'content/cms/{name}.json';data=json.loads(path.read_text())
+    if name=='about':data['career_highlights']=[item['title'] for item in entries]
+    draft(data,name,**{key:('СР '+value if value else '') for key,value in source_text(data,name).items()})
+    data['sr']['approved']=True;sync_record(data,name);path.write_text(json.dumps(data,ensure_ascii=False))
+   subprocess.run([sys.executable,'scripts/sync_expertise.py'],cwd=root,check=True)
+   config=json.loads((root/'.pages.yml').read_text())
+   fields=next(x for x in config['content'] if x['name']=='about')['fields']
+   self.assertEqual(next(x for x in fields if x['name']=='career_highlights')['options']['values'],[item['title'] for item in entries])
+   result=subprocess.run([sys.executable,'build.py'],cwd=root,capture_output=True,text=True)
+   self.assertEqual(result.returncode,0,result.stderr)
+   for page,tag in [('about','h3'),('work-experience','h2')]:
+    sr=(root/f'dist/sr/{page}/index.html').read_text();en=(root/f'dist/{page}/index.html').read_text()
+    for title in ['Изабрана функција','Retained English role','Draft English role']:
+     self.assertIn('>'+title+'</'+tag+'>',sr)
+    self.assertNotIn('>Selected English role</'+tag+'>',sr)
+    self.assertNotIn('Неодобрена функција',sr)
+    for item in entries:self.assertIn('>'+item['title']+'</'+tag+'>',en)
+    self.assertNotIn('Изабрана функција',en)
+   self.assertEqual(json.loads(source.read_text())['items'],entries)
  def test_draft_approval_source_change_and_seo(self):
   with tempfile.TemporaryDirectory() as tmp:
    root=Path(tmp)/'site';shutil.copytree(ROOT,root,ignore=shutil.ignore_patterns('.git','.openai','__pycache__','.build-deps'))

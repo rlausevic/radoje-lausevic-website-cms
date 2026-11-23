@@ -28,33 +28,34 @@ def translated_text(item,key):
  sr=item.get('sr') or {}
  return {f:sr.get(f) or '' for f in FIELDS[key]+['seo_description']}
 def translation_hash(item,key):return digest(translated_text(item,key))
-def legacy_recommendation_ready(item,key):
- # Before author became optional/translatable, approval covered summary, body and SEO.
- # Preserve precisely those verified approvals while the original attribution is used.
- # Adding an author translation disables this compatibility path and requires review.
- if key!='about.recommendations':return False
+OPTIONAL_FIELDS={'about.recommendations':'author','experience.items':'title'}
+def legacy_optional_field_ready(item,key):
+ # Preserve verified old approvals only while the newly translatable field is empty.
+ # Adding that translation requires new source fingerprints and editorial approval.
+ field=OPTIONAL_FIELDS.get(key)
+ if not field:return False
  sr=item.get('sr') or {}
- if sr.get('author'):return False
- fields=['summary','body','seo_description']
+ if sr.get(field):return False
+ fields=[f for f in FIELDS[key]+['seo_description'] if f!=field]
  return bool(sr.get('approved') is True and
   sr.get('source_hash')==digest({f:item.get(f) or '' for f in fields}) and
   sr.get('approved_hash')==digest({f:sr.get(f) or '' for f in fields}) and complete(item,key))
 
 def complete(item,key):
  sr=item.get('sr') or {}
- # Populated English fields need a translation; attribution may retain its original.
+ # Optional attribution/title fields may retain their English original.
  # SEO is optional, with translated summary fallback.
- return all(isinstance(sr.get(f),str) and bool(sr[f].strip()) for f in FIELDS[key] if item.get(f) and not (key=='about.recommendations' and f=='author'))
+ return all(isinstance(sr.get(f),str) and bool(sr[f].strip()) for f in FIELDS[key] if item.get(f) and f!=OPTIONAL_FIELDS.get(key))
 def ready(item,key):
  sr=item.get('sr') or {}
- return legacy_recommendation_ready(item,key) or bool(sr.get('approved') is True and sr.get('source_hash')==source_hash(item,key) and sr.get('approved_hash')==translation_hash(item,key) and complete(item,key))
+ return legacy_optional_field_ready(item,key) or bool(sr.get('approved') is True and sr.get('source_hash')==source_hash(item,key) and sr.get('approved_hash')==translation_hash(item,key) and complete(item,key))
 def sync_record(item,key):
  if not item.get('sr'):return
  sr=item['sr'];current=source_hash(item,key)
  if sr.pop('refresh_source',False):
   sr.update(source_hash=current,approved=False,approved_hash='',status='Оригинал је потврђен — прегледајте и одобрите превод')
   return
- if legacy_recommendation_ready(item,key):return
+ if legacy_optional_field_ready(item,key):return
  if sr.get('source_hash')!=current:
   sr['approved']=False;sr['approved_hash']=''
   sr['status']='Потребно ажурирање — енглески оригинал је промењен' if sr.get('source_hash') else 'Нацрт — потребна провера'
@@ -87,7 +88,8 @@ def localize(data,key):
   if ready(item,kind):
    item['_source_title']=item.get('title','')
    translated=translated_text(item,kind)
-   if kind=='about.recommendations' and not translated.get('author'):translated.pop('author',None)
+   optional=OPTIONAL_FIELDS.get(kind)
+   if optional and not translated.get(optional):translated.pop(optional,None)
    item.update(translated);item['_translated']=True
  return data
 
