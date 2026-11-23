@@ -74,13 +74,13 @@
   "body": "<p>This gallery captures moments from the <a href=\"https://www.radojelausevic.com/project/SECAP\">SECAP </a>workshop held on Fruška Gora, Serbia, in December 2023. The workshop formed part of the support for developing Sustainable Energy and Climate Action Plans within GIZ’s regional programme for energy, transport and climate protection.</p><p>The gathering provided an opportunity to exchange knowledge and discuss approaches to translating energy and climate objectives into practical municipal measures. SECAP preparation connects greenhouse gas emission reduction, climate adaptation and equitable access to sustainable energy with local development priorities.</p><p>As Country Expert Team Leader for Serbia, commissioned by ibf expertise under its contract with GIZ, I coordinated expert support for SECAP development in Novi Sad, Pirot, Valjevo and Vranje.</p>",
   "seo_description": "The SECAP workshop on Fruška Gora, Serbia in December 2023 focused on knowledge exchange and local planning of sustainable energy and climate actions.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "title": "SECAP – Радионица о енергетици и климатском планирању, Фрушка Гора",
     "summary": "Фотографије са SECAP радионице на Фрушкој Гори, Србија, у децембру 2023. године, која подржава размену знања и локално планирање енергетских и климатских активности.",
     "body": "<p>Ова галерија приказује тренутке са <a href=\"https://www.radojelausevic.com/project/SECAP\">SECAP</a> радионице одржане на Фрушкој Гори, Србија, у децембру 2023. године. Радионица је била део подршке развоју Одрживих планова за енергетску и климатску акцију у оквиру регионалног програма GIZ за енергију, транспорт и заштиту климе.</p><p>Окупљање је пружило прилику за размену знања и дискусију о приступима превођења енергетских и климатских циљева у практичне општинске мере. Припрема SECAP плана повезује смањење емисија гасова са ефектом стаклене баште, прилагођавање клими и праведан приступ одрживој енергији са локалним развојним приоритетима.</p><p>Као водећи експертски тим за Србију, ангажован од стране ibf expertise у оквиру уговора са GIZ, координирао сам стручну подршку за развој SECAP плана у Новом Саду, Пироту, Ваљеву и Врању.</p>",
     "seo_description": "Радионица SECAP на Фрушкој Гори промовише размену знања и планирање одрживе енергије и климатских мера у Србији, децембар 2023.",
-    "source_hash": "a77d00f96fd91de65f8e66007e3680ada4085262b1dc5344074986d449593b80"
+    "source_hash": "a77d00f96fd91de65f8e66007e3680ada4085262b1dc5344074986d449593b80",
+    "approved_hash": "aabbe0caccaaeffbac2857af9d02b3e967e276de3bcb1fbccf4b40691ed724b2"
   }
 }
