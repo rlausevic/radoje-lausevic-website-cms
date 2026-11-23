@@ -18,9 +18,8 @@
   "education": "<ul><li><p><strong>PhD in Biology, Faculty of Biology, University of Belgrade, Serbia. </strong>July 1992 - June 1995</p></li><li><p><strong>Master of Science in Biology (pre-Bologna), Faculty of Biology, University of Belgrade, Serbia. </strong>November 1987 - May 1992</p></li><li><p><strong>Graduate Biologist (B Sci), Faculty of Biology, University of Belgrade, Serbia. </strong>October 1983 - November 1987</p></li></ul><p></p>",
   "bibliography_note": "Automatski se prikazuju prva tri rada iz svake kategorije Bibliography nakon sortiranja po godini, od najnovije ka najstarijoj. Za istu godinu važi redosled u CMS listi.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "label": "Квалификације и публикације",
     "heading": "Резиме.",
     "lead": "Истражите моје академско образовање, преузмите биографију и прочитајте изабране публикације.",
@@ -33,6 +32,7 @@
     "bibliography_title": "Комплетна библиографија",
     "education": "<ul><li><p><strong>Доктор биолошких наука, Биолошки факултет, Универзитет у Београду, Србија.</strong> Јул 1992 - Јун 1995</p></li><li><p><strong>Мастер биологије (пред Болонском реформом), Биолошки факултет, Универзитет у Београду, Србија.</strong> Новембар 1987 - Мај 1992</p></li><li><p><strong>Дипломирани биолог (Биолошки науке), Биолошки факултет, Универзитет у Београду, Србија.</strong> Октобар 1983 - Новембар 1987</p></li></ul><p></p>",
     "seo_description": "Академско образовање, професионалне квалификације и изабране публикације др Радоја Лаушевића. Преузмите кратку или детаљну Europass биографију.",
-    "source_hash": "3387d6352560bf94a45ca215d91b4156507f0c16457f99b08fbf38b47569130c"
+    "source_hash": "3387d6352560bf94a45ca215d91b4156507f0c16457f99b08fbf38b47569130c",
+    "approved_hash": "ce6cbec25575ca7f7f8183f3d7b33282cd4f9375afe75b9ada11966ae8296d3b"
   }
 }
