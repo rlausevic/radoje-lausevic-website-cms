@@ -9,29 +9,60 @@
     {
       "title": "Nenad Antolović – Online Connection",
       "image": "/assets/20201019launching-nantolovic.jpg",
-      "caption": "Nenad Antolović appearing via the online connection during the hybrid EXCHANGE launching event on 19 October 2020."
+      "caption": "Nenad Antolović appearing via the online connection during the hybrid EXCHANGE launching event on 19 October 2020.",
+      "sr": {
+        "title": "Ненад Антоловић – Онлајн веза",
+        "caption": "Ненад Антоловић појављује се преко онлајн везе током хибридног лансирајућег догађаја ЕКСЦХАНГЕ 19. октобра 2020."
+      }
     },
     {
       "title": "Dragana Maslovar – In-person Participation",
       "image": "/assets/20201019launching-dmaslovar.jpg",
-      "caption": "Dragana Maslovar attending the EXCHANGE launching event in person in Kotor, connected with project partners through the webinar platform."
+      "caption": "Dragana Maslovar attending the EXCHANGE launching event in person in Kotor, connected with project partners through the webinar platform.",
+      "sr": {
+        "title": "Драгана Масловар – Лична учесница",
+        "caption": "Драгана Масловар присуствује лансирајућем догађају ЕКСЦХАНГЕ уживо у Котору, повезана са партнерима пројекта преко вебинар платформе."
+      }
     },
     {
       "title": "Dragana Maslovar and Zdravko Ikica",
       "image": "/assets/20201019launching-dmaslovar-zikica.jpg",
-      "caption": "Dragana Maslovar and Zdravko Ikica participating in person at the Kotor venue during the hybrid EXCHANGE launching event."
+      "caption": "Dragana Maslovar and Zdravko Ikica participating in person at the Kotor venue during the hybrid EXCHANGE launching event.",
+      "sr": {
+        "title": "Драгана Масловар и Здравко Икица",
+        "caption": "Драгана Масловар и Здравко Икица учествују уживо на локацији у Котору током хибридног лансирајућег догађаја ЕКСЦХАНГЕ."
+      }
     },
     {
       "title": "Radoje Laušević – Webinar Participation",
       "image": "/assets/20201019launching-online-4.png",
-      "caption": "Screenshot showing Radoje Laušević during the EXCHANGE launching webinar, where he presented project activities and facilitated stakeholder mapping."
+      "caption": "Screenshot showing Radoje Laušević during the EXCHANGE launching webinar, where he presented project activities and facilitated stakeholder mapping.",
+      "sr": {
+        "title": "Радоје Лаушевић – Учесник вебинара",
+        "caption": "Снимак екрана приказује Радоја Лаушевића током лансирајућег вебинара ЕКСЦХАНГЕ, где је представио активности пројекта и водио мапирање заинтересованих страна."
+      }
     },
     {
       "title": "Connecting Participants Across Borders",
       "image": "/assets/20201019launching-onlinejpg.png",
-      "caption": "Screenshot of the EXCHANGE launching webinar, documenting the online component of the hybrid event connecting Dubrovnik, Kotor and remote participants."
+      "caption": "Screenshot of the EXCHANGE launching webinar, documenting the online component of the hybrid event connecting Dubrovnik, Kotor and remote participants.",
+      "sr": {
+        "title": "Повезивање учесника преко граница",
+        "caption": "Снимак екрана лансирајућег вебинара ЕКСЦХАНГЕ који документује онлајн компоненту хибридног догађаја повезујући Дубровник, Котор и учеснике на даљину."
+      }
     }
   ],
   "body": "<p>Photographs and screenshots from the EXCHANGE launching event, “Blue Pass as New Adriatic Tourism Offer”, held on 19 October 2020. The hybrid format connected participants attending in Dubrovnik and Kotor with colleagues joining online.</p><p>The event introduced the project’s objectives, activities and partnership, presenting Blue Pass as a shared tourism product linking aquatic biodiversity and visitor experiences across Croatia, Bosnia and Herzegovina, and Montenegro.</p><p>I presented the project activities and deliverables and facilitated the stakeholder mapping session. This discussion helped partners identify relevant organisations, explore their interests and consider opportunities for participation in developing the tourism offer.</p><p><a href=\"https://www.radojelausevic.com/post/exchange-launching-webinar/\">Read more about the launching webinar</a>.</p>",
-  "path": "/gallery/exchange-launching-webinar"
+  "path": "/gallery/exchange-launching-webinar",
+  "seo_description": "Hybrid launch of EXCHANGE connecting project partners and introducing Blue Pass tourism offer across Croatia, Bosnia and Herzegovina, and Montenegro.",
+  "sr": {
+    "title": "ЕКСЦХАНГЕ – Лансирајући вебинар",
+    "summary": "Хибридно лансирање које повезује партнере пројекта и представља понуду туризма Блуе Пасс.",
+    "body": "<p>Фотографије и снимци екрана са догађаја лансирања ЕКСЦХАНГЕ, „Блуе Пасс као нова понуда туризма Јадрана“, одржаног 19. октобра 2020. године. Хибридни формат повезао је учеснике у Дубровнику и Котору са колегама који су се придружили онлајн.</p><p>Догађај је представио циљеве пројекта, активности и партнерство, представљајући Блуе Пасс као заједнички туристички производ који повезује водену биодиверзитет и туристичка искуства широм Хрватске, Босне и Херцеговине и Црне Горе.</p><p>Представио сам активности и резултате пројекта и водио сесију мапирања заинтересованих страна. Ова дискусија помогла је партнерима да идентификују релевантне организације, истраже њихове интересе и размотре могућности учешћа у развоју туристичке понуде.</p><p><a href=\"https://www.radojelausevic.com/post/exchange-launching-webinar/\">Прочитајте више о лансирајућем вебинару</a>.</p>",
+    "seo_description": "Хибридно лансирање пројекта ЕКСЦХАНГЕ који повезује партнере и представља Блуе Пасс као нову туристичку понуду Јадранског региона.",
+    "approved": false,
+    "approved_hash": "",
+    "source_hash": "59eb7aa2052b6317282e98e52b3cbab47b8cafe88fc3bc6636ec55401452801c",
+    "status": "Нацрт — потребна провера"
+  }
 }
