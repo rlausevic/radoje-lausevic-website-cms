@@ -5,8 +5,8 @@
   "sr": {
     "status": "Нацрт — потребна провера",
     "approved": false,
-    "refresh_source": false,
     "description": "Као председaвајући конференције AdriBioPro2024, Радоје Лаушевић повезује истраживања биодиверзитета, панел SKILLS и постере о посетиоцима акваријума и јавној свести.",
-    "source_hash": "6f7d78aad576e09a9561e46b864479467a2aa10c9a8263b2f482eb0ce3594649"
+    "source_hash": "6f7d78aad576e09a9561e46b864479467a2aa10c9a8263b2f482eb0ce3594649",
+    "approved_hash": ""
   }
 }
