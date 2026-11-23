@@ -1,5 +1,6 @@
 {
   "title": "EXCHANGE - Hutovo Blato Biodiversity",
+  "path": "/gallery/exchange-hutovo-blato-biodiversity",
   "date": "2022-03-08",
   "topic": [
     "Project and Programme Management"
@@ -62,16 +63,15 @@
     }
   ],
   "body": "<p>Photographs from the “Hutovo Blato Biodiversity” seminar, held at Motel Park in Karaotok, Bosnia and Herzegovina, on 8 March 2022, within the EXCHANGE project.</p><p>The seminar brought together tourism guides, local community representatives, academics and project partners to explore the natural heritage of Hutovo Blato Nature Park. Presentations addressed the park’s flora, fish and birdlife, alongside the Hutovo Blato Aqua Path and opportunities for sustainable rural tourism.</p><p>I joined participants in exchanging knowledge and discussing how ecological expertise can enrich visitor experiences. The gallery captures the presentations, audience and closing discussion, reflecting the connections between biodiversity, interpretation and cooperation with tourism professionals.</p><p><a href=\"https://www.radojelausevic.com/post/hutovo-blato-biodiversity/\">Read more about the seminar</a>.</p>",
-  "path": "/gallery/exchange-hutovo-blato-biodiversity",
   "seo_description": "The \"Hutovo Blato Biodiversity\" seminar explores the natural heritage and biodiversity of Hutovo Blato, connecting ecological knowledge with sustainable tourism and visitor interpretation.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "title": "ЕКСКЉУЗИВА - Биоразноврсност Хутово Блато",
     "summary": "Истраживање биоразноврсности Хутово Блато и повезивање природне баштине са туризмом.",
     "body": "<p>Фотографије са семинара „Биоразноврсност Хутово Блато“, одржаног у хотелу Мотел Парк у Караотоку, Босна и Херцеговина, 8. марта 2022. године у оквиру пројекта EXCHANGE.</p><p>Семинар је окупио туристичке водиче, представнике локалне заједнице, академике и партнере на пројекту да истраже природну баштину Националног парка Хутово Блато. Презентације су обухватиле флору парка, рибу и птице, као и стазу Хутово Блато Аква и могућности одрживог руралног туризма.</p><p>Ја сам се придружио учесницима у размену знања и дискутовању о томе како еколошка стручност може обогатити искуство посетилаца. Галерија приказује презентације, публику и завршну дискусију, одражавајући повезаност између биоразноврсности, интерпретације и сарадње са туристичким професионалцима.</p><p><a href=\"https://www.radojelausevic.com/post/hutovo-blato-biodiversity/\">Прочитајте више о семинару</a>.</p>",
     "seo_description": "Семинар о биоразноврсности Хутово Блато повезује природну баштину са туризмом како би обогатио искуство посетилаца и промовисао одрживи туризам.",
-    "approved": false,
-    "approved_hash": "",
-    "source_hash": "37d735e4e567b811d9319d3da338073688868c782ed4e49b78ae4e67ed0fe19a",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "37d735e4e567b811d9319d3da338073688868c782ed4e49b78ae4e67ed0fe19a"
   }
 }
