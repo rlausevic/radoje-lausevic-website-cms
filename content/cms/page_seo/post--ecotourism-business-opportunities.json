@@ -3,10 +3,10 @@
   "path": "/post/ecotourism-business-opportunities",
   "description": "A TOUR mission in Martina Franca connects sustainable tourism practices with business networking among companies from Italy, Albania and Montenegro.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Мисија TOUR у Мартини Франки повезује праксе одрживог туризма са пословним умрежавањем предузећа из Италије, Албаније и Црне Горе.",
-    "source_hash": "d020d38dd47780b72f959c07ca8558e0abeae2d6d18376272b00161b5d4058b9"
+    "source_hash": "d020d38dd47780b72f959c07ca8558e0abeae2d6d18376272b00161b5d4058b9",
+    "approved_hash": "306f53e6359668f363b9abea66ab7a5077691d807bcda15df208aba7571eb394"
   }
 }
