@@ -3,10 +3,10 @@
   "path": "/post/biodiversity-of-river-neretva",
   "description": "An EXCHANGE seminar in Mostar connects River Neretva biodiversity with tourism interpretation, bringing together guides, researchers and project partners.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Семинар EXCHANGE у Мостару повезује биодиверзитет Неретве са туристичком интерпретацијом и окупља водиче, истраживаче и пројектне партнере.",
-    "source_hash": "f833429afcc5ac8ec089b8a894499e217ca1f75c838a6467980c33285217266f"
+    "source_hash": "f833429afcc5ac8ec089b8a894499e217ca1f75c838a6467980c33285217266f",
+    "approved_hash": "a7810e253a5395495ba82cebfee291ed3ebb96f4ca368c96a7c468f559a8b0c6"
   }
 }
