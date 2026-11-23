@@ -3,10 +3,10 @@
   "path": "/contact",
   "description": "Contact Radoje Laušević at Partner Consulting to discuss EU projects, blue economy, environmental policy and opportunities for professional cooperation.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "Контактирајте Радоја Лаушевића из Партнер Консалтинга ради сарадње на ЕУ пројектима, плавој економији, еколошкој политици и одрживом развоју.",
-    "approved": false,
-    "source_hash": "0806c1a76c27750dee6b182da71575ca4409479cfb9294cba1e23ef495ee3bec",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "0806c1a76c27750dee6b182da71575ca4409479cfb9294cba1e23ef495ee3bec"
   }
 }
