@@ -308,13 +308,13 @@
   "body": "<p>This gallery brings together photographs from workshops, project meetings, a study visit and conferences within BLUECONNECT — Enhancing Cross-Border Blue Growth: Fostering Innovation and Cooperation for Competitive Entrepreneurship.</p><p>These activities connect project partners and stakeholders across Croatia, Bosnia and Herzegovina, and Montenegro, creating opportunities to exchange knowledge, explore practical solutions and build partnerships for a sustainable blue economy. They support cooperation around aquaculture, fisheries monitoring and resource-efficient fish processing, alongside the development of the Adriatic Blue Growth Cluster and its digital collaboration platform.</p><p>As Blue Growth Collaboration Platform Expert, contracted by the Institute of Marine Biology, University of Montenegro, I support platform development, stakeholder engagement and cooperation arrangements. My ongoing work helps connect businesses, researchers and public authorities and establish a basis for collaboration beyond the project.</p>",
   "seo_description": "Photos from BLUECONNECT workshops, meetings and study visits show Radoje Laušević’s work connecting people, digital tools and sustainable Adriatic blue growth.",
   "sr": {
-    "status": "Нацрт — потребна провера",
-    "approved": true,
-    "refresh_source": true,
+    "status": "Оригинал је потврђен — прегледајте и одобрите превод",
+    "approved": false,
     "title": "BLUECONNECT – Повезивање људи за плави раст",
     "summary": "Радни састанци, састанци пројекта, студијска посета и конференције које повезују истраживање, бизнис и иновације кроз Хрватску, Босну и Херцеговину и Црну Гору у оквиру BLUECONNECT-а.",
     "body": "<p>Ова галерија окупља фотографије са радних састанака, састанака пројекта, студијске посете и конференција у оквиру BLUECONNECT — Јачање прекограничног плавог раста: Подстицање иновација и сарадње за конкурентно предузетништво.</p><p>Ове активности повезују партнере на пројекту и заинтересоване стране у Хрватској, Босни и Херцеговини и Црној Гори, стварајући прилике за размену знања, истраживање практичних решења и изградњу партнерстава за одрживу плаву економију. Оне подржавају сарадњу у области аквакултуре, мониторинга рибарства и ресурсо-ефикасне прераде рибе, уз развој Адријатског кластера плавог раста и његове дигиталне платформе за сарадњу.</p><p>Као експерт за Платформу за сарадњу у области Плавог раста, ангажован од Института за морску биологију Универзитета у Црној Гори, подржавам развој платформе, укључивање заинтересованих страна и договоре о сарадњи. Мој континуирани рад помаже повезивању предузећа, истраживача и јавних власти и успоставља основу за сарадњу и након пројекта.</p>",
     "seo_description": "Фотографије радионица, састанака и посета BLUECONNECT приказују рад Радоја Лаушевића на повезивању људи, дигиталних алата и одрживог јадранског плавог раста.",
-    "source_hash": "86ca23659e3f364ab514fa429ec88cc10999fb77875f7461d7f899414e324ddd"
+    "source_hash": "86ca23659e3f364ab514fa429ec88cc10999fb77875f7461d7f899414e324ddd",
+    "approved_hash": ""
   }
 }
