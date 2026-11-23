@@ -10,62 +10,121 @@
     {
       "title": "Budapest, Water treatment facility visit",
       "image": "/assets/hu-visit-20160428.jpg",
-      "caption": "Water SUM stakeholders in visit to Budapest, Water treatment facility (April 2016)"
+      "caption": "Water SUM stakeholders in visit to Budapest, Water treatment facility (April 2016)",
+      "sr": {
+        "title": "Будимпешта, посета постројењу за прераду воде",
+        "caption": "Учесници пројекта WATER SUM у посети постројењу за прераду воде у Будимпешти (април 2016)"
+      }
     },
     {
       "title": "Amman Water SUM Workshop",
       "image": "/assets/amman-planning-20160114.jpg",
-      "caption": "Brainstorming during Amman Water SUM Workshop (January 2016)"
+      "caption": "Brainstorming during Amman Water SUM Workshop (January 2016)",
+      "sr": {
+        "title": "Радионица WATER SUM у Амману",
+        "caption": "Размена идеја током радионице WATER SUM у Амману (јануар 2016)"
+      }
     },
     {
       "title": "Amman Water SUM Working groups",
       "image": "/assets/amman-wg-20160114.jpg",
-      "caption": "Working group discussion during Amman Water SUM Workshop (January 2016)"
+      "caption": "Working group discussion during Amman Water SUM Workshop (January 2016)",
+      "sr": {
+        "title": "Радне групе WATER SUM у Амману",
+        "caption": "Дискусија радне групе током радионице WATER SUM у Амману (јануар 2016)"
+      }
     },
     {
       "title": "Hammamet Water SUM Working groups",
       "image": "/assets/hammamet-wg-20160112.jpg",
-      "caption": "Working group discussion during Hammamet Water SUM Workshop (January 2016)"
+      "caption": "Working group discussion during Hammamet Water SUM Workshop (January 2016)",
+      "sr": {
+        "title": "Радне групе WATER SUM у Хамамету",
+        "caption": "Дискусија радне групе током радионице WATER SUM у Хамамету (јануар 2016)"
+      }
     },
     {
       "title": "Jordan field interview",
       "image": "/assets/interviewing-20160425.jpg",
-      "caption": "Jordan field interview (April 2016)"
+      "caption": "Jordan field interview (April 2016)",
+      "sr": {
+        "title": "Теренски интервју у Јордану",
+        "caption": "Теренски интервју у Јордану (април 2016)"
+      }
     },
     {
       "title": "Jordan workshop participants",
       "image": "/assets/jordan-group-20160320.jpg",
-      "caption": "Group photo, Jordan workshop (March 2016)"
+      "caption": "Group photo, Jordan workshop (March 2016)",
+      "sr": {
+        "title": "Учесници радионице у Јордану",
+        "caption": "Заједничка фотографија учесника радионице у Јордану (март 2016)"
+      }
     },
     {
       "title": "Water SUM Conference",
       "image": "/assets/szentendre-conference-20160118.jpg",
-      "caption": "REC conference room during Water SUM Conference, Szentendre, Hungary (January 2016)"
+      "caption": "REC conference room during Water SUM Conference, Szentendre, Hungary (January 2016)",
+      "sr": {
+        "title": "Конференција WATER SUM",
+        "caption": "Конференцијска сала REC током конференције WATER SUM у Сенгентређу, Мађарска (јануар 2016)"
+      }
     },
     {
       "title": "Water SUM Conference participants",
       "image": "/assets/szentendre-group-20160118.jpg",
-      "caption": "Group photo from Water SUM Conference, Szentendre, Hungary (January 2016)"
+      "caption": "Group photo from Water SUM Conference, Szentendre, Hungary (January 2016)",
+      "sr": {
+        "title": "Учесници конференције WATER SUM",
+        "caption": "Заједничка фотографија са конференције WATER SUM у Сенгентређу, Мађарска (јануар 2016)"
+      }
     },
     {
       "title": "Group work",
       "image": "/assets/szentendre-wg-20160118.jpg",
-      "caption": "Group work during Water SUM Conference, Szentendre, Hungary (January 2016)"
+      "caption": "Group work during Water SUM Conference, Szentendre, Hungary (January 2016)",
+      "sr": {
+        "title": "Групни рад",
+        "caption": "Групни рад током конференције WATER SUM у Сенгентређу, Мађарска (јануар 2016)"
+      }
     },
     {
       "title": "Tunisia Water SUM Workshop",
       "image": "/assets/tunisia-group-20160323.jpg",
-      "caption": "Participants of Tunisia Water SUM Workshop (March 2016)"
+      "caption": "Participants of Tunisia Water SUM Workshop (March 2016)",
+      "sr": {
+        "title": "Радионица WATER SUM у Тунису",
+        "caption": "Учесници радионице WATER SUM у Тунису (март 2016)"
+      }
     },
     {
       "title": "Irrigation equipment",
-      "caption": "Training in Jordan for using irrigation equipment (April 2016)"
+      "caption": "Training in Jordan for using irrigation equipment (April 2016)",
+      "sr": {
+        "title": "Опрема за наводњавање",
+        "caption": "Обука у Јордану о коришћењу опреме за наводњавање (април 2016)"
+      }
     },
     {
       "title": "Water well in Jordan ",
       "image": "/assets/water-well-20160425.jpg",
-      "caption": "Construction of water well in Jordan (April 2016)"
+      "caption": "Construction of water well in Jordan (April 2016)",
+      "sr": {
+        "title": "Водовна бушотина у Јордану",
+        "caption": "Изградња водовне бушотине у Јордану (април 2016)"
+      }
     }
   ],
-  "body": "<p>This gallery brings together photographs from conferences, workshops and fieldwork organised within <a href=\"https://www.radojelausevic.com/project/WATER-SUM\">WATER SUM</a> — Sustainable Use of Transboundary Water Resources and Water Security Management. The project supported cooperation on water challenges in the Middle East and North Africa, focusing on Tunisia, Egypt and Jordan.</p><p>The photographs capture opportunities for dialogue, shared learning and practical engagement with water management challenges. These activities connected institutions, experts and local stakeholders around integrated water resources management, climate adaptation and community water security.</p><p>Implemented by the Regional Environmental Center for Central and Eastern Europe (REC) with funding from Sweden through Sida, WATER SUM combined regional knowledge exchange with local action planning. As Project Director, I oversaw implementation quality and supported coordination among the project team, beneficiaries and donor.</p>"
+  "body": "<p>This gallery brings together photographs from conferences, workshops and fieldwork organised within <a href=\"https://www.radojelausevic.com/project/WATER-SUM\">WATER SUM</a> — Sustainable Use of Transboundary Water Resources and Water Security Management. The project supported cooperation on water challenges in the Middle East and North Africa, focusing on Tunisia, Egypt and Jordan.</p><p>The photographs capture opportunities for dialogue, shared learning and practical engagement with water management challenges. These activities connected institutions, experts and local stakeholders around integrated water resources management, climate adaptation and community water security.</p><p>Implemented by the Regional Environmental Center for Central and Eastern Europe (REC) with funding from Sweden through Sida, WATER SUM combined regional knowledge exchange with local action planning. As Project Director, I oversaw implementation quality and supported coordination among the project team, beneficiaries and donor.</p>",
+  "seo_description": "Gallery of WATER SUM project activities including conferences, workshops and fieldwork focused on integrated water resource management and water security in Middle East and North Africa.",
+  "sr": {
+    "title": "WATER SUM – Конференције, радионице и теренски рад",
+    "summary": "Конференције, радионице и теренски рад који повезују регионалну сарадњу, интегрисано управљање водним ресурсима и локално планирање водне сигурности кроз пројекат WATER SUM.",
+    "body": "<p>Ова галерија обједињује фотографије са конференција, радионица и теренских радова организованих у оквиру <a href=\"https://www.radojelausevic.com/project/WATER-SUM\">WATER SUM</a> — одржива употреба прекограничних водних ресурса и управљање водном безбедношћу. Пројекат је подржао сарадњу о изазовима у области вода на Блиском истоку и у Северној Африци, са фокусом на Тунис, Египат и Јордан.</p><p>Фотографије приказују могућности за дијалог, заједничко учење и практичан приступ изазовима у управљању водама. Ове активности су повезале институције, стручњаке и локалне актере око интегрисаног управљања водним ресурсима, адаптације на климатске промене и локалне водне безбедности.</p><p>Пројекат су реализовали Регионални еколошки центар за Централну и Источну Европу (REC) са финансијском подршком Шведске кроз Sida. WATER SUM је спојио регионалну размену знања са локалним плановима акције. Као директор пројекта, надгледао сам квалитет имплементације и подржавао координацију међу тимом, корисницима и донатором.</p>",
+    "seo_description": "Галерија активности пројекта WATER SUM укључује конференције, радионице и теренски рад посвећене интегрисаном управљању водним ресурсима и водној безбедности у региону Блиског истока и Северне Африке.",
+    "approved": false,
+    "approved_hash": "",
+    "source_hash": "47655c752ea12b1ec55ef7fcb0616d4202831f45bea7dae9e7c9613968587711",
+    "status": "Нацрт — потребна провера"
+  }
 }
