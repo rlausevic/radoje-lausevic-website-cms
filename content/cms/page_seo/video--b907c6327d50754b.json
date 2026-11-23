@@ -3,10 +3,10 @@
   "path": "/video/b907c6327d50754b",
   "description": "AdriBioPro2024 conference highlights from Kotor show science, policy and cooperation for biodiversity and blue economy, with Radoje Laušević as Conference Chair.",
   "sr": {
+    "status": "Нацрт — потребна провера",
+    "approved": true,
+    "refresh_source": false,
     "description": "Снимци AdriBioPro2024 у Котору приказују науку, политике и сарадњу за биодиверзитет и плаву економију, уз Радоја Лаушевића као председника конференције.",
-    "approved": false,
-    "source_hash": "e2746c4944ada44080db4017067d3d1d153a808ac5636f6cee712f34bb2c999f",
-    "approved_hash": "",
-    "status": "Нацрт — потребна провера"
+    "source_hash": "e2746c4944ada44080db4017067d3d1d153a808ac5636f6cee712f34bb2c999f"
   }
 }
