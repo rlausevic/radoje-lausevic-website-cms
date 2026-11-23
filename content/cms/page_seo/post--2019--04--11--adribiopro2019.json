@@ -3,10 +3,10 @@
   "path": "/post/2019/04/11/adribiopro2019",
   "description": "A visual archive entry from AdriBioPro2019, preserved in Radoje Laušević’s journal of biodiversity events and professional activities.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Визуелни запис са AdriBioPro2019, сачуван у дневнику Радоја Лаушевића о догађајима посвећеним биодиверзитету и професионалним активностима.",
-    "source_hash": "914e3bf6c32e83a6eeb81b5e870820dbb0a6018940800ab35f9a1a75191685a5"
+    "source_hash": "914e3bf6c32e83a6eeb81b5e870820dbb0a6018940800ab35f9a1a75191685a5",
+    "approved_hash": "98d34e4a78069e9766b656cc372e7f6a3d9d50a225e3df5fd682d610bc6494e3"
   }
 }
