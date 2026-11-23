@@ -3,10 +3,10 @@
   "path": "/gallery/blueconnect",
   "description": "Photos from BLUECONNECT workshops, meetings and study visits show Radoje Laušević’s work connecting people, digital tools and sustainable Adriatic blue growth.",
   "sr": {
-    "status": "Нацрт — потребна провера",
+    "status": "Одобрено за објављивање",
     "approved": true,
-    "refresh_source": false,
     "description": "Фотографије радионица, састанака и посета BLUECONNECT приказују рад Радоја Лаушевића на повезивању људи, дигиталних алата и одрживог јадранског плавог раста.",
-    "source_hash": "c7128edaa9f39bc268e1a29b43b1e2b5011f2eae0bb6f158605869ffedb02378"
+    "source_hash": "c7128edaa9f39bc268e1a29b43b1e2b5011f2eae0bb6f158605869ffedb02378",
+    "approved_hash": "c0919a4d4c4559606d29b46585064229931fac345360566dd3f9845161060854"
   }
 }
