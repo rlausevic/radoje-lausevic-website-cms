@@ -57,12 +57,12 @@
   "seo_description": "Celebrating EXCHANGE project results and the Blue Pass as a new Adriatic tourism offer connecting natural and cultural heritage.",
   "sr": {
     "status": "Нацрт је измењен — потребна поновна провера",
-    "approved": false,
+    "approved": true,
+    "refresh_source": false,
     "title": "EXCHANGE –  Плава пропусница као нова туристичка понуда Јадрана",
     "summary": "Прослава резултата EXCHANGE пројекта, понуде туризма Блу Пасс и прекограничне сарадње.",
     "body": "<p>Фотографије са завршне манифестације EXCHANGE пројекта, одржане на Универзитету у Дубровнику, Хрватска, 10. новембра 2022. године, на којој је представљен Blue Pass као нова туристичка понуда Јадрана.</p><p>Овај догађај окупио је партнере пројекта како би поделили резултате који повезују водену биодиверзитет, природну и културну баштину и искуства посетилаца широм Хрватске, БиХ и Црне Горе. Blue Pass је обједињавао попусте за посете учесничким атракцијама уз мобилног водича који је упознавао са тематским рутама пројекта.</p><p>Галерија бележи тим пројекта, презентације, мобилну апликацију и коначно издање публикације пројекта. Моја улога је укључивала уређивање <em>Blue Pass EXChAngE – Project publication</em>, 46-страничне публикације коју је издaо Институт за морску биологију Универзитета Црне Горе 2022. године.</p><p><a href=\"https://www.radojelausevic.com/assets/Blue-Pass-EXChAngE-Publication-WEB_resampled.pdf\">Преузмите публикацију</a>.<br><a href=\"https://www.radojelausevic.com/post/blue-pass-as-new-adriatic-tourism-offer/\">Прочитајте више о догађају</a>.</p>",
     "seo_description": "Прослава резултата EXCHANGE пројекта и представљање Blue Pass-а као нове јадранске туристичке понуде која повезује природну и културну баштину.",
-    "source_hash": "7853a5b7ff9cc8eaa5227d54380bb01b8282172bb53fdd7ab1eb9d6cae2aa269",
-    "approved_hash": ""
+    "source_hash": "7853a5b7ff9cc8eaa5227d54380bb01b8282172bb53fdd7ab1eb9d6cae2aa269"
   }
 }
