@@ -531,14 +531,15 @@ for category in bibliography_categories:
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
-   body+=f' <a class="bibliography-download" href="{E(url)}" download data-metric-download="{metrics.register("bibliography",bibliography_id(item),item["title"],"/bibliography#bibliography-"+bibliography_id(item))}" aria-label="Download: {E(item["title"])} ({index})">Download</a>'
+   download_label='Преузмите' if SR else 'Download'
+   body+=f' <a class="bibliography-download" href="{E(url)}" download data-metric-download="{metrics.register("bibliography",bibliography_id(item),item["title"],"/bibliography#bibliography-"+bibliography_id(item))}" aria-label="{download_label}: {E(item["title"])} ({index})">Download</a>'
   body+='</li>'
  if items:body+='</ul>'
  if not items:body+='<p class="category-empty">No entries in this category yet.</p>'
  body+='</section>'
 body+='</div><p class="empty" id="no-bibliography" data-section-empty'+(' hidden' if bibliography_items else '')+'>No bibliography items found. Try another search or select all categories.</p></div></section>'
 body+=section_fallback('bibliography')
-page('/bibliography','Bibliography',body,bibliography.get('lead'))
+page('/bibliography','Библиографија' if SR else 'Bibliography',body,bibliography.get('lead'))
 body=intro(resume.get('label','Qualifications & publications'),resume.get('heading','Resume.'),resume.get('lead','Explore my academic background, download a CV and read selected publications.'))+'<section class="section"><div class="wrap"><div class="download-grid">'
 for key,title,description in [('brief_cv','Brief CV','Concise overview of work experience and skills.'),('europass_cv','Europass CV','Detailed experience, education, skills, projects and publications.'),('assortis_cv','Assortis CV','Professional experience and project record in Assortis format.')]:
  body+=download_card(resume.get(key+'_title',title),resume.get(key+'_description',description),resume.get(key))
@@ -554,7 +555,8 @@ for category in bibliography_categories:
   if description['text']:body+=' <details class="bibliography-description"><summary>Description</summary><div class="prose">'+render(description)+'</div></details>'
   for index,value in enumerate(document_files(item.get('files')),1):
    url=document_link(value)
-   body+=f' <a class="bibliography-download" href="{E(url)}" download data-metric-download="{metrics.register("bibliography",bibliography_id(item),item["title"],"/bibliography#bibliography-"+bibliography_id(item))}" aria-label="Download: {E(item["title"])} ({index})">Download</a>'
+   download_label='Преузмите' if SR else 'Download'
+   body+=f' <a class="bibliography-download" href="{E(url)}" download data-metric-download="{metrics.register("bibliography",bibliography_id(item),item["title"],"/bibliography#bibliography-"+bibliography_id(item))}" aria-label="{download_label}: {E(item["title"])} ({index})">Download</a>'
   body+='</li>'
  if items:body+='</ul>'
  else:body+='<p class="category-empty">No entries in this category yet.</p>'

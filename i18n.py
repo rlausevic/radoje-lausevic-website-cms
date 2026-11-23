@@ -165,7 +165,7 @@ class Locale:
    def handle_data(parser,data):
     stripped=data.strip();value=ui.get(stripped,stripped) if not parser.skip and not parser.prose and not parser.editorial else stripped
     if not parser.skip and not parser.prose and not parser.editorial:
-     value=re.sub(r'^Showing (\d+[–−-]\d+) of (\d+) (.+)$',lambda m:'Приказано '+m[1]+' од '+m[2]+' '+ui.get(m[3],m[3]),value)
+     value=re.sub(r'^Showing (\d+(?:[–−-]\d+)?) of (\d+) (.+)$',lambda m:'Приказано '+m[1]+' од '+m[2]+' '+ui.get(m[3],m[3]),value)
      if value.startswith('Search ') and value.endswith('…'):value=ui.get(value[:-1],value[:-1])+'…'
     result=data.replace(stripped,value,1) if stripped else data
     parser.out.append(result if parser.skip else html.escape(result,quote=False))
